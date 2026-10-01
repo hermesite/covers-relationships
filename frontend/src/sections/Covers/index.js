@@ -8,6 +8,15 @@ import { getArtistIdFromUrl, setArtistIdInUrl } from '../artistUrl';
 
 Cytoscape.use(fcose);
 
+const isValidImageUrl = (url) => {
+  if (typeof url !== 'string') return false;
+  try {
+    return ['http:', 'https:'].includes(new URL(url).protocol);
+  } catch {
+    return false;
+  }
+};
+
 const uniqueImageUrls = (urls) => {
   const seen = new Set();
   return urls.filter((url) => {
@@ -42,18 +51,58 @@ class Covers extends Component {
       partialData: false,
     };
     this.canvasCoversContainer = React.createRef();
+    this.centralImage = React.createRef();
     this.isMountedFlag = false;
   }
 
   componentDidMount() {
     this.isMountedFlag = true;
+    window.addEventListener('resize', this.onResize);
     setArtistIdInUrl(this.state.selectedArtistId);
     this.loadGraphForArtist(Number(this.state.selectedArtistId));
   }
 
   componentWillUnmount() {
     this.isMountedFlag = false;
+    window.removeEventListener('resize', this.onResize);
   }
+
+  componentDidUpdate() {
+    this.positionCentralImage();
+  }
+
+  positionCentralImage = () => {
+    const image = this.centralImage.current;
+    const center = this.cy?.nodes('[nodeType = "selectedArtist"]').first();
+    if (!image || !center?.length) return;
+    const position = center.renderedPosition();
+    const size = center.renderedWidth();
+    image.style.left = `${position.x - size / 2}px`;
+    image.style.top = `${position.y - size / 2}px`;
+    image.style.width = `${size}px`;
+    image.style.height = `${size}px`;
+  };
+
+  fitArtists = (cy) => {
+    const artists = cy.nodes('[nodeType = "artist"], [nodeType = "selectedArtist"]');
+    cy.fit(artists, 40);
+    if (cy.width() >= 800 && cy.zoom() < 0.8) {
+      cy.zoom(0.8);
+      cy.center(cy.nodes('[nodeType = "selectedArtist"]'));
+    }
+  };
+
+  onResize = () => {
+    this.setState({
+      canvasContainerWidth: this.canvasCoversContainer.current?.offsetWidth || window.innerWidth,
+      canvasContainerHeight: this.canvasCoversContainer.current?.offsetHeight || window.innerHeight,
+    }, () => {
+      if (!this.cy || this.cy.destroyed()) return;
+      this.cy.resize();
+      this.fitArtists(this.cy);
+      this.positionCentralImage();
+    });
+  };
 
   initListeners() {
     this.cy.on('mouseover', 'node', (evt) => {
@@ -127,9 +176,24 @@ class Covers extends Component {
           data: {
             ...data,
             nodeType,
+            ...(nodeType === 'artist' && { imageUrl: isValidImageUrl(data.imageUrl) ? data.imageUrl : null }),
           },
         };
       });
+      const selectedNodeId = `selected-artist-${artistId}`;
+      const graphData = payload.artist && sourceIds.size > 0 ? [
+        ...typedNetworkData,
+        {
+          data: {
+            id: selectedNodeId,
+            label: payload.artist.commonName,
+            nodeType: 'selectedArtist',
+          },
+        },
+        ...[...sourceIds].map((target) => ({
+          data: { source: selectedNodeId, target, relation: 'cover' },
+        })),
+      ] : typedNetworkData;
 
       const containerWidth = this.canvasCoversContainer.current?.offsetWidth || window.innerWidth;
       const containerHeight =
@@ -142,7 +206,7 @@ class Covers extends Component {
         artist: payload.artist || null,
         artistImageUrls,
         coversCount: Number(payload.coversCount || 0),
-        networkData: typedNetworkData,
+        networkData: graphData,
         canvasContainerWidth: containerWidth,
         canvasContainerHeight: containerHeight,
         partialData: Boolean(payload.partialData),
@@ -174,7 +238,10 @@ class Covers extends Component {
     const layout = {
       name: 'fcose',
       animate: false,
+      fit: false,
       quality: 'proof',
+      nodeRepulsion: (node) => node.data('nodeType') === 'selectedArtist' ? 120000 : 4500,
+      idealEdgeLength: (edge) => edge.data('relation') === 'cover' ? 220 : 50,
     };
 
     return (
@@ -188,19 +255,23 @@ class Covers extends Component {
                 this.cy = cy;
                 this.initListeners();
                 cy.layout(layout).run();
-                cy.fit();
+                this.fitArtists(cy);
+                cy.on('pan zoom', this.positionCentralImage);
                 cy.nodes('[nodeType = "artist"]').forEach((node) => {
                   const imageUrl = node.data('imageUrl');
                   if (!imageUrl) return;
                   const image = new Image();
                   image.onload = () => {
                     if (cy.destroyed()) return;
-                    const scale = Math.min(120 / image.naturalWidth, 80 / image.naturalHeight);
+                    const scale = Math.min(node.width() / image.naturalWidth, node.height() * 2 / 3 / image.naturalHeight);
                     node.style({
                       'background-width': image.naturalWidth * scale,
                       'background-height': image.naturalHeight * scale,
                       'background-image-opacity': 1,
                     });
+                  };
+                  image.onerror = () => {
+                    if (!cy.destroyed()) node.data('imageUrl', null);
                   };
                   image.src = imageUrl;
                 });
@@ -233,15 +304,14 @@ class Covers extends Component {
                     shape: 'rectangle',
                     width: 120,
                     height: 120,
-                    'background-color': '#922b21',
-                    'background-opacity': 1,
+                    'background-opacity': 0,
                     'background-image': (ele) => ele.data('imageUrl') || 'none',
                     'background-fit': 'none',
                     'background-width': '100%',
                     'background-height': '66.6667%',
                     'background-position-y': '0%',
                     'background-image-opacity': 0,
-                    color: '#ffffff',
+                    color: '#000000',
                     'font-size': 14,
                     'font-weight': 700,
                     'text-wrap': 'wrap',
@@ -249,29 +319,61 @@ class Covers extends Component {
                     'text-halign': 'center',
                     'text-valign': 'bottom',
                     'text-margin-y': -28,
-                    'border-width': 1,
-                    'border-color': '#922b21',
+                  },
+                },
+                {
+                  selector: 'node[nodeType = "artist"][!imageUrl]',
+                  style: {
+                    height: 60,
+                    'text-valign': 'center',
+                    'text-margin-y': 0,
                   },
                 },
                 {
                   selector: 'node[nodeType = "song"]',
                   style: {
                     shape: 'ellipse',
-                    color: '#1f1f1f',
+                    color: '#236978',
                     'font-size': 12,
-                    width: 14,
-                    height: 14,
+                    width: 8,
+                    height: 8,
+                    'background-color': '#236978',
+                    'background-opacity': 1,
+                    'border-width': 0,
+                    'text-halign': 'center',
+                    'text-valign': 'bottom',
+                    'text-margin-y': 12,
+                    'text-wrap': 'wrap',
+                    'text-overflow-wrap': 'anywhere',
+                    'text-max-width': 100,
+                  },
+                },
+                {
+                  selector: 'node[nodeType = "selectedArtist"]',
+                  style: {
+                    shape: 'ellipse',
+                    width: 240,
+                    height: 240,
                     'background-opacity': 0,
+                    label: '',
                   },
                 },
                 {
                   selector: 'edge',
                   style: {
-                    'line-color': (ele) => (ele.isEdge() ? ele.data('color') : null),
+                    'line-color': (ele) => ele.data('color') || '#762c27',
                     width: 1,
-                    color: (ele) => (ele.isEdge() ? ele.data('color') : null),
-                    opacity: (ele) => (ele.isEdge() ? ele.data('opacity') : null),
+                    color: (ele) => ele.data('color') || '#762c27',
+                    opacity: (ele) => ele.data('opacity') ?? 0.4,
                     'curve-style': 'haystack',
+                  },
+                },
+                {
+                  selector: 'edge[relation = "cover"]',
+                  style: {
+                    'line-color': '#762c27',
+                    width: 2,
+                    opacity: 0.4,
                   },
                 },
                 {
@@ -284,6 +386,17 @@ class Covers extends Component {
                 },
               ]}
             />
+          )}
+          {!loading && !error && hasNetworkData && artist && (
+            <div ref={this.centralImage} className='covers-central-node' role='img' aria-label={artist.commonName}>
+              {artistImageUrls.length > 0 && (
+                <img
+                  src={artistImageUrls[0]}
+                  alt=''
+                  onError={() => this.onArtistImageError(artistImageUrls[0])}
+                />
+              )}
+            </div>
           )}
           {loading && (
             <div className='container pt-4'>
@@ -327,18 +440,6 @@ class Covers extends Component {
           {!loading && !error && artist && (
             <header className='pt-3'>
               <div className='artist-summary'>
-                {artistImageUrls.length > 0 && (
-                  <div className='artist-image-mosaic'>
-                    {artistImageUrls.map((imageUrl, index) => (
-                      <img
-                        key={imageUrl}
-                        src={imageUrl}
-                        alt={`${artist.commonName} ${index + 1}`}
-                        onError={() => this.onArtistImageError(imageUrl)}
-                      />
-                    ))}
-                  </div>
-                )}
                 <div>
                   <h1 style={{ marginBottom: '4px' }}>{artist.commonName}</h1>
                   <div className='row'>
