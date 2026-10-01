@@ -2,8 +2,11 @@
   "artist": {
     "id": 524,
     "uri": "https://api.secondhandsongs.com/artist/524",
-    "commonName": "The Clash"
+    "commonName": "The Clash",
+    "picture": "https://api.secondhandsongs.com/picture/53156"
   },
+  "artistPicture": "https://api.secondhandsongs.com/picture/53156",
+  "artistPictureResolved": "https://upload.wikimedia.org/wikipedia/commons/6/6f/The_Clash_in_San_Diego%2C_1982_%28cropped%29.jpg",
   "originalsCount": 67,
   "artistsCoveringCount": 507,
   "coversTotal": 657,
@@ -13967,7 +13970,27 @@
     "originalsValid": 67,
     "artistsCoveringCount": 507,
     "networkItems": 1231,
-    "sampleErrors": []
+    "sampleErrors": [],
+    "imageCandidates": [
+      {
+        "source": "shs.raw",
+        "url": "https://api.secondhandsongs.com/picture/53156",
+        "status": "HTTP 404",
+        "ok": "False"
+      },
+      {
+        "source": "shs.resolved",
+        "url": "https://secondhandsongs.com/picture/53156",
+        "status": "HTTP 403",
+        "ok": "False"
+      },
+      {
+        "source": "wikidata",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/The_Clash_in_San_Diego%2C_1982_%28cropped%29.jpg",
+        "status": "HEAD 200",
+        "ok": "True"
+      }
+    ]
   },
-  "generatedAt": "2026-09-30T23:15:54.811453+00:00"
+  "generatedAt": "2026-10-01T09:45:00.134029+00:00"
 }

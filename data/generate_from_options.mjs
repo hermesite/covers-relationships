@@ -24,14 +24,11 @@ console.log(`Generating data for artist option ids: ${uniqueIds.join(', ')}`);
 
 const child = spawn(
   'python3',
-  ['data/generate_graph_data.py', '--artists', ...uniqueIds],
+  ['../data/generate_graph_data.py', '--artists', ...uniqueIds],
   {
     cwd,
     stdio: 'inherit',
-    env: {
-      ...process.env,
-      SHS_BASE_URL: process.env.SHS_BASE_URL || 'http://localhost:5173/api/secondhandsongs',
-    },
+    env: process.env,
   }
 );
 

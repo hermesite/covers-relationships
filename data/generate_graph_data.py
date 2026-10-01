@@ -2,8 +2,8 @@
 """Generate precomputed graph datasets for Covers and Originals pages.
 
 Outputs JSON files to:
-  public/data/graphs/covers/<artist_id>.json
-  public/data/graphs/originals/<artist_id>.json
+    frontend/data/graphs/covers/<artist_id>.json
+    frontend/data/graphs/originals/<artist_id>.json
 """
 
 from __future__ import annotations
@@ -725,49 +725,6 @@ def write_json(file_path: Path, payload: dict[str, Any]) -> None:
     file_path.write_text(json.dumps(payload_with_meta, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def empty_covers_payload(artist_id: int, artist_name: str, error: str) -> dict[str, Any]:
-    return {
-        "artist": {
-            "id": artist_id,
-            "commonName": artist_name,
-            "picture": None,
-        },
-        "artistPicture": None,
-        "artistPictureResolved": None,
-        "coversCount": 0,
-        "partialData": False,
-        "networkData": [],
-        "error": error,
-        "diagnostics": {
-            "coversCount": 0,
-            "networkItems": 0,
-        },
-    }
-
-
-def empty_originals_payload(artist_id: int, artist_name: str, error: str) -> dict[str, Any]:
-    return {
-        "artist": {
-            "id": artist_id,
-            "commonName": artist_name,
-            "picture": None,
-        },
-        "artistPicture": None,
-        "artistPictureResolved": None,
-        "originalsCount": 0,
-        "artistsCoveringCount": 0,
-        "coversTotal": 0,
-        "partialData": False,
-        "networkData": [],
-        "error": error,
-        "diagnostics": {
-            "originalsCount": 0,
-            "artistsCoveringCount": 0,
-            "networkItems": 0,
-        },
-    }
-
-
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate cached graph JSON for Covers and Originals pages")
     parser.add_argument(
@@ -790,7 +747,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     )
     parser.add_argument(
         "--output",
-        default="public/data/graphs",
+        default="frontend/data/graphs",
         help="Output directory for generated files.",
     )
     parser.add_argument(
@@ -812,7 +769,7 @@ def main(argv: list[str]) -> int:
     root_dir = Path(__file__).resolve().parent.parent
     output_dir = (root_dir / args.output).resolve()
     cache_dir = (root_dir / "data/.cache").resolve()
-    shs_cache_dir = (root_dir / ".shs-cache").resolve()
+    shs_cache_dir = (root_dir / "frontend/.shs-cache").resolve()
 
     artists: list[dict[str, Any]]
     if args.artist is not None:
@@ -863,28 +820,24 @@ def main(argv: list[str]) -> int:
             trace("artist", f"artist={artist_id} deadline_in={args.artist_timeout_seconds}s")
         try:
             covers_data = generate_covers_data(ctx, artist_id, deadline=deadline)
-            covers_path = ctx.output_dir / "covers" / f"{artist_id}.json"
-            write_json(covers_path, covers_data)
-            print(f"  covers -> {covers_path.relative_to(ctx.root_dir)}")
-
             originals_data = generate_originals_data(ctx, artist_id, deadline=deadline)
+
+            covers_path = ctx.output_dir / "covers" / f"{artist_id}.json"
             originals_path = ctx.output_dir / "originals" / f"{artist_id}.json"
+            write_json(covers_path, covers_data)
             write_json(originals_path, originals_data)
+            print(f"  covers -> {covers_path.relative_to(ctx.root_dir)}")
             print(f"  originals -> {originals_path.relative_to(ctx.root_dir)}")
         except Exception as exc:  # noqa: BLE001
             message = f"[{artist_id}] {artist_name}: {exc}"
             failures.append(message)
             print(f"  ERROR: {message}")
-            covers_path = ctx.output_dir / "covers" / f"{artist_id}.json"
-            originals_path = ctx.output_dir / "originals" / f"{artist_id}.json"
-            write_json(covers_path, empty_covers_payload(artist_id, artist_name, str(exc)))
-            write_json(originals_path, empty_originals_payload(artist_id, artist_name, str(exc)))
 
     manifest = {
         "artists": artists,
         "generatedAt": datetime.now(timezone.utc).isoformat(),
-        "coversPath": "data/graphs/covers/<artist_id>.json",
-        "originalsPath": "data/graphs/originals/<artist_id>.json",
+        "coversPath": "graphs/covers/<artist_id>.json",
+        "originalsPath": "graphs/originals/<artist_id>.json",
         "failures": failures,
     }
     write_json(ctx.output_dir / "manifest.json", manifest)
@@ -893,8 +846,7 @@ def main(argv: list[str]) -> int:
         print("\nCompleted with failures:")
         for item in failures:
             print(f"  - {item}")
-        print("Continuing with exit code 0 because fallback files were generated.")
-        return 0
+        return 1
 
     print("\nGeneration complete.")
     return 0

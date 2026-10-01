@@ -66,7 +66,7 @@ class Covers extends Component {
 
   async loadGraphForArtist(artistId) {
     try {
-      const response = await fetch(`/data/graphs/covers/${artistId}.json`);
+      const response = await fetch(`/graphs/covers/${artistId}.json`);
       if (!response.ok) {
         throw new Error('Generated data file not found. Run the Python data generator first.');
       }

@@ -7,10 +7,9 @@ Secondhand Covers explores relationships between recorded performances: which ar
 ```text
 .
 |-- api-collection/   Bruno requests for app endpoints and API exploration
-|-- data/             Saved API responses and research datasets
+|-- data/             Data generators, caches, saved responses, and research datasets
 |-- frontend/
-|   |-- data/         Python scripts for generating graph datasets
-|   |-- public/data/  Precomputed graph JSON served by the app
+|   |-- data/         Static app assets and precomputed graph JSON
 |   `-- src/          React application, components, and styles
 `-- LICENSE
 ```

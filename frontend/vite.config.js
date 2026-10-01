@@ -6,6 +6,7 @@ export default defineConfig(({ mode }) => {
   const { SHS_API_KEY } = loadEnv(mode, process.cwd(), 'SHS_');
 
   return {
+    publicDir: 'data',
     esbuild: {
       loader: 'jsx',
       include: /src\/.*\.js$/,

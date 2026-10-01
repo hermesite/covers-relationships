@@ -8,7 +8,7 @@ npm run generate:data
 npm start
 ```
 
-The graph pages (`/covers` and `/originals`) now read precomputed JSON files from `public/data/graphs`.
+The graph pages (`/covers` and `/originals`) read precomputed JSON files from `data/graphs`.
 
 ## Generate graph data (offline cache)
 
@@ -27,7 +27,7 @@ SHS_BASE_URL=http://localhost:5173/api/secondhandsongs npm run generate:data
 Generate specific artist IDs only:
 
 ```sh
-/usr/bin/python3 data/generate_graph_data.py --artists 194 524
+/usr/bin/python3 ../data/generate_graph_data.py --artists 194 524
 ```
 
 Generate one artist only (incremental update):
@@ -41,19 +41,19 @@ This command accepts any artist ID, even if that ID is not currently present in 
 Equivalent direct Python command:
 
 ```sh
-/usr/bin/python3 data/generate_graph_data.py --artist 524
+/usr/bin/python3 ../data/generate_graph_data.py --artist 524
 ```
 
 Notes:
 
-- Script location: `data/generate_graph_data.py`
+- Script location: `../data/generate_graph_data.py`
 - Output files:
-  - `public/data/graphs/covers/<artist_id>.json`
-  - `public/data/graphs/originals/<artist_id>.json`
+  - `data/graphs/covers/<artist_id>.json`
+  - `data/graphs/originals/<artist_id>.json`
 - Endpoint cache is reused from:
-  - `data/.cache/`
+  - `../data/.cache/`
   - `.shs-cache/`
-- If SHS rate limits your IP (HTTP 403), the script still writes fallback files with an `error` field so the app remains loadable.
+- Generation errors return a nonzero exit code and leave existing graph files unchanged.
 - To improve generation success under rate limits, set `SHS_API_KEY` before running the script.
 - Artist image resolution in generator uses fallback candidates (SHS picture, Wikidata via MusicBrainz, Deezer) and stores the selected URL in `artistPictureResolved`.
 

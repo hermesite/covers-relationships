@@ -2,8 +2,11 @@
   "artist": {
     "id": 524,
     "uri": "https://api.secondhandsongs.com/artist/524",
-    "commonName": "The Clash"
+    "commonName": "The Clash",
+    "picture": "https://api.secondhandsongs.com/picture/53156"
   },
+  "artistPicture": "https://api.secondhandsongs.com/picture/53156",
+  "artistPictureResolved": "https://upload.wikimedia.org/wikipedia/commons/6/6f/The_Clash_in_San_Diego%2C_1982_%28cropped%29.jpg",
   "coversCount": 13,
   "partialData": true,
   "networkData": [
@@ -11,6 +14,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/346067",
         "label": "When Johnny Comes Marching Home",
+        "nodeType": "song",
         "size": 70.0,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -24,6 +28,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/56818",
         "label": "J. W. Myers",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/4353e5fcc4219b05751c2e8b4bbf4bdb/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -37,6 +43,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/3932",
         "label": "I Fought the Law",
+        "nodeType": "song",
         "size": 64.41379310344827,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -50,6 +57,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/1938",
         "label": "The Crickets [US]",
+        "nodeType": "artist",
+        "imageUrl": null,
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -63,6 +72,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/16378",
         "label": "Brand New Cadillac",
+        "nodeType": "song",
         "size": 55.10344827586207,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -76,6 +86,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/10316+118037",
         "label": "Vince Taylor and His Playboys",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/faa9b629d5b1ca6146789d90c6d220af/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -89,6 +101,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/31946",
         "label": "Junco Partner (Worthless Man)",
+        "nodeType": "song",
         "size": 50.758620689655174,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -102,6 +115,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/9330",
         "label": "James Waynes",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/1f0112d22a5985b96d5ce30f9136e630/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -115,6 +130,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/27554",
         "label": "Time Is Tight",
+        "nodeType": "song",
         "size": 50.13793103448276,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -128,6 +144,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/173700",
         "label": "Booker T. & The M.G.'s",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/1d866303d7fd9ce5cfa97d084550510a/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -141,6 +159,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/222593",
         "label": "Police on My Back",
+        "nodeType": "song",
         "size": 45.58620689655172,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -154,6 +173,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/6469",
         "label": "The Equals",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/25d406fcdac7d0f7f84037702f02b723/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -167,6 +188,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/44163",
         "label": "The Man in Me",
+        "nodeType": "song",
         "size": 45.172413793103445,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -180,6 +202,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/158",
         "label": "Bob Dylan",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/b8a57d58ceced56e2222ea8d6e6c4a85/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -193,6 +217,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/17879",
         "label": "Police and Thief",
+        "nodeType": "song",
         "size": 44.13793103448276,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -206,6 +231,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/10926",
         "label": "Junior Murvin",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/3b4ca204ef219ce92c5da4cb770c27a5/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -219,6 +246,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/55262",
         "label": "Pressure Drop",
+        "nodeType": "song",
         "size": 43.51724137931034,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -232,6 +260,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/18381",
         "label": "The Maytals",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/f3826e40b5b5dbc0db574035efa028a4/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -245,6 +275,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/55945",
         "label": "Revolution Rock – Pt. 1",
+        "nodeType": "song",
         "size": 41.241379310344826,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -258,6 +289,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/25101+87903",
         "label": "Danny Ray & The Revolutioneers",
+        "nodeType": "artist",
+        "imageUrl": null,
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -271,6 +304,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/75307",
         "label": "Armagedeon Time",
+        "nodeType": "song",
         "size": 40.41379310344828,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -284,6 +318,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/31624",
         "label": "Willy Williams",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/98cadfacb66180f84a0aab5d36228a2d/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -297,6 +333,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/24148",
         "label": "Wrong Emboyo",
+        "nodeType": "song",
         "size": 40.206896551724135,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -310,6 +347,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/14082",
         "label": "The Rulers",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/f75a055d57a042b0506855fe6ccc7ba6/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -323,6 +362,7 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/24130",
         "label": "Look Here",
+        "nodeType": "song",
         "size": 40.0,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -336,6 +376,8 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/2055",
         "label": "Mose Allison",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/d85e6e809203e17edcfc76dca23899ec/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -474,7 +516,29 @@
     "originalResultsFailed": 0,
     "originalsValid": 13,
     "networkItems": 39,
-    "sampleErrors": []
+    "artistImageResolvedCount": 11,
+    "artistImageLookupCount": 13,
+    "sampleErrors": [],
+    "imageCandidates": [
+      {
+        "source": "shs.raw",
+        "url": "https://api.secondhandsongs.com/picture/53156",
+        "status": "HTTP 404",
+        "ok": "False"
+      },
+      {
+        "source": "shs.resolved",
+        "url": "https://secondhandsongs.com/picture/53156",
+        "status": "HTTP 403",
+        "ok": "False"
+      },
+      {
+        "source": "wikidata",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/The_Clash_in_San_Diego%2C_1982_%28cropped%29.jpg",
+        "status": "HEAD 200",
+        "ok": "True"
+      }
+    ]
   },
-  "generatedAt": "2026-09-30T23:15:54.785264+00:00"
+  "generatedAt": "2026-10-01T09:45:00.133498+00:00"
 }

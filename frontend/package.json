@@ -19,9 +19,9 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "generate:data": "SHS_BASE_URL=${SHS_BASE_URL:-http://localhost:5173/api/secondhandsongs} python3 data/generate_graph_data.py",
-    "generate:data:artist": "if [ -z \"$ARTIST_ID\" ]; then echo 'Usage: ARTIST_ID=14076 npm run generate:data:artist'; exit 1; fi; SHS_BASE_URL=${SHS_BASE_URL:-http://localhost:5173/api/secondhandsongs} python3 data/generate_graph_data.py --artist \"$ARTIST_ID\"",
-    "generate:data:options": "node data/generate_from_options.mjs"
+    "generate:data": "python3 ../data/generate_graph_data.py",
+    "generate:data:artist": "if [ -z \"$ARTIST_ID\" ]; then echo 'Usage: ARTIST_ID=14076 npm run generate:data:artist'; exit 1; fi; python3 ../data/generate_graph_data.py --artist \"$ARTIST_ID\"",
+    "generate:data:options": "node ../data/generate_from_options.mjs"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.0.0",

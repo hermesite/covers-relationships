@@ -1,0 +1,21 @@
+{
+  "artist": {
+    "id": 158536,
+    "commonName": "Artist 158536",
+    "picture": null
+  },
+  "artistPicture": null,
+  "artistPictureResolved": null,
+  "originalsCount": 0,
+  "artistsCoveringCount": 0,
+  "coversTotal": 0,
+  "partialData": false,
+  "networkData": [],
+  "error": "Network error for /artist/158536: <urlopen error [Errno 61] Connection refused>",
+  "diagnostics": {
+    "originalsCount": 0,
+    "artistsCoveringCount": 0,
+    "networkItems": 0
+  },
+  "generatedAt": "2026-10-01T09:35:02.676428+00:00"
+}

@@ -1,0 +1,49 @@
+{
+  "artist": {
+    "id": 30689,
+    "uri": "https://api.secondhandsongs.com/artist/30689",
+    "commonName": "Morphine",
+    "picture": "https://api.secondhandsongs.com/picture/225456"
+  },
+  "artistPicture": "https://api.secondhandsongs.com/picture/225456",
+  "artistPictureResolved": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Mark_Sandman_Mississippi_Nights_1997.04.09.jpg",
+  "coversCount": 0,
+  "partialData": false,
+  "networkData": [],
+  "diagnostics": {
+    "performanceUrisTotal": 12,
+    "performanceUrisSelected": 12,
+    "performanceResultsOk": 12,
+    "performanceResultsFailed": 0,
+    "coverOriginalUrisTotal": 0,
+    "coverOriginalUrisSelected": 0,
+    "originalResultsOk": 0,
+    "originalResultsFailed": 0,
+    "originalsValid": 0,
+    "networkItems": 0,
+    "artistImageResolvedCount": 0,
+    "artistImageLookupCount": 0,
+    "sampleErrors": [],
+    "imageCandidates": [
+      {
+        "source": "shs.raw",
+        "url": "https://api.secondhandsongs.com/picture/225456",
+        "status": "HTTP 404",
+        "ok": "False"
+      },
+      {
+        "source": "shs.resolved",
+        "url": "https://secondhandsongs.com/picture/225456",
+        "status": "HTTP 403",
+        "ok": "False"
+      },
+      {
+        "source": "wikidata",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Mark_Sandman_Mississippi_Nights_1997.04.09.jpg",
+        "status": "HEAD 200",
+        "ok": "True"
+      }
+    ]
+  },
+  "generatedAt": "2026-10-01T09:46:22.511729+00:00"
+}
