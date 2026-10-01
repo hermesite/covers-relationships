@@ -66,22 +66,6 @@ class Originals extends Component {
     });
   }
 
-  onArtistChange = async (event) => {
-    const selectedArtistId = event.target.value;
-    setArtistIdInUrl(selectedArtistId);
-    this.setState({
-      selectedArtistId,
-      loading: true,
-      error: null,
-      originalsCount: 0,
-      artistsCoveringCount: 0,
-      coversTotal: 0,
-      networkData: [],
-      partialData: false,
-    });
-    await this.loadGraphForArtist(Number(selectedArtistId));
-  };
-
   async loadGraphForArtist(artistId) {
     try {
       const response = await fetch(`/graphs/originals/${artistId}.json`);
@@ -210,22 +194,6 @@ class Originals extends Component {
         </div>
 
         <div className='container graph-page-header'>
-          <div className='graph-toolbar'>
-            <label htmlFor='originals-artist-select'>Artist</label>
-            <select
-              id='originals-artist-select'
-              value={selectedArtistId}
-              onChange={this.onArtistChange}
-              disabled={loading}
-            >
-              {ARTIST_OPTIONS.map((option) => (
-                <option key={option.id} value={String(option.id)}>
-                  {option.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
           {error && (
             <div className='pt-3'>
               <h1>Originals</h1>

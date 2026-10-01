@@ -10,6 +10,8 @@ import Originals from './sections/Originals';
 import Covers from './sections/Covers';
 import CoversCards from './sections/CoversCards';
 import BandDetail from './sections/BandDetail';
+import { ARTIST_OPTIONS } from './constants/artistOptions';
+import { getArtistIdFromUrl } from './sections/artistUrl';
 
 const NAV_ITEMS = [
   { label: 'Home', path: '/' },
@@ -22,6 +24,13 @@ const NAV_ITEMS = [
 function AppNavigation() {
   const location = useLocation();
   const getHref = (pathname) => `${pathname}${window.location.search || location.search}`;
+  const selectedArtistId = getArtistIdFromUrl(ARTIST_OPTIONS);
+
+  const onArtistChange = (event) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('artistId', event.target.value);
+    window.location.assign(`${url.pathname}${url.search}${url.hash}`);
+  };
 
   return (
     <Navbar expand="lg" variant="light" collapseOnSelect className="app-navbar">
@@ -44,6 +53,14 @@ function AppNavigation() {
               </Nav.Link>
             ))}
           </Nav>
+          <label className="app-artist-select" htmlFor="app-artist-select">
+            Artist
+            <select id="app-artist-select" value={selectedArtistId} onChange={onArtistChange}>
+              {ARTIST_OPTIONS.map((option) => (
+                <option key={option.id} value={String(option.id)}>{option.name}</option>
+              ))}
+            </select>
+          </label>
         </Navbar.Collapse>
       </Container>
     </Navbar>

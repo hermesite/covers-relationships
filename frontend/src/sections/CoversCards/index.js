@@ -4,7 +4,7 @@ import { ARTIST_OPTIONS } from '../../constants/artistOptions';
 import { getArtistIdFromUrl, setArtistIdInUrl } from '../artistUrl';
 
 function CoversCards() {
-  const [selectedArtistId, setSelectedArtistId] = useState(() => getArtistIdFromUrl(ARTIST_OPTIONS));
+  const selectedArtistId = getArtistIdFromUrl(ARTIST_OPTIONS);
   const [payload, setPayload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
   const [failedImages, setFailedImages] = useState([]);
@@ -68,19 +68,6 @@ function CoversCards() {
     <main className='section-covers-cards'>
       <header className='covers-cards-header'>
         <div className='container py-4'>
-          <div className='graph-toolbar'>
-            <label htmlFor='covers-cards-artist-select'>Artist</label>
-            <select
-              id='covers-cards-artist-select'
-              value={selectedArtistId}
-              onChange={(event) => setSelectedArtistId(event.target.value)}
-            >
-              {ARTIST_OPTIONS.map((option) => (
-                <option key={option.id} value={String(option.id)}>{option.name}</option>
-              ))}
-            </select>
-          </div>
-
           {!loading && !error && payload?.artist && (
             <div className='artist-summary mt-4'>
               {imageUrls.length > 0 && (

@@ -19,6 +19,7 @@ import time
 import unicodedata
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -29,6 +30,7 @@ SHS_API = "https://api.secondhandsongs.com"
 MB_API = "https://musicbrainz.org/ws/2"
 WIKIDATA_ENTITY = "https://www.wikidata.org/wiki/Special:EntityData"
 DEEZER_SEARCH = "https://api.deezer.com/search/artist"
+DEEZER_ALBUM_SEARCH = "https://api.deezer.com/search/album"
 ARTIST_OPTIONS = [
     {"id": 14076, "name": "The Cramps"}
 ]
@@ -440,6 +442,39 @@ def _deezer_images(artist_name: str, timeout_seconds: float = 8.0) -> list[str]:
         return []
 
 
+@lru_cache(maxsize=16)
+def _deezer_album_catalog(artist_name: str) -> list[dict[str, Any]]:
+    try:
+        data = _http_json_public(f"{DEEZER_ALBUM_SEARCH}?q={quote(artist_name, safe='')}", timeout_seconds=5.0)
+        return data.get("data", [])
+    except Exception:
+        return []
+
+
+def _album_match_key(title: str) -> str:
+    return "".join(char for char in deburr(title).casefold() if char.isalnum())
+
+
+def _deezer_album_image(artist_name: str, album_title: str) -> str | None:
+    try:
+        search_name = normalize_artist_search_name(artist_name)
+        title_key = _album_match_key(album_title)
+        for item in _deezer_album_catalog(search_name):
+            item_artist = (item.get("artist") or {}).get("name") or ""
+            if _album_match_key(item.get("title") or "") == title_key and item_artist.casefold() == search_name.casefold():
+                return item.get("cover_xl") or item.get("cover_big") or item.get("cover_medium")
+
+        query = quote(f"{album_title} {search_name}", safe="")
+        results = _http_json_public(f"{DEEZER_ALBUM_SEARCH}?q={query}", timeout_seconds=5.0)
+        for item in results.get("data", []):
+            item_artist = (item.get("artist") or {}).get("name") or ""
+            if _album_match_key(item.get("title") or "") == title_key and item_artist.casefold() == search_name.casefold():
+                return item.get("cover_xl") or item.get("cover_big") or item.get("cover_medium")
+    except Exception:
+        pass
+    return None
+
+
 def select_best_artist_picture(
     raw_picture: str | None,
     artist_name: str,
@@ -478,6 +513,19 @@ def select_best_artist_picture(
             selected_url = candidate["url"]
 
     return selected_url or resolved_raw or raw_picture, probes
+
+
+def performance_release_data(performance: dict[str, Any]) -> dict[str, Any]:
+    albums = [
+        {
+            "entitySubType": release.get("entitySubType"),
+            "uri": release.get("uri"),
+            "title": release.get("title"),
+        }
+        for release in performance.get("releases") or []
+        if release.get("entitySubType") == "album"
+    ]
+    return {"date": performance.get("firstReleaseDate"), "releases": albums}
 
 
 def sorted_cover_list(original_items: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -526,6 +574,28 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
         for p in performance_results
         if not p.get("isOriginal") and isinstance(p.get("originals"), list) and p.get("originals")
     ]
+
+    album_images: dict[str, str | None] = {}
+    for cover in covers:
+        for album in performance_release_data(cover)["releases"]:
+            uri, title = album.get("uri"), album.get("title")
+            if uri and title and uri not in album_images:
+                album_images[uri] = _deezer_album_image(artist.get("commonName") or artist.get("name") or "", title)
+
+    cover_releases_by_original: dict[str, list[dict[str, Any]]] = {}
+    for cover in covers:
+        albums = [
+            {**album, "imageUrl": album_images.get(album.get("uri"))}
+            for album in performance_release_data(cover)["releases"]
+        ]
+        for reference in cover.get("originals") or []:
+            original_uri = (reference.get("original") or {}).get("uri")
+            if not original_uri:
+                continue
+            releases = cover_releases_by_original.setdefault(original_uri, [])
+            for album in albums:
+                if album.get("uri") and not any(release.get("uri") == album["uri"] for release in releases):
+                    releases.append(album)
 
     cover_original_uris: list[str] = []
     for cover in covers:
@@ -584,6 +654,8 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
                     "id": original.get("uri"),
                     "label": original.get("title"),
                     "nodeType": "song",
+                    **performance_release_data(original),
+                    "coverReleases": cover_releases_by_original.get(original.get("uri"), []),
                     "size": linear_scale(covers_len, dmin, dmax, 40, 70),
                     "color": "#FFF",
                     "bgColor": "#C00",
@@ -769,6 +841,7 @@ def generate_originals_data(ctx: Context, artist_id: int, deadline: float | None
                     "fontSize": linear_scale(covers_len, dmin, dmax, 10, 24),
                     "fontFamily": "Kreon",
                     "nodeType": "song",
+                    **performance_release_data(original),
                 }
             }
         )

@@ -23,7 +23,9 @@
         "bgOpacity": 1,
         "fontSize": 24.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1978-11",
+        "releases": []
       }
     },
     {
@@ -37,7 +39,15 @@
         "bgOpacity": 1,
         "fontSize": 16.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1980-04-01",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/9684",
+            "title": "Songs the Lord Taught Us"
+          }
+        ]
       }
     },
     {
@@ -51,7 +61,9 @@
         "bgOpacity": 1,
         "fontSize": 14.666666666666666,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1981",
+        "releases": []
       }
     },
     {
@@ -65,7 +77,15 @@
         "bgOpacity": 1,
         "fontSize": 14.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1980-04-01",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/9684",
+            "title": "Songs the Lord Taught Us"
+          }
+        ]
       }
     },
     {
@@ -79,7 +99,15 @@
         "bgOpacity": 1,
         "fontSize": 13.333333333333332,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1980-04-01",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/9684",
+            "title": "Songs the Lord Taught Us"
+          }
+        ]
       }
     },
     {
@@ -93,7 +121,15 @@
         "bgOpacity": 1,
         "fontSize": 12.666666666666666,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1986",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260171",
+            "title": "A Date with Elvis"
+          }
+        ]
       }
     },
     {
@@ -107,7 +143,9 @@
         "bgOpacity": 1,
         "fontSize": 12.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1990-01",
+        "releases": []
       }
     },
     {
@@ -121,7 +159,9 @@
         "bgOpacity": 1,
         "fontSize": 12.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1985",
+        "releases": []
       }
     },
     {
@@ -135,7 +175,15 @@
         "bgOpacity": 1,
         "fontSize": 12.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1981-03-27",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/12186",
+            "title": "Psychedelic Jungle"
+          }
+        ]
       }
     },
     {
@@ -149,7 +197,15 @@
         "bgOpacity": 1,
         "fontSize": 11.333333333333334,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1986",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260171",
+            "title": "A Date with Elvis"
+          }
+        ]
       }
     },
     {
@@ -163,7 +219,15 @@
         "bgOpacity": 1,
         "fontSize": 11.333333333333334,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1983-11",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/9747",
+            "title": "Smell of Female"
+          }
+        ]
       }
     },
     {
@@ -177,7 +241,15 @@
         "bgOpacity": 1,
         "fontSize": 11.333333333333334,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1983-11",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/9747",
+            "title": "Smell of Female"
+          }
+        ]
       }
     },
     {
@@ -191,7 +263,9 @@
         "bgOpacity": 1,
         "fontSize": 11.333333333333334,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1984",
+        "releases": []
       }
     },
     {
@@ -205,7 +279,15 @@
         "bgOpacity": 1,
         "fontSize": 10.666666666666666,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1986",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260171",
+            "title": "A Date with Elvis"
+          }
+        ]
       }
     },
     {
@@ -219,7 +301,15 @@
         "bgOpacity": 1,
         "fontSize": 10.666666666666666,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "2003",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260255",
+            "title": "Fiends of Dope Island"
+          }
+        ]
       }
     },
     {
@@ -233,7 +323,15 @@
         "bgOpacity": 1,
         "fontSize": 10.666666666666666,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1980-04-01",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/9684",
+            "title": "Songs the Lord Taught Us"
+          }
+        ]
       }
     },
     {
@@ -247,7 +345,15 @@
         "bgOpacity": 1,
         "fontSize": 10.666666666666666,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1997",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260228",
+            "title": "Big Beat from Badsville"
+          }
+        ]
       }
     },
     {
@@ -261,7 +367,15 @@
         "bgOpacity": 1,
         "fontSize": 10.666666666666666,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1981-03-27",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/12186",
+            "title": "Psychedelic Jungle"
+          }
+        ]
       }
     },
     {
@@ -275,7 +389,15 @@
         "bgOpacity": 1,
         "fontSize": 10.666666666666666,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1981-03-27",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/12186",
+            "title": "Psychedelic Jungle"
+          }
+        ]
       }
     },
     {
@@ -289,7 +411,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1990",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/43950",
+            "title": "Stay Sick!"
+          }
+        ]
       }
     },
     {
@@ -303,7 +433,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1981-03-27",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/12186",
+            "title": "Psychedelic Jungle"
+          }
+        ]
       }
     },
     {
@@ -317,7 +455,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1983-11",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/9747",
+            "title": "Smell of Female"
+          }
+        ]
       }
     },
     {
@@ -331,7 +477,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1997",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260228",
+            "title": "Big Beat from Badsville"
+          }
+        ]
       }
     },
     {
@@ -345,7 +499,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1990",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/43950",
+            "title": "Stay Sick!"
+          }
+        ]
       }
     },
     {
@@ -359,7 +521,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1991",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260604",
+            "title": "Look Mom No Head!"
+          }
+        ]
       }
     },
     {
@@ -373,7 +543,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1981-03-27",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/12186",
+            "title": "Psychedelic Jungle"
+          }
+        ]
       }
     },
     {
@@ -387,7 +565,9 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1980-09",
+        "releases": []
       }
     },
     {
@@ -401,7 +581,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "2003",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260255",
+            "title": "Fiends of Dope Island"
+          }
+        ]
       }
     },
     {
@@ -415,7 +603,9 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1983",
+        "releases": []
       }
     },
     {
@@ -429,7 +619,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1994-10",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/43951",
+            "title": "Flamejob"
+          }
+        ]
       }
     },
     {
@@ -443,7 +641,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1994-10",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/43951",
+            "title": "Flamejob"
+          }
+        ]
       }
     },
     {
@@ -457,7 +663,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "2003",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260255",
+            "title": "Fiends of Dope Island"
+          }
+        ]
       }
     },
     {
@@ -471,7 +685,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1986",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260171",
+            "title": "A Date with Elvis"
+          }
+        ]
       }
     },
     {
@@ -485,7 +707,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1997",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260228",
+            "title": "Big Beat from Badsville"
+          }
+        ]
       }
     },
     {
@@ -499,7 +729,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1997",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260228",
+            "title": "Big Beat from Badsville"
+          }
+        ]
       }
     },
     {
@@ -513,7 +751,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1990",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/43950",
+            "title": "Stay Sick!"
+          }
+        ]
       }
     },
     {
@@ -527,7 +773,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1986",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260171",
+            "title": "A Date with Elvis"
+          }
+        ]
       }
     },
     {
@@ -541,7 +795,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1981-03-27",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/12186",
+            "title": "Psychedelic Jungle"
+          }
+        ]
       }
     },
     {
@@ -555,7 +817,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1994-10",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/43951",
+            "title": "Flamejob"
+          }
+        ]
       }
     },
     {
@@ -569,7 +839,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "2003",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/260255",
+            "title": "Fiends of Dope Island"
+          }
+        ]
       }
     },
     {
@@ -583,7 +861,15 @@
         "bgOpacity": 1,
         "fontSize": 10.0,
         "fontFamily": "Kreon",
-        "nodeType": "song"
+        "nodeType": "song",
+        "date": "1980-04-01",
+        "releases": [
+          {
+            "entitySubType": "album",
+            "uri": "https://api.secondhandsongs.com/release/9684",
+            "title": "Songs the Lord Taught Us"
+          }
+        ]
       }
     },
     {
@@ -3028,5 +3314,5 @@
     "sampleErrors": [],
     "imageCandidates": []
   },
-  "generatedAt": "2026-10-01T13:50:55.626749+00:00"
+  "generatedAt": "2026-10-01T16:19:32.792038+00:00"
 }

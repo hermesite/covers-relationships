@@ -9,6 +9,8 @@ npm start
 
 The graph pages (`/covers` and `/originals`) read precomputed JSON files from `data/graphs`. See [Graph Data Generation](../data/README.md) for generation, reset, cache refresh, Python, and asset documentation.
 
+On `/covers`, a song's `coverReleases` lists albums by the selected artist, including `imageUrl` when matching cover artwork is found. Shared album nodes connect those songs to the selected artist; songs without a listed album remain directly connected.
+
 ## Available URLs
 
 ### App URLs

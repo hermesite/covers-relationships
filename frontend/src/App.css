@@ -57,9 +57,33 @@
   font-weight: 700;
 }
 
+.app-artist-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 0 16px;
+  color: #46554c;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.app-artist-select select {
+  min-width: 132px;
+  padding: 4px 8px;
+  border: 1px solid #aeb8b0;
+  border-radius: 4px;
+  background: #fff;
+  color: #202723;
+  font: inherit;
+}
+
 @media (max-width: 991.98px) {
   .app-navbar .navbar-collapse {
     padding-top: 8px;
+  }
+
+  .app-artist-select {
+    margin: 10px 0;
   }
 }
 

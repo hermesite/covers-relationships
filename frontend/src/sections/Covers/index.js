@@ -5,6 +5,7 @@ import fcose from 'cytoscape-fcose';
 
 import { ARTIST_OPTIONS } from '../../constants/artistOptions';
 import { getArtistIdFromUrl, setArtistIdInUrl } from '../artistUrl';
+import { BandMemberList } from '../BandDetail';
 
 Cytoscape.use(fcose);
 
@@ -45,13 +46,14 @@ class Covers extends Component {
       coversCount: 0,
       networkData: [],
       artist: null,
-      artistImageUrls: [],
+      bandRelations: [],
+      bandLoading: true,
+      bandError: null,
       canvasContainerWidth: window.innerWidth,
       canvasContainerHeight: Math.max(window.innerHeight * 0.6, 400),
       partialData: false,
     };
     this.canvasCoversContainer = React.createRef();
-    this.centralImage = React.createRef();
     this.isMountedFlag = false;
   }
 
@@ -60,28 +62,13 @@ class Covers extends Component {
     window.addEventListener('resize', this.onResize);
     setArtistIdInUrl(this.state.selectedArtistId);
     this.loadGraphForArtist(Number(this.state.selectedArtistId));
+    this.loadBandRelations(Number(this.state.selectedArtistId));
   }
 
   componentWillUnmount() {
     this.isMountedFlag = false;
     window.removeEventListener('resize', this.onResize);
   }
-
-  componentDidUpdate() {
-    this.positionCentralImage();
-  }
-
-  positionCentralImage = () => {
-    const image = this.centralImage.current;
-    const center = this.cy?.nodes('[nodeType = "selectedArtist"]').first();
-    if (!image || !center?.length) return;
-    const position = center.renderedPosition();
-    const size = center.renderedWidth();
-    image.style.left = `${position.x - size / 2}px`;
-    image.style.top = `${position.y - size / 2}px`;
-    image.style.width = `${size}px`;
-    image.style.height = `${size}px`;
-  };
 
   fitArtists = (cy) => {
     const artists = cy.nodes('[nodeType = "artist"], [nodeType = "selectedArtist"]');
@@ -100,7 +87,6 @@ class Covers extends Component {
       if (!this.cy || this.cy.destroyed()) return;
       this.cy.resize();
       this.fitArtists(this.cy);
-      this.positionCentralImage();
     });
   };
 
@@ -119,26 +105,23 @@ class Covers extends Component {
     });
   }
 
-  onArtistChange = async (event) => {
-    const selectedArtistId = event.target.value;
-    setArtistIdInUrl(selectedArtistId);
-    this.setState({
-      selectedArtistId,
-      loading: true,
-      error: null,
-      coversCount: 0,
-      networkData: [],
-      artistImageUrls: [],
-      partialData: false,
-    });
-    await this.loadGraphForArtist(Number(selectedArtistId));
-  };
-
-  onArtistImageError = (failedUrl) => {
-    this.setState(({ artistImageUrls }) => ({
-      artistImageUrls: artistImageUrls.filter((url) => url !== failedUrl),
-    }));
-  };
+  async loadBandRelations(artistId) {
+    try {
+      const response = await fetch(`/band-detail/${artistId}.json`);
+      if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) {
+        throw new Error('Band details are not available for this artist.');
+      }
+      const payload = await response.json();
+      if (!this.isMountedFlag) return;
+      this.setState({
+        bandRelations: Array.isArray(payload.relations) ? payload.relations : [],
+        bandLoading: false,
+      });
+    } catch (error) {
+      if (!this.isMountedFlag) return;
+      this.setState({ bandLoading: false, bandError: error.message });
+    }
+  }
 
   async loadGraphForArtist(artistId) {
     try {
@@ -181,6 +164,28 @@ class Covers extends Component {
         };
       });
       const selectedNodeId = `selected-artist-${artistId}`;
+      const albumNodes = new Map();
+      const albumEdges = [];
+      const ungroupedSongs = [];
+      typedNetworkData.filter((item) => item.data.nodeType === 'song').forEach(({ data }) => {
+        const releases = Array.isArray(data.coverReleases) ? data.coverReleases : [];
+        const validReleases = releases.filter((release) => release?.uri && release.title);
+        if (validReleases.length === 0) ungroupedSongs.push(data.id);
+        validReleases.forEach((release) => {
+          const albumId = `album:${release.uri}`;
+          if (!albumNodes.has(albumId)) {
+            albumNodes.set(albumId, {
+              data: {
+                id: albumId,
+                label: release.title,
+                nodeType: 'album',
+                imageUrl: isValidImageUrl(release.imageUrl) ? release.imageUrl : null,
+              },
+            });
+          }
+          albumEdges.push({ data: { source: albumId, target: data.id, relation: 'album-track' } });
+        });
+      });
       const graphData = payload.artist && sourceIds.size > 0 ? [
         ...typedNetworkData,
         {
@@ -188,9 +193,12 @@ class Covers extends Component {
             id: selectedNodeId,
             label: payload.artist.commonName,
             nodeType: 'selectedArtist',
+            imageUrl: artistImageUrls[0] || null,
           },
         },
-        ...[...sourceIds].map((target) => ({
+        ...albumNodes.values(),
+        ...albumEdges,
+        ...[...albumNodes.keys(), ...ungroupedSongs].map((target) => ({
           data: { source: selectedNodeId, target, relation: 'cover' },
         })),
       ] : typedNetworkData;
@@ -204,7 +212,6 @@ class Covers extends Component {
         loading: false,
         error: payload.error || null,
         artist: payload.artist || null,
-        artistImageUrls,
         coversCount: Number(payload.coversCount || 0),
         networkData: graphData,
         canvasContainerWidth: containerWidth,
@@ -225,12 +232,13 @@ class Covers extends Component {
       loading,
       error,
       artist,
-      artistImageUrls,
+      bandRelations,
+      bandLoading,
+      bandError,
       coversCount,
       networkData,
       canvasContainerWidth,
       canvasContainerHeight,
-      selectedArtistId,
       partialData,
     } = this.state;
     const hasNetworkData = Array.isArray(networkData) && networkData.length > 0;
@@ -240,13 +248,24 @@ class Covers extends Component {
       animate: false,
       fit: false,
       quality: 'proof',
+      nodeDimensionsIncludeLabels: true,
       nodeRepulsion: (node) => node.data('nodeType') === 'selectedArtist' ? 120000 : 4500,
       idealEdgeLength: (edge) => edge.data('relation') === 'cover' ? 220 : 50,
     };
 
     return (
       <section className='section section-covers'>
-        <div id='canvasContainer' ref={this.canvasCoversContainer} className='canvas-container'>
+        <div className='covers-layout'>
+          <aside className='covers-side-panel' aria-label='Band members'>
+            <h1>{artist?.commonName || ARTIST_OPTIONS.find((option) => String(option.id) === this.state.selectedArtistId)?.name}</h1>
+            {!loading && !error && <p className='covers-side-count'>{coversCount} covers{partialData ? ' (partial)' : ''}</p>}
+            <h2 className='covers-side-heading'>People in the band</h2>
+            {bandLoading && <p>Loading band members...</p>}
+            {bandError && <p role='alert'>{bandError}</p>}
+            {!bandLoading && !bandError && bandRelations.length === 0 && <p>No members are recorded for this band.</p>}
+            {!bandLoading && !bandError && bandRelations.length > 0 && <BandMemberList relations={bandRelations} />}
+          </aside>
+          <div id='canvasContainer' ref={this.canvasCoversContainer} className='canvas-container'>
           {!loading && !error && hasNetworkData && (
             <CytoscapeComponent
               elements={networkData}
@@ -256,7 +275,6 @@ class Covers extends Component {
                 this.initListeners();
                 cy.layout(layout).run();
                 this.fitArtists(cy);
-                cy.on('pan zoom', this.positionCentralImage);
                 cy.nodes('[nodeType = "artist"]').forEach((node) => {
                   const imageUrl = node.data('imageUrl');
                   if (!imageUrl) return;
@@ -334,7 +352,9 @@ class Covers extends Component {
                   style: {
                     shape: 'ellipse',
                     color: '#236978',
-                    'font-size': 12,
+                    'font-family': 'Kreon',
+                    'font-size': 22,
+                    'font-weight': 700,
                     width: 8,
                     height: 8,
                     'background-color': '#236978',
@@ -345,7 +365,37 @@ class Covers extends Component {
                     'text-margin-y': 12,
                     'text-wrap': 'wrap',
                     'text-overflow-wrap': 'anywhere',
-                    'text-max-width': 100,
+                    'text-max-width': 140,
+                  },
+                },
+                {
+                  selector: 'node[nodeType = "album"]',
+                  style: {
+                    shape: 'rectangle',
+                    width: 160,
+                    height: 160,
+                    'background-color': '#e1ede8',
+                    'background-image': (ele) => ele.data('imageUrl') || 'none',
+                    'background-fit': 'cover',
+                    'background-image-opacity': 1,
+                    color: '#244c43',
+                    'font-size': 16,
+                    'font-weight': 700,
+                    'text-halign': 'center',
+                    'text-valign': 'bottom',
+                    'text-margin-y': 18,
+                    'text-wrap': 'wrap',
+                    'text-overflow-wrap': 'anywhere',
+                    'text-max-width': 145,
+                    'border-width': 1,
+                    'border-color': '#467468',
+                  },
+                },
+                {
+                  selector: 'node[nodeType = "album"][!imageUrl]',
+                  style: {
+                    'text-valign': 'center',
+                    'text-margin-y': 0,
                   },
                 },
                 {
@@ -355,6 +405,11 @@ class Covers extends Component {
                     width: 240,
                     height: 240,
                     'background-opacity': 0,
+                    'background-image': (ele) => ele.data('imageUrl') || 'none',
+                    'background-fit': 'cover',
+                    'background-image-opacity': 1,
+                    'border-width': 4,
+                    'border-color': '#762c27',
                     label: '',
                   },
                 },
@@ -387,17 +442,6 @@ class Covers extends Component {
               ]}
             />
           )}
-          {!loading && !error && hasNetworkData && artist && (
-            <div ref={this.centralImage} className='covers-central-node' role='img' aria-label={artist.commonName}>
-              {artistImageUrls.length > 0 && (
-                <img
-                  src={artistImageUrls[0]}
-                  alt=''
-                  onError={() => this.onArtistImageError(artistImageUrls[0])}
-                />
-              )}
-            </div>
-          )}
           {loading && (
             <div className='container pt-4'>
               <p>Loading cover graph...</p>
@@ -408,56 +452,15 @@ class Covers extends Component {
               <p>No graph data available for this artist.</p>
             </div>
           )}
-        </div>
-
-        <div className='container graph-page-header'>
-          <div className='graph-toolbar'>
-            <label htmlFor='covers-artist-select'>Artist</label>
-            <select
-              id='covers-artist-select'
-              value={selectedArtistId}
-              onChange={this.onArtistChange}
-              disabled={loading}
-            >
-              {ARTIST_OPTIONS.map((option) => (
-                <option key={option.id} value={String(option.id)}>
-                  {option.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
           {error && (
-            <div className='pt-3'>
-              <h1>Covers</h1>
+            <div className='container pt-4'>
               <p>Unable to render cover graph.</p>
               <p>
                 <small>{error}</small>
               </p>
             </div>
           )}
-
-          {!loading && !error && artist && (
-            <header className='pt-3'>
-              <div className='artist-summary'>
-                <div>
-                  <h1 style={{ marginBottom: '4px' }}>{artist.commonName}</h1>
-                  <div className='row'>
-                    <div className='col col-auto'>
-                      <p>covers</p>
-                      <h2>{coversCount}</h2>
-                    </div>
-                    {partialData && (
-                      <div className='col col-auto'>
-                        <p>data scope</p>
-                        <h2>partial</h2>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </header>
-          )}
+          </div>
         </div>
       </section>
     );
