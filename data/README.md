@@ -19,7 +19,7 @@ These files are the runtime data source. Opening the app does not query SecondHa
 
 ## npm workflows
 
-Run these commands from `frontend/`.
+Run these commands from `data/`, where the Python scripts and data npm scripts live.
 
 ### Band relation details
 
@@ -44,10 +44,10 @@ Wait with one probe every 15 minutes and generate band details as soon as access
 npm run monitor:api:wait
 ```
 
-The API does not always return a reset header for error `10007`, so monitoring requires a periodic request. Keep the interval low-frequency; `--interval-seconds` cannot be set below 60 seconds. To use an HTTP/HTTPS proxy you control, run the monitor directly from the repository root:
+The API does not always return a reset header for error `10007`, so monitoring requires a periodic request. Keep the interval low-frequency; `--interval-seconds` cannot be set below 60 seconds. To use an HTTP/HTTPS proxy you control, run the monitor from `data/`:
 
 ```sh
-python3 data/monitor_shs_api.py --proxy http://proxy.example:8080 --run-band-detail
+python3 monitor_shs_api.py --proxy http://proxy.example:8080 --run-band-detail
 ```
 
 The proxy option is passed to `generate_band_detail.py` after recovery. Avoid untrusted public proxies, which can inspect traffic and may violate the upstream service's usage limits.
@@ -114,13 +114,13 @@ SHS_BASE_URL=http://localhost:5173/api/secondhandsongs npm run generate:data
 
 ## Direct Python usage
 
-Run these commands from the repository root:
+Run these commands from `data/`:
 
 ```sh
-python3 data/generate_graph_data.py --artist 524
-python3 data/generate_graph_data.py --artists 194 524
-python3 data/generate_graph_data.py --artists 194 524 --no-cache
-python3 data/generate_cover_images.py --artist 524
+python3 generate_graph_data.py --artist 524
+python3 generate_graph_data.py --artists 194 524
+python3 generate_graph_data.py --artists 194 524 --no-cache
+python3 generate_cover_images.py --artist 524
 ```
 
 Use `--output <path>` to override `frontend/data/graphs` and `--artist-timeout-seconds 0` to disable the per-artist timeout.

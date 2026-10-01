@@ -2,9 +2,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
-const cwd = process.cwd();
-const optionsFile = path.join(cwd, 'src/constants/artistOptions.js');
+const dataDir = path.dirname(fileURLToPath(import.meta.url));
+const rootDir = path.dirname(dataDir);
+const optionsFile = path.join(rootDir, 'frontend/src/constants/artistOptions.js');
+const generator = path.join(dataDir, 'generate_graph_data.py');
 
 if (!fs.existsSync(optionsFile)) {
   console.error(`artist options file not found: ${optionsFile}`);
@@ -16,7 +19,7 @@ const ids = [...source.matchAll(/\bid\s*:\s*(\d+)\b/g)].map((m) => m[1]);
 const uniqueIds = [...new Set(ids)];
 
 if (uniqueIds.length === 0) {
-  console.error('No artist ids found in src/constants/artistOptions.js');
+  console.error(`No artist ids found in ${optionsFile}`);
   process.exit(1);
 }
 
@@ -24,9 +27,9 @@ console.log(`Generating data for artist option ids: ${uniqueIds.join(', ')}`);
 
 const child = spawn(
   'python3',
-  ['../data/generate_graph_data.py', '--artists', ...uniqueIds],
+  [generator, '--artists', ...uniqueIds],
   {
-    cwd,
+    cwd: dataDir,
     stdio: 'inherit',
     env: process.env,
   }

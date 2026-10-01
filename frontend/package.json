@@ -15,17 +15,7 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "reset:data": "node ../data/manage_graph_data.mjs reset",
-    "refresh:cache": "node ../data/manage_graph_data.mjs refresh-cache",
-    "generate:data": "python3 ../data/generate_graph_data.py",
-    "generate:performances:artist": "if [ -z \"$ARTIST_ID\" ]; then echo 'Usage: ARTIST_ID=14076 npm run generate:performances:artist'; exit 1; fi; python3 ../data/generate_graph_data.py --artist \"$ARTIST_ID\"",
-    "generate:images:artist": "if [ -z \"$ARTIST_ID\" ]; then echo 'Usage: ARTIST_ID=14076 npm run generate:images:artist'; exit 1; fi; python3 ../data/generate_cover_images.py --artist \"$ARTIST_ID\"",
-    "generate:band-detail": "python3 ../data/generate_band_detail.py",
-    "monitor:api": "python3 ../data/monitor_shs_api.py --once",
-    "monitor:api:wait": "python3 ../data/monitor_shs_api.py --run-band-detail",
-    "generate:data:artist": "npm run generate:performances:artist",
-    "generate:data:options": "node ../data/generate_from_options.mjs"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.0.0",
