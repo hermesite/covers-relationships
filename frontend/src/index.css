@@ -77,3 +77,41 @@ code {
   min-width: 190px;
   background: #fff;
 }
+
+.section-covers-cards {
+  min-height: 100vh;
+  background: #f4f5f3;
+}
+
+.covers-cards-header {
+  background: #fff;
+  border-bottom: 1px solid #deded9;
+}
+
+.section-covers-cards .graph-toolbar {
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.section-covers-cards .graph-toolbar select {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.covers-artist-card {
+  overflow: hidden;
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+
+.covers-artist-card .card-img-top,
+.covers-card-image-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #d9dfdc;
+}
+
+.covers-artist-card .card-title {
+  color: #762c27;
+}

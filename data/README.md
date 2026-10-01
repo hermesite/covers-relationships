@@ -21,6 +21,37 @@ These files are the runtime data source. Opening the app does not query SecondHa
 
 Run these commands from `frontend/`.
 
+### Band relation details
+
+Generate the selected band's relations and fetch extended data for each related artist:
+
+```sh
+npm run generate:band-detail
+npm run generate:band-detail -- --artist 14076
+```
+
+The output is written to `frontend/data/band-detail/<artist_id>.json` and served by the app at `/band-detail/<artist_id>.json`. The Band Detail view is available at `/band-detail?artistId=14076`.
+
+Check whether an IP-wide API block has cleared:
+
+```sh
+npm run monitor:api
+```
+
+Wait with one probe every 15 minutes and generate band details as soon as access returns:
+
+```sh
+npm run monitor:api:wait
+```
+
+The API does not always return a reset header for error `10007`, so monitoring requires a periodic request. Keep the interval low-frequency; `--interval-seconds` cannot be set below 60 seconds. To use an HTTP/HTTPS proxy you control, run the monitor directly from the repository root:
+
+```sh
+python3 data/monitor_shs_api.py --proxy http://proxy.example:8080 --run-band-detail
+```
+
+The proxy option is passed to `generate_band_detail.py` after recovery. Avoid untrusted public proxies, which can inspect traffic and may violate the upstream service's usage limits.
+
 ### Selected artist: two-step workflow
 
 Generate Covers and Originals performance data for one selected artist:
@@ -99,6 +130,7 @@ Generation includes all performances and cover originals by default. For a delib
 ## Scripts
 
 - `generate_graph_data.py`: fetches API data and writes Covers and Originals graph JSON.
+- `generate_band_detail.py`: fetches a band's relations and extended artist details for the Band Detail view.
 - `generate_cover_images.py`: enriches an existing Covers graph with artist images.
 - `generate_from_options.mjs`: reads artist IDs from the frontend selector and invokes the Python generator.
 - `manage_graph_data.mjs`: implements graph reset and cache refresh operations.
@@ -115,6 +147,8 @@ When `SHS_API_KEY` is set, the generator and proxy read the `X-RateLimit-Minute-
 `reset:data` removes `frontend/data/graphs` before generating the default artist. `refresh:cache` removes cached endpoint responses but preserves the quota ledger before regenerating all selector artists. Both commands bypass old endpoint entries.
 
 HTTP 403 and 429 responses are retried with quota-aware waits. Generation returns a nonzero exit code unless every selected performance and cover-original request succeeds, and existing artist graph files remain unchanged on failure.
+
+If generation ends with `API 10007: Too many requests from this IP`, the upstream IP-wide sliding window is exhausted. It can include requests made outside this repository or by other machines sharing the public IP, so the local ledger may show fewer calls. Wait for the upstream window to clear or configure `SHS_API_KEY`; do not repeatedly clear the endpoint cache, because cached responses reduce future quota use.
 
 The separate image command tries SecondHandSongs pictures, Wikidata through MusicBrainz, and Deezer for the selected artist. Cover-artist nodes use Deezer results. Selected URLs are stored as `artistPictureResolved` and `networkData[].data.imageUrl`.
 

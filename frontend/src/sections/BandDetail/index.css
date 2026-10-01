@@ -1,0 +1,163 @@
+.band-detail-page {
+  min-height: 100vh;
+  color: #202723;
+  background: #f2f4f1;
+}
+
+.band-detail-header {
+  background: #fff;
+  border-bottom: 1px solid #d8dfd9;
+}
+
+.band-detail-toolbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 1px solid #d1d8d2;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.band-detail-toolbar label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.band-detail-toolbar select {
+  min-width: 180px;
+  max-width: 100%;
+  padding: 4px 8px;
+  border: 1px solid #aeb8b0;
+  border-radius: 4px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+
+.band-detail-title-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 22px;
+}
+
+.band-detail-eyebrow,
+.band-member-relation {
+  margin: 0 0 4px;
+  color: #52665b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.band-detail-title-row h1 {
+  margin: 0;
+  color: #1b2922;
+  font-size: 42px;
+  line-height: 1.05;
+}
+
+.band-detail-count {
+  margin: 0 0 4px;
+  color: #7a3129;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.band-detail-content {
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+.band-detail-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 12px;
+}
+
+.band-member {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #d8dfd9;
+  border-top: 3px solid #8d382d;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.band-member-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.band-member-heading h2 {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: #202723;
+  font-size: 25px;
+  line-height: 1.1;
+}
+
+.band-member-type {
+  flex: 0 0 auto;
+  padding: 3px 7px;
+  border-radius: 3px;
+  background: #e4ede6;
+  color: #315641;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.band-member-credit {
+  margin: 12px 0 0;
+  color: #6c392f;
+  font-size: 15px;
+}
+
+.band-member-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px 14px;
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid #e5e9e5;
+}
+
+.band-member-facts div {
+  min-width: 0;
+}
+
+.band-member-facts dt {
+  color: #637169;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.band-member-facts dd {
+  margin: 2px 0 0;
+  overflow-wrap: anywhere;
+  color: #202723;
+  font-size: 15px;
+}
+
+.band-detail-message,
+.band-member-error {
+  color: #84362e;
+}
+
+@media (max-width: 520px) {
+  .band-detail-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .band-detail-title-row h1 {
+    font-size: 36px;
+  }
+}

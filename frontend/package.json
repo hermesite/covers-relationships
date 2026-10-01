@@ -3,17 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^1.20.0",
     "bootstrap": "^5.1.3",
     "cytoscape": "^3.21.0",
     "cytoscape-fcose": "^2.1.0",
-    "d3": "^7.4.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.2",
     "react-cytoscapejs": "^1.2.1",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^7.18.4",
-    "sass": "^1.50.1"
+    "react-router-dom": "^7.18.4"
   },
   "scripts": {
     "start": "vite",
@@ -24,6 +21,9 @@
     "generate:data": "python3 ../data/generate_graph_data.py",
     "generate:performances:artist": "if [ -z \"$ARTIST_ID\" ]; then echo 'Usage: ARTIST_ID=14076 npm run generate:performances:artist'; exit 1; fi; python3 ../data/generate_graph_data.py --artist \"$ARTIST_ID\"",
     "generate:images:artist": "if [ -z \"$ARTIST_ID\" ]; then echo 'Usage: ARTIST_ID=14076 npm run generate:images:artist'; exit 1; fi; python3 ../data/generate_cover_images.py --artist \"$ARTIST_ID\"",
+    "generate:band-detail": "python3 ../data/generate_band_detail.py",
+    "monitor:api": "python3 ../data/monitor_shs_api.py --once",
+    "monitor:api:wait": "python3 ../data/monitor_shs_api.py --run-band-detail",
     "generate:data:artist": "npm run generate:performances:artist",
     "generate:data:options": "node ../data/generate_from_options.mjs"
   },

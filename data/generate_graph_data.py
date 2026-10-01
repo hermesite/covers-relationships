@@ -98,6 +98,19 @@ def _request_json(url: str, api_key: str | None, timeout_seconds: float = 30.0) 
         return json.loads(payload), dict(response.headers.items())
 
 
+def _http_error_message(exc: HTTPError) -> str:
+    try:
+        payload = json.loads(exc.read().decode("utf-8"))
+        error = payload.get("error") or {}
+        message = error.get("message")
+        code = error.get("code")
+        if message:
+            return f"API {code}: {message}" if code is not None else str(message)
+    except (AttributeError, json.JSONDecodeError, UnicodeDecodeError):
+        pass
+    return str(exc.reason)
+
+
 def _remaining_seconds(deadline: float | None) -> float | None:
     if deadline is None:
         return None
@@ -221,7 +234,9 @@ def fetch_json(ctx: Context, endpoint: str, deadline: float | None = None) -> An
             ctx.session_cache[endpoint] = data
             return data
         except HTTPError as exc:
-            if exc.code in (403, 429) and attempt < MAX_RETRIES:
+            error_message = _http_error_message(exc)
+            is_rate_limit = exc.code == 429 or (exc.code == 403 and "too many requests" in error_message.lower())
+            if is_rate_limit and attempt < MAX_RETRIES:
                 retry_after = exc.headers.get("Retry-After") if exc.headers else None
                 try:
                     wait_seconds = max(float(retry_after), RATE_LIMIT_BACKOFF_SECONDS)
@@ -234,7 +249,7 @@ def fetch_json(ctx: Context, endpoint: str, deadline: float | None = None) -> An
             if exc.code in (500, 502, 503, 504) and attempt < MAX_RETRIES:
                 _sleep_with_deadline(RETRY_BACKOFF_SECONDS * attempt, deadline, "upstream retry")
                 continue
-            raise FetchError(f"HTTP {exc.code} for {endpoint}") from exc
+            raise FetchError(f"HTTP {exc.code} for {endpoint}: {error_message}") from exc
         except URLError as exc:
             if attempt < MAX_RETRIES:
                 time.sleep(RETRY_BACKOFF_SECONDS * attempt)

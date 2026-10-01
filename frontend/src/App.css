@@ -28,6 +28,41 @@
   color: #61dafb;
 }
 
+.app-navbar {
+  position: relative;
+  z-index: 20;
+  border-bottom: 1px solid #d8dfd9;
+  background-color: #fff;
+}
+
+.app-navbar .navbar-brand {
+  color: #7a3129;
+  font-weight: 700;
+}
+
+.app-navbar .navbar-nav .nav-link {
+  border-radius: 4px;
+  color: #46554c;
+}
+
+.app-navbar .navbar-nav .nav-link:hover,
+.app-navbar .navbar-nav .nav-link:focus-visible {
+  color: #7a3129;
+  background-color: #f5f0ed;
+}
+
+.app-navbar .navbar-nav .nav-link.active {
+  color: #7a3129;
+  background-color: #f3e8e4;
+  font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+  .app-navbar .navbar-collapse {
+    padding-top: 8px;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -1,0 +1,77 @@
+{
+  "artist": {
+    "entityType": "artist",
+    "entitySubType": "group",
+    "uri": "https://api.secondhandsongs.com/artist/14076",
+    "commonName": "The Cramps",
+    "birthName": null,
+    "legalName": null,
+    "birthDate": null,
+    "deathDate": null,
+    "picture": "https://api.secondhandsongs.com/picture/425919",
+    "homeCountry": "US",
+    "comments": null,
+    "aliases": [],
+    "performances": "https://api.secondhandsongs.com/artist/14076/performances",
+    "creditedWorks": "https://api.secondhandsongs.com/artist/14076/works",
+    "releases": "https://api.secondhandsongs.com/artist/14076/releases"
+  },
+  "relations": [
+    {
+      "relationName": "has as member",
+      "artist": {
+        "entityType": "artist",
+        "entitySubType": "person",
+        "uri": "https://api.secondhandsongs.com/artist/21305",
+        "commonName": "Kid Congo Powers"
+      },
+      "comments": "Guitar (1980-1983)",
+      "artistDetailsError": "artist timeout reached while waiting for SecondHandSongs retry"
+    },
+    {
+      "relationName": "has as member",
+      "artist": {
+        "entityType": "artist",
+        "entitySubType": "person",
+        "uri": "https://api.secondhandsongs.com/artist/20348",
+        "commonName": "Jim Sclavunos"
+      },
+      "comments": "Drums (1984)",
+      "artistDetailsError": "artist timeout reached while waiting for SecondHandSongs quota"
+    },
+    {
+      "relationName": "has as member",
+      "artist": {
+        "entityType": "artist",
+        "entitySubType": "person",
+        "uri": "https://api.secondhandsongs.com/artist/14154",
+        "commonName": "Lux Interior"
+      },
+      "comments": null,
+      "artistDetailsError": "artist timeout reached while waiting for SecondHandSongs quota"
+    },
+    {
+      "relationName": "has as member",
+      "artist": {
+        "entityType": "artist",
+        "entitySubType": "person",
+        "uri": "https://api.secondhandsongs.com/artist/14153",
+        "commonName": "Poison Ivy"
+      },
+      "comments": null,
+      "artistDetailsError": "artist timeout reached while waiting for SecondHandSongs quota"
+    },
+    {
+      "relationName": "has as member",
+      "artist": {
+        "entityType": "artist",
+        "entitySubType": "person",
+        "uri": "https://api.secondhandsongs.com/artist/11836",
+        "commonName": "Shauna Reynolds"
+      },
+      "comments": null,
+      "artistDetailsError": "artist timeout reached while waiting for SecondHandSongs quota"
+    }
+  ],
+  "generatedAt": "2026-10-01T13:00:33.580334+00:00"
+}

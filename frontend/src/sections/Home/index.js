@@ -1,223 +1,80 @@
-import React, { Component } from "react";
-import * as _ from "lodash";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import RelationshipType1 from "../../components/RelationShipType1";
-import RelationshipType2 from "../../components/RelationShipType2";
+import './index.css';
 
-import { getNodeData } from "./functions";
-// import './index.scss';
+const VISUALISATIONS = [
+  {
+    number: '01',
+    title: 'Originals',
+    path: '/originals',
+    description: 'Trace an artist\'s original recordings and the performers who covered them.',
+    type: 'Network graph',
+  },
+  {
+    number: '02',
+    title: 'Covers',
+    path: '/covers',
+    description: 'Follow the songs an artist covered back to their original performers.',
+    type: 'Network graph',
+  },
+  {
+    number: '03',
+    title: 'Cover Cards',
+    path: '/covers-cards',
+    description: 'Browse covered songs grouped by the artists who performed them first.',
+    type: 'Card collection',
+  },
+  {
+    number: '04',
+    title: 'Band Detail',
+    path: '/band-detail',
+    description: 'Explore an artist\'s related people and their roles, identities, and credits.',
+    type: 'Artist profile',
+  },
+];
 
-class Home extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loading: true,
-      schema: {
-        artA: {
-          id: 194, // David Bowie
-        },
-        artB: {
-          id: 604, // Ramones
-        },
-      },
-    };
-  }
+function Home() {
+  return (
+    <main className='home-page'>
+      <header className='home-hero'>
+        <div className='container home-hero-inner'>
+          <div className='home-hero-copy'>
+            <p className='home-eyebrow'>An exploration of recorded music</p>
+            <h1>Secondhand<br />Covers</h1>
+            <p className='home-hero-lead'>Every cover has a story behind it.</p>
+            <p className='home-hero-description'>Explore the relationships between songs, original performers, and the artists who reinterpret them. Identify original recordings, map cover versions, and reveal connections between artists.</p>
+            <a className='home-hero-link' href='#visualisations'>Explore the visualisations <span aria-hidden='true'>↗</span></a>
+          </div>
+        </div>
+      </header>
 
-  async componentDidMount() {
-    const nodeDataA = await getNodeData({
-      artistId: this.state.schema["artA"].id,
-    });
-    const nodeDataB = await getNodeData({
-      artistId: this.state.schema["artB"].id,
-    });
-
-    console.log("NODE DATA", nodeDataA);
-
-    // Concatenate the two lists
-    const nodeDataAFull = _.concat(
-      nodeDataA["originalPerformances"],
-      nodeDataA["coverPerformances"]
-    );
-
-    const nodeDataBFull = _.concat(
-      nodeDataB["originalPerformances"],
-      nodeDataB["coverPerformances"]
-    );
-
-    // Intersection of the two lists
-    const intersectionAB = _.intersectionBy(
-      nodeDataAFull,
-      nodeDataBFull,
-      "artistUri"
-    );
-
-    // and reverse
-    const intersectionBA = _.intersectionBy(
-      nodeDataBFull,
-      nodeDataAFull,
-      "artistUri"
-    );
-
-    // const intersectionCover = _.intersectionBy(
-    //   nodeDataA['originalPerformances'],
-    //   nodeDataB['originalPerformances'],
-    //     "artistUri"
-    // );
-
-    console.log("INTERSECTION A->B", intersectionAB);
-    console.log("INTERSECTION B->A", intersectionBA);
-
-    // Difference list by cover or original
-    const artistACovers = _.filter(intersectionAB, function (o) {
-      return o.selectedArtistCover;
-    });
-
-    const artistAOriginals = _.filter(intersectionAB, function (o) {
-      return o.selectedArtistOriginal;
-    });
-
-    const artistBCovers = _.filter(intersectionBA, function (o) {
-      return o.selectedArtistCover;
-    });
-
-    const artistBOriginals = _.filter(intersectionBA, function (o) {
-      return o.selectedArtistOriginal;
-    });
-
-    console.log("artistACovers", artistACovers);
-    console.log("artistAOriginals", artistAOriginals);
-    console.log("artistBCovers", artistBCovers);
-    console.log("artistBOriginals", artistBOriginals);
-
-    // Relationship type 2 
-    // Both entry artists cover the same artist
-    // Get a list of artists that are in both lists
-    const coversList = artistACovers.map((cover) => {
-      console.log("cover", cover);
-      return cover["artistUri"];
-    });
-
-    const originalsList = artistAOriginals.map((original) => {
-      console.log("original", original);
-      return original["artistUri"];
-    });
-
-    // concat covers lists and group by artist
-    const coversByArtist = _.concat(
-      artistACovers,
-      artistBCovers
-    ).reduce((r, a) => {
-      r[a.artistUri] = [...(r[a.artistUri] || []), a];
-      return r;
-    }, {});
-
-    console.log("coversByArtist", coversByArtist);
-
-    // the same for originals
-    const originalsByArtist = _.concat(
-      artistAOriginals,
-      artistBOriginals
-    ).reduce((r, a) => {
-      r[a.artistUri] = [...(r[a.artistUri] || []), a];
-      return r;
-    }, {});
-
-    console.log("originalsByArtist", originalsByArtist);
-
-    
-
-
-    // set relationship by song
-    // ie. if song is in both lists, then it's a relationship
-
-    // set relationship by artist
-    // check if scope artist uri is in either list
-    const AaCoverAb = _.filter(intersectionAB, function (o) {
-      return o.artistUri === intersectionBA[0]["selectedArtistUri"];
-    });
-
-    const AbCoverAa = _.filter(intersectionBA, function (o) {
-      return o.artistUri === intersectionAB[0]["selectedArtistUri"];
-    });
-
-    console.log("-------- AaCoverAb --------", AaCoverAb);
-    console.log("-------- AbCoverAa --------", AbCoverAa);
-
-
-
-
-    this.setState({
-      loading: false,
-      nodeDataA: nodeDataA,
-      nodeDataB: nodeDataB,
-      performancesA: intersectionAB,
-      performancesB: intersectionBA,
-      relationships: {
-        AaCoverAb: AaCoverAb,
-        AbCoverAa: AbCoverAa,
-        coversByArtist: coversByArtist,
-        originalsByArtist: originalsByArtist,
-        originalsList: originalsList,
-        coversList: coversList,
-      },
-    });
-  }
-
-  render() {
-    const { loading, nodeDataA, nodeDataB, performancesA, performancesB, relationships } =
-      this.state;
-    return (
-      <section className="section section-home">
-        <div className="container border">
-          <p>
-            You must choose my brother, are you gonna be problem or are you
-            gonna the solution
-          </p>
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            <div className="row border">
-              <h1>{nodeDataA["artist"]["data"]["commonName"]} & {nodeDataB["artist"]["data"]["commonName"]}</h1>
-              <h2>Relationships</h2>
-              {/* Type 1 */}
-              <RelationshipType1
-                nodeDataA={nodeDataA}
-                nodeDataB={nodeDataB}
-                relationships={relationships}
-              />
-              {/* Type 2 */}
-              <RelationshipType2
-                nodeDataA={nodeDataA}
-                nodeDataB={nodeDataB}
-                relationships={relationships}
-              />
-
-              <div className="col col-6 border">
-                <h4>{nodeDataA['artist']['data']['commonName']}</h4>
-                {_.map(performancesA, function (performance) {
-                  return (
-                    <p>
-                      {performance.artist} - {performance.song}
-                    </p>
-                  );
-                })}
-              </div>
-              <div className="col col-6 border">
-                <h4>{nodeDataB['artist']['data']['commonName']}</h4>
-                {_.map(performancesB, function (performance) {
-                  return (
-                    <p>
-                      {performance.artist} - {performance.song}
-                    </p>
-                  );
-                })}
-              </div>
+      <section className='home-index' id='visualisations' aria-labelledby='home-index-title'>
+        <div className='container'>
+          <div className='home-index-heading'>
+            <div>
+              <p className='home-eyebrow'>Explore the project</p>
+              <h2 id='home-index-title'>Visualisations</h2>
             </div>
-          )}
+            <p>Four ways to explore connections between artists and recordings.</p>
+          </div>
+          <div className='home-index-list'>
+            {VISUALISATIONS.map(({ number, title, path, description, type }) => (
+              <Link className='home-index-item' key={path} to={path}>
+                <span className='home-index-number'>{number}</span>
+                <span className='home-index-content'>
+                  <span className='home-index-title'>{title}</span>
+                  <span className='home-index-description'>{description}</span>
+                </span>
+                <span className='home-index-type'>{type}</span>
+                <span className='home-index-arrow' aria-hidden='true'>↗</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
-    );
-  }
+    </main>
+  );
 }
 
 export default Home;

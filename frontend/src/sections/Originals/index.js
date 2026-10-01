@@ -4,6 +4,7 @@ import CytoscapeComponent from 'react-cytoscapejs';
 import fcose from 'cytoscape-fcose';
 
 import { ARTIST_OPTIONS } from '../../constants/artistOptions';
+import { getArtistIdFromUrl, setArtistIdInUrl } from '../artistUrl';
 
 Cytoscape.use(fcose);
 
@@ -11,7 +12,7 @@ class Originals extends Component {
   constructor() {
     super();
     this.state = {
-      selectedArtistId: String(ARTIST_OPTIONS[0].id),
+      selectedArtistId: getArtistIdFromUrl(ARTIST_OPTIONS),
       loading: true,
       error: null,
       artist: null,
@@ -29,6 +30,7 @@ class Originals extends Component {
 
   componentDidMount() {
     this.isMountedFlag = true;
+    setArtistIdInUrl(this.state.selectedArtistId);
     this.loadGraphForArtist(Number(this.state.selectedArtistId));
   }
 
@@ -66,6 +68,7 @@ class Originals extends Component {
 
   onArtistChange = async (event) => {
     const selectedArtistId = event.target.value;
+    setArtistIdInUrl(selectedArtistId);
     this.setState({
       selectedArtistId,
       loading: true,
