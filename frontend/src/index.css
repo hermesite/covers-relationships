@@ -27,18 +27,25 @@ code {
   padding-top: 16px;
 }
 
+.artist-summary {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
 .artist-image-mosaic {
   display: grid;
-  grid-template-columns: repeat(2, 84px);
-  grid-auto-rows: 84px;
+  grid-template-columns: repeat(2, 120px);
+  grid-auto-rows: 120px;
   grid-auto-flow: row;
   gap: 4px;
   flex: 0 0 auto;
 }
 
 .artist-image-mosaic img {
-  width: 84px;
-  height: 84px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;

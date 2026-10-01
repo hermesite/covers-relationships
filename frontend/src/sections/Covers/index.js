@@ -186,6 +186,21 @@ class Covers extends Component {
                 this.initListeners();
                 cy.layout(layout).run();
                 cy.fit();
+                cy.nodes('[nodeType = "artist"]').forEach((node) => {
+                  const imageUrl = node.data('imageUrl');
+                  if (!imageUrl) return;
+                  const image = new Image();
+                  image.onload = () => {
+                    if (cy.destroyed()) return;
+                    const scale = Math.min(120 / image.naturalWidth, 80 / image.naturalHeight);
+                    node.style({
+                      'background-width': image.naturalWidth * scale,
+                      'background-height': image.naturalHeight * scale,
+                      'background-image-opacity': 1,
+                    });
+                  };
+                  image.src = imageUrl;
+                });
               }}
               style={{
                 width: canvasContainerWidth,
@@ -215,19 +230,22 @@ class Covers extends Component {
                     shape: 'rectangle',
                     width: 120,
                     height: 120,
+                    'background-color': '#922b21',
                     'background-opacity': 1,
                     'background-image': (ele) => ele.data('imageUrl') || 'none',
-                    'background-fit': 'cover',
-                    'background-image-opacity': (ele) => (ele.data('imageUrl') ? 0.55 : 0),
+                    'background-fit': 'none',
+                    'background-width': '100%',
+                    'background-height': '66.6667%',
+                    'background-position-y': '0%',
+                    'background-image-opacity': 0,
                     color: '#ffffff',
                     'font-size': 14,
                     'font-weight': 700,
                     'text-wrap': 'wrap',
-                    'text-max-width': 100,
+                    'text-max-width': 110,
                     'text-halign': 'center',
-                    'text-valign': 'center',
-                    'text-outline-color': '#922b21',
-                    'text-outline-width': 2,
+                    'text-valign': 'bottom',
+                    'text-margin-y': -28,
                     'border-width': 1,
                     'border-color': '#922b21',
                   },
@@ -305,7 +323,7 @@ class Covers extends Component {
 
           {!loading && !error && artist && (
             <header className='pt-3'>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+              <div className='artist-summary'>
                 {artistImageUrls.length > 0 && (
                   <div className='artist-image-mosaic'>
                     {artistImageUrls.map((imageUrl, index) => (
