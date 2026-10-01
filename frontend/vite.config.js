@@ -19,11 +19,11 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       // Cached API responses are rewritten while the app loads; don't trigger reloads.
-      watch: { ignored: ['**/.shs-cache/**'] },
+      watch: { ignored: ['../data/.cache/**'] },
     },
     plugins: [
       react({ include: /\.[jt]sx?$/ }),
-      shsApi({ apiKey: SHS_API_KEY, cacheDir: '.shs-cache' }),
+      shsApi({ apiKey: SHS_API_KEY, cacheDir: '../data/.cache' }),
     ],
   };
 });

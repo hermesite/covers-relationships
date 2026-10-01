@@ -5,12 +5,13 @@ const PREFIX = '/api/secondhandsongs';
 const UPSTREAM = 'https://api.secondhandsongs.com';
 const ALLOWED_PATH = /^\/(artist|performance|work|release|label|search)(\/[\w+%-]*)*(\?[\w=&%+.-]*)?$/;
 // Anonymous limits from https://secondhandsongs.com/page/API/RateLimits: [window ms, max requests]
-const WINDOWS = [
+const ANONYMOUS_WINDOWS = [
   [60e3, 20],
   [3600e3, 200],
   [86400e3, 1000],
 ];
 const BACKOFF_MS = 60e3;
+const MAX_RETRIES = 5;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -18,6 +19,7 @@ export default function shsApi({ apiKey, cacheDir }) {
   const stampsFile = path.join(cacheDir, '_sent.json');
   const inFlight = new Map();
   let sent = [];
+  let windows = ANONYMOUS_WINDOWS;
   let queue = Promise.resolve();
   let pending = 0;
 
@@ -25,17 +27,29 @@ export default function shsApi({ apiKey, cacheDir }) {
     path.join(cacheDir, `${endpoint.replace(/[^\w.-]+/g, '_').replace(/^_/, '')}.json`);
 
   function waitTime(now) {
-    sent = sent.filter((t) => now - t < WINDOWS[WINDOWS.length - 1][0]);
+    sent = sent.filter((t) => now - t < windows[windows.length - 1][0]);
     let wait = 0;
-    for (const [ms, max] of WINDOWS) {
+    for (const [ms, max] of windows) {
       const inWindow = sent.filter((t) => now - t < ms);
       if (inWindow.length >= max) wait = Math.max(wait, inWindow[inWindow.length - max] + ms - now);
     }
     return wait;
   }
 
+  function applyRateLimitHeaders(headers) {
+    if (!apiKey) return;
+    const minuteLimit = Number(headers.get('X-RateLimit-Minute-Limit'));
+    const hourLimit = Number(headers.get('X-RateLimit-Hour-Limit'));
+    if (minuteLimit > 0 && hourLimit > 0) {
+      windows = [
+        [60e3, minuteLimit],
+        [3600e3, hourLimit],
+      ];
+    }
+  }
+
   async function fetchUpstream(endpoint) {
-    for (;;) {
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt += 1) {
       const wait = waitTime(Date.now());
       if (wait > 0) {
         console.log(`[shs] ${pending} queued, waiting ${Math.ceil(wait / 1000)}s for rate limit`);
@@ -47,15 +61,17 @@ export default function shsApi({ apiKey, cacheDir }) {
       const res = await fetch(UPSTREAM + endpoint, {
         headers: { Accept: 'application/json', ...(apiKey && { 'X-API-Key': apiKey }) },
       });
+      applyRateLimitHeaders(res.headers);
       const body = await res.text();
       if (res.ok) return body;
-      if (res.status === 429 || /too many requests/i.test(body)) {
+      if ((res.status === 403 || res.status === 429 || /too many requests/i.test(body)) && attempt < MAX_RETRIES) {
         console.log(`[shs] rate limited by API, retrying ${endpoint} in ${BACKOFF_MS / 1000}s`);
         await sleep(BACKOFF_MS);
         continue;
       }
       throw Object.assign(new Error(body.slice(0, 200)), { status: res.status });
     }
+    throw Object.assign(new Error(`Rate limit retries exhausted for ${endpoint}`), { status: 429 });
   }
 
   async function load(endpoint) {

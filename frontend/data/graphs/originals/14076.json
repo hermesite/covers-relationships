@@ -6,11 +6,11 @@
     "picture": "https://api.secondhandsongs.com/picture/425919"
   },
   "artistPicture": "https://api.secondhandsongs.com/picture/425919",
-  "artistPictureResolved": "https://upload.wikimedia.org/wikipedia/commons/7/79/Cramps1982-07.jpg",
-  "originalsCount": 39,
-  "artistsCoveringCount": 93,
-  "coversTotal": 107,
-  "partialData": true,
+  "artistPictureResolved": "https://secondhandsongs.com/picture/425919",
+  "originalsCount": 41,
+  "artistsCoveringCount": 99,
+  "coversTotal": 116,
+  "partialData": false,
   "networkData": [
     {
       "data": {
@@ -50,6 +50,20 @@
         "opacity": 1,
         "bgOpacity": 1,
         "fontSize": 14.666666666666666,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/906359",
+        "label": "TV Set",
+        "size": 78.57142857142858,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 14.0,
         "fontFamily": "Kreon",
         "nodeType": "song"
       }
@@ -184,6 +198,20 @@
       "data": {
         "id": "https://api.secondhandsongs.com/performance/1469975",
         "label": "Aloha from Hell",
+        "size": 50.0,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.666666666666666,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/906344",
+        "label": "Big Black Witchcraft Rock",
         "size": 50.0,
         "color": "#FFF",
         "bgColor": "#C00",
@@ -842,12 +870,12 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/158536",
         "label": "Tokyo Cramps",
-        "size": 90.0,
+        "size": 101.42857142857142,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
-        "fontSize": 16.191274333831824,
+        "fontSize": 16.939376614429868,
         "fontFamily": "Big Shoulders Display",
         "nodeType": "artist"
       }
@@ -1094,6 +1122,90 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/1390",
         "label": "The Jesus and Mary Chain",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/115527",
+        "label": "Child Bite",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/185599",
+        "label": "Mr Spoon and his Spoonerisms",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/14980",
+        "label": "Spoon",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/20761",
+        "label": "The Flametrick Subs",
+        "size": 61.42857142857143,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 13.168118696880716,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190398",
+        "label": "The Gorgons [GB]",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/286456",
+        "label": "The Klitz",
         "size": 44.285714285714285,
         "color": "#333",
         "bgColor": "#333",
@@ -1358,20 +1470,6 @@
     },
     {
       "data": {
-        "id": "https://api.secondhandsongs.com/artist/20761",
-        "label": "The Flametrick Subs",
-        "size": 55.714285714285715,
-        "color": "#333",
-        "bgColor": "#333",
-        "bgOpacity": 0,
-        "opacity": 1,
-        "fontSize": 12.095637166915912,
-        "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
-      }
-    },
-    {
-      "data": {
         "id": "https://api.secondhandsongs.com/artist/45535",
         "label": "Two Bands and a Legend",
         "size": 44.285714285714285,
@@ -1542,6 +1640,20 @@
       "data": {
         "id": "https://api.secondhandsongs.com/artist/188485",
         "label": "The Vandelles",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190381",
+        "label": "Los Crveles",
         "size": 44.285714285714285,
         "color": "#333",
         "bgColor": "#333",
@@ -2222,6 +2334,69 @@
     },
     {
       "data": {
+        "source": "https://api.secondhandsongs.com/performance/906359",
+        "target": "https://api.secondhandsongs.com/artist/115527",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906359",
+        "target": "https://api.secondhandsongs.com/artist/185599",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906359",
+        "target": "https://api.secondhandsongs.com/artist/14980",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906359",
+        "target": "https://api.secondhandsongs.com/artist/20761",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906359",
+        "target": "https://api.secondhandsongs.com/artist/190398",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906359",
+        "target": "https://api.secondhandsongs.com/artist/286456",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906359",
+        "target": "https://api.secondhandsongs.com/artist/158536",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
         "source": "https://api.secondhandsongs.com/performance/739772",
         "target": "https://api.secondhandsongs.com/artist/190391",
         "weight": 1,
@@ -2555,6 +2730,24 @@
     },
     {
       "data": {
+        "source": "https://api.secondhandsongs.com/performance/906344",
+        "target": "https://api.secondhandsongs.com/artist/190381",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906344",
+        "target": "https://api.secondhandsongs.com/artist/158536",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
         "source": "https://api.secondhandsongs.com/performance/1169433",
         "target": "https://api.secondhandsongs.com/artist/190374",
         "weight": 1,
@@ -2826,33 +3019,14 @@
   ],
   "diagnostics": {
     "performanceUrisTotal": 88,
-    "performanceUrisSelected": 80,
-    "performanceResultsOk": 80,
+    "performanceUrisSelected": 88,
+    "performanceResultsOk": 88,
     "performanceResultsFailed": 0,
-    "originalsValid": 39,
-    "artistsCoveringCount": 93,
-    "networkItems": 239,
+    "originalsValid": 41,
+    "artistsCoveringCount": 99,
+    "networkItems": 256,
     "sampleErrors": [],
-    "imageCandidates": [
-      {
-        "source": "shs.raw",
-        "url": "https://api.secondhandsongs.com/picture/425919",
-        "status": "HTTP 404",
-        "ok": "False"
-      },
-      {
-        "source": "shs.resolved",
-        "url": "https://secondhandsongs.com/picture/425919",
-        "status": "HTTP 403",
-        "ok": "False"
-      },
-      {
-        "source": "wikidata",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Cramps1982-07.jpg",
-        "status": "HEAD 200",
-        "ok": "True"
-      }
-    ]
+    "imageCandidates": []
   },
-  "generatedAt": "2026-10-01T00:48:04.901796+00:00"
+  "generatedAt": "2026-10-01T10:52:25.728612+00:00"
 }

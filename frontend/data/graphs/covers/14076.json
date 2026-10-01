@@ -7,8 +7,8 @@
   },
   "artistPicture": "https://api.secondhandsongs.com/picture/425919",
   "artistPictureResolved": "https://upload.wikimedia.org/wikipedia/commons/7/79/Cramps1982-07.jpg",
-  "coversCount": 39,
-  "partialData": true,
+  "coversCount": 45,
+  "partialData": false,
   "networkData": [
     {
       "data": {
@@ -145,7 +145,36 @@
         "id": "https://api.secondhandsongs.com/artist/8699",
         "label": "Jimmie Rodgers [US1]",
         "nodeType": "artist",
-        "imageUrl": null,
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/6db7473f18b606e8206ff8c1151e6dc3/1000x1000-000000-80-0-0.jpg",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/146229",
+        "label": "Tabú",
+        "nodeType": "song",
+        "size": 45.59485530546624,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 12.610932475884244,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/57362",
+        "label": "Cuarteto Machín",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/30fa72cd95b363170c6e5c12613dd686/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -174,7 +203,7 @@
         "id": "https://api.secondhandsongs.com/artist/15541",
         "label": "Jim Lowe with The High Fives",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist//1000x1000-000000-80-0-0.jpg",
+        "imageUrl": null,
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -261,7 +290,7 @@
         "id": "https://api.secondhandsongs.com/artist/1522",
         "label": "The Raindrops [US]",
         "nodeType": "artist",
-        "imageUrl": null,
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/2ee588753ed2d1553c9145ef49e1b50e/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -290,7 +319,7 @@
         "id": "https://api.secondhandsongs.com/artist/2140",
         "label": "Johnny Burnette and The Rock 'n Roll Trio",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/dc6579f4bc91046e8f6260cbeac41cfc/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/991f046e0ed156867d0f176761390220/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -331,6 +360,35 @@
     },
     {
       "data": {
+        "id": "https://api.secondhandsongs.com/performance/60746",
+        "label": "Riot in Cell Block #9",
+        "nodeType": "song",
+        "size": 41.446945337620576,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.67524115755627,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/11431",
+        "label": "The Robins",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/b1a15012b04b50f1ac6a30db8dc16a05/1000x1000-000000-80-0-0.jpg",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
         "id": "https://api.secondhandsongs.com/performance/67775",
         "label": "The Goo Goo Muck",
         "nodeType": "song",
@@ -348,7 +406,7 @@
         "id": "https://api.secondhandsongs.com/artist/29244+170863",
         "label": "Ronnie Cook and The Gaylads",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist//1000x1000-000000-80-0-0.jpg",
+        "imageUrl": null,
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -378,6 +436,35 @@
         "label": "The Trashmen",
         "nodeType": "artist",
         "imageUrl": "https://cdn-images.dzcdn.net/images/artist/be365ecc9aebbd28d8c165689320813e/1000x1000-000000-80-0-0.jpg",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/45384",
+        "label": "Funnel of Love",
+        "nodeType": "song",
+        "size": 41.254019292604504,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.585209003215434,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/1628",
+        "label": "Wanda Jackson",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/b5ebb2f5155fc11f2dc7e1e995505597/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -464,7 +551,7 @@
         "id": "https://api.secondhandsongs.com/artist/78724",
         "label": "Dave \"Diddlie\" Day",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist//1000x1000-000000-80-0-0.jpg",
+        "imageUrl": null,
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -493,7 +580,7 @@
         "id": "https://api.secondhandsongs.com/artist/1418",
         "label": "Warren Smith [US2]",
         "nodeType": "artist",
-        "imageUrl": null,
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/5ad98f5ac970eca178251158fc6e7fd3/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -552,6 +639,35 @@
         "label": "Roy Orbison",
         "nodeType": "artist",
         "imageUrl": "https://cdn-images.dzcdn.net/images/artist/a05bdb2eed3a93309c518e7c89e362d0/1000x1000-000000-80-0-0.jpg",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/110707",
+        "label": "Love Me",
+        "nodeType": "song",
+        "size": 40.38585209003215,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.180064308681672,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/40934",
+        "label": "The Phantom",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/8292579c9fbe17a7ae696e0c26c88d60/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -650,6 +766,35 @@
     },
     {
       "data": {
+        "id": "https://api.secondhandsongs.com/performance/218354",
+        "label": "Hang Up",
+        "nodeType": "song",
+        "size": 40.28938906752411,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.135048231511254,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/16080",
+        "label": "The Wailers [US]",
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/109bcff06a7b3db616a30845c3c63bc0/1000x1000-000000-80-0-0.jpg",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
         "id": "https://api.secondhandsongs.com/performance/307956",
         "label": "Her Love Rubbed Off",
         "nodeType": "song",
@@ -667,7 +812,7 @@
         "id": "https://api.secondhandsongs.com/artist/402",
         "label": "Carl Perkins [US1]",
         "nodeType": "artist",
-        "imageUrl": null,
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/8856a23b962f2f19491c3f7a6bee4d5c/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -725,7 +870,7 @@
         "id": "https://api.secondhandsongs.com/artist/29247",
         "label": "Elroy Dietzel and The Rhythm Bandits",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/ee11f4fabc7cae7f1db1a6a8d8c3c48e/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": null,
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -783,7 +928,7 @@
         "id": "https://api.secondhandsongs.com/artist/26161",
         "label": "Charlie Feathers",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/6de9d20398bb4cdc25414bbf528066c8/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/92fb5c67d2bf76376d9038506c1310c0/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -870,7 +1015,7 @@
         "id": "https://api.secondhandsongs.com/artist/29256",
         "label": "Kip Tyler & The Flips",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist//1000x1000-000000-80-0-0.jpg",
+        "imageUrl": null,
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -899,7 +1044,7 @@
         "id": "https://api.secondhandsongs.com/artist/8527",
         "label": "Hasil Adkins and His Happy Guitar",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist//1000x1000-000000-80-0-0.jpg",
+        "imageUrl": null,
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -928,7 +1073,7 @@
         "id": "https://api.secondhandsongs.com/artist/167092",
         "label": "Jimmy Stewart [US2]",
         "nodeType": "artist",
-        "imageUrl": null,
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/2e47c0f8630177b931ddfe9374bde87e/1000x1000-000000-80-0-0.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -957,7 +1102,7 @@
         "id": "https://api.secondhandsongs.com/artist/83322",
         "label": "Macy \"Skip\" Skipper",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist//1000x1000-000000-80-0-0.jpg",
+        "imageUrl": null,
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -1056,6 +1201,35 @@
     },
     {
       "data": {
+        "id": "https://api.secondhandsongs.com/performance/906551",
+        "label": "Oooh Eeee",
+        "nodeType": "song",
+        "size": 40.048231511254016,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.02250803858521,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/17260",
+        "label": "Ric Cartey with The Jiva-Tones",
+        "nodeType": "artist",
+        "imageUrl": null,
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
         "id": "https://api.secondhandsongs.com/performance/1272099",
         "label": "Trapped Love",
         "nodeType": "song",
@@ -1073,7 +1247,7 @@
         "id": "https://api.secondhandsongs.com/artist/195553",
         "label": "Keith Courvale",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist//1000x1000-000000-80-0-0.jpg",
+        "imageUrl": null,
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -1102,7 +1276,7 @@
         "id": "https://api.secondhandsongs.com/artist/37638",
         "label": "Junior Thompson",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/737dd3d3961ea93c031bf470d9de6e7d/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": null,
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -1131,7 +1305,7 @@
         "id": "https://api.secondhandsongs.com/artist/46671",
         "label": "Hayden Thompson",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/22f947afc57562b911cc7a380a7323dc/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": null,
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
@@ -1181,6 +1355,15 @@
       "data": {
         "source": "https://api.secondhandsongs.com/performance/13325",
         "target": "https://api.secondhandsongs.com/artist/8699",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/146229",
+        "target": "https://api.secondhandsongs.com/artist/57362",
         "weight": 1,
         "color": "#666",
         "opacity": 0.25
@@ -1242,6 +1425,15 @@
     },
     {
       "data": {
+        "source": "https://api.secondhandsongs.com/performance/60746",
+        "target": "https://api.secondhandsongs.com/artist/11431",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
         "source": "https://api.secondhandsongs.com/performance/67775",
         "target": "https://api.secondhandsongs.com/artist/29244+170863",
         "weight": 1,
@@ -1253,6 +1445,15 @@
       "data": {
         "source": "https://api.secondhandsongs.com/performance/9427",
         "target": "https://api.secondhandsongs.com/artist/6738",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/45384",
+        "target": "https://api.secondhandsongs.com/artist/1628",
         "weight": 1,
         "color": "#666",
         "opacity": 0.25
@@ -1314,6 +1515,15 @@
     },
     {
       "data": {
+        "source": "https://api.secondhandsongs.com/performance/110707",
+        "target": "https://api.secondhandsongs.com/artist/40934",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
         "source": "https://api.secondhandsongs.com/performance/83081",
         "target": "https://api.secondhandsongs.com/artist/34156",
         "weight": 1,
@@ -1334,6 +1544,15 @@
       "data": {
         "source": "https://api.secondhandsongs.com/performance/745401",
         "target": "https://api.secondhandsongs.com/artist/136818",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/218354",
+        "target": "https://api.secondhandsongs.com/artist/16080",
         "weight": 1,
         "color": "#666",
         "opacity": 0.25
@@ -1467,6 +1686,15 @@
     },
     {
       "data": {
+        "source": "https://api.secondhandsongs.com/performance/906551",
+        "target": "https://api.secondhandsongs.com/artist/17260",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
         "source": "https://api.secondhandsongs.com/performance/1272099",
         "target": "https://api.secondhandsongs.com/artist/195553",
         "weight": 1,
@@ -1495,17 +1723,17 @@
   ],
   "diagnostics": {
     "performanceUrisTotal": 88,
-    "performanceUrisSelected": 80,
-    "performanceResultsOk": 80,
+    "performanceUrisSelected": 88,
+    "performanceResultsOk": 88,
     "performanceResultsFailed": 0,
-    "coverOriginalUrisTotal": 39,
-    "coverOriginalUrisSelected": 39,
-    "originalResultsOk": 39,
+    "coverOriginalUrisTotal": 45,
+    "coverOriginalUrisSelected": 45,
+    "originalResultsOk": 45,
     "originalResultsFailed": 0,
-    "originalsValid": 39,
-    "networkItems": 117,
+    "originalsValid": 45,
+    "networkItems": 135,
     "artistImageResolvedCount": 31,
-    "artistImageLookupCount": 39,
+    "artistImageLookupCount": 40,
     "sampleErrors": [],
     "imageCandidates": [
       {
@@ -1525,8 +1753,19 @@
         "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Cramps1982-07.jpg",
         "status": "HEAD 200",
         "ok": "True"
+      },
+      {
+        "source": "deezer.1",
+        "url": "https://cdn-images.dzcdn.net/images/artist/0635e7f942d66f873a0a0e15f59d3ffd/1000x1000-000000-80-0-0.jpg",
+        "status": "HEAD 200",
+        "ok": "True"
       }
     ]
   },
-  "generatedAt": "2026-10-01T00:48:02.043575+00:00"
+  "generatedAt": "2026-10-01T11:00:21.196738+00:00",
+  "artistPictures": [
+    "https://upload.wikimedia.org/wikipedia/commons/7/79/Cramps1982-07.jpg",
+    "https://cdn-images.dzcdn.net/images/artist/0635e7f942d66f873a0a0e15f59d3ffd/1000x1000-000000-80-0-0.jpg"
+  ],
+  "imagesGeneratedAt": "2026-10-01T11:00:21.196694+00:00"
 }

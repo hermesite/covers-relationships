@@ -19,8 +19,12 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "reset:data": "node ../data/manage_graph_data.mjs reset",
+    "refresh:cache": "node ../data/manage_graph_data.mjs refresh-cache",
     "generate:data": "python3 ../data/generate_graph_data.py",
-    "generate:data:artist": "if [ -z \"$ARTIST_ID\" ]; then echo 'Usage: ARTIST_ID=14076 npm run generate:data:artist'; exit 1; fi; python3 ../data/generate_graph_data.py --artist \"$ARTIST_ID\"",
+    "generate:performances:artist": "if [ -z \"$ARTIST_ID\" ]; then echo 'Usage: ARTIST_ID=14076 npm run generate:performances:artist'; exit 1; fi; python3 ../data/generate_graph_data.py --artist \"$ARTIST_ID\"",
+    "generate:images:artist": "if [ -z \"$ARTIST_ID\" ]; then echo 'Usage: ARTIST_ID=14076 npm run generate:images:artist'; exit 1; fi; python3 ../data/generate_cover_images.py --artist \"$ARTIST_ID\"",
+    "generate:data:artist": "npm run generate:performances:artist",
     "generate:data:options": "node ../data/generate_from_options.mjs"
   },
   "devDependencies": {

@@ -9,6 +9,7 @@ Outputs JSON files to:
 from __future__ import annotations
 
 import argparse
+import fcntl
 import json
 import math
 import os
@@ -16,7 +17,7 @@ import re
 import sys
 import time
 import unicodedata
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -32,13 +33,17 @@ ARTIST_OPTIONS = [
     {"id": 14076, "name": "The Cramps"}
 ]
 
-MAX_PERFORMANCE_REQUESTS = 80
-MAX_ORIGINAL_REQUESTS = 80
-MAX_COVER_ARTIST_IMAGE_LOOKUPS = 40
-REQUEST_PAUSE_SECONDS = 0.08
+MAX_PERFORMANCE_REQUESTS = int(os.environ.get("MAX_PERFORMANCE_REQUESTS", "0"))
+MAX_ORIGINAL_REQUESTS = int(os.environ.get("MAX_ORIGINAL_REQUESTS", "0"))
 RETRY_BACKOFF_SECONDS = 2.0
+RATE_LIMIT_BACKOFF_SECONDS = 60.0
 MAX_RETRIES = 5
-DEFAULT_ARTIST_TIMEOUT_SECONDS = 180
+DEFAULT_ARTIST_TIMEOUT_SECONDS = 900
+ANONYMOUS_RATE_LIMITS = (
+    (60_000, 20),
+    (3_600_000, 200),
+    (86_400_000, 1000),
+)
 
 
 @dataclass
@@ -50,6 +55,10 @@ class Context:
     base_url: str
     api_key: str | None
     use_cache: bool
+    rate_limit_file: Path
+    rate_limits: tuple[tuple[int, int], ...]
+    blocked_until_ms: int = 0
+    session_cache: dict[str, Any] = field(default_factory=dict)
 
 
 class FetchError(RuntimeError):
@@ -76,7 +85,7 @@ def _shs_cache_file(ctx: Context, endpoint: str) -> Path:
     return ctx.shs_cache_dir / _safe_filename(endpoint)
 
 
-def _request_json(url: str, api_key: str | None, timeout_seconds: float = 30.0) -> Any:
+def _request_json(url: str, api_key: str | None, timeout_seconds: float = 30.0) -> tuple[Any, dict[str, str]]:
     headers = {
         "Accept": "application/json",
         "User-Agent": "secondhand-covers-data-generator/1.0",
@@ -86,7 +95,7 @@ def _request_json(url: str, api_key: str | None, timeout_seconds: float = 30.0) 
     request = Request(url, headers=headers)
     with urlopen(request, timeout=timeout_seconds) as response:
         payload = response.read().decode("utf-8")
-        return json.loads(payload)
+        return json.loads(payload), dict(response.headers.items())
 
 
 def _remaining_seconds(deadline: float | None) -> float | None:
@@ -95,17 +104,105 @@ def _remaining_seconds(deadline: float | None) -> float | None:
     return deadline - time.monotonic()
 
 
+def _rate_limit_wait_ms(
+    timestamps: list[int],
+    now_ms: int,
+    limits: tuple[tuple[int, int], ...],
+) -> int:
+    wait_ms = 0
+    for window_ms, request_limit in limits:
+        in_window = [stamp for stamp in timestamps if now_ms - stamp < window_ms]
+        if len(in_window) >= request_limit:
+            wait_ms = max(wait_ms, in_window[-request_limit] + window_ms - now_ms)
+    return wait_ms
+
+
+def _sleep_with_deadline(seconds: float, deadline: float | None, reason: str) -> None:
+    remaining = _remaining_seconds(deadline)
+    if remaining is not None and remaining <= seconds:
+        raise ArtistTimeoutError(f"artist timeout reached while waiting for {reason}")
+    time.sleep(seconds)
+
+
+def _reserve_request_slot(ctx: Context, deadline: float | None) -> None:
+    if ctx.base_url.rstrip("/") != SHS_API:
+        return
+
+    ctx.rate_limit_file.parent.mkdir(parents=True, exist_ok=True)
+    with ctx.rate_limit_file.open("a+", encoding="utf-8") as rate_file:
+        fcntl.flock(rate_file.fileno(), fcntl.LOCK_EX)
+        while True:
+            rate_file.seek(0)
+            try:
+                timestamps = [int(stamp) for stamp in json.load(rate_file)]
+            except (json.JSONDecodeError, ValueError):
+                timestamps = []
+
+            now_ms = int(time.time() * 1000)
+            longest_window_ms = max(window_ms for window_ms, _ in ctx.rate_limits)
+            timestamps = [stamp for stamp in timestamps if now_ms - stamp < longest_window_ms]
+            wait_ms = max(
+                _rate_limit_wait_ms(timestamps, now_ms, ctx.rate_limits),
+                ctx.blocked_until_ms - now_ms,
+            )
+            if wait_ms <= 0:
+                timestamps.append(now_ms)
+                rate_file.seek(0)
+                rate_file.truncate()
+                json.dump(timestamps, rate_file)
+                rate_file.flush()
+                os.fsync(rate_file.fileno())
+                return
+
+            wait_seconds = wait_ms / 1000.0 + 0.1
+            trace("rate-limit", f"waiting {math.ceil(wait_seconds)}s for an API request slot")
+            _sleep_with_deadline(wait_seconds, deadline, "SecondHandSongs quota")
+
+
+def _apply_rate_limit_headers(ctx: Context, headers: dict[str, str]) -> None:
+    normalized = {key.lower(): value for key, value in headers.items()}
+    if ctx.api_key:
+        try:
+            minute_limit = int(normalized["x-ratelimit-minute-limit"])
+            hour_limit = int(normalized["x-ratelimit-hour-limit"])
+            ctx.rate_limits = ((60_000, minute_limit), (3_600_000, hour_limit))
+        except (KeyError, ValueError):
+            pass
+
+    reset_timestamps = []
+    for scope in ("minute", "hour"):
+        try:
+            if int(normalized[f"x-ratelimit-{scope}-remaining"]) == 0:
+                reset_timestamps.append(int(normalized[f"x-ratelimit-{scope}-reset"]) * 1000)
+        except (KeyError, ValueError):
+            continue
+    if reset_timestamps:
+        ctx.blocked_until_ms = max(ctx.blocked_until_ms, max(reset_timestamps))
+
+    try:
+        if int(normalized["x-ratelimit-absolute-remaining"]) == 0:
+            raise FetchError("SecondHandSongs API key request budget is exhausted")
+    except (KeyError, ValueError):
+        pass
+
+
 def fetch_json(ctx: Context, endpoint: str, deadline: float | None = None) -> Any:
     if not endpoint.startswith("/"):
         raise ValueError(f"endpoint must start with '/': {endpoint}")
 
     cache_file = _cache_file(ctx, endpoint)
     shs_cache_file = _shs_cache_file(ctx, endpoint)
+    if endpoint in ctx.session_cache:
+        return ctx.session_cache[endpoint]
     if ctx.use_cache:
         if cache_file.exists():
-            return json.loads(cache_file.read_text(encoding="utf-8"))
+            data = json.loads(cache_file.read_text(encoding="utf-8"))
+            ctx.session_cache[endpoint] = data
+            return data
         if shs_cache_file.exists():
-            return json.loads(shs_cache_file.read_text(encoding="utf-8"))
+            data = json.loads(shs_cache_file.read_text(encoding="utf-8"))
+            ctx.session_cache[endpoint] = data
+            return data
 
     url = ctx.base_url.rstrip("/") + endpoint
     for attempt in range(1, MAX_RETRIES + 1):
@@ -113,21 +210,29 @@ def fetch_json(ctx: Context, endpoint: str, deadline: float | None = None) -> An
         if remaining is not None and remaining <= 0:
             raise ArtistTimeoutError(f"artist timeout reached before fetching {endpoint}")
         try:
+            _reserve_request_slot(ctx, deadline)
             request_timeout = 30.0
             if remaining is not None:
                 request_timeout = max(1.0, min(30.0, remaining))
-            data = _request_json(url, ctx.api_key, timeout_seconds=request_timeout)
+            data, response_headers = _request_json(url, ctx.api_key, timeout_seconds=request_timeout)
+            _apply_rate_limit_headers(ctx, response_headers)
             cache_file.parent.mkdir(parents=True, exist_ok=True)
             cache_file.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
-            if REQUEST_PAUSE_SECONDS > 0:
-                remaining = _remaining_seconds(deadline)
-                if remaining is not None and remaining <= 0:
-                    raise ArtistTimeoutError(f"artist timeout reached after fetching {endpoint}")
-                time.sleep(REQUEST_PAUSE_SECONDS)
+            ctx.session_cache[endpoint] = data
             return data
         except HTTPError as exc:
-            if exc.code in (429, 500, 502, 503, 504) and attempt < MAX_RETRIES:
-                time.sleep(RETRY_BACKOFF_SECONDS * attempt)
+            if exc.code in (403, 429) and attempt < MAX_RETRIES:
+                retry_after = exc.headers.get("Retry-After") if exc.headers else None
+                try:
+                    wait_seconds = max(float(retry_after), RATE_LIMIT_BACKOFF_SECONDS)
+                except (TypeError, ValueError):
+                    wait_seconds = RATE_LIMIT_BACKOFF_SECONDS
+                ctx.blocked_until_ms = max(ctx.blocked_until_ms, int((time.time() + wait_seconds) * 1000))
+                trace("rate-limit", f"HTTP {exc.code} for {endpoint}; retrying after {math.ceil(wait_seconds)}s")
+                _sleep_with_deadline(wait_seconds, deadline, "SecondHandSongs retry")
+                continue
+            if exc.code in (500, 502, 503, 504) and attempt < MAX_RETRIES:
+                _sleep_with_deadline(RETRY_BACKOFF_SECONDS * attempt, deadline, "upstream retry")
                 continue
             raise FetchError(f"HTTP {exc.code} for {endpoint}") from exc
         except URLError as exc:
@@ -200,6 +305,11 @@ def deburr(text: str) -> str:
     return "".join(c for c in normalized if unicodedata.category(c) != "Mn")
 
 
+def normalize_artist_search_name(artist_name: str) -> str:
+    normalized = re.sub(r"(?:\s+\[[^\[\]]+\])+\s*$", "", artist_name).strip()
+    return normalized or artist_name.strip()
+
+
 def dedupe_network_data(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     seen: set[str] = set()
     result: list[dict[str, Any]] = []
@@ -265,7 +375,8 @@ def _commons_image_url(filename: str) -> str:
 
 def _musicbrainz_wikidata_image(artist_name: str) -> str | None:
     try:
-        search = _http_json_public(f"{MB_API}/artist/?query=artist:{quote(artist_name)}&fmt=json")
+        search_name = normalize_artist_search_name(artist_name)
+        search = _http_json_public(f"{MB_API}/artist/?query=artist:{quote(search_name)}&fmt=json")
         artists = search.get("artists", [])
         if not artists:
             return None
@@ -294,16 +405,24 @@ def _musicbrainz_wikidata_image(artist_name: str) -> str | None:
         return None
 
 
-def _deezer_image(artist_name: str, timeout_seconds: float = 8.0) -> str | None:
+def _deezer_images(artist_name: str, timeout_seconds: float = 8.0) -> list[str]:
     try:
-        data = _http_json_public(f"{DEEZER_SEARCH}?q={quote(artist_name)}", timeout_seconds=timeout_seconds)
+        search_name = normalize_artist_search_name(artist_name)
+        data = _http_json_public(f"{DEEZER_SEARCH}?q={quote(search_name)}", timeout_seconds=timeout_seconds)
         items = data.get("data", [])
         if not items:
-            return None
-        top = items[0]
-        return top.get("picture_xl") or top.get("picture_medium") or top.get("picture")
+            return []
+        exact_matches = [
+            item for item in items if (item.get("name") or "").casefold() == search_name.casefold()
+        ]
+        matches = exact_matches or items[:1]
+        urls = [
+            item.get("picture_xl") or item.get("picture_medium") or item.get("picture")
+            for item in matches
+        ]
+        return list(dict.fromkeys(url for url in urls if url and "/artist//" not in url))
     except Exception:
-        return None
+        return []
 
 
 def select_best_artist_picture(
@@ -327,21 +446,23 @@ def select_best_artist_picture(
             candidates.append({"source": "wikidata", "url": wikidata_url})
 
     if include_deezer:
-        deezer_url = _deezer_image(artist_name, timeout_seconds=5.0)
-        if deezer_url:
-            candidates.append({"source": "deezer", "url": deezer_url})
+        for index, deezer_url in enumerate(_deezer_images(artist_name, timeout_seconds=5.0), start=1):
+            candidates.append({"source": f"deezer.{index}", "url": deezer_url})
 
     probes: list[dict[str, str]] = []
+    selected_url: str | None = None
     for candidate in candidates:
         if not probe_candidates:
             probes.append({"source": candidate["source"], "url": candidate["url"], "status": "not-probed", "ok": "unknown"})
-            return candidate["url"], probes
+            if selected_url is None:
+                selected_url = candidate["url"]
+            continue
         ok, status = _probe_image_url(candidate["url"])
         probes.append({"source": candidate["source"], "url": candidate["url"], "status": status, "ok": str(ok)})
-        if ok:
-            return candidate["url"], probes
+        if ok and selected_url is None:
+            selected_url = candidate["url"]
 
-    return resolved_raw or raw_picture, probes
+    return selected_url or resolved_raw or raw_picture, probes
 
 
 def sorted_cover_list(original_items: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -356,10 +477,7 @@ def sorted_cover_list(original_items: list[dict[str, Any]]) -> list[dict[str, An
 
 def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = None) -> dict[str, Any]:
     artist = fetch_json(ctx, f"/artist/{artist_id}", deadline=deadline)
-    artist_picture, picture_probes = select_best_artist_picture(
-        artist.get("picture"),
-        artist.get("commonName") or artist.get("name") or f"Artist {artist_id}",
-    )
+    artist_picture = resolve_artist_picture_url(artist.get("picture"))
     trace("covers", f"artist={artist_id} selected_picture={artist_picture}")
     performances = fetch_json(ctx, f"/artist/{artist_id}/performances", deadline=deadline)
 
@@ -370,7 +488,11 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
             performance_uris.append(endpoint)
     performance_uris = list(dict.fromkeys(performance_uris))
 
-    selected_performance_uris = performance_uris[:MAX_PERFORMANCE_REQUESTS]
+    selected_performance_uris = (
+        performance_uris[:MAX_PERFORMANCE_REQUESTS]
+        if MAX_PERFORMANCE_REQUESTS > 0
+        else performance_uris
+    )
     partial_data = len(performance_uris) > len(selected_performance_uris)
     trace("covers", f"artist={artist_id} performance_uris total={len(performance_uris)} selected={len(selected_performance_uris)}")
 
@@ -380,7 +502,8 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
         deadline=deadline,
     )
     if failed_performance_requests:
-        partial_data = True
+        first_error = performance_errors[0] if performance_errors else "unknown error"
+        raise FetchError(f"{failed_performance_requests} selected performance requests failed; first: {first_error}")
     trace("covers", f"artist={artist_id} performance_results ok={len(performance_results)} failed={failed_performance_requests}")
 
     covers = [
@@ -398,7 +521,11 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
             cover_original_uris.append(endpoint)
 
     cover_original_uris = list(dict.fromkeys(cover_original_uris))
-    selected_cover_original_uris = cover_original_uris[:MAX_ORIGINAL_REQUESTS]
+    selected_cover_original_uris = (
+        cover_original_uris[:MAX_ORIGINAL_REQUESTS]
+        if MAX_ORIGINAL_REQUESTS > 0
+        else cover_original_uris
+    )
     if len(cover_original_uris) > len(selected_cover_original_uris):
         partial_data = True
     trace("covers", f"artist={artist_id} cover_original_uris total={len(cover_original_uris)} selected={len(selected_cover_original_uris)}")
@@ -409,7 +536,8 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
         deadline=deadline,
     )
     if failed_original_requests:
-        partial_data = True
+        first_error = original_errors[0] if original_errors else "unknown error"
+        raise FetchError(f"{failed_original_requests} cover-original requests failed; first: {first_error}")
     trace("covers", f"artist={artist_id} originals_raw ok={len(originals_raw)} failed={failed_original_requests}")
     originals = [
         o
@@ -427,9 +555,6 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
     cover_counts = [len(o.get("covers") or []) for o in originals] or [1]
     dmin, dmax = min(cover_counts), max(cover_counts)
 
-    performer_image_cache: dict[str, str | None] = {}
-    performer_image_lookups = 0
-
     nodes: list[dict[str, Any]] = []
     edges: list[dict[str, Any]] = []
     for original in originals:
@@ -437,20 +562,6 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
         performer = original.get("performer") or {}
         performer_uri = performer.get("uri")
         performer_name = performer.get("name")
-
-        if performer_uri and performer_uri not in performer_image_cache:
-            if performer_image_lookups >= MAX_COVER_ARTIST_IMAGE_LOOKUPS:
-                performer_image_cache[performer_uri] = None
-            else:
-                performer_picture_resolved, _ = select_best_artist_picture(
-                    None,
-                    performer_name or "Unknown artist",
-                    include_musicbrainz=False,
-                    include_deezer=True,
-                    probe_candidates=False,
-                )
-                performer_image_cache[performer_uri] = performer_picture_resolved
-                performer_image_lookups += 1
 
         nodes.append(
             {
@@ -485,7 +596,7 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
                     "id": performer_uri,
                     "label": performer_name,
                     "nodeType": "artist",
-                    "imageUrl": performer_image_cache.get(performer_uri),
+                    "imageUrl": None,
                     "size": 1,
                     "color": "#333",
                     "bgColor": "#333",
@@ -511,10 +622,10 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
         "originalResultsFailed": failed_original_requests,
         "originalsValid": len(originals),
         "networkItems": len(network_data),
-        "artistImageResolvedCount": len([v for v in performer_image_cache.values() if v]),
-        "artistImageLookupCount": performer_image_lookups,
+        "artistImageResolvedCount": 0,
+        "artistImageLookupCount": 0,
         "sampleErrors": (performance_errors + original_errors)[:20],
-        "imageCandidates": picture_probes,
+        "imageCandidates": [],
     }
 
     return {
@@ -535,10 +646,7 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
 
 def generate_originals_data(ctx: Context, artist_id: int, deadline: float | None = None) -> dict[str, Any]:
     artist = fetch_json(ctx, f"/artist/{artist_id}", deadline=deadline)
-    artist_picture, picture_probes = select_best_artist_picture(
-        artist.get("picture"),
-        artist.get("commonName") or artist.get("name") or f"Artist {artist_id}",
-    )
+    artist_picture = resolve_artist_picture_url(artist.get("picture"))
     trace("originals", f"artist={artist_id} selected_picture={artist_picture}")
     performances = fetch_json(ctx, f"/artist/{artist_id}/performances", deadline=deadline)
 
@@ -549,7 +657,11 @@ def generate_originals_data(ctx: Context, artist_id: int, deadline: float | None
             performance_uris.append(endpoint)
     performance_uris = list(dict.fromkeys(performance_uris))
 
-    selected_performance_uris = performance_uris[:MAX_PERFORMANCE_REQUESTS]
+    selected_performance_uris = (
+        performance_uris[:MAX_PERFORMANCE_REQUESTS]
+        if MAX_PERFORMANCE_REQUESTS > 0
+        else performance_uris
+    )
     partial_data = len(performance_uris) > len(selected_performance_uris)
     trace("originals", f"artist={artist_id} performance_uris total={len(performance_uris)} selected={len(selected_performance_uris)}")
 
@@ -559,7 +671,8 @@ def generate_originals_data(ctx: Context, artist_id: int, deadline: float | None
         deadline=deadline,
     )
     if failed_performance_requests:
-        partial_data = True
+        first_error = performance_errors[0] if performance_errors else "unknown error"
+        raise FetchError(f"{failed_performance_requests} selected performance requests failed; first: {first_error}")
     trace("originals", f"artist={artist_id} performance_results ok={len(performance_results)} failed={failed_performance_requests}")
 
     originals = [
@@ -595,7 +708,7 @@ def generate_originals_data(ctx: Context, artist_id: int, deadline: float | None
                 "originalsValid": 0,
                 "networkItems": 0,
                 "sampleErrors": performance_errors[:20],
-                "imageCandidates": picture_probes,
+                "imageCandidates": [],
             },
         }
 
@@ -695,7 +808,7 @@ def generate_originals_data(ctx: Context, artist_id: int, deadline: float | None
         "artistsCoveringCount": len(artists_covering_map),
         "networkItems": len(network_data),
         "sampleErrors": performance_errors[:20],
-        "imageCandidates": picture_probes,
+        "imageCandidates": [],
     }
 
     return {
@@ -799,6 +912,8 @@ def main(argv: list[str]) -> int:
         base_url=args.base_url,
         api_key=os.environ.get("SHS_API_KEY"),
         use_cache=not args.no_cache,
+        rate_limit_file=cache_dir / "_sent.json",
+        rate_limits=ANONYMOUS_RATE_LIMITS,
     )
 
     print(f"Generating graph data for {len(artists)} artist(s)")

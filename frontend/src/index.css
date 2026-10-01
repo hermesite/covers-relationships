@@ -27,6 +27,24 @@ code {
   padding-top: 16px;
 }
 
+.artist-image-mosaic {
+  display: grid;
+  grid-template-columns: repeat(2, 84px);
+  grid-auto-rows: 84px;
+  grid-auto-flow: row;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+
+.artist-image-mosaic img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background: #f5f5f5;
+}
+
 .graph-toolbar {
   display: inline-flex;
   align-items: center;

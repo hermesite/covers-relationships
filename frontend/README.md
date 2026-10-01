@@ -4,70 +4,10 @@
 
 ```sh
 npm install
-npm run generate:data
 npm start
 ```
 
-The graph pages (`/covers` and `/originals`) read precomputed JSON files from `data/graphs`.
-
-## Generate graph data (offline cache)
-
-Generate data for all artists in the selector:
-
-```sh
-npm run generate:data
-```
-
-Generate using the local Vite proxy (closest to client behavior):
-
-```sh
-SHS_BASE_URL=http://localhost:5173/api/secondhandsongs npm run generate:data
-```
-
-Generate specific artist IDs only:
-
-```sh
-/usr/bin/python3 ../data/generate_graph_data.py --artists 194 524
-```
-
-Generate one artist only (incremental update):
-
-```sh
-ARTIST_ID=524 npm run generate:data:artist
-```
-
-This command accepts any artist ID, even if that ID is not currently present in `src/constants/artistOptions.js`.
-
-Equivalent direct Python command:
-
-```sh
-/usr/bin/python3 ../data/generate_graph_data.py --artist 524
-```
-
-Notes:
-
-- Script location: `../data/generate_graph_data.py`
-- Output files:
-  - `data/graphs/covers/<artist_id>.json`
-  - `data/graphs/originals/<artist_id>.json`
-- Endpoint cache is reused from:
-  - `../data/.cache/`
-  - `.shs-cache/`
-- Generation errors return a nonzero exit code and leave existing graph files unchanged.
-- To improve generation success under rate limits, set `SHS_API_KEY` before running the script.
-- Artist image resolution in generator uses fallback candidates (SHS picture, Wikidata via MusicBrainz, Deezer) and stores the selected URL in `artistPictureResolved`.
-
-### Optional environment variables
-
-```sh
-export SHS_API_KEY="..."
-export DISCOGS_TOKEN="..."
-export MUSICBRAINZ_USERNAME="..."
-export MUSICBRAINZ_PASSWORD="..."
-export MUSICBRAINZ_APP_NAME="HermesiteCovers"
-export MUSICBRAINZ_APP_VERSION="0.1"
-export MUSICBRAINZ_CONTACT="you@example.com"
-```
+The graph pages (`/covers` and `/originals`) read precomputed JSON files from `data/graphs`. See [Graph Data Generation](../data/README.md) for generation, reset, cache refresh, Python, and asset documentation.
 
 ## Available URLs
 
@@ -101,23 +41,5 @@ Notes:
 - Only GET requests are supported by the local proxy.
 - Allowed API paths begin with: /artist, /performance, /work, /release, /label, /search.
 - Optional API key env var: SHS_API_KEY
-- Cached responses are stored under .shs-cache/
-
-## List of possible artist values (reference)
-
-```json
-[
-  { "id": 194, "name": "David Bowie" },
-  { "id": 277, "name": "The Stooges" },
-  { "id": 524, "name": "The Clash" },
-  { "id": 604, "name": "Ramones" },
-  { "id": 790, "name": "Mink Deville" },
-  { "id": 2637, "name": "Duane Eddy" },
-  { "id": 5158, "name": "Dr. John" },
-  { "id": 9258, "name": "King Curtis" },
-  { "id": 22392, "name": "Amy Winehouse" },
-  { "id": 30689, "name": "Morphine" },
-  { "id": 37977, "name": "Kyuss" },
-  { "id": 112184, "name": "Rosalia" }
-]
-```
+- Cached responses and the shared API quota ledger are stored under `../data/.cache/`.
+- The graph pages themselves read static files and do not call the proxy on user access.

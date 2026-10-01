@@ -7,6 +7,24 @@ import { ARTIST_OPTIONS } from '../../constants/artistOptions';
 
 Cytoscape.use(fcose);
 
+const uniqueImageUrls = (urls) => {
+  const seen = new Set();
+  return urls.filter((url) => {
+    if (typeof url !== 'string' || !url) return false;
+    try {
+      const parsed = new URL(url);
+      const key = `${parsed.origin}${parsed.pathname}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    } catch {
+      if (seen.has(url)) return false;
+      seen.add(url);
+      return true;
+    }
+  });
+};
+
 class Covers extends Component {
   constructor() {
     super();
@@ -17,7 +35,7 @@ class Covers extends Component {
       coversCount: 0,
       networkData: [],
       artist: null,
-      artistImageUrl: null,
+      artistImageUrls: [],
       canvasContainerWidth: window.innerWidth,
       canvasContainerHeight: Math.max(window.innerHeight * 0.6, 400),
       partialData: false,
@@ -58,10 +76,16 @@ class Covers extends Component {
       error: null,
       coversCount: 0,
       networkData: [],
-      artistImageUrl: null,
+      artistImageUrls: [],
       partialData: false,
     });
     await this.loadGraphForArtist(Number(selectedArtistId));
+  };
+
+  onArtistImageError = (failedUrl) => {
+    this.setState(({ artistImageUrls }) => ({
+      artistImageUrls: artistImageUrls.filter((url) => url !== failedUrl),
+    }));
   };
 
   async loadGraphForArtist(artistId) {
@@ -72,6 +96,12 @@ class Covers extends Component {
       }
 
       const payload = await response.json();
+      const fallbackArtistImage =
+        payload.artistPictureResolved || payload.artistPicture || payload.artist?.picture || null;
+      const artistImageUrls = uniqueImageUrls([
+        ...(Array.isArray(payload.artistPictures) ? payload.artistPictures : []),
+        fallbackArtistImage,
+      ]);
 
       const payloadData = Array.isArray(payload.networkData) ? payload.networkData : [];
       const sourceIds = new Set(
@@ -107,7 +137,7 @@ class Covers extends Component {
         loading: false,
         error: payload.error || null,
         artist: payload.artist || null,
-        artistImageUrl: payload.artistPictureResolved || payload.artistPicture || payload.artist?.picture || null,
+        artistImageUrls,
         coversCount: Number(payload.coversCount || 0),
         networkData: typedNetworkData,
         canvasContainerWidth: containerWidth,
@@ -128,7 +158,7 @@ class Covers extends Component {
       loading,
       error,
       artist,
-      artistImageUrl,
+      artistImageUrls,
       coversCount,
       networkData,
       canvasContainerWidth,
@@ -276,19 +306,17 @@ class Covers extends Component {
           {!loading && !error && artist && (
             <header className='pt-3'>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-                {artistImageUrl && (
-                  <img
-                    src={artistImageUrl}
-                    alt={artist.commonName}
-                    style={{
-                      width: '84px',
-                      height: '84px',
-                      objectFit: 'cover',
-                      borderRadius: '6px',
-                      border: '1px solid rgba(0,0,0,0.2)',
-                      background: '#f5f5f5',
-                    }}
-                  />
+                {artistImageUrls.length > 0 && (
+                  <div className='artist-image-mosaic'>
+                    {artistImageUrls.map((imageUrl, index) => (
+                      <img
+                        key={imageUrl}
+                        src={imageUrl}
+                        alt={`${artist.commonName} ${index + 1}`}
+                        onError={() => this.onArtistImageError(imageUrl)}
+                      />
+                    ))}
+                  </div>
                 )}
                 <div>
                   <h1 style={{ marginBottom: '4px' }}>{artist.commonName}</h1>

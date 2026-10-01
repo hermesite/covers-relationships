@@ -31,8 +31,7 @@ From the `frontend/` directory:
 
 ```sh
 npm install
-npm run generate:data
 npm start
 ```
 
-The development server runs at <http://localhost:5173>. For graph data generation options, API proxy configuration, and environment variables, see [frontend/README.md](frontend/README.md).
+The development server runs at <http://localhost:5173>. See [frontend/README.md](frontend/README.md) for app and proxy details, and [data/README.md](data/README.md) for graph generation, caches, and generated assets.

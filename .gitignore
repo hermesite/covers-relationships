@@ -17,7 +17,7 @@ htmlcov/
 
 # generated data and API caches
 **/.cache/
-/.shs-cache/
+**/.shs-cache/
 
 # next.js
 /.next/
