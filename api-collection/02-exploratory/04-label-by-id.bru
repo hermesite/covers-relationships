@@ -1,0 +1,15 @@
+meta {
+  name: Label by ID
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/label/{{labelId}}
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}

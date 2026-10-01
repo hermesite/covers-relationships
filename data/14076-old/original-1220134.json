@@ -1,0 +1,47 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/1220134",
+    "title": "Wrong Way Ticket",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": true,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/260255",
+            "title": "Fiends of Dope Island",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/260407",
+            "title": "Wrong Way Ticket"
+        }
+    ],
+    "originals": [],
+    "covers": [
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1220135",
+            "title": "Wrong Way Ticket",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/190373",
+                "name": "Faroutski"
+            },
+            "isOriginal": false
+        }
+    ],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

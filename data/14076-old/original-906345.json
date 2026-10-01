@@ -1,0 +1,47 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/906345",
+    "title": "Papa Satan Sang Louie",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": true,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/260255",
+            "title": "Fiends of Dope Island",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/219048",
+            "title": "Papa Satan Sang Louie"
+        }
+    ],
+    "originals": [],
+    "covers": [
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/906346",
+            "title": "Papa Satan Sang Louie",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/158536",
+                "name": "Tokyo Cramps"
+            },
+            "isOriginal": false
+        }
+    ],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

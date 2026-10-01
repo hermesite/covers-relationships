@@ -1,0 +1,97 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/637834",
+    "title": "Garbage Man",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": true,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/9684",
+            "title": "Songs the Lord Taught Us",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/177055",
+            "title": "Garbage Man"
+        }
+    ],
+    "originals": [],
+    "covers": [
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/637836",
+            "title": "Garbage Man",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/122148",
+                "name": "Rick Broussard's Two Hoots and a Holler"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/654737",
+            "title": "Garbageman",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14749",
+                "name": "William Shatner"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/906287",
+            "title": "Garbageman",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/158536",
+                "name": "Tokyo Cramps"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1169459",
+            "title": "Garbageman",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/88755",
+                "name": "Retox"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1220161",
+            "title": "Garbage Man",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/190379",
+                "name": "Duende!"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1344692",
+            "title": "Garbage Man",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/128708",
+                "name": "The Cannibals"
+            },
+            "isOriginal": false
+        }
+    ],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

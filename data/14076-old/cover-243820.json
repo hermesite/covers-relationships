@@ -1,0 +1,54 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/243820",
+    "title": "I Can't Hardly Stand It",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": false,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "single",
+            "uri": "https://secondhandsongs.com/release/87104",
+            "title": "Drug Train",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/128980",
+            "title": "Can't Hardly Stand It"
+        }
+    ],
+    "originals": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/128980",
+            "title": "Can't Hardly Stand It",
+            "isRootWork": true,
+            "original": {
+                "entityType": "performance",
+                "uri": "https://secondhandsongs.com/performance/243818",
+                "title": "Can't Hardly Stand It",
+                "performer": {
+                    "uri": "https://secondhandsongs.com/artist/26161",
+                    "name": "Charlie Feathers"
+                },
+                "isOriginal": true
+            }
+        }
+    ],
+    "covers": [],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

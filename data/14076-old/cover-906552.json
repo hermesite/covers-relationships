@@ -1,0 +1,54 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/906552",
+    "title": "Oowee Baby",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": false,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/260255",
+            "title": "Fiends of Dope Island",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/219092",
+            "title": "Oooh Eeee"
+        }
+    ],
+    "originals": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/219092",
+            "title": "Oooh Eeee",
+            "isRootWork": true,
+            "original": {
+                "entityType": "performance",
+                "uri": "https://secondhandsongs.com/performance/906551",
+                "title": "Oooh Eeee",
+                "performer": {
+                    "uri": "https://secondhandsongs.com/artist/17260",
+                    "name": "Ric Cartey with The Jiva-Tones"
+                },
+                "isOriginal": true
+            }
+        }
+    ],
+    "covers": [],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

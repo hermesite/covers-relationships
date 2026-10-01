@@ -1,0 +1,15 @@
+meta {
+  name: Candidate Performance Detail
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/performance/{{candidatePerformanceId}}
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}

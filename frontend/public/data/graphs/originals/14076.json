@@ -1,0 +1,2858 @@
+{
+  "artist": {
+    "id": 14076,
+    "uri": "https://api.secondhandsongs.com/artist/14076",
+    "commonName": "The Cramps",
+    "picture": "https://api.secondhandsongs.com/picture/425919"
+  },
+  "artistPicture": "https://api.secondhandsongs.com/picture/425919",
+  "artistPictureResolved": "https://upload.wikimedia.org/wikipedia/commons/7/79/Cramps1982-07.jpg",
+  "originalsCount": 39,
+  "artistsCoveringCount": 93,
+  "coversTotal": 107,
+  "partialData": true,
+  "networkData": [
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/43739",
+        "label": "Human Fly",
+        "size": 164.28571428571428,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 24.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/637834",
+        "label": "Garbage Man",
+        "size": 95.71428571428572,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 16.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/55746",
+        "label": "New Kind of Kick",
+        "size": 84.28571428571429,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 14.666666666666666,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/739772",
+        "label": "I Was a Teenage Werewolf",
+        "size": 72.85714285714286,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 13.333333333333332,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/906253",
+        "label": "What's Inside a Girl?",
+        "size": 67.14285714285714,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 12.666666666666666,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/142139",
+        "label": "Bikini Girls with Machine Guns",
+        "size": 61.42857142857143,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 12.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/99054",
+        "label": "Can Your Pussy Do the Dog?",
+        "size": 61.42857142857143,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 12.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/133761",
+        "label": "Can't Find My Mind",
+        "size": 61.42857142857143,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 12.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/905935",
+        "label": "Kizmiaz",
+        "size": 55.714285714285715,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 11.333333333333334,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/24271",
+        "label": "Thee Most Exalted Potentate of Love",
+        "size": 55.714285714285715,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 11.333333333333334,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/268399",
+        "label": "Weekend on Mars",
+        "size": 55.714285714285715,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 11.333333333333334,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/352464",
+        "label": "You Got Good Taste",
+        "size": 55.714285714285715,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 11.333333333333334,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1469975",
+        "label": "Aloha from Hell",
+        "size": 50.0,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.666666666666666,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1169433",
+        "label": "I'm Cramped",
+        "size": 50.0,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.666666666666666,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1220142",
+        "label": "Like a Bad Girl Should",
+        "size": 50.0,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.666666666666666,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1220234",
+        "label": "Under the Wires",
+        "size": 50.0,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.666666666666666,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/62572",
+        "label": "Voodoo Idol",
+        "size": 50.0,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.666666666666666,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/906256",
+        "label": "All Women Are Bad",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/905951",
+        "label": "Beautiful Gardens",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1169431",
+        "label": "Call of the Wighat",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/906270",
+        "label": "Cramp Stomp",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/906333",
+        "label": "Daisys up Your Butterfly",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/907704",
+        "label": "Dames, Booze, Chains and Boots",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1169435",
+        "label": "Don't Eat Stuff off the Sidewalk",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1220152",
+        "label": "Drug Train",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1469977",
+        "label": "Fissure of Rolando",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/905761",
+        "label": "I Ain't Nuthing but a Gorehound",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/906268",
+        "label": "Naked Girl Falling down the Stairs",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/554975",
+        "label": "Nest of the Cuckoo Bird",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/906345",
+        "label": "Papa Satan Sang Louie",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1169437",
+        "label": "People Ain't No Good",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1169436",
+        "label": "Sheena's in a Goth Gang",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1220162",
+        "label": "Super Goo",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/906338",
+        "label": "The Creature from the Black Leather Lagoon",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/906250",
+        "label": "The Hot Pearl Snatch",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/906244",
+        "label": "The Natives Are Restless",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/906267",
+        "label": "Ultra Twist",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1220134",
+        "label": "Wrong Way Ticket",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/1169434",
+        "label": "Zombie Dance",
+        "size": 44.285714285714285,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon",
+        "nodeType": "song"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/274421",
+        "label": "A.B.B.A.",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/83708",
+        "label": "Alex Rosén",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/47258",
+        "label": "Blessure Grave",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/24664",
+        "label": "Crestfallen",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/104109",
+        "label": "D3O",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/101855",
+        "label": "Dragibus",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/30840",
+        "label": "Leæther Strip",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/10268",
+        "label": "Mad Sin",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/227468",
+        "label": "Micropenis",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/15947",
+        "label": "Nouvelle Vague [FR]",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/59156",
+        "label": "October Rising",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/252227",
+        "label": "Prisoners of Society",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/158003",
+        "label": "REIZstrom",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190383",
+        "label": "Shawnis And The Shimmers",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/36913",
+        "label": "Shooter Jennings",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/13433",
+        "label": "Sonovac",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/35887",
+        "label": "The Dead Brothers",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/174051",
+        "label": "The Horseflies",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/243222",
+        "label": "The Singularity Music",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/258590",
+        "label": "The VT Experiments",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/158536",
+        "label": "Tokyo Cramps",
+        "size": 90.0,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 16.191274333831824,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/7631+183749",
+        "label": "Zeus! feat. Mike Patton",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/49876",
+        "label": "Blitzkid",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190379",
+        "label": "Duende! [US1]",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/136650",
+        "label": "Fatso Jetson",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/88755",
+        "label": "Retox [US1]",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/122148",
+        "label": "Rick Broussard's Two Hoots and a Holler",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/77592",
+        "label": "Ryan Sawyer",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/128708",
+        "label": "The Cannibals",
+        "size": 50.0,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 10.58405934844036,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/226721",
+        "label": "Vernon Trumbull & His Kinsmen",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/14749",
+        "label": "William Shatner",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/155356",
+        "label": "Das Clamps",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/27380",
+        "label": "Mad Daddys",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190389",
+        "label": "Panteras Negras",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/55685",
+        "label": "Qui",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/59771",
+        "label": "Sacred Cowboys",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/33467",
+        "label": "The Drones",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/18728",
+        "label": "The Fuzztones",
+        "size": 50.0,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 10.58405934844036,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/1390",
+        "label": "The Jesus and Mary Chain",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190391",
+        "label": "Charm Bag",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/136053",
+        "label": "Chicken Diamond",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/96177",
+        "label": "Night Beats",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/183745+183746",
+        "label": "Secret Fun Club feat. Carrie Gillespie Feller",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/136054",
+        "label": "Vince Ripper and the Rodent Show",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/20930",
+        "label": "Daughters",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/255134",
+        "label": "The Groove Diggers",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/234104",
+        "label": "The Kickers",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/252589",
+        "label": "The Outriders [GB]",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/158530",
+        "label": "Vince Ray & The Boneshakers",
+        "size": 50.0,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 10.58405934844036,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/273526",
+        "label": "Her Pillow",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/219456",
+        "label": "The Courettes",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/47259",
+        "label": "The Surfin' Gorillas",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/25662",
+        "label": "Boy Division",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190387",
+        "label": "No Valentine",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/75579",
+        "label": "The Balls [US]",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/3229",
+        "label": "Andre Williams [US1]",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/158482",
+        "label": "Intercontinental Playboys",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/20761",
+        "label": "The Flametrick Subs",
+        "size": 55.714285714285715,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12.095637166915912,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/45535",
+        "label": "Two Bands and a Legend",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/17639+35469",
+        "label": "Don & Françoiz",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/158484",
+        "label": "Hang Left Devil",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/158483",
+        "label": "Torso Twisters",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190375",
+        "label": "Moron's Morons",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/526",
+        "label": "Queens of the Stone Age",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/14561",
+        "label": "The Nomads [SE]",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/20444",
+        "label": "The Seatsniffers",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/84630",
+        "label": "Johnny Zhivago",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190388",
+        "label": "Messua & TimeLess",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/158521",
+        "label": "Sons of El Roacho",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/24830",
+        "label": "The 69 Eyes",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/188485",
+        "label": "The Vandelles",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190374",
+        "label": "Bang Bang Babies",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/183752",
+        "label": "Panicker",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190376",
+        "label": "Terror Manija",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/47292",
+        "label": "The Torpedo Monkeys",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190397",
+        "label": "Spun Spuns",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/27404",
+        "label": "Divine Horsemen",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/255584",
+        "label": "John Mercy",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/158486",
+        "label": "Magnetix",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/183742",
+        "label": "Metz",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/183751",
+        "label": "Microwaves",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190378",
+        "label": "Toni Estilette",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/1808",
+        "label": "The Flamin' Groovies",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/24843",
+        "label": "Sex Sex Sex",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/158535",
+        "label": "The Devil Wrays",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/109895",
+        "label": "Machine de Beauvoir",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/183750",
+        "label": "Magic Witch Cookbox",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/52614",
+        "label": "Chelsea Wolfe",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190380",
+        "label": "Vaiwatt",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/158527",
+        "label": "Goo Goo Muck",
+        "size": 50.0,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 10.58405934844036,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/30608",
+        "label": "Sabrejets",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/190373",
+        "label": "Faroutski",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/183748",
+        "label": "Sonido de la frontera",
+        "size": 44.285714285714285,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 8.0,
+        "fontFamily": "Big Shoulders Display",
+        "nodeType": "artist"
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/274421",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/83708",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/47258",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/24664",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/104109",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/101855",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/30840",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/10268",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/227468",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/15947",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/59156",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/252227",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/158003",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/190383",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/36913",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/13433",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/35887",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/174051",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/243222",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/258590",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/158536",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/43739",
+        "target": "https://api.secondhandsongs.com/artist/7631+183749",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/637834",
+        "target": "https://api.secondhandsongs.com/artist/49876",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/637834",
+        "target": "https://api.secondhandsongs.com/artist/190379",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/637834",
+        "target": "https://api.secondhandsongs.com/artist/136650",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/637834",
+        "target": "https://api.secondhandsongs.com/artist/88755",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/637834",
+        "target": "https://api.secondhandsongs.com/artist/122148",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/637834",
+        "target": "https://api.secondhandsongs.com/artist/77592",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/637834",
+        "target": "https://api.secondhandsongs.com/artist/128708",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/637834",
+        "target": "https://api.secondhandsongs.com/artist/158536",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/637834",
+        "target": "https://api.secondhandsongs.com/artist/226721",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/637834",
+        "target": "https://api.secondhandsongs.com/artist/14749",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/55746",
+        "target": "https://api.secondhandsongs.com/artist/155356",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/55746",
+        "target": "https://api.secondhandsongs.com/artist/27380",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/55746",
+        "target": "https://api.secondhandsongs.com/artist/190389",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/55746",
+        "target": "https://api.secondhandsongs.com/artist/55685",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/55746",
+        "target": "https://api.secondhandsongs.com/artist/59771",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/55746",
+        "target": "https://api.secondhandsongs.com/artist/33467",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/55746",
+        "target": "https://api.secondhandsongs.com/artist/18728",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/55746",
+        "target": "https://api.secondhandsongs.com/artist/1390",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/739772",
+        "target": "https://api.secondhandsongs.com/artist/190391",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/739772",
+        "target": "https://api.secondhandsongs.com/artist/136053",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/739772",
+        "target": "https://api.secondhandsongs.com/artist/96177",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/739772",
+        "target": "https://api.secondhandsongs.com/artist/183745+183746",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/739772",
+        "target": "https://api.secondhandsongs.com/artist/158536",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/739772",
+        "target": "https://api.secondhandsongs.com/artist/136054",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906253",
+        "target": "https://api.secondhandsongs.com/artist/20930",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906253",
+        "target": "https://api.secondhandsongs.com/artist/255134",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906253",
+        "target": "https://api.secondhandsongs.com/artist/234104",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906253",
+        "target": "https://api.secondhandsongs.com/artist/252589",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906253",
+        "target": "https://api.secondhandsongs.com/artist/158530",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/142139",
+        "target": "https://api.secondhandsongs.com/artist/273526",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/142139",
+        "target": "https://api.secondhandsongs.com/artist/219456",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/142139",
+        "target": "https://api.secondhandsongs.com/artist/47259",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/142139",
+        "target": "https://api.secondhandsongs.com/artist/158536",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/99054",
+        "target": "https://api.secondhandsongs.com/artist/25662",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/99054",
+        "target": "https://api.secondhandsongs.com/artist/190387",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/99054",
+        "target": "https://api.secondhandsongs.com/artist/75579",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/99054",
+        "target": "https://api.secondhandsongs.com/artist/18728",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/133761",
+        "target": "https://api.secondhandsongs.com/artist/3229",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/133761",
+        "target": "https://api.secondhandsongs.com/artist/158482",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/133761",
+        "target": "https://api.secondhandsongs.com/artist/20761",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/133761",
+        "target": "https://api.secondhandsongs.com/artist/45535",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/905935",
+        "target": "https://api.secondhandsongs.com/artist/17639+35469",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/905935",
+        "target": "https://api.secondhandsongs.com/artist/158484",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/905935",
+        "target": "https://api.secondhandsongs.com/artist/158483",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/24271",
+        "target": "https://api.secondhandsongs.com/artist/190375",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/24271",
+        "target": "https://api.secondhandsongs.com/artist/526",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/24271",
+        "target": "https://api.secondhandsongs.com/artist/20761",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/268399",
+        "target": "https://api.secondhandsongs.com/artist/128708",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/268399",
+        "target": "https://api.secondhandsongs.com/artist/14561",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/268399",
+        "target": "https://api.secondhandsongs.com/artist/20444",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/352464",
+        "target": "https://api.secondhandsongs.com/artist/84630",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/352464",
+        "target": "https://api.secondhandsongs.com/artist/190388",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/352464",
+        "target": "https://api.secondhandsongs.com/artist/158521",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1469975",
+        "target": "https://api.secondhandsongs.com/artist/24830",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1469975",
+        "target": "https://api.secondhandsongs.com/artist/188485",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1169433",
+        "target": "https://api.secondhandsongs.com/artist/190374",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1169433",
+        "target": "https://api.secondhandsongs.com/artist/183752",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1220142",
+        "target": "https://api.secondhandsongs.com/artist/190376",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1220142",
+        "target": "https://api.secondhandsongs.com/artist/47292",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1220234",
+        "target": "https://api.secondhandsongs.com/artist/190397",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1220234",
+        "target": "https://api.secondhandsongs.com/artist/20761",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/62572",
+        "target": "https://api.secondhandsongs.com/artist/27404",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/62572",
+        "target": "https://api.secondhandsongs.com/artist/255584",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906256",
+        "target": "https://api.secondhandsongs.com/artist/158530",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/905951",
+        "target": "https://api.secondhandsongs.com/artist/158486",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1169431",
+        "target": "https://api.secondhandsongs.com/artist/183742",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906270",
+        "target": "https://api.secondhandsongs.com/artist/158536",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906333",
+        "target": "https://api.secondhandsongs.com/artist/158536",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/907704",
+        "target": "https://api.secondhandsongs.com/artist/158536",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1169435",
+        "target": "https://api.secondhandsongs.com/artist/183751",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1220152",
+        "target": "https://api.secondhandsongs.com/artist/190378",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1469977",
+        "target": "https://api.secondhandsongs.com/artist/1808",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/905761",
+        "target": "https://api.secondhandsongs.com/artist/24843",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906268",
+        "target": "https://api.secondhandsongs.com/artist/158535",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/554975",
+        "target": "https://api.secondhandsongs.com/artist/109895",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906345",
+        "target": "https://api.secondhandsongs.com/artist/158536",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1169437",
+        "target": "https://api.secondhandsongs.com/artist/183750",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1169436",
+        "target": "https://api.secondhandsongs.com/artist/52614",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1220162",
+        "target": "https://api.secondhandsongs.com/artist/190380",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906338",
+        "target": "https://api.secondhandsongs.com/artist/158536",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906250",
+        "target": "https://api.secondhandsongs.com/artist/158527",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906244",
+        "target": "https://api.secondhandsongs.com/artist/158527",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/906267",
+        "target": "https://api.secondhandsongs.com/artist/30608",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1220134",
+        "target": "https://api.secondhandsongs.com/artist/190373",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/1169434",
+        "target": "https://api.secondhandsongs.com/artist/183748",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    }
+  ],
+  "diagnostics": {
+    "performanceUrisTotal": 88,
+    "performanceUrisSelected": 80,
+    "performanceResultsOk": 80,
+    "performanceResultsFailed": 0,
+    "originalsValid": 39,
+    "artistsCoveringCount": 93,
+    "networkItems": 239,
+    "sampleErrors": [],
+    "imageCandidates": [
+      {
+        "source": "shs.raw",
+        "url": "https://api.secondhandsongs.com/picture/425919",
+        "status": "HTTP 404",
+        "ok": "False"
+      },
+      {
+        "source": "shs.resolved",
+        "url": "https://secondhandsongs.com/picture/425919",
+        "status": "HTTP 403",
+        "ok": "False"
+      },
+      {
+        "source": "wikidata",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Cramps1982-07.jpg",
+        "status": "HEAD 200",
+        "ok": "True"
+      }
+    ]
+  },
+  "generatedAt": "2026-10-01T00:48:04.901796+00:00"
+}

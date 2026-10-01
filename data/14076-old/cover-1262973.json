@@ -1,0 +1,54 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/1262973",
+    "title": "Sinners",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": false,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/43951",
+            "title": "Flamejob",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/264950",
+            "title": "Sinners"
+        }
+    ],
+    "originals": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/264950",
+            "title": "Sinners",
+            "isRootWork": true,
+            "original": {
+                "entityType": "performance",
+                "uri": "https://secondhandsongs.com/performance/1262974",
+                "title": "Sinners",
+                "performer": {
+                    "uri": "https://secondhandsongs.com/artist/194580",
+                    "name": "Freddie and The Hitch-Hikers"
+                },
+                "isOriginal": true
+            }
+        }
+    ],
+    "covers": [],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

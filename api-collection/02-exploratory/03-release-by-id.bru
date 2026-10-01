@@ -1,0 +1,15 @@
+meta {
+  name: Release by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/release/{{releaseId}}
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}

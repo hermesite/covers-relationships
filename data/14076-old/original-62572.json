@@ -1,0 +1,47 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/62572",
+    "title": "Voodoo Idol",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": true,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/12186",
+            "title": "Psychedelic Jungle",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/62572",
+            "title": "Voodoo Idol"
+        }
+    ],
+    "originals": [],
+    "covers": [
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/62573",
+            "title": "Voodoo Idol",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/27404",
+                "name": "Divine Horsemen"
+            },
+            "isOriginal": false
+        }
+    ],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

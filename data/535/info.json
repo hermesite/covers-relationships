@@ -1,0 +1,70 @@
+{
+    "entityType": "artist",
+    "entitySubType": "group",
+    "uri": "https://secondhandsongs.com/artist/535",
+    "commonName": "The Who",
+    "realName": null,
+    "birthDate": null,
+    "deathDate": null,
+    "picture": "https://secondhandsongs.com/picture/123684",
+    "homeCountry": "GB",
+    "comments": null,
+    "aliases": [
+        "The High Numbers"
+    ],
+    "relations": [
+        {
+            "relationName": "has as member",
+            "artist": {
+                "entityType": "artist",
+                "entitySubType": "person",
+                "uri": "https://secondhandsongs.com/artist/22498",
+                "commonName": "Keith Moon"
+            },
+            "comments": "Drums (1964-1978)"
+        },
+        {
+            "relationName": "has as member",
+            "artist": {
+                "entityType": "artist",
+                "entitySubType": "person",
+                "uri": "https://secondhandsongs.com/artist/10072",
+                "commonName": "John Entwistle"
+            },
+            "comments": "Bass (1964-2002)"
+        },
+        {
+            "relationName": "has as member",
+            "artist": {
+                "entityType": "artist",
+                "entitySubType": "person",
+                "uri": "https://secondhandsongs.com/artist/49661",
+                "commonName": "Kenney Jones"
+            },
+            "comments": "Drums (1979-1989)"
+        },
+        {
+            "relationName": "has as member",
+            "artist": {
+                "entityType": "artist",
+                "entitySubType": "person",
+                "uri": "https://secondhandsongs.com/artist/5604",
+                "commonName": "Pete Townshend"
+            },
+            "comments": "Guitar, vocals (1964-...)"
+        },
+        {
+            "relationName": "has as member",
+            "artist": {
+                "entityType": "artist",
+                "entitySubType": "person",
+                "uri": "https://secondhandsongs.com/artist/692",
+                "commonName": "Roger Daltrey"
+            },
+            "comments": "Vocals (1964-...)"
+        }
+    ],
+    "performances": "https://secondhandsongs.com/artist/535/performances",
+    "creditedWorks": "https://secondhandsongs.com/artist/535/works",
+    "releases": "https://secondhandsongs.com/artist/535/releases"
+}

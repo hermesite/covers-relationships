@@ -1,0 +1,54 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/102221",
+    "title": "Strychnine",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": false,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/9684",
+            "title": "Songs the Lord Taught Us",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/73329",
+            "title": "Strychnine"
+        }
+    ],
+    "originals": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/73329",
+            "title": "Strychnine",
+            "isRootWork": true,
+            "original": {
+                "entityType": "performance",
+                "uri": "https://secondhandsongs.com/performance/73329",
+                "title": "Strychnine",
+                "performer": {
+                    "uri": "https://secondhandsongs.com/artist/6455",
+                    "name": "The Sonics"
+                },
+                "isOriginal": true
+            }
+        }
+    ],
+    "covers": [],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

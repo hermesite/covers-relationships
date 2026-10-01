@@ -1,0 +1,54 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/420241",
+    "title": "Blues Blues Blues",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": false,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/43951",
+            "title": "Flamejob",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/150669",
+            "title": "Blues Blues Blues"
+        }
+    ],
+    "originals": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/150669",
+            "title": "Blues Blues Blues",
+            "isRootWork": true,
+            "original": {
+                "entityType": "performance",
+                "uri": "https://secondhandsongs.com/performance/420237",
+                "title": "Blues Blues Blues",
+                "performer": {
+                    "uri": "https://secondhandsongs.com/artist/46671",
+                    "name": "Hayden Thompson"
+                },
+                "isOriginal": true
+            }
+        }
+    ],
+    "covers": [],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

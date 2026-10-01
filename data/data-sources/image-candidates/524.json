@@ -1,0 +1,89 @@
+{
+  "artist": {
+    "id": 524,
+    "name": "The Clash"
+  },
+  "generatedAt": "2026-10-01T00:22:51.119046Z",
+  "sources": {
+    "secondhandsongs": {
+      "source": "secondhandsongs",
+      "ok": true,
+      "artistName": "The Clash",
+      "picture": "https://api.secondhandsongs.com/picture/53156",
+      "pictureProbe": {
+        "url": "https://api.secondhandsongs.com/picture/53156",
+        "ok": false,
+        "status": 404,
+        "contentType": null,
+        "error": "HTTP 404"
+      }
+    },
+    "musicbrainz_wikipedia_wikidata": {
+      "source": "musicbrainz",
+      "ok": true,
+      "mbid": "8f92558c-2baa-4758-8c38-615519e9deda",
+      "score": 100,
+      "matchedName": "The Clash",
+      "wikipediaRelation": null,
+      "wikidataRelation": "https://www.wikidata.org/wiki/Q125603",
+      "wikidataImage": "https://upload.wikimedia.org/wikipedia/commons/6/6f/The_Clash_in_San_Diego%2C_1982_%28cropped%29.jpg",
+      "wikidataImageProbe": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/The_Clash_in_San_Diego%2C_1982_%28cropped%29.jpg",
+        "ok": true,
+        "status": 200,
+        "contentType": "image/jpeg",
+        "error": null
+      }
+    },
+    "discogs": {
+      "source": "discogs",
+      "ok": false,
+      "error": "missing-DISCOGS_TOKEN"
+    },
+    "deezer": {
+      "source": "deezer",
+      "ok": true,
+      "matches": [
+        {
+          "name": "The Clash",
+          "picture": "https://api.deezer.com/artist/2/image",
+          "pictureMedium": "https://cdn-images.dzcdn.net/images/artist/82a5fe6ba783cf618d5394ae0b8129b9/250x250-000000-80-0-0.jpg",
+          "pictureXl": "https://cdn-images.dzcdn.net/images/artist/82a5fe6ba783cf618d5394ae0b8129b9/1000x1000-000000-80-0-0.jpg",
+          "pictureProbe": {
+            "url": "https://cdn-images.dzcdn.net/images/artist/82a5fe6ba783cf618d5394ae0b8129b9/1000x1000-000000-80-0-0.jpg",
+            "ok": true,
+            "status": 200,
+            "contentType": "image/jpeg",
+            "error": null
+          }
+        },
+        {
+          "name": "The Clash",
+          "picture": "https://api.deezer.com/artist/414289312/image",
+          "pictureMedium": "https://cdn-images.dzcdn.net/images/artist//250x250-000000-80-0-0.jpg",
+          "pictureXl": "https://cdn-images.dzcdn.net/images/artist//1000x1000-000000-80-0-0.jpg",
+          "pictureProbe": {
+            "url": "https://cdn-images.dzcdn.net/images/artist//1000x1000-000000-80-0-0.jpg",
+            "ok": true,
+            "status": 200,
+            "contentType": "image/jpeg",
+            "error": null
+          }
+        },
+        {
+          "name": "The Effigies",
+          "picture": "https://api.deezer.com/artist/644887/image",
+          "pictureMedium": "https://cdn-images.dzcdn.net/images/artist/1bae3459bd03b2341426b310b2fb214d/250x250-000000-80-0-0.jpg",
+          "pictureXl": "https://cdn-images.dzcdn.net/images/artist/1bae3459bd03b2341426b310b2fb214d/1000x1000-000000-80-0-0.jpg",
+          "pictureProbe": {
+            "url": "https://cdn-images.dzcdn.net/images/artist/1bae3459bd03b2341426b310b2fb214d/1000x1000-000000-80-0-0.jpg",
+            "ok": true,
+            "status": 200,
+            "contentType": "image/jpeg",
+            "error": null
+          }
+        }
+      ]
+    }
+  }
+}

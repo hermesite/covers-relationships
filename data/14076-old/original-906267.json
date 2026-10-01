@@ -1,0 +1,47 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/906267",
+    "title": "Ultra Twist",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": true,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/43951",
+            "title": "Flamejob",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/219034",
+            "title": "Ultra Twist"
+        }
+    ],
+    "originals": [],
+    "covers": [
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/906265",
+            "title": "Ultra Twist",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/30608",
+                "name": "Sabrejets"
+            },
+            "isOriginal": false
+        }
+    ],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

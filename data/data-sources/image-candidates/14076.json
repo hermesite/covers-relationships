@@ -1,0 +1,89 @@
+{
+  "artist": {
+    "id": 14076,
+    "name": "The Cramps"
+  },
+  "generatedAt": "2026-10-01T00:22:35.526260Z",
+  "sources": {
+    "secondhandsongs": {
+      "source": "secondhandsongs",
+      "ok": true,
+      "artistName": "The Cramps",
+      "picture": "https://api.secondhandsongs.com/picture/425919",
+      "pictureProbe": {
+        "url": "https://api.secondhandsongs.com/picture/425919",
+        "ok": false,
+        "status": 404,
+        "contentType": null,
+        "error": "HTTP 404"
+      }
+    },
+    "musicbrainz_wikipedia_wikidata": {
+      "source": "musicbrainz",
+      "ok": true,
+      "mbid": "96c1edac-1011-4cb8-882c-27248de35071",
+      "score": 100,
+      "matchedName": "The Cramps",
+      "wikipediaRelation": null,
+      "wikidataRelation": "https://www.wikidata.org/wiki/Q1361146",
+      "wikidataImage": "https://upload.wikimedia.org/wikipedia/commons/7/79/Cramps1982-07.jpg",
+      "wikidataImageProbe": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Cramps1982-07.jpg",
+        "ok": true,
+        "status": 200,
+        "contentType": "image/jpeg",
+        "error": null
+      }
+    },
+    "discogs": {
+      "source": "discogs",
+      "ok": false,
+      "error": "missing-DISCOGS_TOKEN"
+    },
+    "deezer": {
+      "source": "deezer",
+      "ok": true,
+      "matches": [
+        {
+          "name": "The Cramps",
+          "picture": "https://api.deezer.com/artist/3918/image",
+          "pictureMedium": "https://cdn-images.dzcdn.net/images/artist/0635e7f942d66f873a0a0e15f59d3ffd/250x250-000000-80-0-0.jpg",
+          "pictureXl": "https://cdn-images.dzcdn.net/images/artist/0635e7f942d66f873a0a0e15f59d3ffd/1000x1000-000000-80-0-0.jpg",
+          "pictureProbe": {
+            "url": "https://cdn-images.dzcdn.net/images/artist/0635e7f942d66f873a0a0e15f59d3ffd/1000x1000-000000-80-0-0.jpg",
+            "ok": true,
+            "status": 200,
+            "contentType": "image/jpeg",
+            "error": null
+          }
+        },
+        {
+          "name": "The Vamps",
+          "picture": "https://api.deezer.com/artist/5171069/image",
+          "pictureMedium": "https://cdn-images.dzcdn.net/images/artist/fa6340bf63b8c6ee424bdeb24411828a/250x250-000000-80-0-0.jpg",
+          "pictureXl": "https://cdn-images.dzcdn.net/images/artist/fa6340bf63b8c6ee424bdeb24411828a/1000x1000-000000-80-0-0.jpg",
+          "pictureProbe": {
+            "url": "https://cdn-images.dzcdn.net/images/artist/fa6340bf63b8c6ee424bdeb24411828a/1000x1000-000000-80-0-0.jpg",
+            "ok": true,
+            "status": 200,
+            "contentType": "image/jpeg",
+            "error": null
+          }
+        },
+        {
+          "name": "The Cramps",
+          "picture": "https://api.deezer.com/artist/412663091/image",
+          "pictureMedium": "https://cdn-images.dzcdn.net/images/artist//250x250-000000-80-0-0.jpg",
+          "pictureXl": "https://cdn-images.dzcdn.net/images/artist//1000x1000-000000-80-0-0.jpg",
+          "pictureProbe": {
+            "url": "https://cdn-images.dzcdn.net/images/artist//1000x1000-000000-80-0-0.jpg",
+            "ok": true,
+            "status": 200,
+            "contentType": "image/jpeg",
+            "error": null
+          }
+        }
+      ]
+    }
+  }
+}

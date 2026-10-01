@@ -1,0 +1,19 @@
+meta {
+  name: Search by commonName
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/search
+  body: none
+  auth: none
+}
+
+params:query {
+  commonName: {{commonName}}
+}
+
+headers {
+  Accept: application/json
+}

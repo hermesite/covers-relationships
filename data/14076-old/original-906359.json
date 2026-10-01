@@ -1,0 +1,67 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/906359",
+    "title": "TV Set",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": true,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/9684",
+            "title": "Songs the Lord Taught Us",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/219053",
+            "title": "TV Set"
+        }
+    ],
+    "originals": [],
+    "covers": [
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/906360",
+            "title": "TV Set",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/158536",
+                "name": "Tokyo Cramps"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1169441",
+            "title": "TV Set",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/115527",
+                "name": "Child Bite"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1220236",
+            "title": "T.V. Set",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/190398",
+                "name": "The Gorgons [GB]"
+            },
+            "isOriginal": false
+        }
+    ],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

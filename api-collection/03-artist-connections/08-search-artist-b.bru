@@ -1,0 +1,19 @@
+meta {
+  name: Search Artist B
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/search
+  body: none
+  auth: none
+}
+
+params:query {
+  commonName: {{commonNameB}}
+}
+
+headers {
+  Accept: application/json
+}

@@ -1,0 +1,47 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/906268",
+    "title": "Naked Girl Falling down the Stairs",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": true,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/43951",
+            "title": "Flamejob",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/219035",
+            "title": "Naked Girl Falling down the Stairs"
+        }
+    ],
+    "originals": [],
+    "covers": [
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/906273",
+            "title": "Naked Girl Falling down the Stairs",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/158535",
+                "name": "The Devil Wrays"
+            },
+            "isOriginal": false
+        }
+    ],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

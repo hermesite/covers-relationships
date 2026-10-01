@@ -1,0 +1,832 @@
+[
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1262973",
+        "title": "Sinners",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1272100",
+        "title": "Trapped Love",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1220134",
+        "title": "Wrong Way Ticket",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1220142",
+        "title": "Like a Bad Girl Should",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1220152",
+        "title": "Drug Train",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1220162",
+        "title": "Super Goo",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1220234",
+        "title": "Under the Wires",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1169431",
+        "title": "Call of the Wighat",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1169433",
+        "title": "I'm Cramped",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1169436",
+        "title": "Sheena's in a Goth Gang",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1169434",
+        "title": "Zombie Dance",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1169435",
+        "title": "Don't Eat Stuff off the Sidewalk",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/1169437",
+        "title": "People Ain't No Good",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/85080",
+        "title": "Jailhouse Rock",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/109326",
+        "title": "Route 66 (Get Your Kicks on)",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/878593",
+        "title": "Her Love Rubbed Off",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/907704",
+        "title": "Dames, Booze, Chains and Boots",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/905761",
+        "title": "I Ain't Nuthing but a Gorehound",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/905935",
+        "title": "Kizmiaz",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/905951",
+        "title": "Beautiful Gardens",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906244",
+        "title": "The Natives Are Restless",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906250",
+        "title": "The Hot Pearl Snatch",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906253",
+        "title": "What's Inside a Girl?",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906256",
+        "title": "All Women Are Bad",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906262",
+        "title": "Get off the Road",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906268",
+        "title": "Naked Girl Falling down the Stairs",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906267",
+        "title": "Ultra Twist",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906270",
+        "title": "Cramp Stomp",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906338",
+        "title": "The Creature from the Black Leather Lagoon",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906333",
+        "title": "Daisys up Your Butterfly",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906345",
+        "title": "Papa Satan Sang Louie",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906344",
+        "title": "Big Black Witchcraft Rock",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906349",
+        "title": "Hang Up",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906350",
+        "title": "Taboo",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906359",
+        "title": "TV Set",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906367",
+        "title": "Love Me",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/906552",
+        "title": "Oowee Baby",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/343285",
+        "title": "Five Years Ahead of My Time",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/745399",
+        "title": "Faster Pussycat",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/313144",
+        "title": "Blue Moon Baby",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/739772",
+        "title": "I Was a Teenage Werewolf",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/343281",
+        "title": "Rock on the Moon",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/343283",
+        "title": "Bop Pills",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/343284",
+        "title": "Uranium Rock",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/24127",
+        "title": "Fever",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/352464",
+        "title": "You Got Good Taste",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/240288",
+        "title": "Domino",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/243820",
+        "title": "I Can't Hardly Stand It",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/132718",
+        "title": "Save It",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/133761",
+        "title": "Can't Find My Mind",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/268399",
+        "title": "Weekend on Mars",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/142139",
+        "title": "Bikini Girls with Machine Guns",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/269615",
+        "title": "Quick Joey Small",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/24271",
+        "title": "The Most Exalted Potentate of Love",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/30793",
+        "title": "Georgia Lee Brown",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/31328",
+        "title": "The Green Door",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/62572",
+        "title": "Voodoo Idol",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/67774",
+        "title": "Green Fuz",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/67779",
+        "title": "Rockin' Bones",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/67781",
+        "title": "Primitive",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/67785",
+        "title": "Jungle Hop",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/67776",
+        "title": "Goo Goo Muck",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/29818",
+        "title": "Psychotic Reaction",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/55746",
+        "title": "New Kind of Kick",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/99054",
+        "title": "Can Your Pussy Do the Dog?",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/102219",
+        "title": "Lonesome Town",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/43739",
+        "title": "Human Fly",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/79258",
+        "title": "The Way I Walk",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/31982",
+        "title": "Surfin' Bird",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/102220",
+        "title": "Tear It Up",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/102221",
+        "title": "Strychnine",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/102223",
+        "title": "She Said",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/67783",
+        "title": "The Crusher",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/109324",
+        "title": "Shortnin' Bread",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/109325",
+        "title": "Muleskinner Blues",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/420233",
+        "title": "Strange Love",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/420241",
+        "title": "Blues Blues Blues",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/508850",
+        "title": "Do the Clam",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/508851",
+        "title": "Heartbreak Hotel",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/637834",
+        "title": "Garbage Man",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/554975",
+        "title": "Nest of the Cuckoo Bird",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": true
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/269630",
+        "title": "Hanky Panky",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    },
+    {
+        "entityType": "performance",
+        "uri": "https://secondhandsongs.com/performance/269631",
+        "title": "Rumble Blues",
+        "performer": {
+            "uri": "https://secondhandsongs.com/artist/14076",
+            "name": "The Cramps"
+        },
+        "isOriginal": false
+    }
+]

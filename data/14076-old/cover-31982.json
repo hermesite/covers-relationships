@@ -1,0 +1,98 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/31982",
+    "title": "Surfin' Bird",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": false,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "single",
+            "uri": "https://secondhandsongs.com/release/12414",
+            "title": "Surfin Bird",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        },
+        {
+            "entityType": "release",
+            "entitySubType": "EP",
+            "uri": "https://secondhandsongs.com/release/41643",
+            "title": "Gravest Hits EP",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/9427",
+            "title": "Surfin' Bird"
+        }
+    ],
+    "originals": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/9427",
+            "title": "Surfin' Bird",
+            "isRootWork": false,
+            "original": {
+                "entityType": "performance",
+                "uri": "https://secondhandsongs.com/performance/9427",
+                "title": "Surfin' Bird",
+                "performer": {
+                    "uri": "https://secondhandsongs.com/artist/6738",
+                    "name": "The Trashmen"
+                },
+                "isOriginal": false
+            }
+        },
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/30213",
+            "title": "Papa-Oom-Mow-Mow",
+            "isRootWork": true,
+            "original": {
+                "entityType": "performance",
+                "uri": "https://secondhandsongs.com/performance/30213",
+                "title": "Papa-Oom-Mow-Mow",
+                "performer": {
+                    "uri": "https://secondhandsongs.com/artist/90704",
+                    "name": "The Rivingtons"
+                },
+                "isOriginal": true
+            }
+        },
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/36744",
+            "title": "The Bird's the Word",
+            "isRootWork": true,
+            "original": {
+                "entityType": "performance",
+                "uri": "https://secondhandsongs.com/performance/36744",
+                "title": "The Bird's the Word",
+                "performer": {
+                    "uri": "https://secondhandsongs.com/artist/90704",
+                    "name": "The Rivingtons"
+                },
+                "isOriginal": true
+            }
+        }
+    ],
+    "covers": [],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

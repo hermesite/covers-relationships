@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: 'Big Shoulders Display', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.canvas-container {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.graph-page-header {
+  position: relative;
+  z-index: 3;
+  padding-top: 16px;
+}
+
+.graph-toolbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.graph-toolbar label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.graph-toolbar select {
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.2;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  padding: 4px 8px;
+  min-width: 190px;
+  background: #fff;
+}

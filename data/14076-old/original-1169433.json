@@ -1,0 +1,57 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/1169433",
+    "title": "I'm Cramped",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": true,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/9684",
+            "title": "Songs the Lord Taught Us",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/252676",
+            "title": "I'm Cramped"
+        }
+    ],
+    "originals": [],
+    "covers": [
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1169463",
+            "title": "I'm Cramped",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/183752",
+                "name": "Panicker"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1220139",
+            "title": "I'm Cramped",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/190374",
+                "name": "Bang Bang Babies"
+            },
+            "isOriginal": false
+        }
+    ],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

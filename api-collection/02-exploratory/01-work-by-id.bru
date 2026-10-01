@@ -1,0 +1,15 @@
+meta {
+  name: Work by ID
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/work/{{workId}}
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}

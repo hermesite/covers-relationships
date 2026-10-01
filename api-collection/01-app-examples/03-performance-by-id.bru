@@ -1,0 +1,15 @@
+meta {
+  name: Performance by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/performance/{{performanceId}}
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}

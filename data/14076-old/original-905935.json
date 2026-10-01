@@ -1,0 +1,67 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/905935",
+    "title": "Kizmiaz",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": true,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "album",
+            "uri": "https://secondhandsongs.com/release/260171",
+            "title": "A Date with Elvis",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        },
+        {
+            "entityType": "release",
+            "entitySubType": "single",
+            "uri": "https://secondhandsongs.com/release/260225",
+            "title": "Kizmiaz",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/219007",
+            "title": "Kizmiaz"
+        }
+    ],
+    "originals": [],
+    "covers": [
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/905936",
+            "title": "Kizmiaz",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/158483",
+                "name": "Torso Twisters"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/905937",
+            "title": "Kizmiaz",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/158484",
+                "name": "Hang Left Devil"
+            },
+            "isOriginal": false
+        }
+    ],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

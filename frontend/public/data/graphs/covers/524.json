@@ -1,0 +1,480 @@
+{
+  "artist": {
+    "id": 524,
+    "uri": "https://api.secondhandsongs.com/artist/524",
+    "commonName": "The Clash"
+  },
+  "coversCount": 13,
+  "partialData": true,
+  "networkData": [
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/346067",
+        "label": "When Johnny Comes Marching Home",
+        "size": 70.0,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 24.0,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/56818",
+        "label": "J. W. Myers",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/3932",
+        "label": "I Fought the Law",
+        "size": 64.41379310344827,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 21.39310344827586,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/1938",
+        "label": "The Crickets [US]",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/16378",
+        "label": "Brand New Cadillac",
+        "size": 55.10344827586207,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 17.048275862068966,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/10316+118037",
+        "label": "Vince Taylor and His Playboys",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/31946",
+        "label": "Junco Partner (Worthless Man)",
+        "size": 50.758620689655174,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 15.020689655172415,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/9330",
+        "label": "James Waynes",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/27554",
+        "label": "Time Is Tight",
+        "size": 50.13793103448276,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 14.73103448275862,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/173700",
+        "label": "Booker T. & The M.G.'s",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/222593",
+        "label": "Police on My Back",
+        "size": 45.58620689655172,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 12.606896551724137,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/6469",
+        "label": "The Equals",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/44163",
+        "label": "The Man in Me",
+        "size": 45.172413793103445,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 12.413793103448276,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/158",
+        "label": "Bob Dylan",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/17879",
+        "label": "Police and Thief",
+        "size": 44.13793103448276,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 11.931034482758621,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/10926",
+        "label": "Junior Murvin",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/55262",
+        "label": "Pressure Drop",
+        "size": 43.51724137931034,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 11.641379310344828,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/18381",
+        "label": "The Maytals",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/55945",
+        "label": "Revolution Rock – Pt. 1",
+        "size": 41.241379310344826,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.579310344827586,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/25101+87903",
+        "label": "Danny Ray & The Revolutioneers",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/75307",
+        "label": "Armagedeon Time",
+        "size": 40.41379310344828,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.193103448275862,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/31624",
+        "label": "Willy Williams",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/24148",
+        "label": "Wrong Emboyo",
+        "size": 40.206896551724135,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.096551724137932,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/14082",
+        "label": "The Rulers",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/performance/24130",
+        "label": "Look Here",
+        "size": 40.0,
+        "color": "#FFF",
+        "bgColor": "#C00",
+        "opacity": 1,
+        "bgOpacity": 1,
+        "fontSize": 10.0,
+        "fontFamily": "Kreon"
+      }
+    },
+    {
+      "data": {
+        "id": "https://api.secondhandsongs.com/artist/2055",
+        "label": "Mose Allison",
+        "size": 1,
+        "color": "#333",
+        "bgColor": "#333",
+        "bgOpacity": 0,
+        "opacity": 1,
+        "fontSize": 12,
+        "fontFamily": "Big Shoulders Display"
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/346067",
+        "target": "https://api.secondhandsongs.com/artist/56818",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/3932",
+        "target": "https://api.secondhandsongs.com/artist/1938",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/16378",
+        "target": "https://api.secondhandsongs.com/artist/10316+118037",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/31946",
+        "target": "https://api.secondhandsongs.com/artist/9330",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/27554",
+        "target": "https://api.secondhandsongs.com/artist/173700",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/222593",
+        "target": "https://api.secondhandsongs.com/artist/6469",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/44163",
+        "target": "https://api.secondhandsongs.com/artist/158",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/17879",
+        "target": "https://api.secondhandsongs.com/artist/10926",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/55262",
+        "target": "https://api.secondhandsongs.com/artist/18381",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/55945",
+        "target": "https://api.secondhandsongs.com/artist/25101+87903",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/75307",
+        "target": "https://api.secondhandsongs.com/artist/31624",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/24148",
+        "target": "https://api.secondhandsongs.com/artist/14082",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "https://api.secondhandsongs.com/performance/24130",
+        "target": "https://api.secondhandsongs.com/artist/2055",
+        "weight": 1,
+        "color": "#666",
+        "opacity": 0.25
+      }
+    }
+  ],
+  "diagnostics": {
+    "performanceUrisTotal": 104,
+    "performanceUrisSelected": 80,
+    "performanceResultsOk": 80,
+    "performanceResultsFailed": 0,
+    "coverOriginalUrisTotal": 13,
+    "coverOriginalUrisSelected": 13,
+    "originalResultsOk": 13,
+    "originalResultsFailed": 0,
+    "originalsValid": 13,
+    "networkItems": 39,
+    "sampleErrors": []
+  },
+  "generatedAt": "2026-09-30T23:15:54.785264+00:00"
+}

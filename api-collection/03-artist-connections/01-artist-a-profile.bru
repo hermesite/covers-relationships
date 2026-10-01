@@ -1,0 +1,15 @@
+meta {
+  name: Artist A Profile
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/artist/{{artistAId}}
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}

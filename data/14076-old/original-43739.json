@@ -1,0 +1,197 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/43739",
+    "title": "Human Fly",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": true,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "single",
+            "uri": "https://secondhandsongs.com/release/17201",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        },
+        {
+            "entityType": "release",
+            "entitySubType": "EP",
+            "uri": "https://secondhandsongs.com/release/41643",
+            "title": "Gravest Hits EP",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/43739",
+            "title": "Human Fly"
+        }
+    ],
+    "originals": [],
+    "covers": [
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/379651",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/10268",
+                "name": "Mad Sin"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/54748",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/24664",
+                "name": "Crestfallen"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/142138",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/47258",
+                "name": "Blessure Grave"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/43740",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/15947",
+                "name": "Nouvelle Vague"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/385553",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/59156",
+                "name": "October Rising"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/445052",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/13433",
+                "name": "Sonovac"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/478107",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/35887",
+                "name": "The Dead Brothers"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/496564",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/101855",
+                "name": "Dragibus"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/906286",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/158536",
+                "name": "Tokyo Cramps"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1053832",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/174051",
+                "name": "The Horseflies"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/953977",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/83708",
+                "name": "Alex Rosén"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/995135",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/158003",
+                "name": "REIZstrom"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1169458",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/7631+183749",
+                "name": "Zeus! feat. Mike Patton"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1220171",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/190383",
+                "name": "Shawnis And The Shimmers"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1319763",
+            "title": "Human Fly",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/104109",
+                "name": "D3O"
+            },
+            "isOriginal": false
+        }
+    ],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

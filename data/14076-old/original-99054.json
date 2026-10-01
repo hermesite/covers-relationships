@@ -1,0 +1,67 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/99054",
+    "title": "Can Your Pussy Do the Dog?",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": true,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "single",
+            "uri": "https://secondhandsongs.com/release/40495",
+            "title": "Can Your Pussy Do the Dog?",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/99054",
+            "title": "Can Your Pussy Do the Dog?"
+        }
+    ],
+    "originals": [],
+    "covers": [
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/99055",
+            "title": "Can Your Pussy Do the Dog?",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/25662",
+                "name": "Boy Division"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/415152",
+            "title": "Can Your Pussy Do the Dog?",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/75579",
+                "name": "The Balls [US]"
+            },
+            "isOriginal": false
+        },
+        {
+            "entityType": "performance",
+            "uri": "https://secondhandsongs.com/performance/1220176",
+            "title": "Can Your Pussy Do the Dog?",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/190387",
+                "name": "No Valentine"
+            },
+            "isOriginal": false
+        }
+    ],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

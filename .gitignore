@@ -1,16 +1,34 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+**/node_modules/
 /.pnp
 .pnp.js
+.venv/
+venv/
 
 # testing
 /coverage
+htmlcov/
+.coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# generated data and API caches
+**/.cache/
+/.shs-cache/
 
 # next.js
 /.next/
 /out/
+
+# vite
+/frontend/dist/
+
+# python
+__pycache__/
+*.py[cod]
 
 # production
 /build

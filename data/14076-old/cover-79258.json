@@ -1,0 +1,64 @@
+{
+    "entityType": "performance",
+    "uri": "https://secondhandsongs.com/performance/79258",
+    "title": "The Way I Walk",
+    "performer": {
+        "uri": "https://secondhandsongs.com/artist/14076",
+        "name": "The Cramps"
+    },
+    "isOriginal": false,
+    "date": null,
+    "releases": [
+        {
+            "entityType": "release",
+            "entitySubType": "single",
+            "uri": "https://secondhandsongs.com/release/12414",
+            "title": "Surfin Bird",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        },
+        {
+            "entityType": "release",
+            "entitySubType": "EP",
+            "uri": "https://secondhandsongs.com/release/41643",
+            "title": "Gravest Hits EP",
+            "performer": {
+                "uri": "https://secondhandsongs.com/artist/14076",
+                "name": "The Cramps"
+            }
+        }
+    ],
+    "works": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/29427",
+            "title": "The Way I Walk"
+        }
+    ],
+    "originals": [
+        {
+            "entityType": "work",
+            "entitySubType": "song",
+            "uri": "https://secondhandsongs.com/work/29427",
+            "title": "The Way I Walk",
+            "isRootWork": true,
+            "original": {
+                "entityType": "performance",
+                "uri": "https://secondhandsongs.com/performance/29427",
+                "title": "The Way I Walk",
+                "performer": {
+                    "uri": "https://secondhandsongs.com/artist/16139+105744",
+                    "name": "Jack Scott with The Chantones Vocal Group"
+                },
+                "isOriginal": true
+            }
+        }
+    ],
+    "covers": [],
+    "derivedWorks": [],
+    "sampledBy": [],
+    "usesSamplesFrom": []
+}

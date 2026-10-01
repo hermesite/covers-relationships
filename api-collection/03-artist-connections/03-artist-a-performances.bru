@@ -1,0 +1,15 @@
+meta {
+  name: Artist A Performances
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/artist/{{artistAId}}/performances
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}
