@@ -42,35 +42,131 @@ body {
   font-weight: 700;
 }
 
-.covers-side-heading {
+.covers-filter-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   margin: 24px 0 12px;
+}
+
+.covers-side-heading {
+  margin: 0;
   font-size: 19px;
 }
 
-.covers-side-panel .band-detail-list {
+.covers-filter-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 6px;
+  border: 0;
+  background: transparent;
+  color: #7a3129;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.covers-filter-reset:disabled {
+  color: #85908a;
+  cursor: default;
+}
+
+.covers-graph-controls {
   display: grid;
-  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-bottom: 18px;
 }
 
-.covers-side-panel .band-member {
-  padding: 12px;
+.covers-graph-controls label {
+  font-size: 14px;
+  font-weight: 700;
 }
 
-.covers-side-panel .band-member-heading {
-  flex-wrap: wrap;
+.covers-graph-controls select {
+  width: 100%;
+  padding: 5px 8px;
+  border: 1px solid #aeb8b0;
+  border-radius: 4px;
+  background: #fff;
+  color: #202723;
+  font: inherit;
 }
 
-.covers-side-panel .band-member-heading h2 {
-  font-size: 21px;
+.covers-export-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid #7a3129;
+  border-radius: 4px;
+  background: #fff;
+  color: #7a3129;
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.covers-export-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.covers-album-list {
+  display: grid;
+  gap: 2px;
+}
+
+.covers-album-option {
+  display: grid;
+  grid-template-columns: 16px 36px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 6px 4px;
+  border-bottom: 1px solid #d8dfd9;
+  color: #202723;
+  cursor: pointer;
+}
+
+.covers-album-option.is-selected {
+  background: #e1ede8;
+}
+
+.covers-album-option input {
+  margin: 0;
+  accent-color: #7a3129;
+}
+
+.covers-album-option img,
+.covers-album-placeholder {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  background: #d9af5a;
+}
+
+.covers-album-title {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+.covers-album-count {
+  color: #596a60;
+  font-size: 14px;
 }
 
 .section-covers .canvas-container {
   position: static;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  align-self: start;
+  min-height: 600px;
+  align-self: stretch;
   min-width: 0;
+  overflow: visible;
 }
 
 @media (max-width: 760px) {
@@ -83,14 +179,14 @@ body {
     border-bottom: 1px solid #d8dfd9;
   }
 
-  .covers-side-panel .band-detail-list {
+  .covers-album-list {
     max-height: 240px;
     overflow-y: auto;
   }
 
   .section-covers .canvas-container {
-    height: max(360px, 56.25vw);
-    aspect-ratio: auto;
+    height: 400px;
+    min-height: 0;
   }
 }
 
