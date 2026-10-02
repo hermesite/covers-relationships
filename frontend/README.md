@@ -2,10 +2,16 @@
 
 ## Run locally
 
+Use Node.js 20.19+ or 22.12+ (required by Vite 7).
+
 ```sh
-npm install
+npm ci
 npm start
 ```
+
+The app uses React 19 with the `createRoot` API and Vite. It remains a
+client-rendered app; Next.js is not needed for the existing static graph data
+and local API proxy. Commit dependency lockfile changes when upgrading packages.
 
 The graph pages (`/covers` and `/originals`) read precomputed JSON files from `data/graphs`. See [Graph Data Generation](../data/README.md) for generation, reset, cache refresh, Python, and asset documentation.
 
