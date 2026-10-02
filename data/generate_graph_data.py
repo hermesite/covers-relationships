@@ -576,16 +576,21 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
     ]
 
     album_images: dict[str, str | None] = {}
+    album_years: dict[str, int] = {}
     for cover in covers:
         for album in performance_release_data(cover)["releases"]:
             uri, title = album.get("uri"), album.get("title")
             if uri and title and uri not in album_images:
                 album_images[uri] = _deezer_album_image(artist.get("commonName") or artist.get("name") or "", title)
+            date = cover.get("firstReleaseDate") or ""
+            if uri and date[:4].isdigit():
+                year = int(date[:4])
+                album_years[uri] = min(year, album_years.get(uri, year))
 
     cover_releases_by_original: dict[str, list[dict[str, Any]]] = {}
     for cover in covers:
         albums = [
-            {**album, "imageUrl": album_images.get(album.get("uri"))}
+            {**album, "year": album_years.get(album.get("uri")), "imageUrl": album_images.get(album.get("uri"))}
             for album in performance_release_data(cover)["releases"]
         ]
         for reference in cover.get("originals") or []:

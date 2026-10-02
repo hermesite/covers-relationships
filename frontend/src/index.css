@@ -6,11 +6,6 @@ body {
   background-color: #fff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 .canvas-container {
   position: fixed;
   top: 0px;
@@ -72,7 +67,9 @@ code {
 .section-covers .canvas-container {
   position: static;
   width: 100%;
-  height: max(640px, calc(100vh - 60px));
+  height: auto;
+  aspect-ratio: 16 / 9;
+  align-self: start;
   min-width: 0;
 }
 
@@ -89,6 +86,11 @@ code {
   .covers-side-panel .band-detail-list {
     max-height: 240px;
     overflow-y: auto;
+  }
+
+  .section-covers .canvas-container {
+    height: max(360px, 56.25vw);
+    aspect-ratio: auto;
   }
 }
 

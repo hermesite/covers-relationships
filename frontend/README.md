@@ -16,6 +16,7 @@ and local API proxy. Commit dependency lockfile changes when upgrading packages.
 The graph pages (`/covers` and `/originals`) read precomputed JSON files from `data/graphs`. See [Graph Data Generation](../data/README.md) for generation, reset, cache refresh, Python, and asset documentation.
 
 On `/covers`, a song's `coverReleases` lists albums by the selected artist, including `imageUrl` when matching cover artwork is found. Shared album nodes connect those songs to the selected artist; songs without a listed album remain directly connected.
+Albums are ordered by the earliest selected-artist performance year recorded for each release; release references do not provide a separate album release date.
 
 ## Available URLs
 

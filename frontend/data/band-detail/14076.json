@@ -26,7 +26,75 @@
         "commonName": "Kid Congo Powers"
       },
       "comments": "Guitar (1980-1983)",
-      "artistDetailsError": "artist timeout reached while waiting for SecondHandSongs retry"
+      "artistDetails": {
+        "entityType": "artist",
+        "entitySubType": "person",
+        "uri": "https://api.secondhandsongs.com/artist/21305",
+        "commonName": "Kid Congo Powers",
+        "birthName": null,
+        "legalName": null,
+        "birthDate": "1959-03-27",
+        "deathDate": null,
+        "picture": "https://api.secondhandsongs.com/picture/177852",
+        "homeCountry": "US",
+        "comments": null,
+        "aliases": [],
+        "relations": [
+          {
+            "relationName": "is member of",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "group",
+              "uri": "https://api.secondhandsongs.com/artist/14076",
+              "commonName": "The Cramps"
+            },
+            "comments": "Guitar (1980-1983)"
+          },
+          {
+            "relationName": "is member of",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "group",
+              "uri": "https://api.secondhandsongs.com/artist/1889",
+              "commonName": "The Gun Club"
+            },
+            "comments": "Guitar, vocals"
+          },
+          {
+            "relationName": "is member of",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "group",
+              "uri": "https://api.secondhandsongs.com/artist/14325",
+              "commonName": "Knoxville Girls"
+            },
+            "comments": "Guitar, vocals"
+          },
+          {
+            "relationName": "is related to",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "person",
+              "uri": "https://api.secondhandsongs.com/artist/11578",
+              "commonName": "Nick Cave"
+            },
+            "comments": "The Bad Seeds: Guitar (1988-1990)"
+          },
+          {
+            "relationName": "is related to",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "person",
+              "uri": "https://api.secondhandsongs.com/artist/216498",
+              "commonName": "Jack Martin [US2]"
+            },
+            "comments": "Long term collaborator"
+          }
+        ],
+        "performances": "https://api.secondhandsongs.com/artist/21305/performances",
+        "creditedWorks": "https://api.secondhandsongs.com/artist/21305/works",
+        "releases": "https://api.secondhandsongs.com/artist/21305/releases"
+      }
     },
     {
       "relationName": "has as member",
@@ -37,7 +105,85 @@
         "commonName": "Jim Sclavunos"
       },
       "comments": "Drums (1984)",
-      "artistDetailsError": "artist timeout reached while waiting for SecondHandSongs quota"
+      "artistDetails": {
+        "entityType": "artist",
+        "entitySubType": "person",
+        "uri": "https://api.secondhandsongs.com/artist/20348",
+        "commonName": "Jim Sclavunos",
+        "birthName": null,
+        "legalName": null,
+        "birthDate": null,
+        "deathDate": null,
+        "picture": "https://api.secondhandsongs.com/picture/191917",
+        "homeCountry": "US",
+        "comments": "Multi-instrumentalist, record producer and writer, who emerged from the New York no wave scene in the late 1970s",
+        "aliases": [],
+        "relations": [
+          {
+            "relationName": "is member of",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "group",
+              "uri": "https://api.secondhandsongs.com/artist/14076",
+              "commonName": "The Cramps"
+            },
+            "comments": "Drums (1984)"
+          },
+          {
+            "relationName": "is member of",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "group",
+              "uri": "https://api.secondhandsongs.com/artist/39754",
+              "commonName": "Teenage Jesus and The Jerks"
+            },
+            "comments": "Bass"
+          },
+          {
+            "relationName": "is member of",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "group",
+              "uri": "https://api.secondhandsongs.com/artist/530",
+              "commonName": "Sonic Youth"
+            },
+            "comments": "Drums (1982 - 1983)"
+          },
+          {
+            "relationName": "is member of",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "group",
+              "uri": "https://api.secondhandsongs.com/artist/46758",
+              "commonName": "8 Eyed Spy"
+            },
+            "comments": null
+          },
+          {
+            "relationName": "is member of",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "group",
+              "uri": "https://api.secondhandsongs.com/artist/166382",
+              "commonName": "Grinderman"
+            },
+            "comments": null
+          },
+          {
+            "relationName": "is related to",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "person",
+              "uri": "https://api.secondhandsongs.com/artist/11578",
+              "commonName": "Nick Cave"
+            },
+            "comments": "The Bad Seeds: Percussions, drums (1994 - ...)"
+          }
+        ],
+        "performances": "https://api.secondhandsongs.com/artist/20348/performances",
+        "creditedWorks": "https://api.secondhandsongs.com/artist/20348/works",
+        "releases": "https://api.secondhandsongs.com/artist/20348/releases"
+      }
     },
     {
       "relationName": "has as member",
@@ -48,7 +194,35 @@
         "commonName": "Lux Interior"
       },
       "comments": null,
-      "artistDetailsError": "artist timeout reached while waiting for SecondHandSongs quota"
+      "artistDetails": {
+        "entityType": "artist",
+        "entitySubType": "person",
+        "uri": "https://api.secondhandsongs.com/artist/14154",
+        "commonName": "Lux Interior",
+        "birthName": null,
+        "legalName": null,
+        "birthDate": "1946-10-21",
+        "deathDate": "2009-02-04",
+        "picture": "https://api.secondhandsongs.com/picture/46363",
+        "homeCountry": "US",
+        "comments": null,
+        "aliases": [],
+        "relations": [
+          {
+            "relationName": "is member of",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "group",
+              "uri": "https://api.secondhandsongs.com/artist/14076",
+              "commonName": "The Cramps"
+            },
+            "comments": null
+          }
+        ],
+        "performances": "https://api.secondhandsongs.com/artist/14154/performances",
+        "creditedWorks": "https://api.secondhandsongs.com/artist/14154/works",
+        "releases": "https://api.secondhandsongs.com/artist/14154/releases"
+      }
     },
     {
       "relationName": "has as member",
@@ -59,7 +233,37 @@
         "commonName": "Poison Ivy"
       },
       "comments": null,
-      "artistDetailsError": "artist timeout reached while waiting for SecondHandSongs quota"
+      "artistDetails": {
+        "entityType": "artist",
+        "entitySubType": "person",
+        "uri": "https://api.secondhandsongs.com/artist/14153",
+        "commonName": "Poison Ivy",
+        "birthName": null,
+        "legalName": null,
+        "birthDate": "1953-02-20",
+        "deathDate": null,
+        "picture": "https://api.secondhandsongs.com/picture/46362",
+        "homeCountry": "US",
+        "comments": null,
+        "aliases": [
+          "Ivy Rorschach"
+        ],
+        "relations": [
+          {
+            "relationName": "is member of",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "group",
+              "uri": "https://api.secondhandsongs.com/artist/14076",
+              "commonName": "The Cramps"
+            },
+            "comments": null
+          }
+        ],
+        "performances": "https://api.secondhandsongs.com/artist/14153/performances",
+        "creditedWorks": "https://api.secondhandsongs.com/artist/14153/works",
+        "releases": "https://api.secondhandsongs.com/artist/14153/releases"
+      }
     },
     {
       "relationName": "has as member",
@@ -70,8 +274,48 @@
         "commonName": "Shauna Reynolds"
       },
       "comments": null,
-      "artistDetailsError": "artist timeout reached while waiting for SecondHandSongs quota"
+      "artistDetails": {
+        "entityType": "artist",
+        "entitySubType": "person",
+        "uri": "https://api.secondhandsongs.com/artist/11836",
+        "commonName": "Shauna Reynolds",
+        "birthName": null,
+        "legalName": null,
+        "birthDate": "1966-06-06",
+        "deathDate": null,
+        "picture": "https://api.secondhandsongs.com/picture/335356",
+        "homeCountry": "US",
+        "comments": null,
+        "aliases": [
+          "Sean Yseult"
+        ],
+        "relations": [
+          {
+            "relationName": "is member of",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "group",
+              "uri": "https://api.secondhandsongs.com/artist/10985",
+              "commonName": "White Zombie"
+            },
+            "comments": null
+          },
+          {
+            "relationName": "is member of",
+            "artist": {
+              "entityType": "artist",
+              "entitySubType": "group",
+              "uri": "https://api.secondhandsongs.com/artist/14076",
+              "commonName": "The Cramps"
+            },
+            "comments": null
+          }
+        ],
+        "performances": "https://api.secondhandsongs.com/artist/11836/performances",
+        "creditedWorks": "https://api.secondhandsongs.com/artist/11836/works",
+        "releases": "https://api.secondhandsongs.com/artist/11836/releases"
+      }
     }
   ],
-  "generatedAt": "2026-10-01T13:00:33.580334+00:00"
+  "generatedAt": "2026-10-02T07:32:01.966339+00:00"
 }

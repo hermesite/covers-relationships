@@ -1,13 +1,21 @@
 import Cytoscape from 'cytoscape';
 import React, { Component } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import CytoscapeComponent from 'react-cytoscapejs';
 import fcose from 'cytoscape-fcose';
+import { FaMusic } from 'react-icons/fa';
 
 import { ARTIST_OPTIONS } from '../../constants/artistOptions';
 import { getArtistIdFromUrl, setArtistIdInUrl } from '../artistUrl';
 import { BandMemberList } from '../BandDetail';
 
 Cytoscape.use(fcose);
+
+const songIcon = (color) => `data:image/svg+xml,${encodeURIComponent(
+  renderToStaticMarkup(<FaMusic color={color} />)
+)}`;
+const albumSongIcon = songIcon('#236978');
+const ungroupedSongIcon = songIcon('#b8683e');
 
 const isValidImageUrl = (url) => {
   if (typeof url !== 'string') return false;
@@ -70,23 +78,24 @@ class Covers extends Component {
     window.removeEventListener('resize', this.onResize);
   }
 
-  fitArtists = (cy) => {
-    const artists = cy.nodes('[nodeType = "artist"], [nodeType = "selectedArtist"]');
-    cy.fit(artists, 40);
-    if (cy.width() >= 800 && cy.zoom() < 0.8) {
-      cy.zoom(0.8);
+  fitGraph = (cy) => {
+    const focus = cy.nodes('[nodeType = "album"], [nodeType = "selectedArtist"]');
+    cy.fit(focus.length > 0 ? focus : cy.nodes(), 40);
+    if (cy.width() >= 800 && cy.zoom() < 0.6) {
+      cy.zoom(0.6);
       cy.center(cy.nodes('[nodeType = "selectedArtist"]'));
     }
   };
 
   onResize = () => {
+    const width = this.canvasCoversContainer.current?.offsetWidth || window.innerWidth;
     this.setState({
-      canvasContainerWidth: this.canvasCoversContainer.current?.offsetWidth || window.innerWidth,
-      canvasContainerHeight: this.canvasCoversContainer.current?.offsetHeight || window.innerHeight,
+      canvasContainerWidth: width,
+      canvasContainerHeight: window.innerWidth <= 760 ? Math.max(360, width * 9 / 16) : width * 9 / 16,
     }, () => {
       if (!this.cy || this.cy.destroyed()) return;
       this.cy.resize();
-      this.fitArtists(this.cy);
+      this.fitGraph(this.cy);
     });
   };
 
@@ -170,15 +179,19 @@ class Covers extends Component {
       typedNetworkData.filter((item) => item.data.nodeType === 'song').forEach(({ data }) => {
         const releases = Array.isArray(data.coverReleases) ? data.coverReleases : [];
         const validReleases = releases.filter((release) => release?.uri && release.title);
-        if (validReleases.length === 0) ungroupedSongs.push(data.id);
+        if (validReleases.length === 0) {
+          ungroupedSongs.push(data.id);
+          data.ungrouped = true;
+        }
         validReleases.forEach((release) => {
           const albumId = `album:${release.uri}`;
           if (!albumNodes.has(albumId)) {
             albumNodes.set(albumId, {
               data: {
                 id: albumId,
-                label: release.title,
+                label: release.year ? `${release.year}  ${release.title}` : release.title,
                 nodeType: 'album',
+                year: release.year || null,
                 imageUrl: isValidImageUrl(release.imageUrl) ? release.imageUrl : null,
               },
             });
@@ -204,8 +217,8 @@ class Covers extends Component {
       ] : typedNetworkData;
 
       const containerWidth = this.canvasCoversContainer.current?.offsetWidth || window.innerWidth;
-      const containerHeight =
-        this.canvasCoversContainer.current?.offsetHeight || Math.max(window.innerHeight * 0.6, 400);
+      const containerHeight = window.innerWidth <= 760
+        ? Math.max(360, containerWidth * 9 / 16) : containerWidth * 9 / 16;
 
       if (!this.isMountedFlag) return;
       this.setState({
@@ -242,15 +255,40 @@ class Covers extends Component {
       partialData,
     } = this.state;
     const hasNetworkData = Array.isArray(networkData) && networkData.length > 0;
+    const albums = networkData
+      .filter((item) => item.data?.nodeType === 'album')
+      .sort((first, second) => (first.data.year || Infinity) - (second.data.year || Infinity)
+        || first.data.label.localeCompare(second.data.label));
+    const columns = Math.ceil(Math.sqrt(albums.length));
+    const rows = Math.ceil(albums.length / columns);
 
     const layout = {
       name: 'fcose',
       animate: false,
       fit: false,
       quality: 'proof',
+      fixedNodeConstraint: [
+        ...networkData.filter((item) => item.data?.nodeType === 'selectedArtist').map((item) => ({
+          nodeId: item.data.id,
+          position: { x: 0, y: 0 },
+        })),
+        ...albums.map((item, index) => ({
+          nodeId: item.data.id,
+          position: {
+            x: 450 + (index % columns) * 280,
+            y: (Math.floor(index / columns) - (rows - 1) / 2) * 300,
+          },
+        })),
+      ],
+      relativePlacementConstraint: networkData
+        .filter((item) => item.data?.ungrouped)
+        .map((item) => ({ left: item.data.id, right: `selected-artist-${this.state.selectedArtistId}`, gap: 420 })),
       nodeDimensionsIncludeLabels: true,
-      nodeRepulsion: (node) => node.data('nodeType') === 'selectedArtist' ? 120000 : 4500,
-      idealEdgeLength: (edge) => edge.data('relation') === 'cover' ? 220 : 50,
+      nodeRepulsion: (node) => node.data('nodeType') === 'selectedArtist' ? 120000
+        : node.data('nodeType') === 'album' ? 25000 : 12000,
+      idealEdgeLength: (edge) => edge.data('relation') === 'cover' ? 220
+        : edge.data('relation') === 'album-track' ? 160 : 70,
+      edgeElasticity: (edge) => edge.data('relation') === 'album-track' ? 0.8 : 0.35,
     };
 
     return (
@@ -274,19 +312,14 @@ class Covers extends Component {
                 this.cy = cy;
                 this.initListeners();
                 cy.layout(layout).run();
-                this.fitArtists(cy);
+                this.fitGraph(cy);
                 cy.nodes('[nodeType = "artist"]').forEach((node) => {
                   const imageUrl = node.data('imageUrl');
                   if (!imageUrl) return;
                   const image = new Image();
                   image.onload = () => {
                     if (cy.destroyed()) return;
-                    const scale = Math.min(node.width() / image.naturalWidth, node.height() * 2 / 3 / image.naturalHeight);
-                    node.style({
-                      'background-width': image.naturalWidth * scale,
-                      'background-height': image.naturalHeight * scale,
-                      'background-image-opacity': 1,
-                    });
+                    node.style('background-image-opacity', 1);
                   };
                   image.onerror = () => {
                     if (!cy.destroyed()) node.data('imageUrl', null);
@@ -302,7 +335,7 @@ class Covers extends Component {
                 {
                   selector: 'node',
                   style: {
-                    color: '#1f1f1f',
+                    color: '#252b28',
                     'font-size': 12,
                     width: 14,
                     height: 14,
@@ -319,46 +352,52 @@ class Covers extends Component {
                 {
                   selector: 'node[nodeType = "artist"]',
                   style: {
-                    shape: 'rectangle',
+                    shape: 'ellipse',
                     width: 120,
                     height: 120,
                     'background-opacity': 0,
                     'background-image': (ele) => ele.data('imageUrl') || 'none',
-                    'background-fit': 'none',
-                    'background-width': '100%',
-                    'background-height': '66.6667%',
-                    'background-position-y': '0%',
+                    'background-fit': 'cover',
                     'background-image-opacity': 0,
-                    color: '#000000',
+                    color: '#252b28',
                     'font-size': 14,
                     'font-weight': 700,
                     'text-wrap': 'wrap',
                     'text-max-width': 110,
                     'text-halign': 'center',
                     'text-valign': 'bottom',
-                    'text-margin-y': -28,
+                    'text-margin-y': 16,
                   },
                 },
                 {
                   selector: 'node[nodeType = "artist"][!imageUrl]',
                   style: {
-                    height: 60,
+                    width: 110,
+                    height: 110,
+                    'background-color': '#e3e9e6',
+                    'background-opacity': 1,
+                    'border-width': 1,
+                    'border-color': '#474d49',
+                    'font-size': 12,
                     'text-valign': 'center',
                     'text-margin-y': 0,
+                    'text-overflow-wrap': 'anywhere',
+                    'text-max-width': 94,
                   },
                 },
                 {
                   selector: 'node[nodeType = "song"]',
                   style: {
                     shape: 'ellipse',
-                    color: '#236978',
+                    color: '#252b28',
                     'font-family': 'Kreon',
                     'font-size': 22,
                     'font-weight': 700,
-                    width: 8,
-                    height: 8,
-                    'background-color': '#236978',
-                    'background-opacity': 1,
+                    width: 20,
+                    height: 20,
+                    'background-opacity': 0,
+                    'background-image': albumSongIcon,
+                    'background-fit': 'contain',
                     'border-width': 0,
                     'text-halign': 'center',
                     'text-valign': 'bottom',
@@ -366,6 +405,12 @@ class Covers extends Component {
                     'text-wrap': 'wrap',
                     'text-overflow-wrap': 'anywhere',
                     'text-max-width': 140,
+                  },
+                },
+                {
+                  selector: 'node[nodeType = "song"][ungrouped]',
+                  style: {
+                    'background-image': ungroupedSongIcon,
                   },
                 },
                 {
@@ -378,7 +423,7 @@ class Covers extends Component {
                     'background-image': (ele) => ele.data('imageUrl') || 'none',
                     'background-fit': 'cover',
                     'background-image-opacity': 1,
-                    color: '#244c43',
+                    color: '#252b28',
                     'font-size': 16,
                     'font-weight': 700,
                     'text-halign': 'center',
@@ -394,8 +439,13 @@ class Covers extends Component {
                 {
                   selector: 'node[nodeType = "album"][!imageUrl]',
                   style: {
+                    width: 106.667,
+                    height: 106.667,
+                    'background-color': '#d9af5a',
+                    'background-opacity': 1,
                     'text-valign': 'center',
                     'text-margin-y': 0,
+                    'text-max-width': 96,
                   },
                 },
                 {
@@ -416,17 +466,17 @@ class Covers extends Component {
                 {
                   selector: 'edge',
                   style: {
-                    'line-color': (ele) => ele.data('color') || '#762c27',
+                    'line-color': '#474d49',
                     width: 1,
-                    color: (ele) => ele.data('color') || '#762c27',
-                    opacity: (ele) => ele.data('opacity') ?? 0.4,
+                    color: '#252b28',
+                    opacity: 0.65,
                     'curve-style': 'haystack',
                   },
                 },
                 {
                   selector: 'edge[relation = "cover"]',
                   style: {
-                    'line-color': '#762c27',
+                    'line-color': '#353b37',
                     width: 2,
                     opacity: 0.4,
                   },
