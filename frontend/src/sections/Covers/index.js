@@ -1,17 +1,26 @@
 import Cytoscape from 'cytoscape';
 import React, { Component } from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import CytoscapeComponent from 'react-cytoscapejs';
+import cola from 'cytoscape-cola';
 import fcose from 'cytoscape-fcose';
-import { FaDownload, FaMusic, FaUndo } from 'react-icons/fa';
+import svg from 'cytoscape-svg';
+import { FaDownload, FaSearch, FaTimes, FaUndo } from 'react-icons/fa';
 
 import { ARTIST_OPTIONS } from '../../constants/artistOptions';
 import { getArtistIdFromUrl, setArtistIdInUrl } from '../artistUrl';
 
 Cytoscape.use(fcose);
+Cytoscape.use(cola);
+Cytoscape.use(svg);
 
 const UNGROUPED_ALBUM_ID = 'no-album';
+const SOURCE_MODES = [
+  { value: 'both', label: 'Both' },
+  { value: 'covers', label: 'Covers' },
+  { value: 'originals', label: 'Originals' },
+];
 const LAYOUT_OPTIONS = [
+  { value: 'cola', label: 'No overlap' },
   { value: 'fcose', label: 'fCoSE' },
   { value: 'cose', label: 'CoSE' },
   { value: 'breadthfirst', label: 'Hierarchy' },
@@ -19,23 +28,9 @@ const LAYOUT_OPTIONS = [
   { value: 'grid', label: 'Grid' },
 ];
 
-const ALBUM_COLORS = [
-  '#236978', '#b8683e', '#58713d', '#a14855', '#426a8c',
-  '#997326', '#536b8e', '#8c5f3f', '#467468', '#765b78',
-];
-const songIcons = new Map();
-const songIcon = (color) => {
-  if (!songIcons.has(color)) {
-    songIcons.set(color, `data:image/svg+xml,${encodeURIComponent(
-      renderToStaticMarkup(<FaMusic color={color} size={28} />)
-    )}`);
-  }
-  return songIcons.get(color);
-};
-const ungroupedSongIcon = songIcon('#b8683e');
-
 const isValidImageUrl = (url) => {
   if (typeof url !== 'string') return false;
+  if (/^\/images\/releases\/\d+\.(jpg|png|webp|gif)$/.test(url)) return true;
   try {
     return ['http:', 'https:'].includes(new URL(url).protocol);
   } catch {
@@ -66,17 +61,21 @@ const addCamelCaseSpaces = (value) => value
   .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2');
 const formatSongTitle = (title) => addCamelCaseSpaces(title);
 const formatArtistName = (name) => addCamelCaseSpaces(name.replace(/\s*\[[^\]]*\]/g, '').trim());
+const releasesForSong = (song) => song.graphReleases
+  || (song.sourceType === 'originals' ? song.releases : song.coverReleases) || [];
 
 const getReleaseYear = (release) => Number(release?.year) || Infinity;
 
-const getOrderedReleases = (songs) => [...new Map(songs.flatMap((song) => song.coverReleases || [])
+const getOrderedReleases = (songs) => [...new Map(songs.flatMap(releasesForSong)
   .filter((release) => release?.uri && release.title)
   .map((release) => [release.uri, release])).values()]
   .sort((first, second) => getReleaseYear(first) - getReleaseYear(second)
     || first.title.localeCompare(second.title));
 
-const getAlbumColors = (songs) => new Map(getOrderedReleases(songs)
-  .map((release, index) => [release.uri, ALBUM_COLORS[index % ALBUM_COLORS.length]]));
+const getReleaseEdgeWidth = (edge) => {
+  const coverCount = Math.max(1, Number(edge.data('coverCount')) || 1);
+  return Math.min(5, 1 + Math.log2(coverCount));
+};
 
 class Covers extends Component {
   constructor() {
@@ -86,10 +85,16 @@ class Covers extends Component {
       loading: true,
       error: null,
       coversCount: 0,
+      originalsCount: 0,
       networkData: [],
       artist: null,
       selectedAlbumIds: [],
-      layoutName: 'fcose',
+      searchQuery: '',
+      searchType: 'song',
+      exportFormat: 'png',
+      exportError: null,
+      sourceMode: 'both',
+      layoutName: 'cola',
       canvasContainerWidth: window.innerWidth,
       canvasContainerHeight: Math.max(window.innerHeight * 0.6, 400),
       partialData: false,
@@ -107,16 +112,93 @@ class Covers extends Component {
 
   componentWillUnmount() {
     this.isMountedFlag = false;
+    this.graphLayout?.stop();
     window.removeEventListener('resize', this.onResize);
   }
 
   fitGraph = (cy) => {
-    const focus = cy.nodes('[nodeType = "album"], [nodeType = "selectedArtist"]');
-    cy.fit(focus.length > 0 ? focus : cy.nodes(), 40);
-    if (cy.width() >= 800 && cy.zoom() < 0.6) {
-      cy.zoom(0.6);
-      cy.center(cy.nodes('[nodeType = "selectedArtist"]'));
+    cy.fit(cy.nodes(), 32);
+  };
+
+  runGraphLayout = (cy, layout) => {
+    this.graphLayout?.stop();
+    const central = cy.nodes('[nodeType = "selectedArtist"]').first();
+    const covers = cy.nodes().filter((node) => node.data('nodeType') === 'song'
+      ? node.data('sourceType') === 'covers'
+      : node.data('artistRole') === 'original-performer'
+        || (node.data('nodeType') === 'album' && node.data('sourceTypes')?.length === 1
+          && node.data('sourceTypes').includes('covers')));
+    const originals = cy.nodes().filter((node) => node.data('nodeType') === 'song'
+      ? node.data('sourceType') === 'originals'
+      : node.data('artistRole') === 'cover-performer'
+        || (node.data('nodeType') === 'album' && node.data('sourceTypes')?.length === 1
+          && node.data('sourceTypes').includes('originals')));
+    const separateSources = central.length > 0 && covers.length > 0 && originals.length > 0;
+    const constraints = separateSources ? [
+      ...covers.filter('[nodeType != "artist"]').map((node) => ({ left: node, right: central })),
+      ...originals.filter('[nodeType != "artist"]').map((node) => ({ left: central, right: node })),
+    ] : [];
+    if (separateSources) {
+      cy.batch(() => {
+        central.position({ x: 0, y: 0 });
+        [covers, originals].forEach((group, side) => {
+          const nodes = group.filter('[nodeType != "artist"]');
+          const aspectRatio = Math.max(0.25, Math.min(1, cy.width() / (2 * cy.height())));
+          const columns = Math.ceil(Math.sqrt(nodes.length * aspectRatio));
+          const rows = Math.ceil(nodes.length / columns);
+          nodes.forEach((node, index) => node.position({
+            x: (side === 0 ? -1 : 1) * (400 + (index % columns) * 200),
+            y: (Math.floor(index / columns) - (rows - 1) / 2) * 180,
+          }));
+        });
+        const shared = cy.nodes().difference(covers).difference(originals).not(central);
+        shared.forEach((node, index) => {
+          const row = Math.floor(index / 2) - Math.ceil(shared.length / 4);
+          node.position({ x: index % 2 === 0 ? -160 : 160, y: (row < 0 ? row : row + 1) * 320 });
+        });
+        cy.nodes('[nodeType = "artist"]').forEach((node) => {
+          const songs = node.neighborhood('[nodeType = "song"]');
+          if (songs.length === 0) return;
+          const peers = songs.first().neighborhood('[nodeType = "artist"]').toArray();
+          const index = peers.findIndex((peer) => peer.id() === node.id());
+          const angle = -Math.PI / 2 + ((index % 6) + 1) * Math.PI / 7;
+          const radius = 140 + Math.floor(index / 6) * 110;
+          const side = node.data('artistRole') === 'original-performer' ? -1 : 1;
+          node.position({
+            x: songs.reduce((sum, song) => sum + song.position('x'), 0) / songs.length + side * Math.cos(angle) * radius,
+            y: songs.reduce((sum, song) => sum + song.position('y'), 0) / songs.length + Math.sin(angle) * radius,
+          });
+        });
+      });
     }
+    const graphLayout = cy.layout({
+      ...layout,
+      ...(layout.name === 'cola' && {
+        randomize: !separateSources,
+        gapInequalities: [
+          ...constraints.map(({ left, right }) => {
+            const node = left === central ? right : left;
+            return { axis: 'x', left, right, gap: 280 + node.layoutDimensions({ nodeDimensionsIncludeLabels: true }).w / 2 };
+          }),
+          ...cy.nodes('[nodeType = "artist"]').toArray().flatMap((node) => {
+            const song = node.neighborhood('[nodeType = "song"]').first();
+            if (!song.length) return [];
+            const gap = (song.layoutDimensions({ nodeDimensionsIncludeLabels: true }).w
+              + node.layoutDimensions({ nodeDimensionsIncludeLabels: true }).w) / 2 + 32;
+            return [{ axis: 'x', left: song.data('sourceType') === 'covers' ? node : song,
+              right: song.data('sourceType') === 'covers' ? song : node, gap, equality: true }];
+          }),
+        ],
+      }),
+      ...(layout.name === 'fcose' && {
+        relativePlacementConstraint: constraints.map(({ left, right }) => ({ left: left.id(), right: right.id(), gap: 160 })),
+      }),
+    });
+    this.graphLayout = graphLayout;
+    graphLayout.one('layoutstop', () => {
+      if (this.graphLayout === graphLayout && !cy.destroyed()) this.fitGraph(cy);
+    });
+    graphLayout.run();
   };
 
   onResize = () => {
@@ -154,26 +236,49 @@ class Covers extends Component {
     }));
   };
 
+  onSourceModeChange = (sourceMode) => {
+    this.setState({ sourceMode, selectedAlbumIds: [] });
+  };
+
   downloadGraph = () => {
     if (!this.cy || this.cy.destroyed()) return;
+    let objectUrl;
     try {
+      this.setState({ exportError: null });
+      const { exportFormat } = this.state;
       const link = document.createElement('a');
-      link.href = this.cy.png({ bg: '#ffffff', full: true, maxWidth: 2400 });
-      link.download = `covers-${this.state.selectedArtistId}-${this.state.layoutName}.png`;
+      if (exportFormat === 'svg') {
+        const content = this.cy.svg({ bg: '#ffffff', full: true });
+        objectUrl = URL.createObjectURL(new Blob([content], { type: 'image/svg+xml;charset=utf-8' }));
+        link.href = objectUrl;
+      } else {
+        link.href = this.cy.png({ bg: '#ffffff', full: true, maxWidth: 2400 });
+      }
+      link.download = `covers-${this.state.selectedArtistId}-${this.state.layoutName}.${exportFormat}`;
+      document.body.appendChild(link);
       link.click();
+      link.remove();
     } catch (error) {
-      this.setState({ error: error.message || 'Unable to export the graph image.' });
+      this.setState({ exportError: error.message || 'Unable to export the graph image.' });
+    } finally {
+      if (objectUrl) setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
     }
   };
 
   async loadGraphForArtist(artistId) {
     try {
-      const response = await fetch(`/graphs/covers/${artistId}.json`);
-      if (!response.ok) {
+      const [coversResponse, originalsResponse] = await Promise.all([
+        fetch(`/graphs/covers/${artistId}.json`),
+        fetch(`/graphs/originals/${artistId}.json`),
+      ]);
+      if (!coversResponse.ok) {
         throw new Error('Generated data file not found. Run the Python data generator first.');
       }
 
-      const payload = await response.json();
+      const payload = await coversResponse.json();
+      const originalsPayload = originalsResponse.ok
+        ? await originalsResponse.json()
+        : { networkData: [] };
       const fallbackArtistImage =
         payload.artistPictureResolved || payload.artistPicture || payload.artist?.picture || null;
       const artistImageUrls = uniqueImageUrls([
@@ -181,7 +286,53 @@ class Covers extends Component {
         fallbackArtistImage,
       ]);
 
-      const payloadData = Array.isArray(payload.networkData) ? payload.networkData : [];
+      const coversData = Array.isArray(payload.networkData) ? payload.networkData : [];
+      const originalsData = Array.isArray(originalsPayload.networkData) ? originalsPayload.networkData : [];
+      const nodeDataById = new Map();
+      const edgeData = [];
+      const appendGraphData = (items, sourceType) => {
+        items.forEach((item) => {
+          const data = item?.data || {};
+          if (data.source || data.target) {
+            edgeData.push({
+              ...item,
+              data: {
+                ...data,
+                id: `${sourceType}-edge:${data.source}->${data.target}`,
+                relation: sourceType === 'originals' ? 'original-cover' : 'cover-version',
+                sourceType,
+              },
+            });
+            return;
+          }
+          if (!data.id) return;
+          const previous = nodeDataById.get(data.id);
+          const nodeType = data.nodeType || 'song';
+          const graphReleases = nodeType === 'song'
+            ? (sourceType === 'originals' ? data.releases : data.coverReleases) || []
+            : [];
+          const sourceTypes = [...new Set([...(previous?.sourceTypes || []), sourceType])];
+          const mergedReleases = new Map([
+            ...((previous?.graphReleases || []).map((release) => [release.uri, release])),
+            ...graphReleases.map((release) => [release.uri, release]),
+          ]);
+          nodeDataById.set(data.id, {
+            ...previous,
+            ...data,
+            nodeType,
+            ...(nodeType === 'artist' && {
+              sourceTypes,
+              artistRole: sourceTypes.length > 1 ? 'both'
+                : sourceType === 'covers' ? 'original-performer' : 'cover-performer',
+              imageUrl: isValidImageUrl(data.imageUrl) ? data.imageUrl : previous?.imageUrl || null,
+            }),
+            ...(nodeType === 'song' && { sourceType, sourceTypes, graphReleases: [...mergedReleases.values()] }),
+          });
+        });
+      };
+      appendGraphData(coversData, 'covers');
+      appendGraphData(originalsData, 'originals');
+      const payloadData = [...[...nodeDataById.values()].map((data) => ({ data })), ...edgeData];
       const sourceIds = new Set(
         payloadData
           .filter((item) => item?.data?.source)
@@ -193,22 +344,30 @@ class Covers extends Component {
           .map((item) => item.data.target)
       );
       const payloadSongs = payloadData
-        .filter((item) => item?.data?.id && !item.data.source && !item.data.target && !targetIds.has(item.data.id))
+        .filter((item) => item?.data?.nodeType === 'song')
         .map((item) => item.data);
-      const albumColors = getAlbumColors(payloadSongs);
+      const songsById = new Map(payloadSongs.map((song) => [song.id, song]));
+      const releaseCoverCounts = new Map();
+      payloadSongs.forEach((song) => {
+        const releases = new Set((song.coverReleases || []).map((release) => release?.uri).filter(Boolean));
+        releases.forEach((uri) => releaseCoverCounts.set(uri, (releaseCoverCounts.get(uri) || 0) + 1));
+      });
 
       const typedNetworkData = payloadData.map((item) => {
         const data = item?.data || {};
         if (data.source || data.target) {
-          return { ...item, data: { ...data, id: data.id || `edge:${data.source}->${data.target}` } };
+          const sourceSong = songsById.get(data.source);
+          const primaryRelease = sourceSong ? getOrderedReleases([sourceSong])[0] : null;
+          return {
+            ...item,
+            data: {
+              ...data,
+              id: data.id || `edge:${data.source}->${data.target}`,
+              coverCount: primaryRelease ? releaseCoverCounts.get(primaryRelease.uri) || 1 : 1,
+            },
+          };
         }
-        const nodeType = targetIds.has(data.id) ? 'artist' : sourceIds.has(data.id) ? 'song' : 'song';
-        const release = nodeType === 'song'
-          ? [...(data.coverReleases || [])].filter((item) => item?.uri && item.title)
-            .sort((first, second) => getReleaseYear(first) - getReleaseYear(second)
-              || first.title.localeCompare(second.title))[0]
-          : null;
-        const albumColor = release ? albumColors.get(release.uri) : null;
+        const nodeType = data.nodeType || (targetIds.has(data.id) ? 'artist' : sourceIds.has(data.id) ? 'song' : 'artist');
         return {
           ...item,
           data: {
@@ -217,10 +376,6 @@ class Covers extends Component {
             ...(nodeType === 'artist' && { label: formatArtistName(data.label || '') }),
             ...(nodeType === 'song' && { label: formatSongTitle(data.label || '') }),
             ...(nodeType === 'artist' && { imageUrl: isValidImageUrl(data.imageUrl) ? data.imageUrl : null }),
-            ...(nodeType === 'song' && {
-              albumColor: albumColor || '#b8683e',
-              songIconUrl: songIcon(albumColor || '#b8683e'),
-            }),
           },
         };
       });
@@ -229,7 +384,7 @@ class Covers extends Component {
       const albumEdges = [];
       const ungroupedSongs = [];
       typedNetworkData.filter((item) => item.data.nodeType === 'song').forEach(({ data }) => {
-        const releases = Array.isArray(data.coverReleases) ? data.coverReleases : [];
+        const releases = releasesForSong(data);
         const validReleases = releases.filter((release) => release?.uri && release.title);
         if (validReleases.length === 0) {
           ungroupedSongs.push(data.id);
@@ -243,13 +398,28 @@ class Covers extends Component {
                 id: albumId,
                 label: formatSongTitle(release.title),
                 nodeType: 'album',
+                entitySubType: release.entitySubType || 'album',
+                uri: release.uri,
+                coverCount: releaseCoverCounts.get(release.uri) || 1,
+                sourceTypes: [],
+                releaseDetails: release.releaseDetails || null,
+                date: release.date || null,
                 year: release.year || null,
-                albumColor: albumColors.get(release.uri) || '#b8683e',
                 imageUrl: isValidImageUrl(release.imageUrl) ? release.imageUrl : null,
               },
             });
           }
-          albumEdges.push({ data: { id: `edge:${albumId}->${data.id}`, source: albumId, target: data.id, relation: 'album-track' } });
+          const albumData = albumNodes.get(albumId).data;
+          albumData.sourceTypes = [...new Set([...albumData.sourceTypes, ...(data.sourceTypes || [data.sourceType])])];
+          if (!albumData.imageUrl && isValidImageUrl(release.imageUrl)) albumData.imageUrl = release.imageUrl;
+          albumEdges.push({ data: {
+            id: `edge:${albumId}->${data.id}`,
+            source: albumId,
+            target: data.id,
+            relation: 'album-track',
+            sourceType: data.sourceType,
+            coverCount: releaseCoverCounts.get(release.uri) || 1,
+          } });
         });
       });
       const graphData = payload.artist && sourceIds.size > 0 ? [
@@ -265,7 +435,13 @@ class Covers extends Component {
         ...albumNodes.values(),
         ...albumEdges,
         ...[...albumNodes.keys(), ...ungroupedSongs].map((target) => ({
-          data: { id: `edge:${selectedNodeId}->${target}`, source: selectedNodeId, target, relation: 'cover' },
+          data: {
+            id: `edge:${selectedNodeId}->${target}`,
+            source: selectedNodeId,
+            target,
+            relation: 'cover',
+            coverCount: albumNodes.get(target)?.data.coverCount || 1,
+          },
         })),
       ] : typedNetworkData;
 
@@ -278,6 +454,7 @@ class Covers extends Component {
         error: payload.error || null,
         artist: payload.artist || null,
         coversCount: Number(payload.coversCount || 0),
+        originalsCount: Number(originalsPayload.originalsCount || payloadSongs.filter((song) => song.sourceType === 'originals').length),
         networkData: graphData,
         canvasContainerWidth: containerWidth,
         canvasContainerHeight: containerHeight,
@@ -298,70 +475,95 @@ class Covers extends Component {
       error,
       artist,
       selectedAlbumIds,
+      searchQuery,
+      searchType,
+      exportFormat,
+      exportError,
+      sourceMode,
       layoutName,
       coversCount,
+      originalsCount,
       networkData,
       canvasContainerWidth,
       canvasContainerHeight,
       partialData,
     } = this.state;
     const hasNetworkData = Array.isArray(networkData) && networkData.length > 0;
+    const allSongs = networkData.filter((item) => item.data?.nodeType === 'song');
+    const songs = allSongs.filter((item) => sourceMode === 'both'
+      || (item.data.sourceTypes || [item.data.sourceType]).includes(sourceMode));
+    const activeReleaseIds = new Set(songs.flatMap(({ data }) => releasesForSong(data)
+      .map((release) => release?.uri).filter(Boolean)));
     const albums = networkData
       .filter((item) => item.data?.nodeType === 'album')
+      .filter((item) => sourceMode === 'both'
+        || (item.data.sourceTypes || []).includes(sourceMode)
+        || activeReleaseIds.has(item.data.uri))
       .sort((first, second) => (first.data.year || Infinity) - (second.data.year || Infinity)
         || first.data.label.localeCompare(second.data.label));
     const albumSongCounts = new Map(albums.map((item) => [item.data.id, 0]));
-    networkData.filter((item) => item.data?.relation === 'album-track').forEach((item) => {
-      albumSongCounts.set(item.data.source, (albumSongCounts.get(item.data.source) || 0) + 1);
-    });
-    const songs = networkData.filter((item) => item.data?.nodeType === 'song');
+    songs.forEach(({ data }) => releasesForSong(data).forEach((release) => {
+      const albumId = `album:${release.uri}`;
+      if (albumSongCounts.has(albumId)) albumSongCounts.set(albumId, albumSongCounts.get(albumId) + 1);
+    }));
     const ungroupedCount = songs.filter((item) => item.data.ungrouped).length;
-    const visibleSongIds = new Set(songs.filter((item) => selectedAlbumIds.length === 0
+    const query = searchQuery.trim().toLocaleLowerCase();
+    const matchesSearch = (data) => (data.label || '').toLocaleLowerCase().includes(query);
+    const matchingAlbumIds = new Set(albums.filter((item) => matchesSearch(item.data)).map((item) => item.data.id));
+    const matchingArtistIds = new Set(networkData.filter((item) => item.data?.nodeType === 'artist'
+      && matchesSearch(item.data)).map((item) => item.data.id));
+    const artistSongIds = new Set(networkData.filter((item) => matchingArtistIds.has(item.data?.target))
+      .map((item) => item.data.source));
+    const selectedArtistMatches = networkData.some((item) => item.data?.nodeType === 'selectedArtist' && matchesSearch(item.data));
+    const visibleSongIds = new Set(songs.filter((item) => (selectedAlbumIds.length === 0
       || (item.data.ungrouped && selectedAlbumIds.includes(UNGROUPED_ALBUM_ID))
-      || (item.data.coverReleases || []).some((release) => selectedAlbumIds.includes(`album:${release.uri}`)))
+      || releasesForSong(item.data).some((release) => selectedAlbumIds.includes(`album:${release.uri}`)))
+      && (!query || (searchType === 'song' ? matchesSearch(item.data)
+        : searchType === 'album' ? releasesForSong(item.data).some((release) => matchingAlbumIds.has(`album:${release.uri}`))
+          : selectedArtistMatches || artistSongIds.has(item.data.id))))
       .map((item) => item.data.id));
-    const visibleAlbumIds = new Set(albums.filter((item) => selectedAlbumIds.length === 0
-      || selectedAlbumIds.includes(item.data.id)).map((item) => item.data.id));
+    const songAlbumIds = new Set(songs.filter((item) => visibleSongIds.has(item.data.id))
+      .flatMap((item) => releasesForSong(item.data).map((release) => `album:${release.uri}`)));
+    const visibleAlbumIds = new Set(albums.filter((item) => (selectedAlbumIds.length === 0
+      || selectedAlbumIds.includes(item.data.id)) && (!query || songAlbumIds.has(item.data.id))
+      && (!query || searchType !== 'album' || matchingAlbumIds.has(item.data.id))).map((item) => item.data.id));
     const visibleArtistIds = new Set(networkData.filter((item) => visibleSongIds.has(item.data?.source)
-      && item.data?.target).map((item) => item.data.target));
+      && item.data?.target && (!query || searchType !== 'artist' || selectedArtistMatches
+        || matchingArtistIds.has(item.data.target))).map((item) => item.data.target));
     const visibleNodeIds = new Set(networkData.filter((item) => item.data?.nodeType === 'selectedArtist'
       || visibleSongIds.has(item.data?.id) || visibleAlbumIds.has(item.data?.id)
       || visibleArtistIds.has(item.data?.id)).map((item) => item.data.id));
     const visibleNetworkData = networkData.filter((item) => item.data?.source && item.data?.target
       ? visibleNodeIds.has(item.data.source) && visibleNodeIds.has(item.data.target)
       : visibleNodeIds.has(item.data?.id));
-    const visibleAlbums = albums.filter((item) => visibleAlbumIds.has(item.data.id));
-    const columns = Math.ceil(Math.sqrt(visibleAlbums.length));
-    const rows = Math.ceil(visibleAlbums.length / columns);
-
     const layout = {
       name: layoutName,
       animate: false,
       fit: false,
       nodeDimensionsIncludeLabels: true,
+      ...(layoutName === 'cola' ? {
+        animate: true,
+        refresh: 1,
+        randomize: true,
+        avoidOverlap: true,
+        handleDisconnected: true,
+        nodeSpacing: (node) => node.data('nodeType') === 'selectedArtist' ? 72
+          : node.data('nodeType') === 'album' ? 48 : 12,
+        edgeLength: (edge) => edge.data('relation') === 'cover' ? 260
+          : edge.data('relation') === 'album-track' ? 180 : 60,
+        maxSimulationTime: 1500,
+        convergenceThreshold: 0.01,
+      } : {}),
       ...(layoutName === 'fcose' ? {
         quality: 'proof',
-        fixedNodeConstraint: [
-        ...visibleNetworkData.filter((item) => item.data?.nodeType === 'selectedArtist').map((item) => ({
-          nodeId: item.data.id,
-          position: { x: 0, y: 0 },
-        })),
-        ...visibleAlbums.map((item, index) => ({
-          nodeId: item.data.id,
-          position: {
-            x: 450 + (index % columns) * 280,
-            y: (Math.floor(index / columns) - (rows - 1) / 2) * 300,
-          },
-        })),
-        ],
-        relativePlacementConstraint: visibleNetworkData
-        .filter((item) => item.data?.ungrouped)
-        .map((item) => ({ left: item.data.id, right: `selected-artist-${this.state.selectedArtistId}`, gap: 420 })),
-        nodeRepulsion: (node) => node.data('nodeType') === 'selectedArtist' ? 120000
-        : node.data('nodeType') === 'album' ? 25000 : 12000,
-        idealEdgeLength: (edge) => edge.data('relation') === 'cover' ? 220
-        : edge.data('relation') === 'album-track' ? 160 : 70,
-        edgeElasticity: (edge) => edge.data('relation') === 'album-track' ? 0.8 : 0.35,
+        packComponents: true,
+        nodeSeparation: 24,
+        nodeRepulsion: (node) => node.data('nodeType') === 'selectedArtist' ? 12000
+          : node.data('nodeType') === 'album' ? 6500 : 4500,
+        idealEdgeLength: (edge) => edge.data('relation') === 'cover' ? 150
+          : edge.data('relation') === 'album-track' ? 100 : 65,
+        edgeElasticity: (edge) => edge.data('relation') === 'cover' ? 0.35 : 0.8,
+        gravity: 0.4,
       } : {}),
       ...(layoutName === 'breadthfirst' ? {
         directed: true,
@@ -380,11 +582,49 @@ class Covers extends Component {
     return (
       <section className='section section-covers'>
         <div className='covers-layout'>
-          <aside className='covers-side-panel' aria-label='Album filters'>
+          <aside className='covers-side-panel' aria-label='Album, EP and single filters'>
             <h1>{artist?.commonName || ARTIST_OPTIONS.find((option) => String(option.id) === this.state.selectedArtistId)?.name}</h1>
-            {!loading && !error && <p className='covers-side-count'>{visibleSongIds.size}{selectedAlbumIds.length > 0 ? ` of ${coversCount}` : ''} covers{partialData ? ' (partial)' : ''}</p>}
+            {!loading && !error && (
+              <p className='covers-side-count'>
+                {visibleSongIds.size} tracks shown · {sourceMode === 'both' ? `${coversCount} covers / ${originalsCount} originals` : sourceMode}
+                {partialData ? ' (partial)' : ''}
+              </p>
+            )}
+            <div className='covers-source-switch' role='group' aria-label='Graph sources'>
+              {SOURCE_MODES.map((mode) => (
+                <button
+                  key={mode.value}
+                  type='button'
+                  aria-pressed={sourceMode === mode.value}
+                  className={sourceMode === mode.value ? 'is-active' : ''}
+                  onClick={() => this.onSourceModeChange(mode.value)}
+                >
+                  {mode.label}
+                </button>
+              ))}
+            </div>
+            <div className='covers-search-controls'>
+              <label htmlFor='covers-search-type'>Search by</label>
+              <select id='covers-search-type' value={searchType} onChange={(event) => this.setState({ searchType: event.target.value })}>
+                <option value='album'>Album / EP / single</option>
+                <option value='song'>Song</option>
+                <option value='artist'>Artist</option>
+              </select>
+              <div className='covers-search-input'>
+                <FaSearch aria-hidden='true' />
+                <input id='covers-search' type='search' aria-label='Search graph' placeholder='Search' value={searchQuery} onChange={(event) => this.setState({ searchQuery: event.target.value })} />
+                {searchQuery && <button type='button' aria-label='Clear search' title='Clear search' onClick={() => this.setState({ searchQuery: '' })}><FaTimes aria-hidden='true' /></button>}
+              </div>
+            </div>
+            <div className='covers-artist-legend' aria-label='Artist roles'>
+              <span><i className='covers-role-marker is-original' aria-hidden='true' /> Original performers</span>
+              <span><i className='covers-role-marker is-cover' aria-hidden='true' /> Cover performers</span>
+              {networkData.some((item) => item.data?.artistRole === 'both') && (
+                <span><i className='covers-role-marker is-both' aria-hidden='true' /> Both roles</span>
+              )}
+            </div>
             <div className='covers-filter-heading'>
-              <h2 className='covers-side-heading'>Albums</h2>
+              <h2 className='covers-side-heading'>Releases</h2>
               <button type='button' className='covers-filter-reset' onClick={() => this.setState({ selectedAlbumIds: [] })} disabled={selectedAlbumIds.length === 0}>
                 <FaUndo aria-hidden='true' /> Show all
               </button>
@@ -394,9 +634,15 @@ class Covers extends Component {
               <select id='covers-layout-select' value={layoutName} onChange={(event) => this.setState({ layoutName: event.target.value })}>
                 {LAYOUT_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
               </select>
-              <button type='button' className='covers-export-button' onClick={this.downloadGraph} disabled={loading || error || !hasNetworkData}>
-                <FaDownload aria-hidden='true' /> Download PNG
+              <label htmlFor='covers-export-format'>Download format</label>
+              <select id='covers-export-format' value={exportFormat} onChange={(event) => this.setState({ exportFormat: event.target.value, exportError: null })}>
+                <option value='png'>PNG</option>
+                <option value='svg'>SVG</option>
+              </select>
+              <button type='button' className='covers-export-button' onClick={this.downloadGraph} disabled={loading || error || visibleSongIds.size === 0}>
+                <FaDownload aria-hidden='true' /> Download {exportFormat.toUpperCase()}
               </button>
+              {exportError && <p role='alert' className='text-danger mb-0'>{exportError}</p>}
             </div>
             {!loading && !error && (
               <div className='covers-album-list'>
@@ -412,7 +658,7 @@ class Covers extends Component {
                   <label className={`covers-album-option${selectedAlbumIds.includes(UNGROUPED_ALBUM_ID) ? ' is-selected' : ''}`}>
                     <input type='checkbox' checked={selectedAlbumIds.includes(UNGROUPED_ALBUM_ID)} onChange={() => this.onAlbumToggle(UNGROUPED_ALBUM_ID)} />
                     <span className='covers-album-placeholder' aria-hidden='true' />
-                    <span className='covers-album-title'>No album</span>
+                    <span className='covers-album-title'>No release</span>
                     <span className='covers-album-count'>{ungroupedCount}</span>
                   </label>
                 )}
@@ -420,16 +666,15 @@ class Covers extends Component {
             )}
           </aside>
           <div id='canvasContainer' ref={this.canvasCoversContainer} className='canvas-container'>
-            {!loading && !error && hasNetworkData && (
+            {!loading && !error && hasNetworkData && visibleSongIds.size > 0 && (
               <CytoscapeComponent
-                key={`${layoutName}:${selectedAlbumIds.slice().sort().join('|') || 'all'}`}
+                key={`${sourceMode}:${layoutName}:${searchType}:${query}:${selectedAlbumIds.slice().sort().join('|') || 'all'}`}
                 elements={visibleNetworkData}
                 cy={(cy) => {
                   if (this.cy === cy) return;
                   this.cy = cy;
                   this.initListeners();
-                  cy.layout(layout).run();
-                  this.fitGraph(cy);
+                  this.runGraphLayout(cy, layout);
                   cy.nodes('[nodeType = "artist"]').forEach((node) => {
                     const imageUrl = node.data('imageUrl');
                     if (!imageUrl) return;
@@ -470,13 +715,14 @@ class Covers extends Component {
                     selector: 'node[nodeType = "artist"]',
                     style: {
                       shape: 'ellipse',
-                      width: 120,
-                      height: 120,
+                      width: 96,
+                      height: 96,
+                      'border-width': 0,
                       'background-opacity': 0,
                       'background-image': (ele) => ele.data('imageUrl') || 'none',
                       'background-fit': 'cover',
-                      'background-image-opacity': 0,
-                      color: '#252b28',
+                      'background-image-opacity': 1,
+                      color: '#236978',
                       'font-size': 14,
                       'font-weight': 700,
                       'text-wrap': 'wrap',
@@ -487,47 +733,51 @@ class Covers extends Component {
                     },
                   },
                   {
+                    selector: 'node[artistRole = "cover-performer"]',
+                    style: {
+                      color: '#b8683e',
+                    },
+                  },
+                  {
+                    selector: 'node[artistRole = "both"]',
+                    style: {
+                      color: '#58713d',
+                    },
+                  },
+                  {
                     selector: 'node[nodeType = "artist"][!imageUrl]',
                     style: {
-                      width: 110,
-                      height: 110,
+                      width: 96,
+                      height: 96,
                       'background-color': '#e3e9e6',
                       'background-opacity': 1,
-                      'border-width': 1,
-                      'border-color': '#474d49',
                       'font-size': 12,
                       'text-valign': 'center',
                       'text-margin-y': 0,
                       'text-overflow-wrap': 'whitespace',
-                      'text-max-width': 94,
+                      'text-max-width': 82,
                     },
                   },
                   {
                     selector: 'node[nodeType = "song"]',
                     style: {
-                        shape: 'rectangle',
-                      color: '#252b28',
+                      shape: 'rectangle',
+                      color: (ele) => ele.data('sourceTypes')?.length > 1 ? '#58713d'
+                        : ele.data('sourceType') === 'originals' ? '#b8683e' : '#236978',
                       'font-family': 'Kreon',
-                      'font-size': 22,
+                      'font-size': 30,
                       'font-weight': 700,
-                      width: 40,
-                      height: 40,
+                      width: 1,
+                      height: 1,
                       'background-opacity': 0,
-                      'background-image': (ele) => ele.data('songIconUrl') || ungroupedSongIcon,
-                      'background-fit': 'contain',
+                      'background-image': 'none',
                       'border-width': 0,
                       'text-halign': 'center',
-                      'text-valign': 'bottom',
-                      'text-margin-y': 12,
+                      'text-valign': 'center',
+                      'text-margin-y': 0,
                       'text-wrap': 'wrap',
                       'text-overflow-wrap': 'whitespace',
-                      'text-max-width': 140,
-                    },
-                  },
-                  {
-                    selector: 'node[nodeType = "song"][ungrouped]',
-                    style: {
-                      'background-color': '#b8683e',
+                      'text-max-width': 190,
                     },
                   },
                   {
@@ -550,8 +800,7 @@ class Covers extends Component {
                       'text-wrap': 'wrap',
                       'text-overflow-wrap': 'whitespace',
                       'text-max-width': 145,
-                      'border-width': 4,
-                      'border-color': (ele) => ele.data('albumColor') || '#467468',
+                      'border-width': 0,
                     },
                   },
                   {
@@ -559,9 +808,9 @@ class Covers extends Component {
                     style: {
                       width: 106.667,
                       height: 106.667,
-                      'background-color': (ele) => ele.data('albumColor') || '#d9af5a',
+                      'background-color': '#e3e9e6',
                       'background-opacity': 1,
-                      color: '#ffffff',
+                      color: '#252b28',
                       'text-valign': 'center',
                       'text-margin-y': 0,
                       'text-max-width': 96,
@@ -577,8 +826,7 @@ class Covers extends Component {
                       'background-image': (ele) => ele.data('imageUrl') || 'none',
                       'background-fit': 'cover',
                       'background-image-opacity': 1,
-                      'border-width': 4,
-                      'border-color': '#762c27',
+                      'border-width': 0,
                       label: '',
                     },
                   },
@@ -586,9 +834,10 @@ class Covers extends Component {
                     selector: 'edge',
                     style: {
                       'line-color': '#474d49',
-                      width: 1,
+                      width: getReleaseEdgeWidth,
                       color: '#252b28',
-                      opacity: 0.65,
+                      opacity: 0.22,
+                      'line-style': 'solid',
                       'curve-style': 'straight',
                     },
                   },
@@ -596,17 +845,21 @@ class Covers extends Component {
                     selector: 'edge[relation = "cover"]',
                     style: {
                       'line-color': '#353b37',
-                      width: 2,
-                      opacity: 0.4,
+                      width: getReleaseEdgeWidth,
+                      opacity: 0.16,
                     },
                   },
                   {
+                    selector: 'edge[sourceType = "covers"]',
+                    style: { 'line-style': 'dotted' },
+                  },
+                  {
                     selector: 'edge.highlight',
-                    style: { opacity: '0.9' },
+                    style: { opacity: 0.55 },
                   },
                   {
                     selector: 'edge.semitransp',
-                    style: { opacity: '0.5' },
+                    style: { opacity: 0.06 },
                   },
                 ]}
               />
@@ -620,6 +873,9 @@ class Covers extends Component {
               <div className='container pt-4'>
                 <p>No graph data available for this artist.</p>
               </div>
+            )}
+            {!loading && !error && hasNetworkData && visibleSongIds.size === 0 && (
+              <div className='container pt-4' role='status'><p>No matching tracks.</p></div>
             )}
             {error && (
               <div className='container pt-4'>

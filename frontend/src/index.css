@@ -42,6 +42,67 @@ body {
   font-weight: 700;
 }
 
+.covers-source-switch {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px;
+  margin: 14px 0 20px;
+  padding: 3px;
+  border: 1px solid #cbd4ce;
+  border-radius: 5px;
+  background: #e7ebe8;
+}
+
+.covers-source-switch button {
+  min-width: 0;
+  padding: 6px 3px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: #39463f;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.covers-source-switch button.is-active {
+  background: #fff;
+  color: #7a3129;
+  box-shadow: 0 1px 3px rgba(25, 38, 30, 0.16);
+  font-weight: 700;
+}
+
+.covers-artist-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  color: #39463f;
+  font-size: 13px;
+}
+
+.covers-artist-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.covers-role-marker {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  background: #236978;
+  border-radius: 50%;
+}
+
+.covers-role-marker.is-cover {
+  background: #b8683e;
+}
+
+.covers-role-marker.is-both {
+  background: #58713d;
+}
+
 .covers-filter-heading {
   display: flex;
   align-items: center;
@@ -73,6 +134,51 @@ body {
   cursor: default;
 }
 
+.covers-search-controls {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.covers-search-controls label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.covers-search-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border: 1px solid #aeb8b0;
+  border-radius: 4px;
+  background: #fff;
+  color: #596a60;
+}
+
+.covers-search-input input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: #202723;
+  font: inherit;
+}
+
+.covers-search-input input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.covers-search-input button {
+  display: grid;
+  place-items: center;
+  flex: 0 0 24px;
+  height: 24px;
+  border: 0;
+  background: transparent;
+  color: #596a60;
+}
+
 .covers-graph-controls {
   display: grid;
   gap: 8px;
@@ -84,7 +190,8 @@ body {
   font-weight: 700;
 }
 
-.covers-graph-controls select {
+.covers-graph-controls select,
+.covers-search-controls select {
   width: 100%;
   padding: 5px 8px;
   border: 1px solid #aeb8b0;
@@ -145,7 +252,7 @@ body {
   width: 36px;
   height: 36px;
   object-fit: cover;
-  background: #d9af5a;
+  background: #e3e9e6;
 }
 
 .covers-album-title {

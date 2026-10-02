@@ -25,7 +25,15 @@
         "fontFamily": "Kreon",
         "nodeType": "song",
         "date": "1978-11",
-        "releases": []
+        "releases": [
+          {
+            "entitySubType": "EP",
+            "uri": "https://api.secondhandsongs.com/release/41643",
+            "title": "Gravest Hits EP",
+            "imageUrl": "/images/releases/41643.jpg"
+          }
+        ],
+        "coverArtistCount": 22
       }
     },
     {
@@ -45,9 +53,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9684",
-            "title": "Songs the Lord Taught Us"
+            "title": "Songs the Lord Taught Us",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 10
       }
     },
     {
@@ -63,7 +73,15 @@
         "fontFamily": "Kreon",
         "nodeType": "song",
         "date": "1981",
-        "releases": []
+        "releases": [
+          {
+            "entitySubType": "single",
+            "uri": "https://api.secondhandsongs.com/release/22550",
+            "title": "The Crusher",
+            "imageUrl": "/images/releases/22550.jpg"
+          }
+        ],
+        "coverArtistCount": 8
       }
     },
     {
@@ -83,9 +101,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9684",
-            "title": "Songs the Lord Taught Us"
+            "title": "Songs the Lord Taught Us",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 7
       }
     },
     {
@@ -105,9 +125,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9684",
-            "title": "Songs the Lord Taught Us"
+            "title": "Songs the Lord Taught Us",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 6
       }
     },
     {
@@ -127,9 +149,12 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260171",
-            "title": "A Date with Elvis"
+            "title": "A Date with Elvis",
+            "imageSource": "musicbrainz",
+            "imageUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 5
       }
     },
     {
@@ -145,7 +170,16 @@
         "fontFamily": "Kreon",
         "nodeType": "song",
         "date": "1990-01",
-        "releases": []
+        "releases": [
+          {
+            "entitySubType": "single",
+            "uri": "https://api.secondhandsongs.com/release/54740",
+            "title": "Bikini Girls with Machine Guns",
+            "imageSource": "musicbrainz",
+            "imageUrl": "/images/releases/54740.jpg"
+          }
+        ],
+        "coverArtistCount": 4
       }
     },
     {
@@ -161,7 +195,15 @@
         "fontFamily": "Kreon",
         "nodeType": "song",
         "date": "1985",
-        "releases": []
+        "releases": [
+          {
+            "entitySubType": "single",
+            "uri": "https://api.secondhandsongs.com/release/40495",
+            "title": "Can Your Pussy Do the Dog?",
+            "imageUrl": "/images/releases/40495.jpg"
+          }
+        ],
+        "coverArtistCount": 4
       }
     },
     {
@@ -181,9 +223,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/12186",
-            "title": "Psychedelic Jungle"
+            "title": "Psychedelic Jungle",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 4
       }
     },
     {
@@ -203,9 +247,12 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260171",
-            "title": "A Date with Elvis"
+            "title": "A Date with Elvis",
+            "imageSource": "musicbrainz",
+            "imageUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 3
       }
     },
     {
@@ -225,9 +272,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9747",
-            "title": "Smell of Female"
+            "title": "Smell of Female",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/e6f4befcfda8830680c4d7ee5c0ee0ca/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 3
       }
     },
     {
@@ -247,9 +296,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9747",
-            "title": "Smell of Female"
+            "title": "Smell of Female",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/e6f4befcfda8830680c4d7ee5c0ee0ca/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 3
       }
     },
     {
@@ -265,7 +316,15 @@
         "fontFamily": "Kreon",
         "nodeType": "song",
         "date": "1984",
-        "releases": []
+        "releases": [
+          {
+            "entitySubType": "single",
+            "uri": "https://api.secondhandsongs.com/release/117881",
+            "title": "Faster Pussycat - You Got Good Taste",
+            "imageUrl": null
+          }
+        ],
+        "coverArtistCount": 3
       }
     },
     {
@@ -285,9 +344,12 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260171",
-            "title": "A Date with Elvis"
+            "title": "A Date with Elvis",
+            "imageSource": "musicbrainz",
+            "imageUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 2
       }
     },
     {
@@ -307,9 +369,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260255",
-            "title": "Fiends of Dope Island"
+            "title": "Fiends of Dope Island",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f46912ad2388137cc51bfc5b9da880f7/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 2
       }
     },
     {
@@ -329,9 +393,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9684",
-            "title": "Songs the Lord Taught Us"
+            "title": "Songs the Lord Taught Us",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 2
       }
     },
     {
@@ -351,9 +417,12 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260228",
-            "title": "Big Beat from Badsville"
+            "title": "Big Beat from Badsville",
+            "imageSource": "musicbrainz",
+            "imageUrl": "http://coverartarchive.org/release/b8d392bf-eeed-4dca-84e1-a7ae2b2beb83/22914987994-500.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 2
       }
     },
     {
@@ -373,9 +442,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/12186",
-            "title": "Psychedelic Jungle"
+            "title": "Psychedelic Jungle",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 2
       }
     },
     {
@@ -395,9 +466,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/12186",
-            "title": "Psychedelic Jungle"
+            "title": "Psychedelic Jungle",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 2
       }
     },
     {
@@ -417,9 +490,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/43950",
-            "title": "Stay Sick!"
+            "title": "Stay Sick!",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f73bad28886a8ea2e70e62c336b5d97a/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -439,9 +514,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/12186",
-            "title": "Psychedelic Jungle"
+            "title": "Psychedelic Jungle",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -461,9 +538,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9747",
-            "title": "Smell of Female"
+            "title": "Smell of Female",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/e6f4befcfda8830680c4d7ee5c0ee0ca/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -483,9 +562,12 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260228",
-            "title": "Big Beat from Badsville"
+            "title": "Big Beat from Badsville",
+            "imageSource": "musicbrainz",
+            "imageUrl": "http://coverartarchive.org/release/b8d392bf-eeed-4dca-84e1-a7ae2b2beb83/22914987994-500.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -505,9 +587,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/43950",
-            "title": "Stay Sick!"
+            "title": "Stay Sick!",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f73bad28886a8ea2e70e62c336b5d97a/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -527,9 +611,12 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260604",
-            "title": "Look Mom No Head!"
+            "title": "Look Mom No Head!",
+            "imageSource": "musicbrainz",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/8/8c/Look_Mom%2C_No_Head%21.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -549,9 +636,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/12186",
-            "title": "Psychedelic Jungle"
+            "title": "Psychedelic Jungle",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -567,7 +656,22 @@
         "fontFamily": "Kreon",
         "nodeType": "song",
         "date": "1980-09",
-        "releases": []
+        "releases": [
+          {
+            "entitySubType": "single",
+            "uri": "https://api.secondhandsongs.com/release/87104",
+            "title": "Drug Train",
+            "imageUrl": "/images/releases/87104.jpg"
+          },
+          {
+            "entitySubType": "single",
+            "uri": "https://api.secondhandsongs.com/release/490087",
+            "title": "Garbageman",
+            "imageSource": "musicbrainz",
+            "imageUrl": "/images/releases/490087.jpg"
+          }
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -587,9 +691,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260255",
-            "title": "Fiends of Dope Island"
+            "title": "Fiends of Dope Island",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f46912ad2388137cc51bfc5b9da880f7/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -605,7 +711,16 @@
         "fontFamily": "Kreon",
         "nodeType": "song",
         "date": "1983",
-        "releases": []
+        "releases": [
+          {
+            "entitySubType": "single",
+            "uri": "https://api.secondhandsongs.com/release/260117",
+            "title": "I Ain't Nuthin' But a Gorehound",
+            "imageSource": "musicbrainz",
+            "imageUrl": "/images/releases/260117.jpg"
+          }
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -625,9 +740,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/43951",
-            "title": "Flamejob"
+            "title": "Flamejob",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/670ec75c53bfb373021992435cfefebd/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -647,9 +764,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/43951",
-            "title": "Flamejob"
+            "title": "Flamejob",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/670ec75c53bfb373021992435cfefebd/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -669,9 +788,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260255",
-            "title": "Fiends of Dope Island"
+            "title": "Fiends of Dope Island",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f46912ad2388137cc51bfc5b9da880f7/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -691,9 +812,12 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260171",
-            "title": "A Date with Elvis"
+            "title": "A Date with Elvis",
+            "imageSource": "musicbrainz",
+            "imageUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -713,9 +837,12 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260228",
-            "title": "Big Beat from Badsville"
+            "title": "Big Beat from Badsville",
+            "imageSource": "musicbrainz",
+            "imageUrl": "http://coverartarchive.org/release/b8d392bf-eeed-4dca-84e1-a7ae2b2beb83/22914987994-500.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -735,9 +862,12 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260228",
-            "title": "Big Beat from Badsville"
+            "title": "Big Beat from Badsville",
+            "imageSource": "musicbrainz",
+            "imageUrl": "http://coverartarchive.org/release/b8d392bf-eeed-4dca-84e1-a7ae2b2beb83/22914987994-500.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -757,9 +887,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/43950",
-            "title": "Stay Sick!"
+            "title": "Stay Sick!",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f73bad28886a8ea2e70e62c336b5d97a/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -779,9 +911,12 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260171",
-            "title": "A Date with Elvis"
+            "title": "A Date with Elvis",
+            "imageSource": "musicbrainz",
+            "imageUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -801,9 +936,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/12186",
-            "title": "Psychedelic Jungle"
+            "title": "Psychedelic Jungle",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -823,9 +960,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/43951",
-            "title": "Flamejob"
+            "title": "Flamejob",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/670ec75c53bfb373021992435cfefebd/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -845,9 +984,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260255",
-            "title": "Fiends of Dope Island"
+            "title": "Fiends of Dope Island",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f46912ad2388137cc51bfc5b9da880f7/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -867,9 +1008,11 @@
           {
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9684",
-            "title": "Songs the Lord Taught Us"
+            "title": "Songs the Lord Taught Us",
+            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
           }
-        ]
+        ],
+        "coverArtistCount": 1
       }
     },
     {
@@ -883,7 +1026,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -897,7 +1041,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Alex_Rosen_2007_%28cropped%29.JPG"
       }
     },
     {
@@ -911,7 +1056,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/4936bbe0043a10b0437d629639cd0504/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -925,7 +1071,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/b4df20332c9b721ce3931563bda5a6bc/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -939,7 +1086,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/440a5bb2667a68cd91e2867a836b7923/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -953,7 +1101,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/23f3c69511d299734f9603bfe9f50b4c/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -967,7 +1116,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/77607be3141a345751f68bb2854ead4c/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -981,7 +1131,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/b2520eb84c1980927f76a755edb60c24/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -995,7 +1146,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://i.discogs.com/bsgotP8YYJ9sCBYQ-xYvVO6eiyRvLyz7VtiViw9d05M/rs:fit/g:sm/q:90/h:600/w:505/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTEzNjY4/NTUtMTQ0MjUxNDA5/MS02OTUwLmpwZWc.jpeg"
       }
     },
     {
@@ -1009,7 +1161,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/bf8e41e9b33fa534426ee61c1847a013/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1023,7 +1176,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/b6e559d91692ee5abf429c4c9910ee65/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1037,7 +1191,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/c65cacc56cce03ab4d2912026a073ef8/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1051,7 +1206,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://i.discogs.com/s74kjhA6WYdOvNReY3co2Lrkv5USuiUh34Af5YHVTPs/rs:fit/g:sm/q:90/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE0MTY2/NDEtMTI0MTk1NTcx/NS5qcGVn.jpeg"
       }
     },
     {
@@ -1065,7 +1221,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/7044e9ad303bee9ccd94155e437a3b50/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1079,7 +1236,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/850d3c908fec2d868bb6698cbda62bf3/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1093,7 +1251,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -1107,7 +1266,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/1d26055618044bf48494119d875cadc0/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1121,7 +1281,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://i.discogs.com/IhEydAQRVluB3MNEhzi1ngB3ykh8PLOQWC1iw2oHkYs/rs:fit/g:sm/q:90/h:337/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTUzNjMy/OS0xNjY3MTQ1Njg2/LTM4MjcuanBlZw.jpeg"
       }
     },
     {
@@ -1135,7 +1296,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -1149,7 +1311,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -1163,7 +1326,8 @@
         "opacity": 1,
         "fontSize": 16.939376614429868,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/5bd9f06dd4ba9ee17c62a57d0c548d75/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1177,7 +1341,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -1191,7 +1356,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/433e633615d8b997cb99222985c9e0ac/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1205,7 +1371,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://i.discogs.com/gWECEyeMSsFDxb_lIsyGg-eKylW23EkteNTt2ewPaNk/rs:fit/g:sm/q:90/h:337/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTM2Mjc3/NTUtMTQ5MDQ5MDQy/OS0xMjUwLmpwZWc.jpeg"
       }
     },
     {
@@ -1219,7 +1386,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/679e27abb732bdc0a9926c9f2283ab71/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1233,7 +1401,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/cc8fd7063b7d0492f9f259a168803211/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1247,7 +1416,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/e98303d55a752bff99a632dba1971ee0/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1261,7 +1431,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/0fafe8333023bce21a1c9404734a9005/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1275,7 +1446,8 @@
         "opacity": 1,
         "fontSize": 10.58405934844036,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/55d1da3fa1585b2cf50adde4dc56eb37/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1289,7 +1461,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/dfe7872a640911ba032113a0723073aa/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1303,7 +1476,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/b0e69864102da2093f2b47fbff44ed53/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1317,7 +1491,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/32d7a107efe6c682f7f0f92fae63421b/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1331,7 +1506,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/c642d465e55ce906ebb8dba03ec500da/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1345,7 +1521,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/50c72454a0da7b1a6901da321b036e1d/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1359,7 +1536,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/95378f2c2e893512f9534838b8b504a5/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1373,7 +1551,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/308a7da01c28d5b926dfe2c35e938a2a/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1387,7 +1566,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/1a05f90284f016aa192f0296476f86ff/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1401,7 +1581,8 @@
         "opacity": 1,
         "fontSize": 10.58405934844036,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/79db11f6076c65c7185079415556fd1f/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1415,7 +1596,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/9f256d7c618da0473cf57ca6afe8a6f2/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1429,7 +1611,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/e4a655d1e869684d5022ca9bd8f8a3f3/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1443,7 +1626,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -1457,7 +1641,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/5fda26a6ebf4e942dd23a4291f6e84da/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1471,7 +1656,8 @@
         "opacity": 1,
         "fontSize": 13.168118696880716,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/5171b4f16cb6d3fe2eaebdf3230e3f7f/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1485,7 +1671,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/140d296cea47dec3f540d44e88b2343e/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1499,7 +1686,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/59abdb88053c69021c4902c3f18e3d6f/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1513,7 +1701,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/09ce0ada1973b5499767bf2b5396a642/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1527,7 +1716,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/35dac199b80dcb507bba36c8a3e804fe/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1541,7 +1731,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/35bc49c6ecaa8ced0502cdd751ea16c6/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1555,7 +1746,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -1569,7 +1761,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/d42c7bb3eca720de79e007b6d7e4f5c4/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1583,7 +1776,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/f5380eb1aac203772c8f7494f17612f5/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1597,7 +1791,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/fdf4b95b04cfc9c9f5ac0060097f8ec0/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1611,7 +1806,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/8b8cf990703fb7ad60581ec53cb02d2e/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1625,7 +1821,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/a5c175eab43c72c2ee4407e111f6e647/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1639,7 +1836,8 @@
         "opacity": 1,
         "fontSize": 10.58405934844036,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/28e016e1065a7de79e5705371b590129/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1653,7 +1851,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/3812c44ca3ff7bd23a34b12a18a0bd8c/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1667,7 +1866,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/205ff0fc160d7c86bcd60c20893d65f0/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1681,7 +1881,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/4e3c970ef982155d95193864cad86241/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1695,7 +1896,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/8ea77650ff97f701c07db0c22b766097/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1709,7 +1911,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/7383bac92bbe0398e7924899bfe47465/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1723,7 +1926,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/ef6cf059f14db0a9f2f58b7948135b69/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1737,7 +1941,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/25255214f18613b6c0e864e65fe4d4c7/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1751,7 +1956,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -1765,7 +1971,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/fdd88cf4cf7976216dcb1195f2a83658/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1779,7 +1986,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -1793,7 +2001,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://i.discogs.com/_RAoiUPtcmDCa1vprMPOaH0fqjvSSXUa8usaaxe1P5U/rs:fit/g:sm/q:90/h:349/w:450/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTEzNzYx/NTEtMTY4NzM0MDM2/NS02NTgyLmpwZWc.jpeg"
       }
     },
     {
@@ -1807,7 +2016,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -1821,7 +2031,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/ed9d63c93b282e627b5cf3404224e0ea/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1835,7 +2046,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/489308e79a340dfd05d78fcd91f26a10/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1849,7 +2061,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/96fb1c5ee8e0f926af170aca03c7ff30/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1863,7 +2076,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/78e97fc4aca8d7d96287da4a74e10901/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1877,7 +2091,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/194075b519a89dc517d57b855d4fac28/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1891,7 +2106,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -1905,7 +2121,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -1919,7 +2136,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/a1ebec79aa144ff31e41697b3668f142/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1933,7 +2151,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://i.discogs.com/92xUZ8JYI2ssHJXWXILlXEnsdOZC9KefxOM0jdAi7LU/rs:fit/g:sm/q:90/h:336/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTc2OTgx/Ni0xNTg5ODQzMjMx/LTk0NjEuanBlZw.jpeg"
       }
     },
     {
@@ -1947,7 +2166,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/1c8acdf519f9c4a09e6225a17436bcb3/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1961,7 +2181,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/2168a0e3ee035591a20e8be97032a1e3/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1975,7 +2196,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/f3fbbdbdaf9af127fd116e9d6a5f598a/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -1989,7 +2211,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/6c14e092426f3046fb60d004c038483c/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2003,7 +2226,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/498a182b95c3ff9b076142bea4aa9f3f/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2017,7 +2241,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -2031,7 +2256,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/c5e593fe910709ae0fdf4c70c6f1ecf9/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2045,7 +2271,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/4eb2b66ae715ca32d64614fa4679dc60/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2059,7 +2286,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/e5f7ec8dfdebef1ed23cced45e7de5ee/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2073,7 +2301,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/4b8bb16adc718ca7d84c9fba300856e4/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2087,7 +2316,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/2449f2e38bd7eab3233b7400ab298575/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2101,7 +2331,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/f9431f2b1a40819c2f596edd29f92e36/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2115,7 +2346,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/948f7af805c6dbfd9d1f6391194fea71/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2129,7 +2361,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/3de077d4d7dbc030137931e9f5ee0379/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2143,7 +2376,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/d8922eb922b512447367e792605fffcf/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2157,7 +2391,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/091688573d2f3650c6d79d4c8850778d/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2171,7 +2406,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -2185,7 +2421,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/acb9ab10cf16678f98b0d4fe07ea6043/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2199,7 +2436,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://i.discogs.com/IbQ68lQF31ltCTTuV3qGBNFqV_4F46SgDW6xsOAWH9Y/rs:fit/g:sm/q:90/h:552/w:518/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTcyNzU1/MDYtMTcwMjIyMTE3/NC04Njg5LmpwZWc.jpeg"
       }
     },
     {
@@ -2213,7 +2451,8 @@
         "opacity": 1,
         "fontSize": 10.58405934844036,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": null
       }
     },
     {
@@ -2227,7 +2466,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/709a690cdda7c0930816edaee11f686b/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2241,7 +2481,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/a0bdd6bbc5a428fbf036beee2ca8d294/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -2255,7 +2496,8 @@
         "opacity": 1,
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
-        "nodeType": "artist"
+        "nodeType": "artist",
+        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/c30b232008b168f079a76b135cb55fa5/1000x1000-000000-80-0-0.jpg"
       }
     },
     {
@@ -3312,7 +3554,11 @@
     "artistsCoveringCount": 99,
     "networkItems": 256,
     "sampleErrors": [],
-    "imageCandidates": []
+    "imageCandidates": [],
+    "artistImageLookupCount": 0,
+    "artistImageResolvedCount": 0,
+    "albumImageResolvedCount": 16
   },
-  "generatedAt": "2026-10-01T16:19:32.792038+00:00"
+  "generatedAt": "2026-10-02T13:03:05.424696+00:00",
+  "imagesGeneratedAt": "2026-10-02T11:51:50.045025+00:00"
 }

@@ -432,7 +432,7 @@ def _deezer_images(artist_name: str, timeout_seconds: float = 8.0) -> list[str]:
         exact_matches = [
             item for item in items if (item.get("name") or "").casefold() == search_name.casefold()
         ]
-        matches = exact_matches or items[:1]
+        matches = exact_matches
         urls = [
             item.get("picture_xl") or item.get("picture_medium") or item.get("picture")
             for item in matches
@@ -515,15 +515,28 @@ def select_best_artist_picture(
     return selected_url or resolved_raw or raw_picture, probes
 
 
+def cover_artist_count(performance: dict[str, Any]) -> int:
+    return len({
+        performer_uri
+        for cover in performance.get("covers") or []
+        if (performer_uri := (cover.get("performer") or {}).get("uri"))
+    })
+
+
 def performance_release_data(performance: dict[str, Any]) -> dict[str, Any]:
+    releases = performance.get("releases") or []
+    release_type = next(
+        (subtype for subtype in ("album", "EP", "single") if any(release.get("entitySubType") == subtype for release in releases)),
+        None,
+    )
     albums = [
         {
             "entitySubType": release.get("entitySubType"),
             "uri": release.get("uri"),
             "title": release.get("title"),
         }
-        for release in performance.get("releases") or []
-        if release.get("entitySubType") == "album"
+        for release in releases
+        if release_type is not None and release.get("entitySubType") == release_type
     ]
     return {"date": performance.get("firstReleaseDate"), "releases": albums}
 
@@ -577,12 +590,20 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
 
     album_images: dict[str, str | None] = {}
     album_years: dict[str, int] = {}
+    release_details: dict[str, dict[str, Any]] = {}
     for cover in covers:
         for album in performance_release_data(cover)["releases"]:
             uri, title = album.get("uri"), album.get("title")
             if uri and title and uri not in album_images:
-                album_images[uri] = _deezer_album_image(artist.get("commonName") or artist.get("name") or "", title)
-            date = cover.get("firstReleaseDate") or ""
+                if album.get("entitySubType") in ("EP", "single"):
+                    endpoint = endpoint_from_uri(uri)
+                    if endpoint:
+                        release_details[uri] = fetch_json(ctx, endpoint, deadline=deadline)
+                search_title = re.sub(r"\s+EP$", "", title, flags=re.IGNORECASE)
+                album_images[uri] = _deezer_album_image(artist.get("commonName") or artist.get("name") or "", search_title)
+                if not album_images[uri]:
+                    album_images[uri] = resolve_artist_picture_url((release_details.get(uri) or {}).get("picture"))
+            date = (release_details.get(uri) or {}).get("date") or cover.get("firstReleaseDate") or ""
             if uri and date[:4].isdigit():
                 year = int(date[:4])
                 album_years[uri] = min(year, album_years.get(uri, year))
@@ -590,7 +611,13 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
     cover_releases_by_original: dict[str, list[dict[str, Any]]] = {}
     for cover in covers:
         albums = [
-            {**album, "year": album_years.get(album.get("uri")), "imageUrl": album_images.get(album.get("uri"))}
+            {
+                **album,
+                **({"releaseDetails": release_details[album["uri"]]} if album.get("uri") in release_details else {}),
+                **({"date": release_details[album["uri"]].get("date")} if album.get("uri") in release_details else {}),
+                "year": album_years.get(album.get("uri")),
+                "imageUrl": album_images.get(album.get("uri")),
+            }
             for album in performance_release_data(cover)["releases"]
         ]
         for reference in cover.get("originals") or []:
@@ -601,6 +628,15 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
             for album in albums:
                 if album.get("uri") and not any(release.get("uri") == album["uri"] for release in releases):
                     releases.append(album)
+
+    for original_uri, releases in cover_releases_by_original.items():
+        preferred_type = next(
+            (subtype for subtype in ("album", "EP", "single") if any(release.get("entitySubType") == subtype for release in releases)),
+            None,
+        )
+        cover_releases_by_original[original_uri] = [
+            release for release in releases if release.get("entitySubType") == preferred_type
+        ]
 
     cover_original_uris: list[str] = []
     for cover in covers:
@@ -660,6 +696,7 @@ def generate_covers_data(ctx: Context, artist_id: int, deadline: float | None = 
                     "label": original.get("title"),
                     "nodeType": "song",
                     **performance_release_data(original),
+                    "coverArtistCount": cover_artist_count(original),
                     "coverReleases": cover_releases_by_original.get(original.get("uri"), []),
                     "size": linear_scale(covers_len, dmin, dmax, 40, 70),
                     "color": "#FFF",
@@ -847,6 +884,7 @@ def generate_originals_data(ctx: Context, artist_id: int, deadline: float | None
                     "fontFamily": "Kreon",
                     "nodeType": "song",
                     **performance_release_data(original),
+                    "coverArtistCount": cover_artist_count(original),
                 }
             }
         )

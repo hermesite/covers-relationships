@@ -62,13 +62,25 @@ ARTIST_ID=524 npm run generate:performances:artist
 
 This first command performs no MusicBrainz, Wikidata, Deezer, or image-probe requests. Cover-artist nodes are written with `imageUrl: null`, while `artistPictureResolved` uses the picture URL already returned by SecondHandSongs.
 
-Retrieve images for the selected artist and artists in its Covers graph:
+Retrieve images for the selected artist, related performers, and releases in both graph files:
 
 ```sh
 ARTIST_ID=524 npm run generate:images:artist
 ```
 
-The image command reads the existing `covers/<artist_id>.json`, stores all successfully probed selected-artist images in `artistPictures`, retrieves up to 40 cover-artist images, and updates that file in place. Exact-name image matches are deduplicated but are not capped. The Covers page displays every `artistPictures` entry as a two-column mosaic, adding rows as needed. The command does not regenerate performance data or the Originals graph.
+The image command updates the existing `covers/<artist_id>.json` and, when present, `originals/<artist_id>.json` in place without regenerating performances. It fills missing performer images in both graphs, including artists who cover the selected artist's original songs. Existing artist images and the selected-artist mosaic are retained. By default, at most 40 missing performers are looked up per graph.
+
+Albums, EPs, and singles in both graphs are also enriched. Releases are deduplicated by URI across both sources, so shared artwork is applied to every matching release reference. EP and single artwork is downloaded to `frontend/data/images/releases/` and served from `/images/releases/`. Missing or ambiguous matches remain without artwork rather than using another artist's release.
+
+The Cramps Originals graph has 99 performer nodes. To attempt image retrieval for all of them, together with all albums, EPs, and singles:
+
+```sh
+ARTIST_ID=14076 npm run generate:images:artist -- --max-artists 99
+```
+
+Selected-artist images are stored in `artistPictures` in the Covers graph. Exact-name image matches are deduplicated but are not capped. The Covers page displays these as a two-column mosaic and combines both graph files. Song nodes are text-only: covers use teal labels matching their original performers, while originals use rust labels matching their cover performers. The default layout separates cover songs to the left and original songs to the right, with shared releases retained as single nodes. Performers are placed close to connected performances rather than in separate artist bands; performers connected to multiple songs are anchored beside one of them.
+
+Song nodes include `coverArtistCount`, the number of distinct covering performer URIs in the performance response. Duplicate recordings by the same performer count once. All song labels use the same maximum font size of 30 px, regardless of source or covering-artist count.
 
 The former command remains available as an alias for performance generation:
 
@@ -80,7 +92,7 @@ During graph development, rerun only `generate:performances:artist`. Run `genera
 
 ### Bulk and maintenance workflows
 
-The bulk and maintenance commands below generate performance graph data only. Run `generate:images:artist` separately for each artist that needs refreshed Covers images.
+The bulk and maintenance commands below generate performance graph data only. Run `generate:images:artist` separately for each artist that needs graph images.
 
 Reset all generated graph files and freshly generate only the first artist in `src/constants/artistOptions.js`:
 
@@ -131,7 +143,7 @@ Generation includes all performances and cover originals by default. For a delib
 
 - `generate_graph_data.py`: fetches API data and writes Covers and Originals graph JSON.
 - `generate_band_detail.py`: fetches a band's relations and extended artist details for the Band Detail view.
-- `generate_cover_images.py`: enriches an existing Covers graph with artist images.
+- `generate_cover_images.py`: enriches existing Covers and Originals graphs with performer and release artwork.
 - `generate_from_options.mjs`: reads artist IDs from the frontend selector and invokes the Python generator.
 - `manage_graph_data.mjs`: implements graph reset and cache refresh operations.
 - `data-sources/`: exploratory image and external metadata utilities.
@@ -150,11 +162,15 @@ HTTP 403 and 429 responses are retried with quota-aware waits. Generation return
 
 If generation ends with `API 10007: Too many requests from this IP`, the upstream IP-wide sliding window is exhausted. It can include requests made outside this repository or by other machines sharing the public IP, so the local ledger may show fewer calls. Wait for the upstream window to clear or configure `SHS_API_KEY`; do not repeatedly clear the endpoint cache, because cached responses reduce future quota use.
 
-The separate image command tries SecondHandSongs pictures, Wikidata through MusicBrainz, and Deezer for the selected artist. Cover-artist nodes use Deezer results. Selected URLs are stored as `artistPictureResolved` and `networkData[].data.imageUrl`.
+The separate image command tries SecondHandSongs pictures, Wikidata through MusicBrainz, and Deezer for the selected artist. Related performer nodes in both graphs use Deezer results with MusicBrainz and Discogs fallbacks. Selected URLs are stored as `artistPictureResolved` and `networkData[].data.imageUrl`.
 
 SecondHandSongs disambiguation suffixes at the end of artist names are removed for external image searches. For example, `Carl Perkins [US1]` is searched as `Carl Perkins`; the original qualified name remains unchanged in the graph display.
 
 ## Environment variables
+
+Artwork enrichment also fills missing album images through MusicBrainz's Cover Art Archive and Discogs. Missing artist images use matched MusicBrainz Wikipedia/Wikidata relations, then Discogs. Successful metadata lookups are cached in `data/.cache/artwork/`; requests are paced, and existing artwork is retained when a lookup fails. Album title and artist must match, so ambiguous compilations and combined artist credits can remain unresolved.
+
+Keep credentials in the ignored `data/.env` and load them into the terminal before running image generation. MusicBrainz public metadata and Cover Art Archive reads do not require OAuth authentication. `MUSICBRAINZ_CLIENT_ID` and `MUSICBRAINZ_CLIENT_SECRET` identify an OAuth application, not an access token; authenticated account actions would additionally require user authorization. Discogs artwork search uses `DISCOGS_TOKEN` in an authorization header.
 
 ```sh
 export SHS_API_KEY="..."
