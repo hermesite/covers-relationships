@@ -1,0 +1,17 @@
+info:
+  name: Verify token account identity
+  type: http
+  seq: 1
+http:
+  method: GET
+  url: https://api.discogs.com/oauth/identity
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("Token resolves to an account", function () {
+          expect(res.body.username).to.be.a("string").and.not.empty;
+        });
+settings:
+  encodeUrl: true
+  timeout: 30000

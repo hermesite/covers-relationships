@@ -1,0 +1,10 @@
+info:
+  name: User top albums and covers
+  type: http
+  seq: 4
+http:
+  method: GET
+  url: "https://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&api_key={{process.env.LASTFM_API_KEY}}&format=json&user={{user}}&period={{period}}&limit={{limit}}&page={{page}}"
+settings:
+  encodeUrl: true
+  timeout: 30000

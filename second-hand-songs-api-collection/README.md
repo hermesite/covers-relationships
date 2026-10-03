@@ -6,6 +6,11 @@ This collection contains:
 - Exploratory requests: additional probes for `/work`, `/release`, `/label`, and search variants.
 - Artist connections: recursive traversal workflow for pairwise artist connection exploration.
 
+The separate [Last.fm collection](../last-fm-api-collection/README.md)
+explores user `hermesite`, artists, tracks, releases, and image candidates.
+Open `last-fm-api-collection/LAST FM` from the repository root as its
+own Bruno collection rather than as part of this SecondHandSongs collection.
+
 ## Environments
 
 Use one of these Bruno environments:

@@ -1,0 +1,21 @@
+info:
+  name: Release metadata tracklist and cover artwork
+  type: http
+  seq: 1
+http:
+  method: GET
+  url: "https://ws.audioscrobbler.com/2.0/?method=album.getInfo&api_key={{process.env.LASTFM_API_KEY}}&format=json&artist={{artist}}&album={{album}}&username={{user}}&autocorrect=1&lang={{lang}}"
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const album = res.body.album;
+        if (album) {
+          console.log("Album MBID (verify entity type before enrichment):", album.mbid || "not supplied");
+          console.log("Cover image candidates:", (album.image || []).filter(function (image) {
+            return image["#text"] && !image["#text"].includes("2a96cbd8b46e442fc41c2b86b821562f");
+          }));
+        }
+settings:
+  encodeUrl: true
+  timeout: 30000

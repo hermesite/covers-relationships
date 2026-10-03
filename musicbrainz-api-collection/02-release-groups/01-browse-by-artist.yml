@@ -1,0 +1,17 @@
+info:
+  name: Artist release groups with Album EP Single types
+  type: http
+  seq: 1
+http:
+  method: GET
+  url: "https://musicbrainz.org/ws/2/release-group?artist={{artistMbid}}&inc=artist-credits&fmt=json&limit={{limit}}&offset={{offset}}"
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        console.log("Release group candidates:", (res.body["release-groups"] || []).map(function (group) {
+          return { id: group.id, title: group.title, primaryType: group["primary-type"], secondaryTypes: group["secondary-types"] };
+        }));
+settings:
+  encodeUrl: true
+  timeout: 30000

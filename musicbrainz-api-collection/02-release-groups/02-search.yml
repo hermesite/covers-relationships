@@ -1,0 +1,10 @@
+info:
+  name: Search release groups by artist and album
+  type: http
+  seq: 2
+http:
+  method: GET
+  url: 'https://musicbrainz.org/ws/2/release-group/?query=releasegroup:"{{album}}" AND arid:{{artistMbid}}&fmt=json&limit={{limit}}&offset={{offset}}'
+settings:
+  encodeUrl: true
+  timeout: 30000

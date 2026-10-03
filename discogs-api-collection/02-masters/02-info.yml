@@ -1,0 +1,18 @@
+info:
+  name: Master album tracklist genres main release and cover images
+  type: http
+  seq: 2
+http:
+  method: GET
+  url: "https://api.discogs.com/masters/{{masterId}}"
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        console.log("Main release ID:", res.body.main_release);
+        console.log("First master image candidates:", (res.body.images || []).slice(0, 3).map(function (image) {
+          return { type: image.type, uri: image.uri, uri150: image.uri150 };
+        }));
+settings:
+  encodeUrl: true
+  timeout: 30000

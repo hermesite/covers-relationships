@@ -1,0 +1,47 @@
+opencollection: 1.0.0
+info:
+  name: MusicBrainz
+request:
+  variables:
+    - name: artist
+      value: The Cramps
+    - name: artistMbid
+      value: 96c1edac-1011-4cb8-882c-27248de35071
+    - name: album
+      value: Songs the Lord Taught Us
+    - name: track
+      value: Human Fly
+    - name: releaseGroupMbid
+      value: 4b60e6ef-b29a-3a26-9146-07f35c7e285d
+    - name: releaseMbid
+      value: 61c09eda-6a82-3d04-b9a8-6c04b1da0a65
+    - name: recordingMbid
+      value: f36d4f0a-9609-44c3-815a-887d02a952a9
+    - name: releaseType
+      value: ep
+    - name: userAgent
+      value: CoversRelationshipsExplorer/1.0 (hermesite@gmail.com)
+    - name: limit
+      value: "20"
+    - name: offset
+      value: "0"
+  headers:
+    - name: User-Agent
+      value: "{{userAgent}}"
+    - name: Accept
+      value: application/json
+  scripts:
+    - type: tests
+      code: |-
+        test("HTTP success", function () {
+          expect(res.status, res.body.error || "HTTP response").to.equal(200);
+        });
+        test("No API error", function () {
+          expect(res.body.error).to.equal(undefined);
+        });
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

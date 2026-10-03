@@ -1,0 +1,17 @@
+info:
+  name: Cover Art Archive image URLs for release group
+  type: http
+  seq: 1
+http:
+  method: GET
+  url: "https://coverartarchive.org/release-group/{{releaseGroupMbid}}"
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        console.log("Cover art candidates:", (res.body.images || []).map(function (image) {
+          return { front: image.front, back: image.back, approved: image.approved, image: image.image, thumbnails: image.thumbnails };
+        }));
+settings:
+  encodeUrl: true
+  timeout: 60000

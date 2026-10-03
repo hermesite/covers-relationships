@@ -1,0 +1,10 @@
+info:
+  name: Search individual releases by artist and album
+  type: http
+  seq: 1
+http:
+  method: GET
+  url: "https://api.discogs.com/database/search?artist={{artist}}&release_title={{album}}&type=release&page={{page}}&per_page={{perPage}}"
+settings:
+  encodeUrl: true
+  timeout: 30000

@@ -1,0 +1,45 @@
+opencollection: 1.0.0
+info:
+  name: Discogs
+request:
+  variables:
+    - name: artist
+      value: The Cramps
+    - name: artistId
+      value: "39779"
+    - name: album
+      value: Songs the Lord Taught Us
+    - name: masterId
+      value: "53333"
+    - name: releaseId
+      value: "2367928"
+    - name: format
+      value: EP
+    - name: userAgent
+      value: CoversRelationshipsExplorer/1.0 (hermesite@gmail.com)
+    - name: page
+      value: "1"
+    - name: perPage
+      value: "20"
+  headers:
+    - name: User-Agent
+      value: "{{userAgent}}"
+    - name: Accept
+      value: application/vnd.discogs.v2.plaintext+json
+    - name: Authorization
+      value: "Discogs token={{process.env.DISCOGS_TOKEN}}"
+  scripts:
+    - type: tests
+      code: |-
+        test("HTTP success", function () {
+          expect(res.status, res.body.message || "HTTP response").to.equal(200);
+        });
+        test("No API error", function () {
+          expect(res.body.message).to.equal(undefined);
+        });
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

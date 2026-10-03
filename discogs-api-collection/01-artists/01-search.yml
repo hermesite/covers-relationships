@@ -1,0 +1,17 @@
+info:
+  name: Search artists and find Discogs IDs
+  type: http
+  seq: 1
+http:
+  method: GET
+  url: "https://api.discogs.com/database/search?q={{artist}}&type=artist&page={{page}}&per_page={{perPage}}"
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        console.log("Artist candidates:", (res.body.results || []).map(function (artist) {
+          return { id: artist.id, title: artist.title, type: artist.type };
+        }));
+settings:
+  encodeUrl: true
+  timeout: 30000

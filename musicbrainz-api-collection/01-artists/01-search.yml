@@ -1,0 +1,17 @@
+info:
+  name: Search artists and find MBIDs
+  type: http
+  seq: 1
+http:
+  method: GET
+  url: 'https://musicbrainz.org/ws/2/artist/?query=artist:"{{artist}}"&fmt=json&limit={{limit}}&offset={{offset}}'
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        console.log("Artist candidates:", (res.body.artists || []).map(function (artist) {
+          return { id: artist.id, name: artist.name, type: artist.type, score: artist.score };
+        }));
+settings:
+  encodeUrl: true
+  timeout: 30000

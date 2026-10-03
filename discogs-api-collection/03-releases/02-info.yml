@@ -1,0 +1,19 @@
+info:
+  name: Release formats Album EP Single tracklist credits and artwork
+  type: http
+  seq: 2
+http:
+  method: GET
+  url: "https://api.discogs.com/releases/{{releaseId}}"
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        console.log("Release formats:", res.body.formats || []);
+        console.log("Release labels:", res.body.labels || []);
+        console.log("First release image candidates:", (res.body.images || []).slice(0, 3).map(function (image) {
+          return { type: image.type, uri: image.uri, uri150: image.uri150 };
+        }));
+settings:
+  encodeUrl: true
+  timeout: 30000

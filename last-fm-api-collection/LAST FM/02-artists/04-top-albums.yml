@@ -1,0 +1,10 @@
+info:
+  name: Artist top releases and covers
+  type: http
+  seq: 4
+http:
+  method: GET
+  url: "https://ws.audioscrobbler.com/2.0/?method=artist.getTopAlbums&api_key={{process.env.LASTFM_API_KEY}}&format=json&artist={{artist}}&autocorrect=1&limit={{limit}}&page={{page}}"
+settings:
+  encodeUrl: true
+  timeout: 30000

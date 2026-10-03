@@ -1,0 +1,37 @@
+opencollection: 1.0.0
+
+info:
+  name: LAST FM
+request:
+  variables:
+    - name: user
+      value: hermesite
+    - name: artist
+      value: The Cramps
+    - name: track
+      value: Human Fly
+    - name: album
+      value: Songs the Lord Taught Us
+    - name: period
+      value: overall
+    - name: limit
+      value: "20"
+    - name: page
+      value: "1"
+    - name: lang
+      value: en
+  scripts:
+    - type: tests
+      code: |-
+        test("HTTP success", function () {
+          expect(res.status, res.body.message || "HTTP response").to.equal(200);
+        });
+        test("No Last.fm API error", function () {
+          expect(res.body.error, res.body.message || "Last.fm response").to.equal(undefined);
+        });
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git
