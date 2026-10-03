@@ -80,6 +80,8 @@ ARTIST_ID=14076 npm run generate:images:artist -- --max-artists 99
 
 Selected-artist images are stored in `artistPictures` in the Covers graph. Exact-name image matches are deduplicated but are not capped. The Covers page displays these as a two-column mosaic and combines both graph files. Song nodes are text-only: covers use teal labels matching their original performers, while originals use rust labels matching their cover performers. The default layout separates cover songs to the left and original songs to the right, with shared releases retained as single nodes. Performers are placed close to connected performances rather than in separate artist bands; performers connected to multiple songs are anchored beside one of them.
 
+In the default No overlap layout, cover-only and original-only albums, EPs, and singles cluster with their connected songs and performers. Releases containing both sources remain in the central band beside the selected artist, including when source filters are applied.
+
 Song nodes include `coverArtistCount`, the number of distinct covering performer URIs in the performance response. Duplicate recordings by the same performer count once. All song labels use the same maximum font size of 30 px, regardless of source or covering-artist count.
 
 The former command remains available as an alias for performance generation:

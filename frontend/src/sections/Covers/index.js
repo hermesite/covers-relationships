@@ -73,9 +73,12 @@ const getOrderedReleases = (songs) => [...new Map(songs.flatMap(releasesForSong)
     || first.title.localeCompare(second.title));
 
 const getReleaseEdgeWidth = (edge) => {
-  const coverCount = Math.max(1, Number(edge.data('coverCount')) || 1);
-  return Math.min(5, 1 + Math.log2(coverCount));
+  const songCount = Math.max(1, edge.target().connectedEdges('[relation = "album-track"]').length);
+  return Math.min(6, 1 + Math.log2(songCount));
 };
+
+const getSongColor = (song) => song.sourceTypes?.length > 1 ? '#58713d'
+  : song.sourceType === 'originals' ? '#b8683e' : '#236978';
 
 class Covers extends Component {
   constructor() {
@@ -134,11 +137,13 @@ class Covers extends Component {
         || (node.data('nodeType') === 'album' && node.data('sourceTypes')?.length === 1
           && node.data('sourceTypes').includes('originals')));
     const separateSources = central.length > 0 && covers.length > 0 && originals.length > 0;
+    const mixedReleases = cy.nodes('[nodeType = "album"]').filter((node) => node.data('sourceTypes')?.length > 1);
+    const seedClusters = separateSources || (central.length > 0 && mixedReleases.length > 0);
     const constraints = separateSources ? [
       ...covers.filter('[nodeType != "artist"]').map((node) => ({ left: node, right: central })),
       ...originals.filter('[nodeType != "artist"]').map((node) => ({ left: central, right: node })),
     ] : [];
-    if (separateSources) {
+    if (seedClusters) {
       cy.batch(() => {
         central.position({ x: 0, y: 0 });
         [covers, originals].forEach((group, side) => {
@@ -169,13 +174,28 @@ class Covers extends Component {
             y: songs.reduce((sum, song) => sum + song.position('y'), 0) / songs.length + Math.sin(angle) * radius,
           });
         });
+        cy.nodes('[nodeType = "album"]').filter((node) => node.data('sourceTypes')?.length === 1).forEach((node) => {
+          const songs = node.neighborhood('[nodeType = "song"]');
+          if (!songs.length) return;
+          const neighbors = songs.union(songs.neighborhood('[nodeType = "artist"]'));
+          const side = node.data('sourceTypes')[0] === 'covers' ? -1 : 1;
+          const centerX = neighbors.reduce((sum, neighbor) => sum + neighbor.position('x'), 0) / neighbors.length;
+          node.position({
+            x: side * Math.max(400, side * centerX),
+            y: neighbors.reduce((sum, neighbor) => sum + neighbor.position('y'), 0) / neighbors.length + 240,
+          });
+        });
       });
     }
     const graphLayout = cy.layout({
       ...layout,
       ...(layout.name === 'cola' && {
-        randomize: !separateSources,
+        randomize: !seedClusters,
         gapInequalities: [
+          ...(central.length ? mixedReleases.toArray().flatMap((node) => [
+            { axis: 'x', left: central, right: node, gap: -160 },
+            { axis: 'x', left: node, right: central, gap: -160 },
+          ]) : []),
           ...constraints.map(({ left, right }) => {
             const node = left === central ? right : left;
             return { axis: 'x', left, right, gap: 280 + node.layoutDimensions({ nodeDimensionsIncludeLabels: true }).w / 2 };
@@ -186,12 +206,15 @@ class Covers extends Component {
             const gap = (song.layoutDimensions({ nodeDimensionsIncludeLabels: true }).w
               + node.layoutDimensions({ nodeDimensionsIncludeLabels: true }).w) / 2 + 32;
             return [{ axis: 'x', left: song.data('sourceType') === 'covers' ? node : song,
-              right: song.data('sourceType') === 'covers' ? song : node, gap, equality: true }];
+              right: song.data('sourceType') === 'covers' ? song : node, gap }];
           }),
         ],
       }),
       ...(layout.name === 'fcose' && {
         relativePlacementConstraint: constraints.map(({ left, right }) => ({ left: left.id(), right: right.id(), gap: 160 })),
+        ...(central.length && mixedReleases.length && {
+          alignmentConstraint: { vertical: [[central.id(), ...mixedReleases.map((node) => node.id())]] },
+        }),
       }),
     });
     this.graphLayout = graphLayout;
@@ -214,17 +237,26 @@ class Covers extends Component {
   };
 
   initListeners() {
-    this.cy.on('mouseover', 'node', (evt) => {
-      const node = evt.target;
-      const related = node.connectedEdges().union(node.connectedNodes());
-      this.cy.elements().difference(related).not(node).addClass('semitransp');
-      node.addClass('highlight');
-      related.addClass('highlight');
+    const cy = this.cy;
+    let highlightedNodeId = null;
+    const clearHighlight = () => {
+      highlightedNodeId = null;
+      cy.elements().removeClass('semitransp highlight');
+    };
+    cy.on('tap', 'node', (evt) => {
+      cy.batch(() => {
+        const node = evt.target;
+        const wasHighlighted = highlightedNodeId === node.id();
+        clearHighlight();
+        if (wasHighlighted) return;
+        highlightedNodeId = node.id();
+        const connected = node.closedNeighborhood().union(node.successors()).union(node.predecessors());
+        connected.addClass('highlight');
+        cy.elements().difference(connected).addClass('semitransp');
+      });
     });
-
-    this.cy.on('mouseout', 'node', (evt) => {
-      this.cy.elements().removeClass('semitransp');
-      this.cy.elements().removeClass('highlight');
+    cy.on('tap', (evt) => {
+      if (evt.target === cy) cy.batch(clearHighlight);
     });
   }
 
@@ -549,8 +581,10 @@ class Covers extends Component {
         handleDisconnected: true,
         nodeSpacing: (node) => node.data('nodeType') === 'selectedArtist' ? 72
           : node.data('nodeType') === 'album' ? 48 : 12,
-        edgeLength: (edge) => edge.data('relation') === 'cover' ? 260
-          : edge.data('relation') === 'album-track' ? 180 : 60,
+        edgeLength: (edge) => edge.data('relation') === 'cover'
+          ? (edge.target().data('nodeType') === 'album' && edge.target().data('sourceTypes')?.length === 1 ? 450 : 260)
+          : edge.data('relation') === 'album-track'
+            ? (edge.source().data('sourceTypes')?.length === 1 ? 100 : 180) : 60,
         maxSimulationTime: 1500,
         convergenceThreshold: 0.01,
       } : {}),
@@ -560,8 +594,10 @@ class Covers extends Component {
         nodeSeparation: 24,
         nodeRepulsion: (node) => node.data('nodeType') === 'selectedArtist' ? 12000
           : node.data('nodeType') === 'album' ? 6500 : 4500,
-        idealEdgeLength: (edge) => edge.data('relation') === 'cover' ? 150
-          : edge.data('relation') === 'album-track' ? 100 : 65,
+        idealEdgeLength: (edge) => edge.data('relation') === 'cover'
+          ? (edge.target().data('nodeType') === 'album' && edge.target().data('sourceTypes')?.length === 1 ? 300 : 150)
+          : edge.data('relation') === 'album-track'
+            ? (edge.source().data('sourceTypes')?.length === 1 ? 70 : 100) : 65,
         edgeElasticity: (edge) => edge.data('relation') === 'cover' ? 0.35 : 0.8,
         gravity: 0.4,
       } : {}),
@@ -706,6 +742,7 @@ class Covers extends Component {
                       opacity: 1,
                       'font-family': 'Big Shoulders Display',
                       'text-valign': 'center',
+                      'text-events': 'yes',
                       'background-opacity': 0,
                       'text-wrap': 'wrap',
                       'text-max-width': 200,
@@ -762,13 +799,13 @@ class Covers extends Component {
                     selector: 'node[nodeType = "song"]',
                     style: {
                       shape: 'rectangle',
-                      color: (ele) => ele.data('sourceTypes')?.length > 1 ? '#58713d'
-                        : ele.data('sourceType') === 'originals' ? '#b8683e' : '#236978',
+                      color: (ele) => getSongColor(ele.data()),
                       'font-family': 'Kreon',
                       'font-size': 30,
                       'font-weight': 700,
                       width: 1,
                       height: 1,
+                      padding: 8,
                       'background-opacity': 0,
                       'background-image': 'none',
                       'border-width': 0,
@@ -834,7 +871,7 @@ class Covers extends Component {
                     selector: 'edge',
                     style: {
                       'line-color': '#474d49',
-                      width: getReleaseEdgeWidth,
+                      width: 1.2,
                       color: '#252b28',
                       opacity: 0.22,
                       'line-style': 'solid',
@@ -850,12 +887,32 @@ class Covers extends Component {
                     },
                   },
                   {
+                    selector: 'edge[relation = "album-track"]',
+                    style: {
+                      'line-color': (ele) => getSongColor(ele.target().data()),
+                      width: 1.4,
+                    },
+                  },
+                  {
                     selector: 'edge[sourceType = "covers"]',
                     style: { 'line-style': 'dotted' },
                   },
                   {
+                    selector: 'node.highlight',
+                    style: {
+                      opacity: 1,
+                      'text-outline-color': '#ffffff',
+                      'text-outline-width': 2,
+                      'z-index': 20,
+                    },
+                  },
+                  {
+                    selector: 'node.semitransp',
+                    style: { opacity: 0.15 },
+                  },
+                  {
                     selector: 'edge.highlight',
-                    style: { opacity: 0.55 },
+                    style: { opacity: 0.75 },
                   },
                   {
                     selector: 'edge.semitransp',
