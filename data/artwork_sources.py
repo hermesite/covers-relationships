@@ -101,6 +101,45 @@ def relation_image(relations: list[dict]) -> str | None:
     return None
 
 
+def discogs_release_image(artist_name: str, release_title: str, track_titles: list[str]) -> str | None:
+    titles = [release_title]
+    if " - " in release_title:
+        titles.append(release_title.split(" - ", 1)[0])
+    expected_tracks = {match_key(title) for title in track_titles}
+    artist_key = match_key(artist_name)
+    for title in titles:
+        parameters = {"type": "release", "release_title": title, "per_page": 20}
+        if title != release_title:
+            parameters["artist"] = artist_name
+        query = urlencode(parameters)
+        results = request_json("https://api.discogs.com/database/search?" + query)
+        for item in results.get("results", []):
+            credit, separator, item_title = (item.get("title") or "").partition(" - ")
+            if not separator or match_key(item_title) != match_key(title):
+                continue
+            details = request_json(item.get("resource_url") or "") if item.get("resource_url") else {}
+            if match_key(details.get("title") or "") != match_key(title):
+                continue
+            main_artists = details.get("artists") or []
+            confirmed_tracks = set()
+            tracks = list(details.get("tracklist") or [])
+            for track in tracks:
+                tracks.extend(track.get("sub_tracks") or [])
+                track_artists = (track.get("artists") or main_artists) + (track.get("extraartists") or [])
+                if any(match_key(discogs_name(artist.get("name") or "")) == artist_key for artist in track_artists):
+                    confirmed_tracks.add(match_key(track.get("title") or ""))
+            if not expected_tracks or not expected_tracks.intersection(confirmed_tracks):
+                continue
+            images = details.get("images") or []
+            primary = next((image for image in images if image.get("type") == "primary"), None)
+            image = primary or (images[0] if images else {})
+            if image.get("uri"):
+                return image["uri"]
+            if item.get("cover_image") and "spacer.gif" not in item["cover_image"]:
+                return item["cover_image"]
+    return None
+
+
 def musicbrainz_artist_image(artist_name: str) -> str | None:
     query = urlencode({"query": 'artist:"' + artist_name.replace('"', '') + '"', "fmt": "json"})
     data = request_json("https://musicbrainz.org/ws/2/artist/?" + query)

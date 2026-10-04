@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from datetime import datetime, timezone
@@ -14,18 +15,21 @@ from urllib.request import Request, urlopen
 
 try:
     from .generate_graph_data import select_best_artist_picture, write_json, normalize_artist_search_name, _probe_image_url
-    from .artwork_sources import discogs_image, musicbrainz_artist_image, musicbrainz_album_image
+    from .artwork_sources import discogs_image, discogs_release_image, musicbrainz_artist_image, musicbrainz_album_image
 except ImportError:
     from generate_graph_data import select_best_artist_picture, write_json, normalize_artist_search_name, _probe_image_url
-    from artwork_sources import discogs_image, musicbrainz_artist_image, musicbrainz_album_image
+    from artwork_sources import discogs_image, discogs_release_image, musicbrainz_artist_image, musicbrainz_album_image
 
 DEFAULT_MAX_ARTIST_LOOKUPS = 40
 ImageResolver = Callable[..., tuple[Optional[str], list[dict[str, str]]]]
 
 
-def save_release_artwork(uri: str, image_url: str) -> str | None:
-    if image_url.startswith("/images/releases/"):
-        return image_url
+def save_release_artwork(uri: str, image_url: str, asset_kind: str = "releases") -> str | None:
+    if asset_kind not in ("releases", "artists"):
+        return None
+    if image_url.startswith(f"/images/{asset_kind}/"):
+        asset = Path(__file__).resolve().parent.parent / "frontend/data" / image_url.lstrip("/")
+        return image_url if asset.is_file() and asset.stat().st_size > 0 else None
     try:
         request = Request(image_url, headers={"User-Agent": "SecondhandCovers/0.1 (artwork enrichment)"})
         with urlopen(request, timeout=20) as response:
@@ -35,15 +39,58 @@ def save_release_artwork(uri: str, image_url: str) -> str | None:
                 return None
             content = response.read()
         release_id = uri.rstrip("/").rsplit("/", 1)[-1]
-        if not release_id.isdigit():
+        if not re.fullmatch(r"\d+(?:\+\d+)*", release_id):
             return None
-        asset_dir = Path(__file__).resolve().parent.parent / "frontend/data/images/releases"
+        asset_dir = Path(__file__).resolve().parent.parent / "frontend/data/images" / asset_kind
         asset_dir.mkdir(parents=True, exist_ok=True)
         filename = release_id + extension
         (asset_dir / filename).write_bytes(content)
-        return "/images/releases/" + filename
+        return f"/images/{asset_kind}/" + filename
     except Exception:
         return None
+
+
+def enrich_discogs_artists(payload: dict[str, Any], max_artists: int, refresh: bool = False) -> tuple[int, int]:
+    lookups = 0
+    resolved = 0
+    results: dict[str, dict[str, str]] = {}
+    for item in payload.get("networkData") or []:
+        data = item.get("data") or {}
+        if data.get("nodeType") != "artist" or not data.get("id"):
+            continue
+        artist_uri = data["id"]
+        if artist_uri in results:
+            data.update(results[artist_uri])
+            continue
+        if data.get("imageUrl") and not refresh:
+            continue
+        if lookups >= max_artists:
+            continue
+        lookups += 1
+        name = normalize_artist_search_name(data.get("label") or "")
+        lead_name = re.split(r"\s+(?:with|and|&)\s+", name, maxsplit=1, flags=re.IGNORECASE)[0]
+        candidates = list(dict.fromkeys([name, lead_name]))
+        for credit in candidates:
+            image = discogs_image(credit)
+            if not image:
+                continue
+            local_image = save_release_artwork(artist_uri, image, asset_kind="artists")
+            if not local_image:
+                continue
+            results[artist_uri] = {
+                "imageUrl": local_image,
+                "imageSource": "discogs",
+                "imageCredit": credit,
+                "imageSourceUrl": image,
+            }
+            data.update(results[artist_uri])
+            resolved += 1
+            break
+        print(f"Discogs artist: {name}; {'saved' if artist_uri in results else 'unresolved'}", flush=True)
+    payload.setdefault("diagnostics", {})["discogsArtistImageLookupCount"] = lookups
+    payload["diagnostics"]["discogsArtistImageResolvedCount"] = resolved
+    payload["imagesGeneratedAt"] = datetime.now(timezone.utc).isoformat()
+    return resolved, lookups
 
 
 def resolve_artist_images(raw_picture: str | None, artist_name: str, **options: Any) -> tuple[str | None, list[dict[str, str]]]:
@@ -66,35 +113,46 @@ def enrich_album_images(payload: dict[str, Any]) -> tuple[int, int]:
     artist = payload.get("artist") or {}
     artist_name = normalize_artist_search_name(artist.get("commonName") or artist.get("name") or "")
     albums: dict[str, list[dict[str, Any]]] = {}
+    tracks_by_release: dict[str, list[str]] = {}
     for item in payload.get("networkData") or []:
         data = item.get("data") or {}
         for release in data.get("coverReleases", data.get("releases")) or []:
             if release.get("uri") and release.get("title"):
                 albums.setdefault(release["uri"], []).append(release)
+                if data.get("label"):
+                    tracks_by_release.setdefault(release["uri"], []).append(data["label"])
     resolved = 0
     for references in albums.values():
         title = re.sub(r"\s+EP$", "", references[0]["title"], flags=re.IGNORECASE)
         image = next((release.get("imageUrl") for release in references if release.get("imageUrl")), None)
-        is_local_release = references[0].get("entitySubType") in ("EP", "single")
-        if is_local_release and image and not image.startswith("/") and not _probe_image_url(image)[0]:
-            image = None
+        source_image = image
+        if image:
+            image = save_release_artwork(references[0]["uri"], image)
         if not image:
             for source, resolver in (("musicbrainz", musicbrainz_album_image), ("discogs", discogs_image)):
                 candidate = resolver(artist_name, title)
-                if candidate and _probe_image_url(candidate)[0]:
-                    image = candidate
+                local_image = save_release_artwork(references[0]["uri"], candidate) if candidate else None
+                if local_image:
+                    image = local_image
+                    source_image = candidate
                     for release in references:
                         release["imageSource"] = source
                     break
-        if is_local_release and image:
-            image = save_release_artwork(references[0]["uri"], image)
-        if is_local_release and not image:
-            for release in references:
-                release["imageUrl"] = None
+        if not image:
+            candidate = discogs_release_image(artist_name, title, tracks_by_release.get(references[0]["uri"], []))
+            local_image = save_release_artwork(references[0]["uri"], candidate) if candidate else None
+            if local_image:
+                image = local_image
+                source_image = candidate
+                for release in references:
+                    release["imageSource"] = "discogs"
+                    release["imageMatch"] = "credited-track"
         if image:
             resolved += 1
-            for release in references:
-                release["imageUrl"] = image
+        for release in references:
+            release["imageUrl"] = image
+            if image and source_image and not source_image.startswith("/"):
+                release["imageSourceUrl"] = source_image
     payload.setdefault("diagnostics", {})["albumImageResolvedCount"] = resolved
     return resolved, len(albums)
 
@@ -113,7 +171,14 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         default=DEFAULT_MAX_ARTIST_LOOKUPS,
         help="Maximum number of missing performer-image lookups per graph.",
     )
-    return parser.parse_args(argv)
+    parser.add_argument("--discogs-artists-only", action="store_true", help="Use Discogs for artist nodes only; preserve performances and releases.")
+    parser.add_argument("--releases-only", action="store_true", help="Validate and retrieve release artwork without looking up artist images.")
+    parser.add_argument("--graph", choices=("covers", "originals", "both"), default="both", help="Graph source for Discogs-only enrichment; defaults to both sources shown in Covers.")
+    parser.add_argument("--refresh-artists", action="store_true", help="Also replace existing artist images when Discogs returns a downloadable match.")
+    args = parser.parse_args(argv)
+    if args.discogs_artists_only and args.releases_only:
+        parser.error("--discogs-artists-only and --releases-only cannot be combined")
+    return args
 
 
 def enrich_payload(
@@ -194,8 +259,24 @@ def main(argv: list[str]) -> int:
     payload: dict[str, Any] = json.loads(covers_path.read_text(encoding="utf-8"))
     originals_path = (root_dir / args.output / "originals" / f"{args.artist}.json").resolve()
     originals_payload = json.loads(originals_path.read_text(encoding="utf-8")) if originals_path.exists() else None
-    resolved, lookups = enrich_payload(payload, args.artist, args.max_artists)
-    if originals_payload is not None:
+    if args.discogs_artists_only:
+        if not os.environ.get("DISCOGS_TOKEN"):
+            print("DISCOGS_TOKEN is required for Discogs artist enrichment.", file=sys.stderr)
+            return 1
+        if args.graph == "originals" and originals_payload is None:
+            print(f"Originals data not found: {originals_path}", file=sys.stderr)
+            return 1
+        for graph_name, graph_path, graph_payload in (
+            ("covers", covers_path, payload), ("originals", originals_path, originals_payload),
+        ):
+            if graph_payload is None or args.graph not in (graph_name, "both"):
+                continue
+            resolved, lookups = enrich_discogs_artists(graph_payload, args.max_artists, args.refresh_artists)
+            write_json(graph_path, graph_payload)
+            print(f"{graph_name}: Discogs artist images saved: {resolved}/{lookups}")
+        return 0
+    resolved, lookups = (0, 0) if args.releases_only else enrich_payload(payload, args.artist, args.max_artists)
+    if originals_payload is not None and not args.releases_only:
         originals_resolved, originals_lookups = enrich_payload(
             originals_payload, args.artist, args.max_artists, include_selected_artist=False,
         )

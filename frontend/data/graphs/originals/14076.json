@@ -54,7 +54,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9684",
             "title": "Songs the Lord Taught Us",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/9684.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 10
@@ -102,7 +103,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9684",
             "title": "Songs the Lord Taught Us",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/9684.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 7
@@ -126,7 +128,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9684",
             "title": "Songs the Lord Taught Us",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/9684.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 6
@@ -151,7 +154,8 @@
             "uri": "https://api.secondhandsongs.com/release/260171",
             "title": "A Date with Elvis",
             "imageSource": "musicbrainz",
-            "imageUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
+            "imageUrl": "/images/releases/260171.jpg",
+            "imageSourceUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
           }
         ],
         "coverArtistCount": 5
@@ -224,7 +228,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/12186",
             "title": "Psychedelic Jungle",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/12186.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 4
@@ -249,7 +254,8 @@
             "uri": "https://api.secondhandsongs.com/release/260171",
             "title": "A Date with Elvis",
             "imageSource": "musicbrainz",
-            "imageUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
+            "imageUrl": "/images/releases/260171.jpg",
+            "imageSourceUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
           }
         ],
         "coverArtistCount": 3
@@ -273,7 +279,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9747",
             "title": "Smell of Female",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/e6f4befcfda8830680c4d7ee5c0ee0ca/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/9747.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/e6f4befcfda8830680c4d7ee5c0ee0ca/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 3
@@ -297,7 +304,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9747",
             "title": "Smell of Female",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/e6f4befcfda8830680c4d7ee5c0ee0ca/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/9747.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/e6f4befcfda8830680c4d7ee5c0ee0ca/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 3
@@ -321,7 +329,10 @@
             "entitySubType": "single",
             "uri": "https://api.secondhandsongs.com/release/117881",
             "title": "Faster Pussycat - You Got Good Taste",
-            "imageUrl": null
+            "imageUrl": "/images/releases/117881.jpg",
+            "imageSource": "discogs",
+            "imageMatch": "credited-track",
+            "imageSourceUrl": "https://i.discogs.com/PExpwHEEF4Plrf8xsEFi5n1zcw7Tb-KFNn3UO7kHF2w/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE4MTc4/MjQtMTQ3MjU4MzE3/Ny01NjIxLmpwZWc.jpeg"
           }
         ],
         "coverArtistCount": 3
@@ -346,7 +357,8 @@
             "uri": "https://api.secondhandsongs.com/release/260171",
             "title": "A Date with Elvis",
             "imageSource": "musicbrainz",
-            "imageUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
+            "imageUrl": "/images/releases/260171.jpg",
+            "imageSourceUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
           }
         ],
         "coverArtistCount": 2
@@ -370,7 +382,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260255",
             "title": "Fiends of Dope Island",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f46912ad2388137cc51bfc5b9da880f7/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/260255.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/f46912ad2388137cc51bfc5b9da880f7/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 2
@@ -394,7 +407,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9684",
             "title": "Songs the Lord Taught Us",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/9684.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 2
@@ -419,7 +433,8 @@
             "uri": "https://api.secondhandsongs.com/release/260228",
             "title": "Big Beat from Badsville",
             "imageSource": "musicbrainz",
-            "imageUrl": "http://coverartarchive.org/release/b8d392bf-eeed-4dca-84e1-a7ae2b2beb83/22914987994-500.jpg"
+            "imageUrl": "/images/releases/260228.jpg",
+            "imageSourceUrl": "http://coverartarchive.org/release/b8d392bf-eeed-4dca-84e1-a7ae2b2beb83/22914987994-500.jpg"
           }
         ],
         "coverArtistCount": 2
@@ -443,7 +458,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/12186",
             "title": "Psychedelic Jungle",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/12186.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 2
@@ -467,7 +483,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/12186",
             "title": "Psychedelic Jungle",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/12186.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 2
@@ -491,7 +508,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/43950",
             "title": "Stay Sick!",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f73bad28886a8ea2e70e62c336b5d97a/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/43950.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/f73bad28886a8ea2e70e62c336b5d97a/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -515,7 +533,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/12186",
             "title": "Psychedelic Jungle",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/12186.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -539,7 +558,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9747",
             "title": "Smell of Female",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/e6f4befcfda8830680c4d7ee5c0ee0ca/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/9747.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/e6f4befcfda8830680c4d7ee5c0ee0ca/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -564,7 +584,8 @@
             "uri": "https://api.secondhandsongs.com/release/260228",
             "title": "Big Beat from Badsville",
             "imageSource": "musicbrainz",
-            "imageUrl": "http://coverartarchive.org/release/b8d392bf-eeed-4dca-84e1-a7ae2b2beb83/22914987994-500.jpg"
+            "imageUrl": "/images/releases/260228.jpg",
+            "imageSourceUrl": "http://coverartarchive.org/release/b8d392bf-eeed-4dca-84e1-a7ae2b2beb83/22914987994-500.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -588,7 +609,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/43950",
             "title": "Stay Sick!",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f73bad28886a8ea2e70e62c336b5d97a/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/43950.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/f73bad28886a8ea2e70e62c336b5d97a/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -613,7 +635,8 @@
             "uri": "https://api.secondhandsongs.com/release/260604",
             "title": "Look Mom No Head!",
             "imageSource": "musicbrainz",
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/8/8c/Look_Mom%2C_No_Head%21.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+            "imageUrl": "/images/releases/260604.jpg",
+            "imageSourceUrl": "https://upload.wikimedia.org/wikipedia/en/8/8c/Look_Mom%2C_No_Head%21.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
           }
         ],
         "coverArtistCount": 1
@@ -637,7 +660,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/12186",
             "title": "Psychedelic Jungle",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/12186.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -692,7 +716,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260255",
             "title": "Fiends of Dope Island",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f46912ad2388137cc51bfc5b9da880f7/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/260255.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/f46912ad2388137cc51bfc5b9da880f7/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -741,7 +766,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/43951",
             "title": "Flamejob",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/670ec75c53bfb373021992435cfefebd/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/43951.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/670ec75c53bfb373021992435cfefebd/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -765,7 +791,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/43951",
             "title": "Flamejob",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/670ec75c53bfb373021992435cfefebd/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/43951.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/670ec75c53bfb373021992435cfefebd/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -789,7 +816,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260255",
             "title": "Fiends of Dope Island",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f46912ad2388137cc51bfc5b9da880f7/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/260255.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/f46912ad2388137cc51bfc5b9da880f7/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -814,7 +842,8 @@
             "uri": "https://api.secondhandsongs.com/release/260171",
             "title": "A Date with Elvis",
             "imageSource": "musicbrainz",
-            "imageUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
+            "imageUrl": "/images/releases/260171.jpg",
+            "imageSourceUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -839,7 +868,8 @@
             "uri": "https://api.secondhandsongs.com/release/260228",
             "title": "Big Beat from Badsville",
             "imageSource": "musicbrainz",
-            "imageUrl": "http://coverartarchive.org/release/b8d392bf-eeed-4dca-84e1-a7ae2b2beb83/22914987994-500.jpg"
+            "imageUrl": "/images/releases/260228.jpg",
+            "imageSourceUrl": "http://coverartarchive.org/release/b8d392bf-eeed-4dca-84e1-a7ae2b2beb83/22914987994-500.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -864,7 +894,8 @@
             "uri": "https://api.secondhandsongs.com/release/260228",
             "title": "Big Beat from Badsville",
             "imageSource": "musicbrainz",
-            "imageUrl": "http://coverartarchive.org/release/b8d392bf-eeed-4dca-84e1-a7ae2b2beb83/22914987994-500.jpg"
+            "imageUrl": "/images/releases/260228.jpg",
+            "imageSourceUrl": "http://coverartarchive.org/release/b8d392bf-eeed-4dca-84e1-a7ae2b2beb83/22914987994-500.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -888,7 +919,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/43950",
             "title": "Stay Sick!",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f73bad28886a8ea2e70e62c336b5d97a/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/43950.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/f73bad28886a8ea2e70e62c336b5d97a/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -913,7 +945,8 @@
             "uri": "https://api.secondhandsongs.com/release/260171",
             "title": "A Date with Elvis",
             "imageSource": "musicbrainz",
-            "imageUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
+            "imageUrl": "/images/releases/260171.jpg",
+            "imageSourceUrl": "http://coverartarchive.org/release/05cf6597-9f3e-4123-b37b-bcc15395d60b/7832404559.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -937,7 +970,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/12186",
             "title": "Psychedelic Jungle",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/12186.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/b687132c5e118a124b0ecb1b3cc8ca4c/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -961,7 +995,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/43951",
             "title": "Flamejob",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/670ec75c53bfb373021992435cfefebd/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/43951.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/670ec75c53bfb373021992435cfefebd/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -985,7 +1020,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/260255",
             "title": "Fiends of Dope Island",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/f46912ad2388137cc51bfc5b9da880f7/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/260255.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/f46912ad2388137cc51bfc5b9da880f7/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -1009,7 +1045,8 @@
             "entitySubType": "album",
             "uri": "https://api.secondhandsongs.com/release/9684",
             "title": "Songs the Lord Taught Us",
-            "imageUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
+            "imageUrl": "/images/releases/9684.jpg",
+            "imageSourceUrl": "https://cdn-images.dzcdn.net/images/cover/1c7581d4be2752013458dc764abeea68/1000x1000-000000-80-0-0.jpg"
           }
         ],
         "coverArtistCount": 1
@@ -2107,7 +2144,10 @@
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
         "nodeType": "artist",
-        "imageUrl": null
+        "imageUrl": "/images/artists/190388.jpg",
+        "imageSource": "discogs",
+        "imageCredit": "Messua",
+        "imageSourceUrl": "https://i.discogs.com/KgxHVzrt4j2oTF-GYN27cpbRcsipJxVWrlDUNmmazd4/rs:fit/g:sm/q:90/h:600/w:574/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTEyNzQx/NjYyLTE2ODAzNzM5/NTItMjgzNi5qcGVn.jpeg"
       }
     },
     {
@@ -3557,8 +3597,10 @@
     "imageCandidates": [],
     "artistImageLookupCount": 0,
     "artistImageResolvedCount": 0,
-    "albumImageResolvedCount": 16
+    "albumImageResolvedCount": 17,
+    "discogsArtistImageLookupCount": 15,
+    "discogsArtistImageResolvedCount": 1
   },
-  "generatedAt": "2026-10-02T13:03:05.424696+00:00",
-  "imagesGeneratedAt": "2026-10-02T11:51:50.045025+00:00"
+  "generatedAt": "2026-10-04T19:38:45.741245+00:00",
+  "imagesGeneratedAt": "2026-10-04T19:26:21.860675+00:00"
 }

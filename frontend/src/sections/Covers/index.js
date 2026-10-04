@@ -30,7 +30,7 @@ const LAYOUT_OPTIONS = [
 
 const isValidImageUrl = (url) => {
   if (typeof url !== 'string') return false;
-  if (/^\/images\/releases\/\d+\.(jpg|png|webp|gif)$/.test(url)) return true;
+  if (/^\/images\/(releases|artists)\/\d+(?:\+\d+)*\.(jpg|png|webp|gif)$/.test(url)) return true;
   try {
     return ['http:', 'https:'].includes(new URL(url).protocol);
   } catch {

@@ -70,7 +70,21 @@ ARTIST_ID=524 npm run generate:images:artist
 
 The image command updates the existing `covers/<artist_id>.json` and, when present, `originals/<artist_id>.json` in place without regenerating performances. It fills missing performer images in both graphs, including artists who cover the selected artist's original songs. Existing artist images and the selected-artist mosaic are retained. By default, at most 40 missing performers are looked up per graph.
 
-Albums, EPs, and singles in both graphs are also enriched. Releases are deduplicated by URI across both sources, so shared artwork is applied to every matching release reference. EP and single artwork is downloaded to `frontend/data/images/releases/` and served from `/images/releases/`. Missing or ambiguous matches remain without artwork rather than using another artist's release.
+To use Discogs specifically for missing artist images in the combined Covers view, load `data/.env` into the terminal and run from `data/`:
+
+```sh
+ARTIST_ID=14076 npm run generate:images:artist -- --discogs-artists-only --max-artists 99
+```
+
+This mode skips release artwork and performance requests. It defaults to both graph files; use `--graph covers` or `--graph originals` to restrict it. Existing images are retained. Add `--refresh-artists` to replace them only when a Discogs match downloads successfully. Discogs portraits are saved under `frontend/data/images/artists/`, avoiding cross-origin canvas restrictions. Combined artist credits are searched in full first, then by their explicitly named lead performer; `imageCredit` records whose portrait is shown, and the graph label is unchanged.
+
+Albums, EPs, and singles in both graphs are also enriched. Releases are deduplicated by URI across both sources, so shared artwork is applied to every matching release reference. All release artwork is validated and downloaded to `frontend/data/images/releases/`, then served from `/images/releases/` to avoid cross-origin canvas restrictions. Compilation and guest-appearance matches require a matching release title and a graph track explicitly credited to the selected artist. Missing or ambiguous matches remain without artwork rather than using another artist's release.
+
+To repair release artwork without changing artist images or regenerating performances:
+
+```sh
+ARTIST_ID=14076 npm run generate:images:artist -- --releases-only
+```
 
 The Cramps Originals graph has 99 performer nodes. To attempt image retrieval for all of them, together with all albums, EPs, and singles:
 
