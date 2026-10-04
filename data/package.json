@@ -8,6 +8,7 @@
     "generate:data": "python3 generate_graph_data.py",
     "generate:performances:artist": "if [ -z \"$ARTIST_ID\" ]; then echo 'Usage: ARTIST_ID=14076 npm run generate:performances:artist'; exit 1; fi; python3 generate_graph_data.py --artist \"$ARTIST_ID\"",
     "generate:images:artist": "if [ -z \"$ARTIST_ID\" ]; then echo 'Usage: ARTIST_ID=14076 npm run generate:images:artist'; exit 1; fi; python3 generate_cover_images.py --artist \"$ARTIST_ID\"",
+    "generate:image:artist": "if [ -z \"$ARTIST_ID\" ]; then echo 'Usage: ARTIST_ID=14076 npm run generate:image:artist -- --artist-name \"Artist Name\"'; exit 1; fi; python3 generate_cover_images.py --artist \"$ARTIST_ID\" --alternative-image",
     "generate:band-detail": "python3 generate_band_detail.py",
     "monitor:api": "python3 monitor_shs_api.py --once",
     "monitor:api:wait": "python3 monitor_shs_api.py --run-band-detail",

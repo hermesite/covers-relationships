@@ -6,7 +6,7 @@
     "picture": "https://api.secondhandsongs.com/picture/425919"
   },
   "artistPicture": "https://api.secondhandsongs.com/picture/425919",
-  "artistPictureResolved": "https://upload.wikimedia.org/wikipedia/commons/7/79/Cramps1982-07.jpg",
+  "artistPictureResolved": "/images/artists/14076-e07738922130.jpg",
   "coversCount": 45,
   "partialData": false,
   "networkData": [
@@ -49,14 +49,17 @@
         "id": "https://api.secondhandsongs.com/artist/8029",
         "label": "Little Willie John",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/a8cc1bcc4c5d00e22f25c9cc6b22155f/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/8029.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Little Willie John",
+        "imageSourceUrl": "https://i.discogs.com/htwjx5do8IPnF0-sCrIuTXyrF0RFnkb0mH5IzyFcA88/rs:fit/g:sm/q:90/h:600/w:473/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTYwNzY2/MS0xNzQ4ODQ2NDcz/LTU4NDAuanBlZw.jpeg"
       }
     },
     {
@@ -146,14 +149,17 @@
         "id": "https://api.secondhandsongs.com/artist/55816",
         "label": "Glenn Reeves",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/78c6f06a88097d91a11ccb646d200264/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/55816.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Glenn Reeves",
+        "imageSourceUrl": "https://i.discogs.com/vBgcDAAcGIpz96xjqXmSRXPz6uHt7FgHy5b1eu20ckQ/rs:fit/g:sm/q:90/h:600/w:418/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTIyNjI3/MTEtMTQwMzI3MjQw/MC03MDgyLmpwZWc.jpeg"
       }
     },
     {
@@ -197,14 +203,17 @@
         "id": "https://api.secondhandsongs.com/artist/103",
         "label": "Elvis Presley",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/935d35a45e061e7640a0becfa42cef6e/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/103.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Elvis Presley",
+        "imageSourceUrl": "https://i.discogs.com/DSP1fcKORjkhWRI8y8Gkmym37qTsVUHoWHZyugjAPc4/rs:fit/g:sm/q:90/h:600/w:462/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI3NTE4/LTE2MjI0MDE5MDkt/NTkxOC5qcGVn.jpeg"
       }
     },
     {
@@ -246,14 +255,17 @@
         "id": "https://api.secondhandsongs.com/artist/8699",
         "label": "Jimmie Rodgers [US1]",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/6db7473f18b606e8206ff8c1151e6dc3/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/8699.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Jimmie Rodgers",
+        "imageSourceUrl": "https://i.discogs.com/VySTxlQKUGSiflpcLdPX78RmBRZURH8w1689tlKYFsk/rs:fit/g:sm/q:90/h:600/w:437/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI2OTM2/NS0xMTY5NzUwMDIz/LmpwZWc.jpeg"
       }
     },
     {
@@ -459,14 +471,17 @@
         "id": "https://api.secondhandsongs.com/artist/9070",
         "label": "Ricky Nelson",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/ab323c6d2bbb5064053c734f70dde4a5/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/9070.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Ricky Nelson",
+        "imageSourceUrl": "https://i.discogs.com/f8xCedfocp-VxNOng7Urz2GozaIraLZDve3mO08H2OQ/rs:fit/g:sm/q:90/h:600/w:426/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI1Nzcz/OS0xNjMxNTU5OTEw/LTc2OTAuanBlZw.jpeg"
       }
     },
     {
@@ -508,14 +523,17 @@
         "id": "https://api.secondhandsongs.com/artist/1812",
         "label": "Link Wray & His Ray Men",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/2da44877525af1183449f46ae452d6eb/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/1812.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Link Wray",
+        "imageSourceUrl": "https://i.discogs.com/mdOCN1F2xlt4VmHlfw-9qoUbehqg_R_n6juSrpJC1M4/rs:fit/g:sm/q:90/h:600/w:440/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI0NjY0/NC0xNjYzNDEzMTU5/LTUyMjUuanBlZw.jpeg"
       }
     },
     {
@@ -557,14 +575,19 @@
         "id": "https://api.secondhandsongs.com/artist/1522",
         "label": "The Raindrops [US]",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/2ee588753ed2d1553c9145ef49e1b50e/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/1522-34ef37b90fb8.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageSourceUrl": "https://i.discogs.com/4JTTzwM8jBTkw6dmL9TkTvKzXDgrOIbcVIxOFa5juhA/rs:fit/g:sm/q:90/h:437/w:317/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTYwNzY4/My0xNjY3NTczNTI3/LTI2NTcuanBlZw.jpeg",
+        "imageCredit": "The Raindrops",
+        "discogsArtistId": 607683,
+        "imageProfileUrl": "https://www.discogs.com/artist/607683-The-Raindrops"
       }
     },
     {
@@ -606,14 +629,19 @@
         "id": "https://api.secondhandsongs.com/artist/2140",
         "label": "Johnny Burnette and The Rock 'n Roll Trio",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/991f046e0ed156867d0f176761390220/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/2140-741472a6884d.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageSourceUrl": "https://i.discogs.com/ahBz4EgGtJm_dpRMZWvp6PYAQb1urTYZrdhZh5wHdSI/rs:fit/g:sm/q:90/h:345/w:350/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTcyMjkz/Ny0xMzA4MDc5MjA5/LmpwZWc.jpeg",
+        "imageCredit": "The Johnny Burnette Trio",
+        "discogsArtistId": 722937,
+        "imageProfileUrl": "https://www.discogs.com/artist/722937-The-Johnny-Burnette-Trio"
       }
     },
     {
@@ -654,14 +682,17 @@
         "id": "https://api.secondhandsongs.com/artist/6455",
         "label": "The Sonics",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/9ad59771076c189363e36f7d131f7580/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/6455.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "The Sonics",
+        "imageSourceUrl": "https://i.discogs.com/rxQ0MJQAKqjSw9m-eCxmG3YwKP9_TYtgQGVDz_bWKkc/rs:fit/g:sm/q:90/h:600/w:597/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTIyNjk4/Mi0xMjUwNzk3MDQ1/LmpwZWc.jpeg"
       }
     },
     {
@@ -705,14 +736,17 @@
         "id": "https://api.secondhandsongs.com/artist/11431",
         "label": "The Robins",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/b1a15012b04b50f1ac6a30db8dc16a05/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/11431.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "The Robins",
+        "imageSourceUrl": "https://i.discogs.com/b8LQD-6cBWmwxNaqsV9IW8OXYd0cD5I27Fijl03nvOs/rs:fit/g:sm/q:90/h:550/w:457/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTMzMTQw/MS0xMzA4MTMzNjY0/LmpwZWc.jpeg"
       }
     },
     {
@@ -870,14 +904,17 @@
         "id": "https://api.secondhandsongs.com/artist/6738",
         "label": "The Trashmen",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/be365ecc9aebbd28d8c165689320813e/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/6738.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "The Trashmen",
+        "imageSourceUrl": "https://i.discogs.com/GdKZRyUAPe2tyBnfyssINg7Hxh7_jcSrSv1gHzh7sTk/rs:fit/g:sm/q:90/h:365/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI1NDg1/Ny0xNzg3Nzc4NDIx/LTE1MTUuanBlZw.jpeg"
       }
     },
     {
@@ -921,14 +958,17 @@
         "id": "https://api.secondhandsongs.com/artist/1628",
         "label": "Wanda Jackson",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/b5ebb2f5155fc11f2dc7e1e995505597/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/1628.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Wanda Jackson",
+        "imageSourceUrl": "https://i.discogs.com/736AAff2fpv-NQk9WMoZeO4fJWVB0-h-trc5xXXdHiY/rs:fit/g:sm/q:90/h:430/w:473/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTMyMTMz/Mi0xNDgzODE1ODM2/LTU0ODMuanBlZw.jpeg"
       }
     },
     {
@@ -969,14 +1009,17 @@
         "id": "https://api.secondhandsongs.com/artist/12584",
         "label": "Count Five",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/5126978db1a138d676243d733d90c9f7/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/12584.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Count Five",
+        "imageSourceUrl": "https://i.discogs.com/fggnILTEGRkP_RuLa4mNLXvavIDFTMhpqmS7VGUHeMU/rs:fit/g:sm/q:90/h:525/w:502/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI1MjQ2/My0xNzQ3Njc4MzQ4/LTE3ODkucG5n.jpeg"
       }
     },
     {
@@ -1245,14 +1288,17 @@
         "id": "https://api.secondhandsongs.com/artist/1418",
         "label": "Warren Smith [US2]",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/5ad98f5ac970eca178251158fc6e7fd3/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/1418.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Warren Smith",
+        "imageSourceUrl": "https://i.discogs.com/5TjRG1hAROHSFVijh53bdqnHX8WzIA3c_mSIEDcBSM0/rs:fit/g:sm/q:90/h:255/w:200/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI2ODMz/Ni0xMTEyMjYwMzQz/LmpwZw.jpeg"
       }
     },
     {
@@ -1394,14 +1440,17 @@
         "id": "https://api.secondhandsongs.com/artist/1571",
         "label": "Roy Orbison",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/a05bdb2eed3a93309c518e7c89e362d0/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/1571.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Roy Orbison",
+        "imageSourceUrl": "https://i.discogs.com/h0nVwKwIFmb4O6nAqmdu4A9uOhAHBczzy13NcuuO2W8/rs:fit/g:sm/q:90/h:600/w:487/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE0NTA3/Mi0xNTcwNjkxNzM0/LTI3NDUuanBlZw.jpeg"
       }
     },
     {
@@ -1504,14 +1553,17 @@
         "id": "https://api.secondhandsongs.com/artist/40934",
         "label": "The Phantom",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/8292579c9fbe17a7ae696e0c26c88d60/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/40934.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "The Phantom",
+        "imageSourceUrl": "https://i.discogs.com/RRKqUI8YVKx_FzOOnUZX1lTHJ_iRsxtdWujgynmKHN4/rs:fit/g:sm/q:90/h:600/w:534/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI3MDc4/Mi0xNzU0OTc1NTIy/LTQzMzcucG5n.jpeg"
       }
     },
     {
@@ -1554,14 +1606,17 @@
         "id": "https://api.secondhandsongs.com/artist/34156",
         "label": "The Third Bardo",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/c17770986b4935e81fd7ae9e37e11ea5/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/34156.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "The Third Bardo",
+        "imageSourceUrl": "https://i.discogs.com/h5hLIdP-RVfSistsXcMMZqf2dLSKqtiPYpuTVsbQ8A8/rs:fit/g:sm/q:90/h:200/w:200/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI1MjUx/My0xMTYzNzgyNjA4/LmpwZWc.jpeg"
       }
     },
     {
@@ -1603,14 +1658,17 @@
         "id": "https://api.secondhandsongs.com/artist/29248",
         "label": "The Groupies",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/f31ee2bb07ea97f15bf388a79c7fe5c1/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/29248.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "The Groupies",
+        "imageSourceUrl": "https://i.discogs.com/R6mVobYYzUg_F3a_jlQMkASHs06W2SzTt1K39wu0siA/rs:fit/g:sm/q:90/h:497/w:497/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI1MjUx/OS0xMzMxMjIzNTQ4/LmpwZWc.jpeg"
       }
     },
     {
@@ -1652,14 +1710,17 @@
         "id": "https://api.secondhandsongs.com/artist/136818",
         "label": "The Bostweeds",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/86d836c4f8162637e3ba2ccc5f95d170/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/136818.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "The Bostweeds",
+        "imageSourceUrl": "https://i.discogs.com/HRQiYS605Q_p3Puy6YnR7XS-fG60u6mO50bDXOMjSWw/rs:fit/g:sm/q:90/h:600/w:461/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTYwNzY0/OC0xNDQ3MDQxMjUy/LTIwOTUuanBlZw.jpeg"
       }
     },
     {
@@ -1701,14 +1762,17 @@
         "id": "https://api.secondhandsongs.com/artist/16080",
         "label": "The Wailers [US]",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/109bcff06a7b3db616a30845c3c63bc0/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/16080.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "The Wailers",
+        "imageSourceUrl": "https://i.discogs.com/49YZB1KDaV2jK9t3mgz0yCALPfbA6Ncflq4HLNXq7Fw/rs:fit/g:sm/q:90/h:512/w:388/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTUyMTQ1/LTE2MTc3MDQ1MzYt/NzU5Ny5qcGVn.jpeg"
       }
     },
     {
@@ -1749,14 +1813,17 @@
         "id": "https://api.secondhandsongs.com/artist/402",
         "label": "Carl Perkins [US1]",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/8856a23b962f2f19491c3f7a6bee4d5c/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/402.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Carl Perkins",
+        "imageSourceUrl": "https://i.discogs.com/qegTWTyXEb4KBo34rcW4E2aeF7GnLtsZ13JHxDvOBEo/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI1MTg3/Ny0xNTk2MTk1MzU2/LTU3NTQuanBlZw.jpeg"
       }
     },
     {
@@ -1901,14 +1968,17 @@
         "id": "https://api.secondhandsongs.com/artist/29255",
         "label": "The Novas",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/fc11d670e2de6d7919055d0b720373bd/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/29255.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "The Novas",
+        "imageSourceUrl": "https://i.discogs.com/rz6lSjGBO__Vm-xAm0856lclmjRwYBHMde0DWveycFw/rs:fit/g:sm/q:90/h:424/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI3MDc3/Ni0xNDA4MjEwOTU2/LTk3MTIuanBlZw.jpeg"
       }
     },
     {
@@ -2011,14 +2081,19 @@
         "id": "https://api.secondhandsongs.com/artist/26161",
         "label": "Charlie Feathers",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/92fb5c67d2bf76376d9038506c1310c0/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/26161-61319a3e0464.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Charlie Feathers",
+        "imageSourceUrl": "https://i.discogs.com/PC7bsX0XlErVj_X9-H2WZEOCjBDKDo-rmuzvBqDmeQg/rs:fit/g:sm/q:90/h:486/w:410/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI2NjEz/OS0xMTYzNzgyNzc4/LmpwZWc.jpeg",
+        "discogsArtistId": 266139,
+        "imageProfileUrl": "https://www.discogs.com/artist/266139-Charlie-Feathers"
       }
     },
     {
@@ -2060,14 +2135,17 @@
         "id": "https://api.secondhandsongs.com/artist/7023",
         "label": "Slim Harpo",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/83506275e41ffc9e9e66d9ec2099064a/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/7023.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Slim Harpo",
+        "imageSourceUrl": "https://i.discogs.com/8tWvboZ1SE5pklZSOAR8di-Yz7gW32QMXNJcOo6QwPA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTQyNTM2/NS0xNTI3Njc2NzEw/LTMyODYuanBlZw.jpeg"
       }
     },
     {
@@ -2158,14 +2236,19 @@
         "id": "https://api.secondhandsongs.com/artist/29256",
         "label": "Kip Tyler & The Flips",
         "nodeType": "artist",
-        "imageUrl": "https://i.discogs.com/rAtZBCmy-bYFcK3vhbJPFlTBQ1CcN5XpnXtt4xxhlRw/rs:fit/g:sm/q:90/h:390/w:280/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTYwNzY3/MS0xNTEyMDcxNzMz/LTY2NTEuanBlZw.jpeg",
+        "imageUrl": "/images/artists/29256-b67511103958.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageSourceUrl": "https://i.discogs.com/rAtZBCmy-bYFcK3vhbJPFlTBQ1CcN5XpnXtt4xxhlRw/rs:fit/g:sm/q:90/h:390/w:280/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTYwNzY3/MS0xNTEyMDcxNzMz/LTY2NTEuanBlZw.jpeg",
+        "imageCredit": "Kip Tyler & The Flips",
+        "discogsArtistId": 607671,
+        "imageProfileUrl": "https://www.discogs.com/artist/607671-Kip-Tyler-The-Flips"
       }
     },
     {
@@ -2308,14 +2391,17 @@
         "id": "https://api.secondhandsongs.com/artist/167092",
         "label": "Jimmy Stewart [US2]",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/2e47c0f8630177b931ddfe9374bde87e/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/167092.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Jimmy Stewart",
+        "imageSourceUrl": "https://i.discogs.com/qU4YM0aXze8avORMKbomc3DWnwBwFlpho9FnxBdepRs/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTY2MDc1/OS0xMzQ5MDkwODc5/LTU4NzQuanBlZw.jpeg"
       }
     },
     {
@@ -2466,14 +2552,17 @@
         "id": "https://api.secondhandsongs.com/artist/41006",
         "label": "Mel Robbins",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/64489bfa24d4cbe3f21e4f011fea9b06/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/41006.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Mel Robbins",
+        "imageSourceUrl": "https://i.discogs.com/bwRFxmp1OC4PivNQey5324-PQ224OkssMKL3ofDdVo4/rs:fit/g:sm/q:90/h:600/w:498/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTYwNzY0/Ny0xMjUzMjA0MzI2/LmpwZWc.jpeg"
       }
     },
     {
@@ -2575,14 +2664,17 @@
         "id": "https://api.secondhandsongs.com/artist/16690",
         "label": "Jackie Lee Cochran",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/055b4d6645f01fdc8077bf112aacbdc0/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/16690.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Jackie Lee Cochran",
+        "imageSourceUrl": "https://i.discogs.com/sFvYbZlzw9l0Cmt6ZSL3jSMk3AmKjJRXPh4C6pCfJu4/rs:fit/g:sm/q:90/h:600/w:342/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTYwNzY2/My0xNzkwMTM4NTMx/LTI2NTIuanBlZw.jpeg"
       }
     },
     {
@@ -2675,14 +2767,19 @@
         "id": "https://api.secondhandsongs.com/artist/17260",
         "label": "Ric Cartey with The Jiva-Tones",
         "nodeType": "artist",
-        "imageUrl": "https://i.discogs.com/DRpEjpFikeyGD10xlVBcgtcaP09MT6BpgWUhRmHWlxY/rs:fit/g:sm/q:90/h:360/w:480/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTExMjc2/NzAtMTUzNzgxNDYx/Ni0zMjE5LmpwZWc.jpeg",
+        "imageUrl": "/images/artists/17260-00af562dff89.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageSourceUrl": "https://i.discogs.com/DRpEjpFikeyGD10xlVBcgtcaP09MT6BpgWUhRmHWlxY/rs:fit/g:sm/q:90/h:360/w:480/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTExMjc2/NzAtMTUzNzgxNDYx/Ni0zMjE5LmpwZWc.jpeg",
+        "imageCredit": "Ric Cartey With The Jiva-Tones",
+        "discogsArtistId": 1127670,
+        "imageProfileUrl": "https://www.discogs.com/artist/1127670-Ric-Cartey-With-The-Jiva-Tones"
       }
     },
     {
@@ -2773,14 +2870,19 @@
         "id": "https://api.secondhandsongs.com/artist/37638",
         "label": "Junior Thompson",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/737dd3d3961ea93c031bf470d9de6e7d/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/37638-1b7b3e566d56.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageSourceUrl": "https://i.discogs.com/HbIhYCs_c80uZT0YxItcE7hj9pJfSCH5PnQ9JcLaF8w/rs:fit/g:sm/q:90/h:246/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTg4NDY1/NS0xMzM5OTgzMTQ3/LTkwODcuanBlZw.jpeg",
+        "imageCredit": "Junior Thompson",
+        "discogsArtistId": 884655,
+        "imageProfileUrl": "https://www.discogs.com/artist/884655-Junior-Thompson"
       }
     },
     {
@@ -2822,14 +2924,17 @@
         "id": "https://api.secondhandsongs.com/artist/46671",
         "label": "Hayden Thompson",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/5616444881c0a2a5a4f367bcafcd1d3f/1000x1000-000000-80-0-0.jpg",
+        "imageUrl": "/images/artists/46671.jpg",
         "size": 1,
         "color": "#333",
         "bgColor": "#333",
         "bgOpacity": 0,
         "opacity": 1,
         "fontSize": 12,
-        "fontFamily": "Big Shoulders Display"
+        "fontFamily": "Big Shoulders Display",
+        "imageSource": "discogs",
+        "imageCredit": "Hayden Thompson",
+        "imageSourceUrl": "https://i.discogs.com/PJhg1Raxx3YWaFWfMpFLMvyJgDmQuvgiOeRgkaY76lw/rs:fit/g:sm/q:90/h:600/w:593/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTYyMzQ0/OS0xNDA3OTA1ODk1/LTM1NTcuanBlZw.jpeg"
       }
     },
     {
@@ -3254,6 +3359,12 @@
     "sampleErrors": [],
     "imageCandidates": [
       {
+        "source": "discogs.selected",
+        "url": "/images/artists/14076-e07738922130.jpg",
+        "ok": "True",
+        "status": "downloaded"
+      },
+      {
         "source": "shs.raw",
         "url": "https://api.secondhandsongs.com/picture/425919",
         "status": "HTTP 404",
@@ -3279,13 +3390,16 @@
       }
     ],
     "albumImageResolvedCount": 17,
-    "discogsArtistImageLookupCount": 10,
-    "discogsArtistImageResolvedCount": 7
+    "discogsArtistImageLookupCount": 40,
+    "discogsArtistImageResolvedCount": 33
   },
-  "generatedAt": "2026-10-04T19:38:45.739504+00:00",
+  "generatedAt": "2026-10-04T22:41:30.359946+00:00",
   "artistPictures": [
+    "/images/artists/14076-e07738922130.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/7/79/Cramps1982-07.jpg",
     "https://cdn-images.dzcdn.net/images/artist/0635e7f942d66f873a0a0e15f59d3ffd/1000x1000-000000-80-0-0.jpg"
   ],
-  "imagesGeneratedAt": "2026-10-04T19:22:54.912264+00:00"
+  "imagesGeneratedAt": "2026-10-04T22:41:30.359897+00:00",
+  "artistPictureSource": "discogs",
+  "artistPictureSourceUrl": "https://i.discogs.com/uVvBzRmI57hccKxhjbQHfAR-tx3b7yX6y1ofYYjiS7g/rs:fit/g:sm/q:90/h:563/w:556/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTM5Nzc5/LTE2OTI0NTA1MTEt/ODM2MS5qcGVn.jpeg"
 }

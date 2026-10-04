@@ -1589,7 +1589,12 @@
         "fontSize": 8.0,
         "fontFamily": "Big Shoulders Display",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/308a7da01c28d5b926dfe2c35e938a2a/1000x1000-000000-80-0-0.jpg"
+        "imageUrl": "/images/artists/59771-790a1c06418c.jpg",
+        "imageSource": "discogs",
+        "imageSourceUrl": "https://i.discogs.com/pl_6NJT9IW48sSLZAcLOOEcxbTdKMXrdkrqGwlybgJE/rs:fit/g:sm/q:90/h:348/w:544/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTM1Mjgw/Mi0xMTQyMDQ1NTU1/LmpwZWc.jpeg",
+        "imageCredit": "Sacred Cowboys",
+        "discogsArtistId": 352802,
+        "imageProfileUrl": "https://www.discogs.com/artist/352802-Sacred-Cowboys"
       }
     },
     {
@@ -1694,7 +1699,12 @@
         "fontSize": 13.168118696880716,
         "fontFamily": "Big Shoulders Display",
         "nodeType": "artist",
-        "imageUrl": "https://cdn-images.dzcdn.net/images/artist/5171b4f16cb6d3fe2eaebdf3230e3f7f/1000x1000-000000-80-0-0.jpg"
+        "imageUrl": "/images/artists/20761-298052f15641.jpg",
+        "imageSource": "discogs",
+        "imageSourceUrl": "https://i.discogs.com/EpAHMWYsDWi7SoWDRW8XP3Msj_UNwCf3_bxtPDbBm_E/rs:fit/g:sm/q:90/h:400/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI0OTIw/NTEtMTUxOTQxNDk0/My01MzY5LmpwZWc.jpeg",
+        "imageCredit": "The Flametrick Subs",
+        "discogsArtistId": 2492051,
+        "imageProfileUrl": "https://www.discogs.com/artist/2492051-The-Flametrick-Subs"
       }
     },
     {
@@ -3601,6 +3611,6 @@
     "discogsArtistImageLookupCount": 15,
     "discogsArtistImageResolvedCount": 1
   },
-  "generatedAt": "2026-10-04T19:38:45.741245+00:00",
-  "imagesGeneratedAt": "2026-10-04T19:26:21.860675+00:00"
+  "generatedAt": "2026-10-04T22:24:08.232874+00:00",
+  "imagesGeneratedAt": "2026-10-04T22:24:08.232829+00:00"
 }

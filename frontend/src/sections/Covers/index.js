@@ -21,6 +21,7 @@ const SOURCE_MODES = [
 ];
 const LAYOUT_OPTIONS = [
   { value: 'cola', label: 'No overlap' },
+  { value: 'chronology', label: 'Chronology' },
   { value: 'fcose', label: 'fCoSE' },
   { value: 'cose', label: 'CoSE' },
   { value: 'breadthfirst', label: 'Hierarchy' },
@@ -30,7 +31,7 @@ const LAYOUT_OPTIONS = [
 
 const isValidImageUrl = (url) => {
   if (typeof url !== 'string') return false;
-  if (/^\/images\/(releases|artists)\/\d+(?:\+\d+)*\.(jpg|png|webp|gif)$/.test(url)) return true;
+  if (/^\/images\/(releases|artists)\/\d+(?:\+\d+)*(?:-[a-f0-9]{12})?\.(jpg|png|webp|gif)$/.test(url)) return true;
   try {
     return ['http:', 'https:'].includes(new URL(url).protocol);
   } catch {
@@ -64,7 +65,8 @@ const formatArtistName = (name) => addCamelCaseSpaces(name.replace(/\s*\[[^\]]*\
 const releasesForSong = (song) => song.graphReleases
   || (song.sourceType === 'originals' ? song.releases : song.coverReleases) || [];
 
-const getReleaseYear = (release) => Number(release?.year) || Infinity;
+const getReleaseYear = (release) => Number(release?.year)
+  || Number((release?.date || release?.releaseDetails?.date || '').slice(0, 4)) || Infinity;
 
 const getOrderedReleases = (songs) => [...new Map(songs.flatMap(releasesForSong)
   .filter((release) => release?.uri && release.title)
@@ -121,10 +123,76 @@ class Covers extends Component {
 
   fitGraph = (cy) => {
     cy.fit(cy.nodes(), 32);
+    if (this.state.layoutName === 'chronology') {
+      const zoom = Math.min(0.55, cy.width() / 1100);
+      if (cy.zoom() < zoom) {
+        cy.zoom(zoom);
+        cy.pan({ x: 72, y: cy.height() / 2 });
+      }
+    }
   };
 
   runGraphLayout = (cy, layout) => {
     this.graphLayout?.stop();
+    if (this.state.layoutName === 'chronology') {
+      const releases = cy.nodes('[nodeType = "album"]').toArray().sort((first, second) =>
+        getReleaseYear(first.data()) - getReleaseYear(second.data())
+        || first.data('label').localeCompare(second.data('label')));
+      const releaseOrder = new Map(releases.map((node, index) => [node.id(), index]));
+      const groups = new Map([...releases.map((node) => [node.id(), []]), [UNGROUPED_ALBUM_ID, []]]);
+      const songs = cy.nodes('[nodeType = "song"]').toArray().sort((first, second) =>
+        first.data('label').localeCompare(second.data('label')));
+      songs.forEach((song) => {
+        const connected = song.neighborhood('[nodeType = "album"]').toArray()
+          .sort((first, second) => releaseOrder.get(first.id()) - releaseOrder.get(second.id()));
+        groups.get(connected[0]?.id() || UNGROUPED_ALBUM_ID).push(song);
+      });
+      const placedArtists = new Set();
+      let cursorX = 200;
+      cy.batch(() => {
+        cy.nodes('[nodeType = "selectedArtist"]').position({ x: 0, y: 0 });
+        for (const [groupId, tracks] of groups) {
+          const lanes = [tracks.filter((song) => song.data('sourceType') === 'covers'),
+            tracks.filter((song) => song.data('sourceType') !== 'covers')];
+          const width = 480;
+          const centerX = cursorX + width / 2;
+          if (groupId !== UNGROUPED_ALBUM_ID) cy.getElementById(groupId).position({ x: centerX, y: 0 });
+          lanes.forEach((lane, laneIndex) => {
+            const side = laneIndex === 0 ? -1 : 1;
+            let cursorY = 240;
+            lane.forEach((song, index) => {
+              const artists = song.neighborhood('[nodeType = "artist"]').toArray()
+                .filter((artist) => !placedArtists.has(artist.id()))
+                .sort((first, second) => first.data('label').localeCompare(second.data('label')));
+              const songHeight = song.layoutDimensions({ nodeDimensionsIncludeLabels: true }).h;
+              const rowHeight = Math.max(150, ...artists.map((artist) =>
+                artist.layoutDimensions({ nodeDimensionsIncludeLabels: true }).h + 36));
+              const rows = Math.ceil(artists.length / 2);
+              const clusterHeight = Math.max(songHeight, rows * rowHeight);
+              const clusterY = cursorY + clusterHeight / 2;
+              song.position({ x: centerX + (index % 2 === 0 ? -20 : 20), y: side * clusterY });
+              artists.forEach((artist, artistIndex) => {
+                const row = Math.floor(artistIndex / 2);
+                artist.position({
+                  x: centerX + (artistIndex % 2 === 0 ? -190 : 190),
+                  y: side * (cursorY + rowHeight / 2 + row * rowHeight + (artistIndex % 2 === 0 ? -12 : 12)),
+                });
+                placedArtists.add(artist.id());
+              });
+              cursorY += clusterHeight + 64;
+            });
+          });
+          cursorX += width + 48;
+        }
+      });
+      const graphLayout = cy.layout({ ...layout, name: 'preset' });
+      this.graphLayout = graphLayout;
+      graphLayout.one('layoutstop', () => {
+        if (this.graphLayout === graphLayout && !cy.destroyed()) this.fitGraph(cy);
+      });
+      graphLayout.run();
+      return;
+    }
     const central = cy.nodes('[nodeType = "selectedArtist"]').first();
     const covers = cy.nodes().filter((node) => node.data('nodeType') === 'song'
       ? node.data('sourceType') === 'covers'
@@ -436,7 +504,9 @@ class Covers extends Component {
                 sourceTypes: [],
                 releaseDetails: release.releaseDetails || null,
                 date: release.date || null,
-                year: release.year || null,
+                year: Number.isFinite(getReleaseYear(release)) ? getReleaseYear(release)
+                  : data.sourceType === 'originals' ? Number((data.date || '').slice(0, 4)) || null : null,
+                yearSource: Number.isFinite(getReleaseYear(release)) ? 'release' : 'performance',
                 imageUrl: isValidImageUrl(release.imageUrl) ? release.imageUrl : null,
               },
             });
@@ -569,7 +639,7 @@ class Covers extends Component {
       ? visibleNodeIds.has(item.data.source) && visibleNodeIds.has(item.data.target)
       : visibleNodeIds.has(item.data?.id));
     const layout = {
-      name: layoutName,
+      name: layoutName === 'chronology' ? 'preset' : layoutName,
       animate: false,
       fit: false,
       nodeDimensionsIncludeLabels: true,
@@ -760,7 +830,7 @@ class Covers extends Component {
                       'background-fit': 'cover',
                       'background-image-opacity': 1,
                       color: '#236978',
-                      'font-size': 14,
+                      'font-size': 24,
                       'font-weight': 700,
                       'text-wrap': 'wrap',
                       'text-max-width': 110,
@@ -788,7 +858,7 @@ class Covers extends Component {
                       height: 96,
                       'background-color': '#e3e9e6',
                       'background-opacity': 1,
-                      'font-size': 12,
+                      'font-size': 24,
                       'text-valign': 'center',
                       'text-margin-y': 0,
                       'text-overflow-wrap': 'whitespace',
@@ -827,7 +897,9 @@ class Covers extends Component {
                       'background-image': (ele) => ele.data('imageUrl') || 'none',
                       'background-fit': 'cover',
                       'background-image-opacity': 1,
-                      label: (ele) => (ele.data('imageUrl') ? '' : ele.data('label')),
+                      label: (ele) => layoutName === 'chronology'
+                        ? `${ele.data('yearSource') === 'performance' && ele.data('year') ? '~' : ''}${ele.data('year') || 'Undated'}\n${ele.data('label')}`
+                        : (ele.data('imageUrl') ? '' : ele.data('label')),
                       color: '#252b28',
                       'font-size': 16,
                       'font-weight': 700,

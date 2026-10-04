@@ -76,6 +76,14 @@ To use Discogs specifically for missing artist images in the combined Covers vie
 ARTIST_ID=14076 npm run generate:images:artist -- --discogs-artists-only --max-artists 99
 ```
 
+To regenerate artist portraits with Discogs as the preferred source, including the central artist node:
+
+```sh
+ARTIST_ID=14076 npm run generate:images:artist -- --discogs-first --max-artists 200
+```
+
+This refreshes non-curated performer portraits in both graph files and places the selected artist's downloaded Discogs image first in `artistPictures`. Existing images remain as fallbacks when Discogs has no downloadable match. Alternative Discogs portraits manually selected with an explicit record ID are preserved. Release artwork, performances and graph relationships are not regenerated.
+
 This mode skips release artwork and performance requests. It defaults to both graph files; use `--graph covers` or `--graph originals` to restrict it. Existing images are retained. Add `--refresh-artists` to replace them only when a Discogs match downloads successfully. Discogs portraits are saved under `frontend/data/images/artists/`, avoiding cross-origin canvas restrictions. Combined artist credits are searched in full first, then by their explicitly named lead performer; `imageCredit` records whose portrait is shown, and the graph label is unchanged.
 
 Albums, EPs, and singles in both graphs are also enriched. Releases are deduplicated by URI across both sources, so shared artwork is applied to every matching release reference. All release artwork is validated and downloaded to `frontend/data/images/releases/`, then served from `/images/releases/` to avoid cross-origin canvas restrictions. Compilation and guest-appearance matches require a matching release title and a graph track explicitly credited to the selected artist. Missing or ambiguous matches remain without artwork rather than using another artist's release.
@@ -84,6 +92,26 @@ To repair release artwork without changing artist images or regenerating perform
 
 ```sh
 ARTIST_ID=14076 npm run generate:images:artist -- --releases-only
+```
+
+To replace one graph artist's generic portrait with a Discogs alternative, run from `data/` with `DISCOGS_TOKEN` loaded. Preview the gallery first:
+
+```sh
+ARTIST_ID=14076 npm run generate:image:artist -- --artist-name "The Sonics" --discogs-id 226982 --list-images
+```
+
+Choose a numbered image to download and update the graph:
+
+```sh
+ARTIST_ID=14076 npm run generate:image:artist -- --artist-name "The Sonics" --discogs-id 226982 --image-index 2
+```
+
+`ARTIST_ID` identifies the selected band's dataset; `--artist-name` identifies the performer node to update. `--discogs-id` is optional for unique name matches and required for ambiguous Discogs identities. Without `--image-index`, the command prefers a different secondary image rather than repeating the recorded source URL. `--list-images` makes no changes. Only matching nodes in the Covers and Originals files are updated; use `--graph covers` or `--graph originals` to restrict this. Qualifier suffixes such as `[US1]` are ignored for matching. Existing `imageCredit` names also match combined performer credits; use `--node-uri` if multiple graph nodes share a normalized name. Failed lookups or downloads leave graph files unchanged. Alternative portraits are saved locally with distinct filenames to avoid browser cache reuse.
+
+An explicit `--discogs-id` overrides differences between Discogs and SecondHandSongs names. `--list-images` can preview that record even when `--artist-name` does not match a graph label. To apply its portrait, use the graph's exact label or explicitly select `--node-uri`. The graph label remains unchanged, while `imageCredit` records the actual Discogs artist name. For example:
+
+```sh
+ARTIST_ID=14076 npm run generate:image:artist -- --artist-name "The Johnny Burnette Trio" --discogs-id 722937 --node-uri https://api.secondhandsongs.com/artist/2140 --image-index 2
 ```
 
 The Cramps Originals graph has 99 performer nodes. To attempt image retrieval for all of them, together with all albums, EPs, and singles:

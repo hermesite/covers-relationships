@@ -5,7 +5,6 @@ import Navbar from 'react-bootstrap/Navbar';
 
 import './App.css';
 
-import Home from './sections/Home';
 import Originals from './sections/Originals';
 import Covers from './sections/Covers';
 import CoversCards from './sections/CoversCards';
@@ -14,11 +13,10 @@ import { ARTIST_OPTIONS } from './constants/artistOptions';
 import { getArtistIdFromUrl } from './sections/artistUrl';
 
 const NAV_ITEMS = [
-  { label: 'Home', path: '/' },
+  { label: 'Band Detail', path: '/' },
   { label: 'Originals', path: '/originals' },
   { label: 'Covers', path: '/covers' },
   { label: 'Cover Cards', path: '/covers-cards' },
-  { label: 'Band Detail', path: '/band-detail' },
 ];
 
 function AppNavigation() {
@@ -45,8 +43,8 @@ function AppNavigation() {
               <Nav.Link
                 key={path}
                 href={getHref(path)}
-                active={location.pathname === path}
-                aria-current={location.pathname === path ? 'page' : undefined}
+                active={location.pathname === path || (path === '/' && location.pathname === '/band-detail')}
+                aria-current={location.pathname === path || (path === '/' && location.pathname === '/band-detail') ? 'page' : undefined}
                 eventKey={path}
               >
                 {label}
@@ -73,7 +71,7 @@ function App() {
       <AppNavigation />
       <Routes>
         <Route path="/">
-          <Route index element={<Home />} />
+          <Route index element={<BandDetail />} />
           <Route path="originals" element={<Originals />} />
           <Route path="covers" element={<Covers />} />
           <Route path="covers-cards" element={<CoversCards />} />

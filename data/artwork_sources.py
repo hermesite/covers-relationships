@@ -50,6 +50,46 @@ def discogs_name(value: str) -> str:
     return re.sub(r"\s+\(\d+\)$", "", value).strip()
 
 
+def discogs_artist_images(artist_name: str, artist_id: int | None = None) -> list[dict]:
+    explicit_artist_id = artist_id is not None
+    if artist_id is None:
+        query = urlencode({"type": "artist", "q": artist_name, "per_page": 100})
+        results = request_json("https://api.discogs.com/database/search?" + query)
+        matches = {
+            item["id"]: item
+            for item in results.get("results", [])
+            if item.get("id") and match_key(discogs_name(item.get("title") or "")) == match_key(artist_name)
+        }
+        if len(matches) > 1:
+            choices = ", ".join(f"{artist_id}: {item['title']}" for artist_id, item in matches.items())
+            raise ValueError(f"Multiple Discogs artists match; use --discogs-id. Matches: {choices}")
+        if not matches:
+            return []
+        artist_id = next(iter(matches))
+    details = request_json(f"https://api.discogs.com/artists/{artist_id}")
+    if not details.get("name"):
+        return []
+    if not explicit_artist_id and match_key(discogs_name(details.get("name") or "")) != match_key(artist_name):
+        raise ValueError("The selected Discogs record does not match the requested artist name")
+    images = []
+    seen = set()
+    for image in details.get("images") or []:
+        url = image.get("uri")
+        if not url or url in seen or "spacer.gif" in url:
+            continue
+        seen.add(url)
+        images.append({
+            "url": url,
+            "type": image.get("type"),
+            "width": image.get("width"),
+            "height": image.get("height"),
+            "artistId": artist_id,
+            "artistName": details["name"],
+            "profileUrl": details.get("uri") or f"https://www.discogs.com/artist/{artist_id}",
+        })
+    return images
+
+
 def discogs_image(artist_name: str, album_title: str | None = None) -> str | None:
     query = {"type": "release" if album_title else "artist", "per_page": 20}
     if album_title:
