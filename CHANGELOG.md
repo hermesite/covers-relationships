@@ -8,6 +8,22 @@ The project is in initial development (`0.x.y`); its public API is not yet stabl
 
 ## [Unreleased]
 
+### Added
+
+- Added a Band Family page with member portraits, roles, tenure periods, and linked group memberships.
+- Expanded Band Detail with a band-activity timeline, release annotations, filters, source links, and member/release highlighting.
+- Enriched band data with Discogs membership evidence, alias-aware member profiles, locally cached portraits, and verified album, EP, and single annotations, with MusicBrainz fallbacks.
+- Added regression tests for membership parsing, identity matching, and release enrichment.
+
+### Changed
+
+- Made Band Detail the home page and added Band Family to primary navigation.
+- Updated the band-detail generator documentation and separated band enrichment from SecondHandSongs API monitoring.
+
+### Removed
+
+- Removed the Covers Cards page and route.
+
 ## [0.1.0] - 2026-10-03
 
 Initial documented development baseline, matching the frontend and data package

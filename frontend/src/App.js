@@ -7,8 +7,8 @@ import './App.css';
 
 import Originals from './sections/Originals';
 import Covers from './sections/Covers';
-import CoversCards from './sections/CoversCards';
 import BandDetail from './sections/BandDetail';
+import BandFamily from './sections/BandFamily';
 import { ARTIST_OPTIONS } from './constants/artistOptions';
 import { getArtistIdFromUrl } from './sections/artistUrl';
 
@@ -16,7 +16,7 @@ const NAV_ITEMS = [
   { label: 'Band Detail', path: '/' },
   { label: 'Originals', path: '/originals' },
   { label: 'Covers', path: '/covers' },
-  { label: 'Cover Cards', path: '/covers-cards' },
+  { label: 'Band Family', path: '/band-family' },
 ];
 
 function AppNavigation() {
@@ -36,6 +36,13 @@ function AppNavigation() {
         <Navbar.Brand href={getHref('/')} className="app-navbar-brand">
           Covers &amp; Relationships
         </Navbar.Brand>
+        <label className="app-artist-select" htmlFor="app-artist-select">
+          <select id="app-artist-select" value={selectedArtistId} onChange={onArtistChange}>
+            {ARTIST_OPTIONS.map((option) => (
+              <option key={option.id} value={String(option.id)}>{option.name}</option>
+            ))}
+          </select>
+        </label>
         <Navbar.Toggle aria-controls="app-primary-navigation" />
         <Navbar.Collapse id="app-primary-navigation">
           <Nav className="ms-auto">
@@ -51,14 +58,6 @@ function AppNavigation() {
               </Nav.Link>
             ))}
           </Nav>
-          <label className="app-artist-select" htmlFor="app-artist-select">
-            Artist
-            <select id="app-artist-select" value={selectedArtistId} onChange={onArtistChange}>
-              {ARTIST_OPTIONS.map((option) => (
-                <option key={option.id} value={String(option.id)}>{option.name}</option>
-              ))}
-            </select>
-          </label>
         </Navbar.Collapse>
       </Container>
     </Navbar>
@@ -74,8 +73,8 @@ function App() {
           <Route index element={<BandDetail />} />
           <Route path="originals" element={<Originals />} />
           <Route path="covers" element={<Covers />} />
-          <Route path="covers-cards" element={<CoversCards />} />
           <Route path="band-detail" element={<BandDetail />} />
+          <Route path="band-family" element={<BandFamily />} />
         </Route>
       </Routes>
     </BrowserRouter>

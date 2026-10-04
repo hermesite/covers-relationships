@@ -76,7 +76,7 @@ def run_band_detail(artist: int, base_url: str, proxy: str | None) -> int:
     env = os.environ.copy()
     if proxy:
         env.update({"HTTP_PROXY": proxy, "HTTPS_PROXY": proxy})
-    command = [sys.executable, str(script), "--artist", str(artist), "--base-url", base_url]
+    command = [sys.executable, str(script), "--artist", str(artist)]
     return subprocess.run(command, env=env, check=False).returncode
 
 

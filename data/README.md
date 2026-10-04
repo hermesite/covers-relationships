@@ -23,22 +23,50 @@ Run these commands from `data/`, where the Python scripts and data npm scripts l
 
 ### Band relation details
 
-Generate the selected band's relations and fetch extended data for each related artist:
+Generate the selected band's relationships and community tags from MusicBrainz, with member roles and periods supplemented from the Discogs artist profile. The default artist is The Cramps (`96c1edac-1011-4cb8-882c-27248de35071`, Discogs artist `39779`):
 
 ```sh
 npm run generate:band-detail
 npm run generate:band-detail -- --artist 14076
+npm run generate:band-detail -- --no-cache
+npm run generate:band-detail -- --skip-discogs
+npm run generate:band-detail -- --skip-member-details
+npm run generate:band-detail -- --skip-releases
 ```
 
 The output is written to `frontend/data/band-detail/<artist_id>.json` and served by the app at `/band-detail/<artist_id>.json`. The Band Detail view is available at `/band-detail?artistId=14076`.
 
-Check whether an IP-wide API block has cleared:
+The generator fetches the MusicBrainz artist with all relationship categories, aliases, genres and tags, then resolves the linked Discogs artist (or an explicit `--discogs-id`). Missing member identities can require additional MusicBrainz URL lookups. Requests have an identifying User-Agent and are paced per service. Responses are cached in `data/.cache/band-detail`; use `--no-cache` to refresh all sources. Public artist lookups do not require an API key; an exported `DISCOGS_TOKEN` is used when available. No SecondHandSongs access is required. For another artist, supply both `--artist <app_artist_id>` and `--mbid <musicbrainz_artist_id>`.
+
+Discogs has no structured membership date or role fields, so only explicit member entries in its API `profile` are parsed. `relations` retains the original MusicBrainz data; `memberships` contains the source-attributed enrichment. Discogs fills missing dates and roles or refines matching year-only dates. Conflicting dates retain the MusicBrainz value and show both sources in notes. Returning tenures are kept separate, and aliases are matched by profile evidence or verified MusicBrainz-to-Discogs links, not fuzzy names. If Discogs is unavailable, generation falls back to MusicBrainz and records a visible warning.
+
+Member cards are generated once per person in `memberDetails`, with all of that member's tenures grouped together. Discogs artist `groups` are the primary reference for other bands and projects, including groups from directly linked alias records, deduplicated by group ID. Source artist records are linked on each card. Discogs does not provide membership dates in `groups`, so none are inferred. Partial alias lookup failures are labeled. MusicBrainz outgoing `member of band` relationships are retained separately and shown as secondary data or an explicitly labeled fallback. MusicBrainz identities require a relationship to the selected band or a verified Discogs artist/alias ID; exact names alone are insufficient.
+
+Portraits come from confirmed Discogs artist records, with existing Wikimedia/Wikipedia image resolution as a fallback. Export `DISCOGS_TOKEN` before generation to access Discogs image fields; the Python command does not automatically load `data/.env`. Photos are downloaded to `frontend/data/images/members` and reused locally, with source links on the cards. Photos that cannot be retrieved have a labeled placeholder. `--skip-member-details` avoids all per-person profile/photo requests, while `--skip-discogs` also disables Discogs photo requests. API responses remain cached; downloaded portraits are reused even with `--no-cache`.
+
+The Cramps profile gives 1973 start dates for Lux Interior and Poison Ivy despite stating a 1976 band formation. These source dates are retained and flagged; the timeline stays within the recorded 1976–2009 band activity. Jim Chandler's instrument is not explicitly recorded in the profile and is not inferred from the phrase “primal beat”.
+
+Run the parser and merge regression tests from the repository root with `python3 -m unittest discover -s data -p 'test_band_members.py'`.
+
+The page groups relationships by entity type and displays roles, dates, credits, links and tag vote counts, with links to the MusicBrainz relationships and tags source pages.
+
+The Band Detail activity timeline spans the band's recorded lifespan, with one compact 28px row per member and separate bars for returning tenures. Horizontal row grid lines are omitted; vertical year guides remain. Rows are grouped by role and ordered chronologically within each group. Member names overlap the start of their first bar, without a separate label column or repeated role text; late-starting names extend left to stay inside the chart. Bars are colored by role; multiple roles share the bar as horizontal color bands. Year-only membership dates include the stated ending year, while month/day dates retain their precision. Missing roles and wholly undated memberships are labeled as unrecorded, not inferred; periods with only one date use a hatched bar extending to the band boundary. Selecting a bar shows its source dates and roles. The chart scrolls horizontally on smaller screens.
+
+The discography defaults to Discogs when a linked Discogs artist is available. The generator browses all artist-release pages, keeps only `Main` artist credits, verifies the selected edition's artist IDs and requires an `Accepted` edition without an `Unofficial Release` format flag. `Accepted` describes database submission status, not an independent authenticity certification; official selection depends on Discogs community metadata. Unsupported or unverified entries are excluded. Masters collapse editions and preserve the original master year instead of a reissue's date. Standalone releases are retained when appropriate. Links point to Discogs master/release records, with the verified edition URL retained in the data.
+
+Live releases are identified by explicit format descriptions or recording/album statements in Discogs notes; compilations use format descriptions or explicit compilation statements. Both categories are hidden by default, with separate controls to reveal them. Live titles are italicized and compilation titles have a dotted underline. Missing community classifications may need correction upstream. `--skip-discogs` uses the existing MusicBrainz browse data instead. The chart displays albums, EPs and singles only; recordings remain excluded.
+
+The generated `releaseAnnotations` retains dated entries outside the band's lifespan, but the chart only shows years within its activity range. Album, EP and single titles remain visible below the member bars, rotated 90 degrees, without boxes or year/type captions. A shared year connector fans out to separate titles when multiple releases share a year. The shared timeline widens to preserve readable spacing and scrolls horizontally on smaller screens; its width stays stable when filtering types and categories. Selecting a title or year highlights the participating members and opens a searchable, source-linked release list. The Cramps Discogs snapshot contains 47 selected releases; 46 fall within 1976–2009. With live releases and compilations hidden, 32 titles remain, including eight standard albums. `--skip-releases` disables discography lookups. API failures do not discard member data; partially verified Discogs catalogs are visibly flagged and never silently replaced by the unfiltered MusicBrainz catalog.
+
+### SecondHandSongs availability
+
+Check whether an IP-wide SecondHandSongs API block has cleared (independent of Band Detail):
 
 ```sh
 npm run monitor:api
 ```
 
-Wait with one probe every 15 minutes and generate band details as soon as access returns:
+Wait with one probe every 15 minutes:
 
 ```sh
 npm run monitor:api:wait
@@ -47,10 +75,10 @@ npm run monitor:api:wait
 The API does not always return a reset header for error `10007`, so monitoring requires a periodic request. Keep the interval low-frequency; `--interval-seconds` cannot be set below 60 seconds. To use an HTTP/HTTPS proxy you control, run the monitor from `data/`:
 
 ```sh
-python3 monitor_shs_api.py --proxy http://proxy.example:8080 --run-band-detail
+python3 monitor_shs_api.py --proxy http://proxy.example:8080
 ```
 
-The proxy option is passed to `generate_band_detail.py` after recovery. Avoid untrusted public proxies, which can inspect traffic and may violate the upstream service's usage limits.
+Avoid untrusted public proxies, which can inspect traffic and may violate the upstream service's usage limits. Band Detail generation no longer needs to wait for SecondHandSongs recovery.
 
 ### Selected artist: two-step workflow
 
