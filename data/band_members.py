@@ -6,7 +6,7 @@ import re
 import hashlib
 from pathlib import Path
 from typing import Callable
-from urllib.error import URLError
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from uuid import UUID
@@ -351,3 +351,158 @@ def enrich_member_details(band: dict, memberships: list[dict], discogs: dict,
         output.append(card)
         print(f"Member details: {person['name']} - {len(card['memberOf'])} membership(s), photo {'saved' if card['imageUrl'] else 'unavailable'}")
     return output
+
+
+def build_band_family_network(band: dict, memberships: list[dict], member_details: list[dict],
+                              discogs: dict, fetch: Callable[[str, str], dict]) -> dict:
+    central_discogs_id = discogs.get("id")
+    central_id = f"discogs:{central_discogs_id}" if central_discogs_id else band["id"]
+    central_name = band.get("name") or "Selected band"
+    groups: dict[str, dict] = {}
+
+    for detail in member_details:
+        group_lists = [detail.get("memberOf") or []]
+        if detail.get("memberOfSource") == "Discogs":
+            group_lists = [detail.get("discogsMemberOf") or detail.get("memberOf") or [],
+                           detail.get("musicbrainzMemberOf") or []]
+        for group_list in group_lists:
+            for group in group_list:
+                group_id = str(group.get("id") or "")
+                if not group_id or group_id == central_id:
+                    continue
+                source = "Discogs" if group_id.startswith("discogs:") else "MusicBrainz"
+                key = f"{source}:{group_id}"
+                groups.setdefault(key, {**group, "id": group_id, "source": source})
+
+    central = {"id": f"band:{central_id}", "type": "band", "name": central_name,
+               "url": f"https://www.discogs.com/artist/{central_discogs_id}" if central_discogs_id
+               else f"https://musicbrainz.org/artist/{band['id']}", "central": True}
+    nodes = {central["id"]: central}
+    edges: dict[tuple[str, str], dict] = {}
+    details_by_person = {str(detail.get("id")): detail for detail in member_details}
+    person_ids_by_discogs_id: dict[str, str | None] = {}
+
+    def add_discogs_identity(discogs_id: object, person_id: str) -> None:
+        if discogs_id is None:
+            return
+        key = str(discogs_id)
+        if key not in person_ids_by_discogs_id:
+            person_ids_by_discogs_id[key] = person_id
+        elif person_ids_by_discogs_id[key] != person_id:
+            person_ids_by_discogs_id[key] = None
+
+    for detail in member_details:
+        person_id = str(detail.get("id") or "")
+        if not person_id:
+            continue
+        profile = detail.get("discogsUrl") or ""
+        match = re.search(r"/artist/(\d+)(?:\D|$)", profile)
+        if match:
+            add_discogs_identity(match.group(1), person_id)
+        for source in detail.get("discogsMembershipSources") or []:
+            add_discogs_identity(source.get("id"), person_id)
+        for group in detail.get("discogsMemberOf") or detail.get("memberOf") or []:
+            for listing in group.get("listings") or []:
+                add_discogs_identity(listing.get("id"), person_id)
+
+    member_node_by_person_id: dict[str, str] = {}
+
+    def ensure_person(person_id: str, name: str, url: str | None = None) -> str:
+        node_id = member_node_by_person_id.get(person_id)
+        if node_id:
+            return node_id
+        node_id = f"artist:{person_id}"
+        detail = details_by_person.get(person_id) or {}
+        nodes[node_id] = {
+            "id": node_id, "type": "artist", "name": name,
+            "url": url or detail.get("musicbrainzUrl") or detail.get("discogsUrl"),
+            "selectedBandMember": person_id in details_by_person,
+            "imageUrl": detail.get("imageUrl"),
+        }
+        member_node_by_person_id[person_id] = node_id
+        return node_id
+
+    def add_membership(person_node_id: str, band_node_id: str, active: bool | None,
+                       begin: str | None = None, end: str | None = None,
+                       roles: list[str] | None = None) -> None:
+        key = (person_node_id, band_node_id)
+        edges[key] = {"id": f"membership:{person_node_id}->{band_node_id}",
+                      "source": person_node_id, "target": band_node_id,
+                      "active": active, "begin": begin, "end": end,
+                      "roles": roles or [], "central": band_node_id == central["id"]}
+
+    for relation in memberships:
+        person = relation.get("artist") or {}
+        person_id = str(person.get("id") or "")
+        if not person_id:
+            continue
+        detail = details_by_person.get(person_id) or {}
+        person_node_id = ensure_person(person_id, person.get("name") or detail.get("name") or "Unknown artist",
+                                       person.get("url"))
+        for source in detail.get("discogsMembershipSources") or []:
+            add_discogs_identity(source.get("id"), person_id)
+        add_membership(person_node_id, central["id"], not relation.get("ended", False),
+                       relation.get("begin"), relation.get("end"), relation.get("attributes") or [])
+
+    errors = []
+    for group in groups.values():
+        group_id = group["id"]
+        if group["source"] == "Discogs":
+            numeric_id = group_id.removeprefix("discogs:")
+            url = f"https://api.discogs.com/artists/{numeric_id}"
+            cache_key = f"band-family-discogs-{numeric_id}"
+        else:
+            musicbrainz_id = group_id.removeprefix("musicbrainz:")
+            url = f"https://musicbrainz.org/ws/2/artist/{musicbrainz_id}?inc=artist-rels+url-rels&fmt=json"
+            cache_key = f"band-family-musicbrainz-{musicbrainz_id}"
+        try:
+            payload = fetch(url, cache_key)
+            if group["source"] == "Discogs":
+                if str(payload.get("id")) != numeric_id:
+                    raise ValueError("Discogs returned an unexpected band identity")
+                roster = payload.get("members") or []
+                roster = [(member, member.get("active")) for member in roster]
+                band_url = f"https://www.discogs.com/artist/{numeric_id}"
+            else:
+                if payload.get("id") != musicbrainz_id:
+                    raise ValueError("MusicBrainz returned an unexpected band identity")
+                roster = [((relation.get("artist") or {}), not relation.get("ended", False))
+                          for relation in payload.get("relations") or []
+                          if relation.get("type") == "member of band" and relation.get("direction") == "backward"]
+                band_url = f"https://musicbrainz.org/artist/{musicbrainz_id}"
+            group_node_id = f"band:{group_id}"
+            nodes.setdefault(group_node_id, {"id": group_node_id, "type": "band",
+                                              "name": group.get("name") or payload.get("name") or "Unknown band",
+                                              "url": band_url, "central": False})
+            for artist in roster:
+                member, active = artist
+                external_id = member.get("id")
+                if not external_id or not member.get("name"):
+                    continue
+                person_id = person_ids_by_discogs_id.get(str(external_id)) if group["source"] == "Discogs" else str(external_id)
+                if person_id is None:
+                    person_id = f"{group['source'].lower()}:{external_id}"
+                person_node_id = ensure_person(person_id, member["name"], member.get("url")
+                                               or f"https://www.discogs.com/artist/{external_id}")
+                add_membership(person_node_id, group_node_id, active)
+            group["rosterStatus"] = "complete"
+            group["memberCount"] = len(roster)
+        except (HTTPError, URLError, TimeoutError, OSError, ValueError, KeyError) as exc:
+            group["rosterStatus"] = "unavailable"
+            group["error"] = str(exc)
+            errors.append(f"{group.get('name', group_id)}: {exc}")
+            group_node_id = f"band:{group_id}"
+            nodes.setdefault(group_node_id, {"id": group_node_id, "type": "band",
+                                              "name": group.get("name") or "Unknown band",
+                                              "url": group.get("url"), "central": False})
+
+    return {
+        "status": "partial" if errors else "complete",
+        "source": "Discogs + MusicBrainz",
+        "centralBandId": central["id"],
+        "groupsFetched": sum(group.get("rosterStatus") == "complete" for group in groups.values()),
+        "groupCount": len(groups),
+        "errors": errors,
+        "nodes": list(nodes.values()),
+        "edges": list(edges.values()),
+    }

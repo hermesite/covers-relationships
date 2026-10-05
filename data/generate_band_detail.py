@@ -14,7 +14,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from uuid import UUID
 
-from band_members import enrich_member_details, enrich_memberships, membership_match, profile_memberships
+from band_members import build_band_family_network, enrich_member_details, enrich_memberships, membership_match, profile_memberships
 from band_releases import discogs_release_annotations, release_annotations
 from generate_graph_data import write_json
 
@@ -130,6 +130,14 @@ def main() -> int:
             root_dir / "frontend/data/images/members",
             use_discogs=not args.skip_discogs,
         )
+    band_family_network = build_band_family_network(
+        band,
+        memberships,
+        member_details,
+        discogs,
+        lambda url, key: fetch_cached(url, cache_path.parent / f"{key}.json", args),
+    )
+    print(f"Fetched rosters for {band_family_network['groupsFetched']}/{band_family_network['groupCount']} connected bands.")
     releases = {"status": "disabled", "items": []}
     if not args.skip_releases:
         try:
@@ -153,6 +161,7 @@ def main() -> int:
         "memberships": memberships,
         "membershipEnrichment": enrichment,
         "memberDetails": member_details,
+        "bandFamilyNetwork": band_family_network,
         "releaseAnnotations": releases,
         "tags": tags,
         "genres": band.get("genres", []),

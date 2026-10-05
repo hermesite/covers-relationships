@@ -21,7 +21,7 @@ function memberRoles(attributes = []) {
   }))].map((name) => ({ name, color: ROLE_COLORS[name] || '#596b91' }));
 }
 
-function datePosition(value, isEnd = false) {
+export function datePosition(value, isEnd = false) {
   if (!value || !/^\d{4}(?:-\d{2})?(?:-\d{2})?$/.test(value)) return null;
   const [year, month, day] = value.split('-').map(Number);
   const yearStart = Date.UTC(year, 0, 1);

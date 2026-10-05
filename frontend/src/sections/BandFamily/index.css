@@ -1,0 +1,464 @@
+.band-family-map {
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #d8dfd9;
+}
+
+.band-family-map-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.band-family-map-heading h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.band-family-map-heading p {
+  margin: 4px 0 0;
+  color: #637169;
+  font-size: 13px;
+}
+
+.band-family-map-status {
+  color: #84362e;
+  font-size: 13px;
+}
+
+.band-family-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0 0 12px;
+  padding: 0;
+  color: #39463f;
+  font-size: 13px;
+  list-style: none;
+}
+
+.band-family-map-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.map-legend-band,
+.map-legend-artist,
+.map-legend-transfer {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 14px;
+  border: 3px solid #c44736;
+  border-radius: 5px;
+  background: #fffefa;
+}
+
+.map-legend-band {
+  width: 28px;
+  height: 0;
+  border: 0;
+  border-top: 6px solid #c44736;
+  border-radius: 4px;
+  background: none;
+}
+
+.map-legend-artist,
+.map-legend-transfer {
+  width: 14px;
+  height: 14px;
+  border-color: #46534f;
+  border-radius: 50%;
+}
+
+.map-legend-transfer {
+  width: 20px;
+  height: 20px;
+  border-width: 5px;
+  border-color: #344a4d;
+  background: #f1c66d;
+}
+
+.band-family-routes {
+  margin: 0 0 12px;
+  border: 1px solid #d8dfd9;
+  border-radius: 4px;
+  background: #fffefa;
+}
+
+.band-family-routes summary {
+  padding: 8px 10px;
+  color: #344a4d;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.band-family-route-scope {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 10px 8px;
+  color: #52665b;
+  font-size: 12px;
+}
+
+.band-family-route-scope select {
+  min-width: 0;
+  flex: 1 1 240px;
+  padding: 6px 8px;
+  border: 1px solid #cdd5d0;
+  border-radius: 3px;
+  background: #fffefa;
+  color: #26312f;
+  font: inherit;
+}
+
+.band-family-roster-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 10px 10px;
+  color: #39463f;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.band-family-roster-toggle input {
+  margin: 0;
+  accent-color: #315f5b;
+}
+
+.band-family-route-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 10px 8px;
+  padding: 6px 8px;
+  border: 1px solid #cdd5d0;
+  border-radius: 3px;
+  color: #637169;
+}
+
+.band-family-route-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #26312f;
+  font: inherit;
+  font-size: 13px;
+}
+
+.band-family-route-search button {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #637169;
+  cursor: pointer;
+}
+
+.band-family-route-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 8px;
+  max-height: 240px;
+  overflow: auto;
+  padding: 0 8px 8px;
+}
+
+.band-family-route-list button {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  padding: 5px 6px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: #26312f;
+  text-align: left;
+  cursor: pointer;
+}
+
+.band-family-route-list button:hover,
+.band-family-route-list button.is-selected {
+  background: #e8eeea;
+}
+
+.band-family-route-list button > span:first-child {
+  height: 6px;
+  border-radius: 5px;
+}
+
+.band-family-route-list button > span:nth-child(2) {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.band-family-route-list small {
+  color: #637169;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.band-family-map-canvas {
+  position: relative;
+  min-width: 0;
+  height: 1000px;
+  overflow: hidden;
+  border: 1px solid #cdd5d0;
+  border-radius: 4px;
+  background-color: #f8f8f3;
+  background-image: radial-gradient(#dfe4de 0.7px, transparent 0.7px);
+  background-size: 18px 18px;
+}
+
+.band-family-d3-tube-canvas,
+.band-family-d3-tube-canvas > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.band-family-d3-tube-canvas > svg {
+  display: block;
+  touch-action: none;
+}
+
+.band-family-d3-tube-canvas .lines path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.band-family-d3-tube-canvas .labels text {
+  cursor: pointer;
+}
+
+.band-family-d3-tube-canvas .labels .is-selected text {
+  font-weight: 700;
+  fill: #344a4d;
+}
+
+.band-family-map-selection {
+  min-height: 64px;
+  padding: 12px 0;
+}
+
+.band-family-map-selection h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.band-family-map-selection p {
+  margin: 0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.band-family-map-canvas.band-family-journey-canvas {
+  height: min(70vh, 720px);
+  min-height: 360px;
+  border: 0;
+  border-radius: 0;
+  background-color: #fff;
+  background-image: none;
+}
+
+.band-family-journey-scroll {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.band-family-journey-svg {
+  display: block;
+  max-width: none;
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 14px;
+}
+
+.journey-root-label {
+  fill: #344a4d;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.journey-band-node,
+.journey-member-portrait,
+.journey-member-name,
+.journey-path {
+  cursor: pointer;
+}
+
+.journey-member-name {
+  fill: #26312f;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.journey-member-initials {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.journey-member-portrait image {
+  clip-path: circle(50% at 50% 50%);
+}
+
+.journey-band-node text {
+  fill: #26312f;
+  font-size: 18px;
+  font-weight: 500;
+  paint-order: stroke;
+  stroke: #fff;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.journey-band-node.is-selected .journey-band-stop,
+.journey-band-node.is-selected .journey-band-transfer,
+.journey-band-node:focus-visible .journey-band-stop,
+.journey-band-node:focus-visible .journey-band-transfer {
+  stroke: #b34a36;
+}
+
+.journey-band-node.is-selected text {
+  font-weight: 700;
+}
+
+.band-family-search-empty {
+  margin: 8px;
+  font-size: 13px;
+}
+
+.band-family-sankey {
+  margin: 28px 0 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #d8dfd9;
+}
+
+.band-family-sankey-heading {
+  margin-bottom: 12px;
+}
+
+.band-family-sankey-heading h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.band-family-sankey-heading p {
+  margin: 4px 0 0;
+  color: #637169;
+  font-size: 13px;
+}
+
+.band-family-sankey-scroll {
+  max-height: 720px;
+  overflow: auto;
+  border: 1px solid #cdd5d0;
+  border-radius: 4px;
+  background: #f8f8f3;
+}
+
+.band-family-sankey-svg {
+  display: block;
+  min-width: 1200px;
+  max-width: none;
+  font-family: Kreon, serif;
+  font-size: 11px;
+}
+
+.band-family-sankey-links path {
+  cursor: pointer;
+  transition: stroke-opacity 120ms ease;
+}
+
+.band-family-sankey-links path:hover,
+.band-family-sankey-links path.is-selected {
+  stroke-opacity: 0.78;
+}
+
+.band-family-sankey-node {
+  cursor: pointer;
+}
+
+.band-family-sankey-node text {
+  fill: #26312f;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.band-family-sankey-node.is-central text {
+  fill: #344a4d;
+  font-weight: 700;
+}
+
+.band-family-sankey-node.is-selected rect {
+  stroke: #d69e35;
+  stroke-width: 3px;
+}
+
+.band-family-sankey-node:focus-visible rect {
+  stroke: #b34a36;
+  stroke-width: 3px;
+}
+
+.band-family-map-controls {
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  gap: 4px;
+}
+
+.band-family-map-controls button {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid #aebbb3;
+  border-radius: 3px;
+  background: #fffefa;
+  color: #344a4d;
+  cursor: pointer;
+}
+
+.band-family-map-controls button:hover {
+  background: #e7ede8;
+}
+
+.band-family-map-heading .band-family-map-controls {
+  position: static;
+  display: flex;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 575.98px) {
+  .band-family-map-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .band-family-map-canvas {
+    height: 1000px;
+  }
+
+  .band-family-route-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

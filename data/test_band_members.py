@@ -7,7 +7,7 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 from urllib.error import URLError
 
-from band_members import discogs_member_of, enrich_member_details, enrich_memberships, member_of_relationships, profile_memberships
+from band_members import build_band_family_network, discogs_member_of, enrich_member_details, enrich_memberships, member_of_relationships, profile_memberships
 from band_releases import discogs_release_annotation, discogs_release_annotations, release_annotations
 from generate_band_detail import CRAMPS_MBID, main
 
@@ -26,6 +26,53 @@ class BandMembershipTests(unittest.TestCase):
             "id": 39779, "members": [],
             "profile": "* [a=Miriam Linna] - drums, October 1976 - June 1977",
         }
+
+    def test_band_family_network_joins_aliases_and_adds_full_external_roster(self):
+        person_id = "member-mbid"
+        memberships = [{"artist": {"id": person_id, "name": "Band Member"}, "begin": "1980", "ended": True, "attributes": ["guitar"]}]
+        details = [{
+            "id": person_id,
+            "name": "Band Member",
+            "discogsUrl": "https://www.discogs.com/artist/100",
+            "discogsMembershipSources": [{"id": 100, "name": "Alias", "url": "https://www.discogs.com/artist/100"}],
+            "memberOf": [{"id": "discogs:200", "name": "Other Band", "url": "https://www.discogs.com/artist/200"}],
+        }]
+
+        def fetch(url, _key):
+            self.assertEqual(url, "https://api.discogs.com/artists/200")
+            return {"id": 200, "name": "Other Band", "members": [
+                {"id": 100, "name": "Alias", "active": False},
+                {"id": 101, "name": "Other Artist", "active": True},
+            ]}
+
+        graph = build_band_family_network({"id": "band-mbid", "name": "The Cramps"}, memberships, details,
+                                          {"id": 39779}, fetch)
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        edges = {(edge["source"], edge["target"]): edge for edge in graph["edges"]}
+        member_node = "artist:member-mbid"
+        other_node = "artist:discogs:101"
+        central_node = "band:discogs:39779"
+        other_band_node = "band:discogs:200"
+        self.assertEqual(graph["status"], "complete")
+        self.assertEqual(graph["groupsFetched"], 1)
+        self.assertEqual(nodes[member_node]["name"], "Band Member")
+        self.assertEqual(nodes[other_node]["name"], "Other Artist")
+        self.assertTrue(nodes[member_node]["selectedBandMember"])
+        self.assertIn((member_node, central_node), edges)
+        self.assertIn((member_node, other_band_node), edges)
+        self.assertFalse(edges[(member_node, other_band_node)]["active"])
+        self.assertIn((other_node, other_band_node), edges)
+
+    def test_band_family_network_preserves_partial_graph_when_roster_fetch_fails(self):
+        member = {"artist": {"id": "member-mbid", "name": "Band Member"}}
+        details = [{"id": "member-mbid", "memberOf": [{"id": "discogs:200", "name": "Other Band"}]}]
+        graph = build_band_family_network({"id": "band-mbid", "name": "The Cramps"}, [member], details,
+                                          {"id": 39779}, lambda _url, _key: (_ for _ in ()).throw(URLError("offline")))
+        self.assertEqual(graph["status"], "partial")
+        self.assertEqual(graph["groupsFetched"], 0)
+        self.assertEqual(len(graph["errors"]), 1)
+        self.assertIn("band:discogs:200", {node["id"] for node in graph["nodes"]})
+        self.assertIn("band:discogs:39779", {node["id"] for node in graph["nodes"]})
 
     def test_months_and_multiple_tenures(self):
         self.discogs["profile"] = (

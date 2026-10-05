@@ -14,15 +14,23 @@ The project is in initial development (`0.x.y`); its public API is not yet stabl
 - Expanded Band Detail with a band-activity timeline, release annotations, filters, source links, and member/release highlighting.
 - Enriched band data with Discogs membership evidence, alias-aware member profiles, locally cached portraits, and verified album, EP, and single annotations, with MusicBrainz fallbacks.
 - Added regression tests for membership parsing, identity matching, and release enrichment.
+- Added an interactive D3 Band Family graph with role-colored rounded connectors, shared-band member stops, search, zoom, and keyboard-accessible selection.
+- Added cached Discogs and MusicBrainz band-family network generation with alias-aware identity joins and partial results when roster lookups fail.
+- Added graph regression coverage for member ordering, portrait placement, connector spacing, shared-band stops, and band-name aliases.
 
 ### Changed
 
 - Made Band Detail the home page and added Band Family to primary navigation.
 - Updated the band-detail generator documentation and separated band enrichment from SecondHandSongs API monitoring.
+- Expanded Band Family to a full-width graph limited to selected-band members and their other bands, with unconnected members grouped separately.
+- Added 60px circular member portraits, larger wrapped labels, and linked fixed-size circles for shared memberships; preserved the Cramps-specific Lux Interior and Poison Ivy ordering before Julien Hechtlinger.
+- Merged Joneses and The Joneses into one graph group while preserving membership evidence and deduplicating member connections.
+- Refreshed the Cramps band-detail snapshot with the enriched band-family network.
 
 ### Removed
 
 - Removed the Covers Cards page and route.
+- Removed the Sankey chart from the Band Family page.
 
 ## [0.1.0] - 2026-10-03
 
